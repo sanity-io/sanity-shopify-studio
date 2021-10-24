@@ -1,0 +1,36 @@
+{
+  "name": "@sanity-shopify-demo/sanity-studio",
+  "private": true,
+  "version": "0.1.0",
+  "description": "",
+  "main": "package.json",
+  "author": "Robin Pyon <robin@robinpyon.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^2.21.6",
+    "@sanity/color-input": "^2.21.6",
+    "@sanity/components": "^2.14.0",
+    "@sanity/core": "^2.21.6",
+    "@sanity/default-layout": "^2.21.6",
+    "@sanity/default-login": "^2.21.6",
+    "@sanity/desk-tool": "^2.21.6",
+    "@sanity/vision": "^2.21.6",
+    "pluralize": "^8.0.0",
+    "prop-types": "^15.7",
+    "react": "^17.0",
+    "react-dom": "^17.0",
+    "sanity-plugin-color-picker": "^1.0.3",
+    "sanity-plugin-media": "^1.4.0",
+    "slug": "^5.1.0",
+    "styled-components": "^5.2.0"
+  },
+  "devDependencies": {}
+}

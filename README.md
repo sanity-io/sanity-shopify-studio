@@ -1,0 +1,45 @@
+# Sanity Shopify Demo
+
+**Full documentation to follow**
+
+---
+
+This demo consists of the following packages:
+
+### `hydrogen-app`
+
+A customised version of Hydrogen's official starter, tailored to showcase:
+- Portable text
+- Simple and easy to understand product option customisation
+
+It is designed to be as simple as possible with few dependencies and built with the expectation that users will add their own flavour of styling, animation and own structure.
+
+### `sanity-studio`
+
+An opinionated Sanity studio built with defaults aimed at simpler shopfronts that want a clear path for managing (and customising) their shop content.
+
+It has been structured in a way to accomodate the default sync options provided by the upcoming Shopify Sync app. Shopify and Sanity products are coupled.
+
+We try and provide a few studio affordances to give users more visibility into product availability – such as displaying when products are not available (due to Shopify configuration) or if products have since been removed on Shopify's end.
+
+
+### `functions` 
+
+> **This package is temporary and will be removed once the official Sanity Shopify App is available on Shopify's App store**
+
+A simple Next.js app which receives Shopify webhooks (on product updates) and transforms data on a linked Sanity dataset.
+
+---
+
+Also associated with this demo is the Sanity Shopify Storefront (`sanity-io.myshopify.com`) which hosts all demo product content.
+
+## Getting started
+
+- Clone this Repo
+- `lerna bootstrap`
+
+**Run the hydrogen app**
+- `yarn run hydrogen`
+
+**Run Sanity Studio locally**
+- `yarn run studio`

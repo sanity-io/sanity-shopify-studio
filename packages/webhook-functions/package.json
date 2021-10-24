@@ -1,0 +1,32 @@
+{
+  "name": "@sanity-shopify-demo/webhook-functions",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@sanity/client": "^2.19.0",
+    "@sanity/uuid": "^3.0.1",
+    "body-parser": "^1.19.0",
+    "graphql": "^15.6.0",
+    "graphql-tag": "^2.12.5",
+    "next": "11.1.2",
+    "p-queue": "^7.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "shopify-gid": "^1.0.1",
+    "tsscmp": "^1.0.6"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.1",
+    "@types/react": "17.0.24",
+    "@types/tsscmp": "^1.0.0",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "typescript": "4.4.3"
+  }
+}
