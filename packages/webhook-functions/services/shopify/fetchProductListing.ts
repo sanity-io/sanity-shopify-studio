@@ -14,7 +14,8 @@ const fetchProductListing = async (productId: number) => {
     `${process.env.SHOPIFY_ADMIN_API_ENDPOINT}/product_listings/${productId}.json`,
     {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_API_PASSWORD
       },
       method: 'GET'
     }

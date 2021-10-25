@@ -51,10 +51,10 @@ const createOrUpdateProduct = async (body: ShopifyWebhookBody) => {
 
   // Fetch this product listing on Shopify Admin API
   // If this returns 404, it means the product is not on our sales channel and can be marked as not enabled
-  // TODO: log errors with a 3P service if we get a non 200 | 404 response
   const shopifyProductListingStatus = await fetchProductListingStatus(id)
   let isEnabled = true
-  if (shopifyProductListingStatus === 404) {
+  if (shopifyProductListingStatus !== 200) {
+    // TODO: log errors with a 3P service if we get a non-404 response
     isEnabled = false
   }
 
