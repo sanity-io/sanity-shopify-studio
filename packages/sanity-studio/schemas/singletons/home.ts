@@ -13,9 +13,9 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{ type: 'product' }],
-        },
-      ],
+          to: [{ type: 'shopify.product' }]
+        }
+      ]
     },
     // Gallery
     {
@@ -26,18 +26,18 @@ export default {
         {
           name: 'image',
           title: 'Image',
-          type: 'image',
-        },
-      ],
-    },
+          type: 'image'
+        }
+      ]
+    }
   ],
   preview: {
     prepare() {
       return {
         // media: icon,
         subtitle: 'Index',
-        title: TITLE,
+        title: TITLE
       }
-    },
-  },
+    }
+  }
 }

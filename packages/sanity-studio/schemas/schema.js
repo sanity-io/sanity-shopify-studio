@@ -11,7 +11,6 @@ import annotationShopify from './annotations/shopify'
 import annotationShopifyMargin from './annotations/shopifyMargin'
 // Documents
 import page from './documents/page'
-import product from './documents/product'
 import shopifyProduct from './documents/shopify/product'
 import shopifyProductVariant from './documents/shopify/productVariant'
 // Objects
@@ -42,7 +41,6 @@ export default createSchema({
     annotationShopifyMargin,
     // Documents
     page,
-    product,
     shopifyProduct,
     shopifyProductVariant,
     // Objects
