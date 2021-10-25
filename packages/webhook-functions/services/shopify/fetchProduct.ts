@@ -1,6 +1,7 @@
 import { print } from 'graphql'
 import gql from 'graphql-tag'
 import { encode } from 'shopify-gid'
+import { ProductProviderFragment } from './fragments'
 
 const LABEL = '[services::shopify::fetchProduct]'
 
@@ -17,70 +18,41 @@ const fetchProduct = async (id: number) => {
     body: JSON.stringify({
       query: print(
         gql`
-          query ($id: ID!) {
+          query (
+            $id: ID!
+            $numProductMedia: Int
+            $numProductMetafields: Int
+            $numProductVariants: Int
+            $numProductVariantMetafields: Int
+            $numProductSellingPlanGroups: Int
+            $numProductSellingPlans: Int
+            $numProductVariantSellingPlanAllocations: Int
+          ) {
             product(id: $id) {
               id
-              compareAtPriceRange {
-                maxVariantPrice {
-                  amount
-                  currencyCode
-                }
-                minVariantPrice {
-                  amount
-                  currencyCode
-                }
-              }
-              priceRange {
-                minVariantPrice {
-                  amount
-                  currencyCode
-                }
-                maxVariantPrice {
-                  amount
-                  currencyCode
-                }
-              }
-              title
-              variants(first: 250) {
-                edges {
-                  node {
-                    availableForSale
-                    compareAtPriceV2 {
-                      amount
-                      currencyCode
-                    }
-                    id
-                    image {
-                      originalSrc
-                      altText
-                      id
-                    }
-                    priceV2 {
-                      amount
-                      currencyCode
-                    }
-                    selectedOptions {
-                      name
-                      value
-                    }
-                    title
-                  }
-                }
-              }
+              ...ProductProviderFragment
             }
           }
+
+          ${ProductProviderFragment}
         `
       ),
       variables: {
         id: encode('Product', id),
-      },
+        numProductMedia: 1,
+        numProductMetafields: 0,
+        numProductSellingPlanGroups: 10,
+        numProductSellingPlans: 10,
+        numProductVariants: 250,
+        numProductVariantMetafields: 10,
+        numProductVariantSellingPlanAllocations: 10
+      }
     }),
     headers: {
       'Content-Type': 'application/json',
-      'X-Shopify-Storefront-Access-Token':
-        process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
+      'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN
     },
-    method: 'POST',
+    method: 'POST'
   })
   const shopifyData = await shopifyResponse.json()
   console.log(`${LABEL} Completed!`)
