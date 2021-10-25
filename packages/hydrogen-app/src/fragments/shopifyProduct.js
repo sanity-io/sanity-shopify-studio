@@ -1,30 +1,24 @@
 import groq from 'groq';
+
 import {PORTABLE_TEXT} from './portableText';
 import {IMAGE} from './image';
 
 export const SHOPIFY_PRODUCT = groq`
+  "available": shopify.isEnabled && !shopify.isDeleted,
   body[]{
     ${PORTABLE_TEXT}
   },
   images[] {
     ${IMAGE}
   },
-  "provider": shopify.provider
-`;
-
-/*
-  shopify->{
-    ${SHOPIFY_PRODUCT}
-  },
-  (shopify.status == 'active') => {
-    options,
-    shopify {
-      compareAtPriceRange,
-      id,
-      priceRange,
-      productType,
-      provider,
+  options,
+  "provider": shopify.provider,
+  sections[]{
+    _key,
+    body[]{
+      ${PORTABLE_TEXT}
     },
-    variants
-  }
-*/
+    title
+  },
+  "slug": shopify.slug.current
+`;

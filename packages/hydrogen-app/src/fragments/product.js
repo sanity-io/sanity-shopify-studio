@@ -1,4 +1,5 @@
 import groq from 'groq';
+
 import {PORTABLE_TEXT} from './portableText';
 import {SHOPIFY_PRODUCT} from './shopifyProduct';
 

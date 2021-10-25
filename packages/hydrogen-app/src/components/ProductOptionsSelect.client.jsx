@@ -3,7 +3,7 @@ import {useProduct} from '@shopify/hydrogen/client';
 const ProductOptionsSelect = (props) => {
   const {optionName, values} = props;
 
-  const {setSelectedOption, selectedOptions} = useProduct();
+  const {setSelectedOption} = useProduct();
 
   // TODO: use controlled select
   return (

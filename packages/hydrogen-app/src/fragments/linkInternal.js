@@ -1,4 +1,5 @@
 import groq from 'groq';
+
 import {DOCUMENT_SLUG} from './documentSlug';
 
 export const LINK_INTERNAL = groq`

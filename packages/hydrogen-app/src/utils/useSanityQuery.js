@@ -1,16 +1,9 @@
 import {useQuery} from '@shopify/hydrogen';
+
 import sanityConfig from '../../sanity.config';
 
 // Wrapper around hydrogen's `useQuery`
-export const useSanityQuery = ({
-  key,
-  query,
-  slug,
-}: {
-  key: string[];
-  query: string;
-  slug?: string;
-}) => {
+export const useSanityQuery = ({key, query, slug}) => {
   return useQuery(key, () => {
     const queryEncoded = encodeURIComponent(query);
 

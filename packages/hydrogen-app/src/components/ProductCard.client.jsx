@@ -8,17 +8,18 @@ import {
 } from '@shopify/hydrogen/client';
 import {useState} from 'react';
 
-export default function ProductCard({product}) {
+const ProductCard = (props) => {
+  const {product} = props;
+
   // TODO: This is super hacky
   const providerProduct =
-    product?.shopify?.shopify?.provider &&
-    JSON.parse(product?.shopify?.shopify?.provider);
+    product?.shopify?.provider && JSON.parse(product?.shopify?.provider);
+
+  const [showAddToCart, setShowAddToCart] = useState(false);
 
   if (!providerProduct) {
     return null;
   }
-
-  const [showAddToCart, setShowAddToCart] = useState(false);
 
   const firstVariant = providerProduct?.variants?.edges[0]?.node;
 
@@ -61,7 +62,7 @@ export default function ProductCard({product}) {
           </SelectedVariantPrice>
           <SelectedVariantPrice
             priceType="compareAt"
-            className="text-gray-400 line-through"
+            className="ml-1 text-gray-400 line-through"
           >
             {({amount, currencyNarrowSymbol}) => {
               return <span>{`${currencyNarrowSymbol}${amount}`}</span>;
@@ -71,4 +72,6 @@ export default function ProductCard({product}) {
       </div>
     </ProductProvider>
   );
-}
+};
+
+export default ProductCard;

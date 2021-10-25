@@ -1,6 +1,7 @@
 import groq from 'groq';
 import React from 'react';
 import {useParams} from 'react-router-dom';
+
 import Layout from '../components/Layout.client';
 import NotFound from '../components/NotFound.server';
 import PortableText from '../components/PortableText.client';

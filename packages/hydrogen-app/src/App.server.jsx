@@ -1,5 +1,7 @@
 import {CartServerProvider, ShopifyServerProvider} from '@shopify/hydrogen';
+
 import shopifyConfig from '../shopify.config';
+
 import CartProvider from './components/CartProvider.client';
 import Main from './components/Main.server';
 

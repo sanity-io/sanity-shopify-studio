@@ -1,7 +1,6 @@
 import ProductOptionsColor from './ProductOptionsColor.client';
 import ProductOptionsDefault from './ProductOptionsDefault.client';
 import ProductOptionsDescription from './ProductOptionsDescription.client';
-import ProductOptionsImage from './ProductOptionsImage.client';
 import ProductOptionsMaterial from './ProductOptionsMaterial.client';
 import ProductOptionsSelect from './ProductOptionsSelect.client';
 
@@ -15,7 +14,7 @@ export default function SanityProductOptions(props) {
           <fieldset key={name} className="my-5">
             <legend className="text-xs text-gray-700 uppercase">{name}</legend>
 
-            <div>
+            <>
               {/* Template: default */}
               {!template && (
                 <ProductOptionsDefault optionName={name} values={values} />
@@ -42,7 +41,7 @@ export default function SanityProductOptions(props) {
               )}
 
               {/* TODO: Add your other templates here */}
-            </div>
+            </>
           </fieldset>
         );
       })}

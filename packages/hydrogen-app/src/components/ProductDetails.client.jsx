@@ -1,28 +1,23 @@
 import {Product} from '@shopify/hydrogen/client';
-import React from 'react';
+
 import PortableText from './PortableText.client';
 import SanityGallery from './SanityGallery.client';
 import SanityProductOptions from './SanityProductOptions.client';
 
-type Props = {
-  page: any,
-};
-
-export default function ProductDetails({page}: Props) {
+export default function ProductDetails({product}) {
   // TODO: this is a huge hack
-  const product = JSON.parse(page?.provider);
-  const options = page?.shopify?.options;
+  const providerData = JSON.parse(product?.provider);
+  const options = product?.options;
+
+  const initialVariantId = providerData.variants.edges[0].node.id;
 
   return (
     <div className="p-4">
       {/* <Seo product={product} /> */}
-      <Product
-        product={product}
-        initialVariantId={product.variants.edges[0].node.id}
-      >
+      <Product product={providerData} initialVariantId={initialVariantId}>
         <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           <section className="lg:col-span-2 grid gap-10" aria-label="Gallery">
-            {page?.images && <SanityGallery images={page.images} />}
+            {product?.images && <SanityGallery images={product.images} />}
           </section>
 
           <section
@@ -42,12 +37,13 @@ export default function ProductDetails({page}: Props) {
                 </Product.SelectedVariant.Price>
                 <Product.SelectedVariant.Price
                   priceType="compareAt"
-                  className="text-gray-400 line-through text-xl"
+                  className="text-gray-400 line-through"
                 >
                   {({amount, currencyNarrowSymbol}) => {
                     return <span>{`${currencyNarrowSymbol}${amount}`}</span>;
                   }}
                 </Product.SelectedVariant.Price>
+                {/*
                 <Product.SelectedVariant.UnitPrice className="text-gray-900 text-base">
                   {({
                     currencyCode,
@@ -60,6 +56,7 @@ export default function ProductDetails({page}: Props) {
                     );
                   }}
                 </Product.SelectedVariant.UnitPrice>
+                */}
               </div>
 
               {/* (Sanity powered) Product options */}
@@ -84,8 +81,8 @@ export default function ProductDetails({page}: Props) {
 
               {/* Custom sections */}
               <div className="my-4">
-                {page?.sections?.map((section, index) => (
-                  <div className="mb-8" key={index}>
+                {product?.sections?.map((section) => (
+                  <div className="mb-8" key={section?._key}>
                     <div className="font-medium text-sm">{section?.title}</div>
                     <div className="text-gray-500 text-sm">
                       {section?.body && <PortableText blocks={section.body} />}
@@ -98,12 +95,12 @@ export default function ProductDetails({page}: Props) {
         </div>
 
         {/* Divider */}
-        {page?.body && <div className="bg-gray-300 h-px my-10 w-full" />}
+        {product?.body && <div className="bg-gray-300 h-px my-10 w-full" />}
 
         {/* Body */}
-        {page?.body && (
+        {product?.body && (
           <div className="max-w-2xl mt-10">
-            <PortableText blocks={page.body} />
+            <PortableText blocks={product.body} />
           </div>
         )}
       </Product>

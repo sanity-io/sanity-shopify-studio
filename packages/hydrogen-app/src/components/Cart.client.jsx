@@ -9,6 +9,7 @@ import {
   CartLine,
   // CartShopPayButton,
 } from '@shopify/hydrogen/client';
+
 import CartIcon from './CartIcon.client';
 import {useCartUI} from './CartUIProvider.client';
 

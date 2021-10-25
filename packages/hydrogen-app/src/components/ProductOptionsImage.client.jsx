@@ -1,4 +1,5 @@
 import {useProduct} from '@shopify/hydrogen/client';
+
 import sanityImageUrl from '../utils/sanityImageUrl';
 
 const ProductOptionsImage = (props) => {
@@ -34,6 +35,7 @@ const ProductOptionsImage = (props) => {
                 {/* Image */}
                 {image && (
                   <img
+                    alt=""
                     className="object-cover w-24 h-24"
                     src={sanityImageUrl(image.image, {width: 200})}
                   />

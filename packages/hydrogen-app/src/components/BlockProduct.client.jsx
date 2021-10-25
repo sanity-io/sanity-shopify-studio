@@ -15,10 +15,10 @@ const BlockProduct = (props) => {
     <ProductProvider initialVariantId={productVariant.id} product={product}>
       <div className="my-8">
         <div className="border border-black p-4 space-y-4 w-1/2">
-          <div>
+          <>
             <ProductTitle className="font-medium" />
             <ProductPrice />
-          </div>
+          </>
           <MediaFile
             className="w-full"
             media={{

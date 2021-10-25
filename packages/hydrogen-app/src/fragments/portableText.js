@@ -1,8 +1,8 @@
 import groq from 'groq';
+
 import {IMAGE} from './image';
 import {LINK_EXTERNAL} from './linkExternal';
 import {LINK_INTERNAL} from './linkInternal';
-// import {SHOPIFY_PRODUCT} from './shopifyProduct';
 
 export const PORTABLE_TEXT = groq`
   ...,

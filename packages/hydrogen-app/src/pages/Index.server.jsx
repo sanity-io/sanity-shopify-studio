@@ -1,16 +1,23 @@
 import groq from 'groq';
 import React from 'react';
+
 import Gallery from '../components/Gallery.client';
 import Layout from '../components/Layout.client';
 import ProductCard from '../components/ProductCard.client';
 import {IMAGE} from '../fragments/image';
-import {PRODUCT} from '../fragments/product';
+import {SHOPIFY_PRODUCT} from '../fragments/shopifyProduct';
 import {useSanityQuery} from '../utils/useSanityQuery';
 
 export default function Index() {
   const {data} = useSanityQuery({key: ['home'], query: QUERY});
 
   const page = data?.result;
+
+  // Filter featured products on the client
+  // TODO: All filtering should happen at the query level, figure out the idiomatic way to filter on joins
+  const featuredProducts = page?.featuredProducts?.filter(
+    (product) => product.available,
+  );
 
   return (
     <Layout>
@@ -31,9 +38,9 @@ export default function Index() {
             p-4
           "
         >
-          {page?.featuredProducts?.map((product, index) => {
+          {featuredProducts?.map((product) => {
             return (
-              <div key={index}>
+              <div key={product?._key}>
                 <ProductCard product={product} />
               </div>
             );
@@ -44,11 +51,12 @@ export default function Index() {
   );
 }
 
+// TODO: filter joined `featuredProducts` on shopify availability
 const QUERY = groq`
   *[_id == 'home'][0]{
     featuredProducts[]->{
       ...,
-      ${PRODUCT}
+      ${SHOPIFY_PRODUCT}
     },
     gallery[] {
       ${IMAGE}

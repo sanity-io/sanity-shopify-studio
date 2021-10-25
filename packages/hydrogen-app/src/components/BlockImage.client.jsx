@@ -1,4 +1,5 @@
 import React from 'react';
+
 import sanityImageUrl from '../utils/sanityImageUrl';
 
 const BlockImage = (props) => {
@@ -11,6 +12,7 @@ const BlockImage = (props) => {
         }}
       >
         <img
+          alt=""
           className={props?.node?.fullWidth ? 'w-full' : 'w-1/3'}
           src={sanityImageUrl(props?.node?.image, {width: 1000})}
         />

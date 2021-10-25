@@ -12,8 +12,8 @@ const ProductOptionsDescription = (props) => {
         const id = `option-${optionName}-${value}`;
 
         return (
-          <div className="w-1/2">
-            <label key={id} htmlFor={id}>
+          <div className="w-1/2" key={id}>
+            <label htmlFor={id}>
               <input
                 className="sr-only"
                 type="radio"

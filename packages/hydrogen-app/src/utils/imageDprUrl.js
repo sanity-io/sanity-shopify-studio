@@ -1,10 +1,4 @@
-const imageDprUrl = (
-  asset,
-  options: {
-    width;
-    height;
-  },
-): string => {
+const imageDprUrl = (asset, options) => {
   const dpi =
     typeof window === 'undefined' || !window.devicePixelRatio
       ? 1

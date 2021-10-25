@@ -1,7 +1,8 @@
 import imageUrlBuilder from '@sanity/image-url';
+
 import {sanityClient} from '../lib/sanity';
 
-const sanityImageUrl = (image, {width} = {width: 800}): string => {
+const sanityImageUrl = (image, {width} = {width: 800}) => {
   const builder = imageUrlBuilder(sanityClient());
   const urlFor = builder.image(image);
 

@@ -1,6 +1,6 @@
 import groq from 'groq';
-import React from 'react';
 import {useParams} from 'react-router-dom';
+
 import Layout from '../../components/Layout.client';
 import NotFound from '../../components/NotFound.server';
 import ProductDetails from '../../components/ProductDetails.client';
@@ -15,15 +15,15 @@ export default function Product() {
     slug: handle,
   });
 
-  const page = data?.result;
+  const product = data?.result;
 
-  if (!page) {
+  if (!product) {
     return <NotFound />;
   }
 
   return (
     <Layout>
-      <ProductDetails page={page} />
+      <ProductDetails product={product} />
     </Layout>
   );
 }

@@ -9,10 +9,11 @@ export default function SanityGallery(props) {
 
   return (
     <ul className="grid lg:grid-cols-2 gap-10">
-      {images.map((image, index) => {
+      {images.map((image) => {
         return (
-          <li key={index} className="relative">
+          <li key={image?._key} className="relative">
             <img
+              alt=""
               className="w-full bg-white rounded-md object-cover"
               src={sanityImageUrl(image, {width: 1000})}
             />
