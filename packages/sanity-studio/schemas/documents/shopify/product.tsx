@@ -42,7 +42,7 @@ export default {
       ],
       hidden: ({ parent }) => {
         // Hide if this product only has one variant
-        return parent?.variants && parent?.variants.length === 1
+        return parent?.shopify?.variants && parent?.shopify?.variants.length === 1
       }
     },
     // Images
