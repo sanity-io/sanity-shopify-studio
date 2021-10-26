@@ -2,16 +2,17 @@ import {useProduct} from '@shopify/hydrogen/client';
 
 import sanityImageUrl from '../utils/sanityImageUrl';
 
-const ProductOptionsMaterial = (props) => {
+const ProductOptionsGrid = (props) => {
   const {optionName, values} = props;
 
   const {setSelectedOption, selectedOptions} = useProduct();
 
   return (
     <div className="flex items-start flex-wrap mt-1">
-      {values.map(({material, value}) => {
-        const checked = selectedOptions[optionName] === value;
-        const id = `option-${optionName}-${value}`;
+      {values.map((value) => {
+        const name = value?.value;
+        const checked = selectedOptions[optionName] === name;
+        const id = `option-${optionName}-${name}`;
 
         return (
           <div className="w-1/2" key={id}>
@@ -21,29 +22,27 @@ const ProductOptionsMaterial = (props) => {
                 type="radio"
                 id={id}
                 name={`option[${optionName}]`}
-                value={value}
+                value={name}
                 checked={checked}
-                onChange={() => setSelectedOption(optionName, value)}
+                onChange={() => setSelectedOption(optionName, name)}
               />
               <div
                 className={`p-2 border cursor-pointer text-xs uppercase w-full ${
                   checked ? 'bg-gray-900 text-white' : 'text-gray-900'
                 }`}
               >
-                {value}
+                {name}
 
-                {/* Image */}
-                {material && (
-                  <>
-                    <img
-                      alt=""
-                      className="object-cover w-24 h-24"
-                      src={sanityImageUrl(material.image, {width: 200})}
-                    />
-                    <div className="mt-3 opacity-50">
-                      {material?.description}
-                    </div>
-                  </>
+                {/* Image + description */}
+                {value?.image && (
+                  <img
+                    alt=""
+                    className="object-cover w-24 h-24"
+                    src={sanityImageUrl(value?.image, {width: 200})}
+                  />
+                )}
+                {value?.description && (
+                  <div className="mt-1 opacity-50">{value?.description}</div>
                 )}
               </div>
             </label>
@@ -54,4 +53,4 @@ const ProductOptionsMaterial = (props) => {
   );
 };
 
-export default ProductOptionsMaterial;
+export default ProductOptionsGrid;

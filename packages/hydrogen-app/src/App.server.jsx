@@ -2,8 +2,8 @@ import {CartServerProvider, ShopifyServerProvider} from '@shopify/hydrogen';
 
 import shopifyConfig from '../shopify.config';
 
-import CartProvider from './components/CartProvider.client';
 import Main from './components/Main.server';
+import CartProvider from './contexts/CartProvider.client';
 
 export default function App({...serverState}) {
   const pages = import.meta.globEager('./pages/**/*.server.(jsx|tsx)');

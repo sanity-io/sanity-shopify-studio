@@ -39,10 +39,24 @@ const ProductCard = (props) => {
           <Link to={`/products/${product?.slug}`}>
             <SelectedVariantImage />
           </Link>
+
+          {/* Quick add to cart button */}
           {showAddToCart && (
-            <SelectedVariantAddToCartButton className="absolute bg-black bottom-0 flex h-12 items-center justify-center left-0 text-center text-xs text-white w-full">
-              Add to cart
-            </SelectedVariantAddToCartButton>
+            <div className="absolute bottom-0 left-0 w-full">
+              {firstVariant?.availableForSale ? (
+                <SelectedVariantAddToCartButton className="bg-black flex h-12 items-center justify-center text-center text-xs text-white w-full">
+                  Add to cart
+                </SelectedVariantAddToCartButton>
+              ) : (
+                <button
+                  className="bg-gray-400 text-white text-center p-4 text-sm w-full"
+                  disabled
+                  type="button"
+                >
+                  Sold out
+                </button>
+              )}
+            </div>
           )}
         </div>
         {/* Title */}

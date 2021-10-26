@@ -10,8 +10,9 @@ import {
   // CartShopPayButton,
 } from '@shopify/hydrogen/client';
 
+import {useCartUI} from '../contexts/CartUIProvider.client';
+
 import CartIcon from './CartIcon.client';
-import {useCartUI} from './CartUIProvider.client';
 
 export default function Cart() {
   const itemCount = useCartLinesTotalQuantity();

@@ -1,6 +1,8 @@
 import {Link} from '@shopify/hydrogen/client';
+
+import {useCartUI} from '../contexts/CartUIProvider.client';
+
 import CartIcon from './CartIcon.client';
-import {useCartUI} from './CartUIProvider.client';
 
 export default function Header() {
   const {toggleCart} = useCartUI();
@@ -10,12 +12,11 @@ export default function Header() {
       className="border-b border-black flex justify-between h-20 p-4 w-full"
       role="banner"
     >
-      <div>
+      <div className="">
         <Link className="font-medium" to="/">
           Sanity + Hydrogen
         </Link>
-        <br />
-        Example storefront
+        <div>Example storefront</div>
       </div>
       <div onClick={toggleCart} style={{cursor: 'pointer'}}>
         <CartIcon />

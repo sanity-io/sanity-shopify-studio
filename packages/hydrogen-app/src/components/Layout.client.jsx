@@ -1,7 +1,8 @@
+import {useCartUI} from '../contexts/CartUIProvider.client';
+
 import Header from './Header.client';
 import Footer from './Footer.client';
 import Cart from './Cart.client';
-import {useCartUI} from './CartUIProvider.client';
 
 export default function Layout({children}) {
   const {isCartOpen, closeCart} = useCartUI();

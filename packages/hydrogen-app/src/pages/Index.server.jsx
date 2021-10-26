@@ -40,7 +40,7 @@ export default function Index() {
         >
           {featuredProducts?.map((product) => {
             return (
-              <div key={product?._key}>
+              <div key={product?._id}>
                 <ProductCard product={product} />
               </div>
             );

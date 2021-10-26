@@ -30,12 +30,10 @@ const ProductOptionsColor = (props) => {
                   className={`border border-2 flex-grow-0 h-8 rounded-full w-8 ${
                     checked ? 'border-black' : 'border-white'
                   }`}
-                  style={{
-                    background: color?.color?.hex,
-                  }}
+                  style={{background: color?.hex}}
                 />
 
-                <div className={`p-2 cursor-pointer text-xs uppercase w-full}`}>
+                <div className="p-2 cursor-pointer text-xs uppercase w-full">
                   {value}
                 </div>
               </div>

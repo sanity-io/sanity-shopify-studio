@@ -1,7 +1,5 @@
 import ProductOptionsColor from './ProductOptionsColor.client';
-import ProductOptionsDefault from './ProductOptionsDefault.client';
-import ProductOptionsDescription from './ProductOptionsDescription.client';
-import ProductOptionsMaterial from './ProductOptionsMaterial.client';
+import ProductOptionsGrid from './ProductOptionsMaterial.client';
 import ProductOptionsSelect from './ProductOptionsSelect.client';
 
 export default function SanityProductOptions(props) {
@@ -9,38 +7,28 @@ export default function SanityProductOptions(props) {
 
   return (
     <>
-      {options.map(({name, template, values}) => {
+      {options.map(({layout, name, values}) => {
         return (
           <fieldset key={name} className="my-5">
             <legend className="text-xs text-gray-700 uppercase">{name}</legend>
 
             <>
-              {/* Template: default */}
-              {!template && (
-                <ProductOptionsDefault optionName={name} values={values} />
-              )}
-
-              {/* Template: color */}
-              {template === 'color' && (
-                <ProductOptionsColor optionName={name} values={values} />
-              )}
-
-              {/* Template: description */}
-              {template === 'description' && (
-                <ProductOptionsDescription optionName={name} values={values} />
-              )}
-
-              {/* Template: material */}
-              {template === 'material' && (
-                <ProductOptionsMaterial optionName={name} values={values} />
-              )}
-
-              {/* Template: select */}
-              {template === 'select' && (
+              {/* Template: default (select) */}
+              {!layout && (
                 <ProductOptionsSelect optionName={name} values={values} />
               )}
 
-              {/* TODO: Add your other templates here */}
+              {/* Template: color swatch */}
+              {layout === 'swatchColor' && (
+                <ProductOptionsColor optionName={name} values={values} />
+              )}
+
+              {/* Template: grid (large) */}
+              {layout === 'grid' && (
+                <ProductOptionsGrid optionName={name} values={values} />
+              )}
+
+              {/* Add your other templates here */}
             </>
           </fieldset>
         );

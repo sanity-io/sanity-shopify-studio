@@ -1,6 +1,7 @@
 import {Product} from '@shopify/hydrogen/client';
 
 import PortableText from './PortableText.client';
+import ProductActions from './ProductActions.client';
 import SanityGallery from './SanityGallery.client';
 import SanityProductOptions from './SanityProductOptions.client';
 
@@ -66,17 +67,9 @@ export default function ProductDetails({product}) {
                 </div>
               )}
 
-              {/* Actions */}
+              {/* Product actions: Add to cart, buy now buttons, etc */}
               <div className="my-8 space-y-2">
-                <Product.SelectedVariant.AddToCartButton className="bg-gray-900 text-white text-center p-4 text-sm w-full">
-                  Add to cart
-                </Product.SelectedVariant.AddToCartButton>
-                <Product.SelectedVariant.BuyNowButton className="bg-white border border-black text-center p-4 text-sm w-full">
-                  Buy it now
-                </Product.SelectedVariant.BuyNowButton>
-
-                {/* Shop pay */}
-                {/* <Product.SelectedVariant.ShopPayButton className="flex justify-center w-full" /> */}
+                <ProductActions />
               </div>
 
               {/* Custom sections */}
