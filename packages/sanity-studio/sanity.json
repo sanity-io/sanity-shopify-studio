@@ -41,6 +41,10 @@
     {
       "implements": "part:@sanity/base/document-actions/resolver",
       "path": "./parts/resolveDocumentActions.js"
+    },
+    {
+      "implements": "part:@sanity/form-builder/input/array/functions",
+      "path": "./parts/customArrayFunctions.js"
     }
   ]
 }

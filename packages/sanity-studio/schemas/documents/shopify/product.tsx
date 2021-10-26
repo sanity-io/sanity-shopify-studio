@@ -31,6 +31,8 @@ export default {
       title: 'Options',
       type: 'array',
       options: {
+        // FIXME: remove this non-standard option which extends `/parts/customArrayFunctions`
+        creatable: false,
         sortable: false
       },
       of: [

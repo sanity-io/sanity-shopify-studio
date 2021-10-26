@@ -1,10 +1,7 @@
 import { IceCreamIcon, SunIcon } from '@sanity/icons'
 import React from 'react'
 import ColorPreview from '../../components/ProductOptionValuePreview'
-import {
-  productOptionValueFields,
-  productOptionValueFieldList,
-} from '../../productOptionGroups'
+import { productOptionValueFields, productOptionValueFieldList } from '../../productOptionGroups'
 
 export default {
   title: 'Product option',
@@ -17,9 +14,9 @@ export default {
       title: 'Customize values',
       options: {
         collapsed: true,
-        collapsible: true,
-      },
-    },
+        collapsible: true
+      }
+    }
   ],
   fields: [
     // Name
@@ -28,35 +25,34 @@ export default {
       name: 'name',
       type: 'string',
       description: 'This can be updated in Shopify',
-      readOnly: true,
+      readOnly: true
     },
     // Layout
     {
       title: 'Layout',
       name: 'layout',
       type: 'string',
-      description:
-        'Product options will be displayed in a select element by default',
+      description: 'Product options will be displayed in a select element by default',
       options: {
         list: [
           {
             title: 'Swatch (color)',
-            value: 'swatchColor',
+            value: 'swatchColor'
           },
           {
             title: 'Swatch (image)',
-            value: 'swatchImage',
+            value: 'swatchImage'
           },
           {
             title: 'Grid (large)',
-            value: 'gridLarge',
+            value: 'gridLarge'
           },
           {
             title: 'Grid (small)',
-            value: 'gridSmall',
-          },
-        ],
-      },
+            value: 'gridSmall'
+          }
+        ]
+      }
     },
     // Custom fields
     {
@@ -66,12 +62,12 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'string',
-        },
+          type: 'string'
+        }
       ],
       options: {
-        list: productOptionValueFieldList(),
-      },
+        list: productOptionValueFieldList()
+      }
     },
     // Values
     {
@@ -79,7 +75,9 @@ export default {
       name: 'values',
       type: 'array',
       options: {
-        sortable: false,
+        // FIXME: remove this non-standard option which extends `/parts/customArrayFunctions`
+        creatable: false,
+        sortable: false
       },
       of: [
         {
@@ -90,15 +88,15 @@ export default {
               name: 'value',
               title: 'Value',
               type: 'string',
-              readOnly: true,
+              readOnly: true
             },
-            ...productOptionValueFields(),
+            ...productOptionValueFields()
           ],
           preview: {
             select: {
               color: 'color.hex',
               image: 'image',
-              value: 'value',
+              value: 'value'
             },
             prepare(selection) {
               const { color, image, value } = selection
@@ -113,26 +111,26 @@ export default {
 
               return {
                 media,
-                title: value,
+                title: value
               }
-            },
-          },
-        },
-      ],
-    },
+            }
+          }
+        }
+      ]
+    }
   ],
   preview: {
     select: {
       name: 'name',
-      template: 'template',
+      template: 'template'
     },
     prepare(selection) {
       const { name, template } = selection
 
       return {
         subtitle: template ? `Template: ${template}` : undefined,
-        title: name,
+        title: name
       }
-    },
-  },
+    }
+  }
 }
