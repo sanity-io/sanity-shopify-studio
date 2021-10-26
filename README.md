@@ -6,7 +6,7 @@
 
 This demo consists of the following packages:
 
-### `hydrogen-app`
+### [`hydrogen-app`](/packages/hydrogen-app/README.md)
 
 A customised version of Hydrogen's official starter, tailored to showcase:
 
@@ -15,7 +15,7 @@ A customised version of Hydrogen's official starter, tailored to showcase:
 
 It is designed to be as simple as possible with few dependencies and built with the expectation that users will add their own flavour of styling, animation and own structure.
 
-### `sanity-studio`
+### [`sanity-studio`](/packages/sanity-studio/README.md)
 
 An opinionated Sanity studio built with defaults aimed at simpler shopfronts that want a clear path for managing (and customising) their shop content.
 
@@ -23,7 +23,7 @@ It's been structured to accomodate the default sync options provided by the upco
 
 We try and provide a few studio affordances to give users more visibility into product availability – such as displaying when products are not available (due to Shopify configuration) or if products have since been removed on Shopify's end.
 
-### `functions`
+### [`webhook-functions`](/packages/webhook-functions/README.md)
 
 > **This package is temporary and will be removed once the official Sanity Shopify App is available on Shopify's App store**
 

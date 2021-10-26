@@ -1,31 +1,37 @@
-# Hydrogen App
+# Sanity + Shopify starter
 
-Hydrogen is a React framework and SDK that you can use to build fast and dynamic Shopify custom storefronts.
+**Hydrogen app**
 
-[Check out the docs](https://shopify.dev/beta/hydrogen)
+_This is a work in progress_
 
-## Getting started
+---
 
-**Requirements:**
+**Table of contents**
 
-- Node v14+
-- Yarn
-
-```bash
-yarn
-yarn dev
-```
-
-Remember to update `shopify.config.js` with your shop's domain and Storefront API token!
-
-## Building for production
-
-```bash
-yarn build
-```
-
-Then, you can run a local `server.js` using the production build with:
-
-```bash
-yarn serve
-```
+- About / motivation
+  - Hydrogen
+    - Link to documentation
+  - Sanity
+    - Link to documentation
+  - Assumptions
+- Features
+  - Sanity data connector
+- Usage with Sanity's Shopify Sync App / Sanity studio demo
+  - Link to Shopify App Store
+- Requirements
+- Setup
+  - Bundled set up? (TBD)
+  - Shopify
+  - Sanity
+- Local development
+- Deployment (refer to Hydrogen docs)
+  - Oxygen
+  - Cloudflare workers
+- Caveats
+- Further customisation
+  - Recipes
+    - Decoupling products + pages
+    - Referenced product options
+- FAQ
+- Other references / documentation
+- License
