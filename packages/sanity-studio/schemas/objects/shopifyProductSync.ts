@@ -1,3 +1,5 @@
+import { SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE } from '../../constants'
+
 export default {
   name: 'shopifyProductSync',
   title: 'Shopify',
@@ -175,6 +177,22 @@ export default {
       title: 'Provider value (TEMPORARY)',
       description: 'Serialized string of Product GraphQL response',
       type: 'string',
+      readOnly: true
+    },
+    // Variants
+    {
+      name: 'variants',
+      title: 'Variants',
+      type: 'array',
+      of: [
+        {
+          title: 'Variant',
+          type: 'reference',
+          weak: true,
+          to: [{ type: SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE }]
+        }
+      ],
+      hidden: true,
       readOnly: true
     }
   ]

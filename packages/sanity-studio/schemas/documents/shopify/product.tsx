@@ -1,10 +1,7 @@
 import { TagIcon } from '@sanity/icons'
 import pluralize from 'pluralize'
 import React from 'react'
-import {
-  SHOPIFY_PRODUCT_DOCUMENT_TYPE,
-  SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE
-} from '../../../constants'
+import { SHOPIFY_PRODUCT_DOCUMENT_TYPE } from '../../../constants'
 import ProductPreview from '../../../components/ProductPreview'
 import { getPriceRange } from '../../../utils/getPriceRange'
 
@@ -47,22 +44,6 @@ export default {
         // Hide if this product only has one variant
         return parent?.variants && parent?.variants.length === 1
       }
-    },
-    // Variants
-    {
-      name: 'variants',
-      title: 'Variants',
-      type: 'array',
-      of: [
-        {
-          title: 'Variant',
-          type: 'reference',
-          weak: true,
-          to: [{ type: SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE }]
-        }
-      ],
-      hidden: true,
-      readOnly: true
     },
     // Images
     {
@@ -192,7 +173,7 @@ export default {
       priceRange: 'shopify.priceRange',
       status: 'shopify.status',
       title: 'shopify.title',
-      variantCount: 'variants.length'
+      variantCount: 'shopify.variants.length'
     },
     prepare(selection) {
       const {
