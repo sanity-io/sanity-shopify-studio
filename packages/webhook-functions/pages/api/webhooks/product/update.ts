@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import parseJsonWithRawBody from '../../../../middleware/parseJsonWithRawBody'
 import requirePost from '../../../../middleware/requirePost'
 import verifyShopifyWebhook from '../../../../middleware/verifyShopifyWebhook'
-import createOrUpdateProduct from '../../../../services/sanity/createOrUpdateShopifyProduct'
+import syncShopifyProductAndVariants from '../../../../services/sanity/syncShopifyProductAndVariants'
 import { ShopifyWebhookBody } from '../../../../services/sanity/types'
 import runMiddleware from '../../../../utils/runMiddleware'
 
@@ -43,6 +43,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   // Create or update product
-  await createOrUpdateProduct(body)
+  await syncShopifyProductAndVariants(body)
   return res.status(200).send('Update successful')
 }

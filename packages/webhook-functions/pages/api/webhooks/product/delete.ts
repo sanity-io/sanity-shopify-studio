@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import parseJsonWithRawBody from '../../../../middleware/parseJsonWithRawBody'
 import requirePost from '../../../../middleware/requirePost'
 import verifyShopifyWebhook from '../../../../middleware/verifyShopifyWebhook'
-import markDeletedProductAndVariants from '../../../../services/sanity/markDeletedProductAndVariants'
+import markDeletedProductAndVariants from '../../../../services/sanity/markShopifyProductAndVariants'
 import { ShopifyWebhookBody } from '../../../../services/sanity/types'
 import runMiddleware from '../../../../utils/runMiddleware'
 

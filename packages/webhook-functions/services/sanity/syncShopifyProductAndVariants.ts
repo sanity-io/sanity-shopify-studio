@@ -1,5 +1,6 @@
 import { IdentifiedSanityDocumentStub, Transaction } from '@sanity/client'
 import { uuid } from '@sanity/uuid'
+import groq from 'groq'
 import {
   SHOPIFY_PRODUCT_DOCUMENT_TYPE,
   SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE
@@ -15,15 +16,87 @@ type VariantPriceRange = {
   minVariantPrice?: number
 }
 
-const createOrUpdateDocumentAndDraft = async (
+type ProductOption = {
+  name: string
+  values: ({
+    value: string
+  } & Record<string, any>)[]
+}
+
+// Conditionally merge two sets of product options.
+// Whenever a product is updated, we don't want to completely blow away previous product option content
+// as there may be user generated content present.
+const mergeProductOptions = (newOptions: ProductOption[], oldOptions: ProductOption[]) => {
+  return newOptions?.map(option => {
+    // Find previous option
+    const previousOption = oldOptions.find(o => o.name === option.name)
+    return {
+      ...previousOption,
+      ...option,
+      values: option.values.map(value => {
+        // Find previous product option value
+        const previousValue = previousOption?.values.find(v => v.value === value.value)
+        return { ...previousValue, ...value }
+      })
+    }
+  })
+}
+
+const createProductAndOptions = async (
   transaction: Transaction,
   document: IdentifiedSanityDocumentStub
 ) => {
-  // Create document if it doesn't exist, otherwise patch
-  transaction.createIfNotExists(document).patch(document._id, patch => patch.set(document))
+  const publishedId = document._id
+  const draftId = `drafts.${document._id}`
+
+  // Fetch existing product options
+  const { draft, published } = await sanityClient.fetch(
+    groq`{
+      "draft": *[_id == $draftId][0] { options },
+      "published": *[_id == $publishedId][0] { options },
+    }
+  `,
+    { draftId, publishedId }
+  )
+
+  // Create new product if none found
+  if (!published) {
+    transaction.createIfNotExists(document)
+    return
+  }
+
+  // Patch existing published document
+  transaction.patch(publishedId, patch => {
+    return patch.set({
+      options: mergeProductOptions(document.options, published.options),
+      shopify: document.shopify
+    })
+  })
+
+  // Patch existing draft (if present)
+  if (draft) {
+    transaction.patch(draftId, patch => {
+      return patch.set({
+        options: mergeProductOptions(document.options, draft.options),
+        shopify: document.shopify
+      })
+    })
+  }
+
+  return transaction
+}
+
+const createProductVariant = async (
+  transaction: Transaction,
+  document: IdentifiedSanityDocumentStub
+) => {
+  const publishedId = document._id
+  const draftId = `drafts.${document._id}`
+
+  // Create document if it doesn't exist, otherwise patch with existing content
+  transaction.createIfNotExists(document).patch(publishedId, patch => patch.set(document))
 
   // Also check for and patch draft document, if present
-  const draftId = `drafts.${document._id}`
   const draft = await sanityClient.getDocument(draftId)
   if (draft) {
     const documentDraft = Object.assign({}, document, {
@@ -34,7 +107,7 @@ const createOrUpdateDocumentAndDraft = async (
   }
 }
 
-const createOrUpdateProduct = async (body: ShopifyWebhookBody) => {
+const syncShopifyProductAndVariants = async (body: ShopifyWebhookBody) => {
   const {
     created_at,
     handle,
@@ -141,16 +214,16 @@ const createOrUpdateProduct = async (body: ShopifyWebhookBody) => {
   }))
 
   // Build `shopify.product`
+  // We assign _key values of product option name and values since they're guaranteed unique in Shopify
   const shopifyProduct: IdentifiedSanityDocumentStub = {
     _id: `shopifyProduct-${id}`, // Shopify product ID
     _type: SHOPIFY_PRODUCT_DOCUMENT_TYPE,
     options: options.map((option, index) => ({
       _type: 'option',
-      _key: `product-option-${index}`,
+      _key: option.name,
       name: option.name,
-      // position: option.position,
       values: option.values?.map(value => ({
-        _key: uuid(),
+        _key: value,
         _type: 'value',
         value
       }))
@@ -177,29 +250,29 @@ const createOrUpdateProduct = async (body: ShopifyWebhookBody) => {
       status,
       tags,
       title,
-      updatedAt: updated_at
-    },
-    variants: shopifyProductVariants?.map(variant => {
-      return {
-        _key: uuid(),
-        _type: 'reference',
-        _ref: variant._id,
-        _weak: true
-      }
-    })
+      updatedAt: updated_at,
+      variants: shopifyProductVariants?.map(variant => {
+        return {
+          _key: uuid(),
+          _type: 'reference',
+          _ref: variant._id,
+          _weak: true
+        }
+      })
+    }
   }
 
   const transaction = sanityClient.transaction()
 
-  // Create / update product
-  await createOrUpdateDocumentAndDraft(transaction, shopifyProduct)
+  // Create product and merge options
+  await createProductAndOptions(transaction, shopifyProduct)
 
   // Create / update product variants
   for (let i = 0; i < shopifyProductVariants.length; i++) {
-    await createOrUpdateDocumentAndDraft(transaction, shopifyProductVariants[i])
+    await createProductVariant(transaction, shopifyProductVariants[i])
   }
 
   await transaction.commit()
 }
 
-export default createOrUpdateProduct
+export default syncShopifyProductAndVariants
