@@ -1,8 +1,5 @@
 import { EarthGlobeIcon } from '@sanity/icons'
-import {
-  SHOPIFY_PRODUCT_DOCUMENT_TYPE,
-  SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE,
-} from '../constants'
+import { SHOPIFY_PRODUCT_DOCUMENT_TYPE, SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE } from '../constants'
 import { getShopifyProductUrl } from '../utils/getShopifyProductUrl'
 import { getShopifyProductVariantUrl } from '../utils/getShopifyProductVariantUrl'
 
@@ -16,7 +13,7 @@ export default (props: Props) => {
 
   const isProductOrProductVariant = [
     SHOPIFY_PRODUCT_DOCUMENT_TYPE,
-    SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE,
+    SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE
   ].includes(type)
 
   // Return early if:
@@ -41,10 +38,7 @@ export default (props: Props) => {
   }
   if (type === SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE) {
     label = 'Edit variant in Shopify'
-    url = getShopifyProductVariantUrl(
-      published?.shopify?.productId,
-      published?.shopify?.id
-    )
+    url = getShopifyProductVariantUrl(published?.shopify?.productId, published?.shopify?.id)
   }
 
   if (!label && !url) {
@@ -57,5 +51,6 @@ export default (props: Props) => {
     onHandle: () => {
       window.open(url)
     },
+    shortcut: 'Ctrl+Alt+E'
   }
 }

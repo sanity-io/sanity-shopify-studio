@@ -1,5 +1,5 @@
 import { TrashIcon } from '@sanity/icons'
-import { Stack, Text } from '@sanity/ui'
+import { Stack, Text, useToast } from '@sanity/ui'
 import { useRouter } from '@sanity/base/router'
 import sanityClient from 'part:@sanity/base/client'
 import React, { useState } from 'react'
@@ -18,6 +18,7 @@ const deleteProductAndVariants = (props: Props) => {
   const [dialogOpen, setDialogOpen] = useState(false)
 
   const router = useRouter()
+  const toast = useToast()
 
   return {
     color: 'danger',
@@ -25,9 +26,7 @@ const deleteProductAndVariants = (props: Props) => {
       header: 'Delete current product and associated variants?',
       message: (
         <Stack space={4}>
-          <Text>
-            Delete the current product and all associated variants in Sanity.
-          </Text>
+          <Text>Delete the current product and all associated variants in Sanity.</Text>
           <Text weight="medium">No content on Shopify will be deleted.</Text>
         </Stack>
       ),
@@ -71,18 +70,21 @@ const deleteProductAndVariants = (props: Props) => {
           // Navigate back to products root
           router.navigateUrl('/desk/products')
         } catch (err) {
-          // TODO: handle error / display notification
-          console.log('Unable to complete transaction', err)
+          toast.push({
+            status: 'error',
+            title: err?.message
+          })
         } finally {
           // Signal that the action is complete
           onComplete()
         }
       },
-      type: 'confirm',
+      type: 'confirm'
     },
     icon: TrashIcon,
     label: 'Delete product and variants',
     onHandle: () => setDialogOpen(true),
+    shortcut: 'Ctrl+Alt+D'
   }
 }
 
