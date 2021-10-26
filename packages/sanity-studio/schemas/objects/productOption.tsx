@@ -3,6 +3,24 @@ import React from 'react'
 import ColorPreview from '../../components/ProductOptionValuePreview'
 import { productOptionValueFields, productOptionValueFieldList } from '../../productOptionGroups'
 
+const LAYOUT_OPTIONS: {
+  title: string
+  value: string
+}[] = [
+  {
+    title: 'Swatch (color)',
+    value: 'swatchColor'
+  },
+  {
+    title: 'Swatch (image)',
+    value: 'swatchImage'
+  },
+  {
+    title: 'Grid',
+    value: 'grid'
+  }
+]
+
 export default {
   title: 'Product option',
   name: 'productOption',
@@ -34,24 +52,7 @@ export default {
       type: 'string',
       description: 'Product options will be displayed in a select element by default',
       options: {
-        list: [
-          {
-            title: 'Swatch (color)',
-            value: 'swatchColor'
-          },
-          {
-            title: 'Swatch (image)',
-            value: 'swatchImage'
-          },
-          {
-            title: 'Grid (large)',
-            value: 'gridLarge'
-          },
-          {
-            title: 'Grid (small)',
-            value: 'gridSmall'
-          }
-        ]
+        list: LAYOUT_OPTIONS
       }
     },
     // Custom fields
@@ -121,14 +122,16 @@ export default {
   ],
   preview: {
     select: {
-      name: 'name',
-      template: 'template'
+      layout: 'layout',
+      name: 'name'
     },
     prepare(selection) {
-      const { name, template } = selection
+      const { layout, name } = selection
+
+      const layoutTitle = LAYOUT_OPTIONS.find(v => v?.value === layout)?.title
 
       return {
-        subtitle: template ? `Template: ${template}` : undefined,
+        subtitle: layoutTitle,
         title: name
       }
     }
