@@ -2,27 +2,30 @@ import {DefaultRoutes} from '@shopify/hydrogen';
 import groq from 'groq';
 import {Suspense} from 'react';
 import {Switch} from 'react-router-dom';
-import DefaultSeo from '../components/DefaultSeo.server';
-import NotFound from '../components/NotFound.server';
+
+import sanityConfig from '../../sanity.config';
 import NavigationProvider from '../contexts/NavigationProvider.client';
 import {LINKS} from '../fragments/links';
 import {PORTABLE_TEXT} from '../fragments/portableText';
-import {useSanityQuery} from '../utils/useSanityQuery';
+import {useSanityGroqQuery} from '../utils/query/useSanityGroqQuery';
+
+import DefaultSeo from './DefaultSeo.server';
+import NotFound from './NotFound.server';
 
 export default function Main(props) {
   const {pages, serverState} = props;
 
-  const {data} = useSanityQuery({
-    key: ['navigation'],
+  const {sanityData} = useSanityGroqQuery({
     query: QUERY,
+    // No need to query Shopify product data ✨
+    getProductGraphQLFragment: () => false,
+    ...sanityConfig,
   });
-
-  const results = data?.result;
 
   return (
     <Suspense fallback={<div className="p-4">Loading...</div>}>
       <DefaultSeo />
-      <NavigationProvider value={results}>
+      <NavigationProvider value={sanityData}>
         <Switch>
           <DefaultRoutes
             pages={pages}
