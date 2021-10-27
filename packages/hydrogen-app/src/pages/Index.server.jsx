@@ -13,12 +13,6 @@ export default function Index() {
 
   const page = data?.result;
 
-  // Filter featured products on the client
-  // TODO: All filtering should happen at the query level, figure out the idiomatic way to filter on joins
-  const featuredProducts = page?.featuredProducts?.filter(
-    (product) => product.available,
-  );
-
   return (
     <Layout>
       <div className="bg-black-300 relative w-full">
@@ -38,7 +32,7 @@ export default function Index() {
             p-4
           "
         >
-          {featuredProducts?.map((product) => {
+          {page?.featuredProducts?.map((product) => {
             return (
               <div key={product?._id}>
                 <ProductCard product={product} />
@@ -51,7 +45,6 @@ export default function Index() {
   );
 }
 
-// TODO: filter joined `featuredProducts` on shopify availability
 const QUERY = groq`
   *[_id == 'home'][0]{
     featuredProducts[]->{
@@ -61,5 +54,8 @@ const QUERY = groq`
     gallery[] {
       ${IMAGE}
     },
+  } {
+    ...,
+    featuredProducts[available]
   }
 `;

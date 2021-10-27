@@ -1,12 +1,14 @@
+/* eslint-disable react/display-name */
+
 import BlockContent from '@sanity/block-content-to-react';
 import {
   BuyNowButton,
   MediaFile,
-  ProductPrice,
+  Product,
   ProductProvider,
-  ProductTitle,
   SelectedVariantAddToCartButton,
 } from '@shopify/hydrogen/client';
+
 import Block from './Block.client';
 import BlockImage from './BlockImage.client';
 import BlockProduct from './BlockProduct.client';
@@ -39,7 +41,7 @@ const portableTextMarks = {
     const {children, mark} = props;
 
     return (
-      <a className="underline" href={props?.mark?.slug}>
+      <a className="underline" href={mark?.slug}>
         {children}
       </a>
     );
@@ -99,8 +101,8 @@ const portableTextMarks = {
               quantity={mark?.quantity || 1}
             >
               <div className="text-sm">
-                <ProductTitle className="font-medium" />
-                <ProductPrice />
+                <Product.Title className="font-medium" />
+                <Product.Price />
               </div>
               <MediaFile
                 className="my-2 w-full"
@@ -128,8 +130,8 @@ const portableTextMarks = {
               quantity={mark?.quantity || 1}
             >
               <div className="text-sm">
-                <ProductTitle className="font-medium" />
-                <ProductPrice />
+                <Product.Title className="font-medium" />
+                <Product.Price />
               </div>
               <MediaFile
                 className="my-2 w-full"

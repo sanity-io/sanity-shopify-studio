@@ -1,8 +1,7 @@
 import {
   MediaFile,
-  ProductPrice,
+  Product,
   ProductProvider,
-  ProductTitle,
   SelectedVariantAddToCartButton,
 } from '@shopify/hydrogen/client';
 import React from 'react';
@@ -16,8 +15,8 @@ const BlockProduct = (props) => {
       <div className="my-8">
         <div className="border border-black p-4 space-y-4 w-1/2">
           <>
-            <ProductTitle className="font-medium" />
-            <ProductPrice />
+            <Product.Title className="font-medium" />
+            <Product.Price />
           </>
           <MediaFile
             className="w-full"

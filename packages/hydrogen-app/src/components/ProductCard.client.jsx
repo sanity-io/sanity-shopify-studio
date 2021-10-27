@@ -1,7 +1,7 @@
 import {
   Link,
+  Product,
   ProductProvider,
-  ProductTitle,
   SelectedVariantAddToCartButton,
   SelectedVariantImage,
   SelectedVariantPrice,
@@ -62,7 +62,7 @@ const ProductCard = (props) => {
         {/* Title */}
         <Link to={`/products/${product?.slug}`}>
           <div className="font-medium mt-2">
-            <ProductTitle />
+            <Product.Title />
           </div>
         </Link>
 

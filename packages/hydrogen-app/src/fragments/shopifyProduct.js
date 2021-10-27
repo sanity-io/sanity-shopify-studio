@@ -4,7 +4,7 @@ import {PORTABLE_TEXT} from './portableText';
 import {IMAGE} from './image';
 
 export const SHOPIFY_PRODUCT = groq`
-  "available": shopify.isEnabled && !shopify.isDeleted,
+  "available": shopify.isEnabled && !shopify.isDeleted && shopify.status == 'active',
   body[]{
     ${PORTABLE_TEXT}
   },

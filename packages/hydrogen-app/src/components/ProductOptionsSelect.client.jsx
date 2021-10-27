@@ -20,8 +20,8 @@ const ProductOptionsSelect = (props) => {
           return <option key={id}>{value}</option>;
         })}
       </select>
-      <div class="absolute flex inset-y-0 items-center pointer-events-none px-2 right-0">
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+      <div className="absolute flex inset-y-0 items-center pointer-events-none px-2 right-0">
+        <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
           <path
             d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
             clipRule="evenodd"
