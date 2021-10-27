@@ -6,31 +6,35 @@ import Layout from '../components/Layout.client';
 import NotFound from '../components/NotFound.server';
 import PortableText from '../components/PortableText.client';
 import {PORTABLE_TEXT} from '../fragments/portableText';
-import {useSanityQuery} from '../utils/useSanityQuery';
+import {useSanityGroqQuery} from '../utils/query/useSanityGroqQuery';
 
 export default function Page() {
   const {handle} = useParams();
 
-  const {data} = useSanityQuery({
-    key: ['page', handle],
+  const {sanityData} = useSanityGroqQuery({
     query: QUERY,
-    slug: handle,
+    params: {
+      slug: handle,
+    },
+    // No need to query Shopify product data ✨
+    getProductGraphQLFragment: () => false,
+    apiVersion: 'v2021-06-07',
+    projectId: 'wfr1r0dw',
+    dataset: 'production',
   });
 
-  const page = data?.result;
-
-  if (!page) {
+  if (!sanityData) {
     return <NotFound />;
   }
 
   return (
     <Layout>
       <div className="max-w-3xl p-4">
-        <h1>{page.title}</h1>
+        <h1>{sanityData.title}</h1>
         <br />
 
         {/* Body */}
-        {page?.body && <PortableText blocks={page.body} />}
+        {sanityData?.body && <PortableText blocks={sanityData.body} />}
       </div>
     </Layout>
   );
