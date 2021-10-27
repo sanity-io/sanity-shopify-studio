@@ -5,25 +5,29 @@ import Layout from '../../components/Layout.client';
 import NotFound from '../../components/NotFound.server';
 import ProductDetails from '../../components/ProductDetails.client';
 import {SHOPIFY_PRODUCT} from '../../fragments/shopifyProduct';
-import {useSanityQuery} from '../../utils/useSanityQuery';
+import {useSanityGroqQuery} from '../../utils/query/useSanityGroqQuery';
 
 export default function Product() {
   const {handle} = useParams();
-  const {data} = useSanityQuery({
-    key: ['product', handle],
+  const {sanityData, errors, shopifyData} = useSanityGroqQuery({
     query: QUERY,
-    slug: handle,
+    params: {
+      slug: handle,
+    },
+    apiVersion: 'v2021-06-07',
+    projectId: 'wfr1r0dw',
+    dataset: 'production',
   });
 
-  const product = data?.result;
+  const providerData = shopifyData?.[sanityData?._id]
 
-  if (!product) {
+  if (!sanityData || !providerData) {
     return <NotFound />;
   }
 
   return (
     <Layout>
-      <ProductDetails product={product} />
+      <ProductDetails product={sanityData} providerData={providerData} />
     </Layout>
   );
 }

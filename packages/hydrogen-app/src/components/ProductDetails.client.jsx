@@ -5,9 +5,7 @@ import ProductActions from './ProductActions.client';
 import SanityGallery from './SanityGallery.client';
 import SanityProductOptions from './SanityProductOptions.client';
 
-export default function ProductDetails({product}) {
-  // TODO: this is a huge hack
-  const providerData = JSON.parse(product?.provider);
+export default function ProductDetails({product, providerData}) {
   const options = product?.options;
 
   const initialVariantId = providerData.variants.edges[0].node.id;
