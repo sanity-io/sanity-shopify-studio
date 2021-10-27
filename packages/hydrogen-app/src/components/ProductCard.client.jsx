@@ -9,11 +9,9 @@ import {
 import {useState} from 'react';
 
 const ProductCard = (props) => {
-  const {product} = props;
+  const {product, shopifyData} = props;
 
-  // TODO: This is super hacky
-  const providerProduct =
-    product?.shopify?.provider && JSON.parse(product?.shopify?.provider);
+  const providerProduct = shopifyData?.[product?._id];
 
   const [showAddToCart, setShowAddToCart] = useState(false);
 

@@ -6,18 +6,21 @@ import Layout from '../components/Layout.client';
 import ProductCard from '../components/ProductCard.client';
 import {IMAGE} from '../fragments/image';
 import {SHOPIFY_PRODUCT} from '../fragments/shopifyProduct';
-import {useSanityQuery} from '../utils/useSanityQuery';
+import {useSanityGroqQuery} from '../utils/query/useSanityGroqQuery';
 
 export default function Index() {
-  const {data} = useSanityQuery({key: ['home'], query: QUERY});
-
-  const page = data?.result;
+  const {sanityData, shopifyData} = useSanityGroqQuery({
+    query: QUERY,
+    apiVersion: 'v2021-06-07',
+    projectId: 'wfr1r0dw',
+    dataset: 'production',
+  });
 
   return (
     <Layout>
       <div className="bg-black-300 relative w-full">
         {/* Gallery */}
-        {page?.gallery && <Gallery images={page?.gallery} />}
+        {sanityData?.gallery && <Gallery images={sanityData?.gallery} />}
 
         {/* Featured products */}
         <section
@@ -32,10 +35,10 @@ export default function Index() {
             p-4
           "
         >
-          {page?.featuredProducts?.map((product) => {
+          {sanityData?.featuredProducts?.map((product) => {
             return (
               <div key={product?._id}>
-                <ProductCard product={product} />
+                <ProductCard product={product} shopifyData={shopifyData} />
               </div>
             );
           })}

@@ -13,7 +13,6 @@ export const SHOPIFY_PRODUCT = groq`
     ${IMAGE}
   },
   options,
-  "provider": shopify.provider,
   sections[]{
     _key,
     body[]{
