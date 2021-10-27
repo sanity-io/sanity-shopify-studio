@@ -171,14 +171,6 @@ export default {
       type: 'string',
       description: 'Image displayed in both cart and checkout'
     },
-    // Provider
-    {
-      name: 'provider',
-      title: 'Provider value (TEMPORARY)',
-      description: 'Serialized string of Product GraphQL response',
-      type: 'string',
-      readOnly: true
-    },
     // Variants
     {
       name: 'variants',

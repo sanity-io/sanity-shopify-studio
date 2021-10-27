@@ -12,8 +12,6 @@
     "@sanity/client": "^2.19.0",
     "@sanity/uuid": "^3.0.1",
     "body-parser": "^1.19.0",
-    "graphql": "^15.6.0",
-    "graphql-tag": "^2.12.5",
     "next": "11.1.2",
     "p-queue": "^7.1.0",
     "react": "17.0.2",

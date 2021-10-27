@@ -5,8 +5,6 @@ declare namespace NodeJS {
     SANITY_PROJECT_ID: string
     SHOPIFY_ADMIN_API_ENDPOINT: string
     SHOPIFY_ADMIN_API_PASSWORD: string
-    SHOPIFY_GRAPHQL_ENDPOINT: string
-    SHOPIFY_STOREFRONT_ACCESS_TOKEN: string
     SHOPIFY_WEBHOOK_SHARED_SECRET: string
   }
 }

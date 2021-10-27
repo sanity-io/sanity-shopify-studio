@@ -6,7 +6,6 @@ import {
   SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE
 } from '../../constants'
 import { sanityClient } from '../../lib/sanity'
-import fetchProduct from '../shopify/fetchProduct'
 import fetchProductListingStatus from '../shopify/fetchProductListing'
 // import fetchProductMetafields from '../shopify/fetchProductMetafields'
 import { ShopifyWebhookBody } from './types'
@@ -134,11 +133,6 @@ const syncShopifyProductAndVariants = async (body: ShopifyWebhookBody) => {
   // TODO: Fetch product metafields from Shopify Admin API and store in Sanity
   // await fetchProductMetafields(id)
 
-  // Fetch product data from SFAPI.
-  // We store this as a serialized string in our sanity documents as a temporary workaround
-  // TODO: remove once data connector is in place
-  const shopifyProductData = await fetchProduct(id)
-
   const firstImage = images?.[0]
 
   // Generate price (regular + compare at) price ranges across all variants
@@ -241,8 +235,6 @@ const syncShopifyProductAndVariants = async (body: ShopifyWebhookBody) => {
         : {}),
       priceRange,
       productType: product_type,
-      // TODO: remove once data connector is in place
-      provider: JSON.stringify(shopifyProductData?.data?.product),
       slug: {
         _type: 'slug',
         current: handle
