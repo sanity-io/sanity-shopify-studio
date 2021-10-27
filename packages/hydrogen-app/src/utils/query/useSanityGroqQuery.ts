@@ -7,15 +7,13 @@ import productFragment from './productFragment';
 import {SanityQueryClientOptions} from './types';
 
 export interface UseSanityQueryResponse<T> {
-
   /** The data returned by the query. */
   sanityData: T;
-  shopifyData: {[key: string]: unknown};
+  shopifyData?: {[key: string]: unknown};
   errors: any;
 }
 
 interface UseSanityGroqQueryProps extends SanityQueryClientOptions {
-
   /** A string of the GROQ query. */
   query: string;
 
@@ -60,7 +58,7 @@ export function useSanityGroqQuery<T>({
     params,
   });
 
-  const {data, error} = useQuery<T>([url, body], () =>
+  const {data: sanityData, error} = useQuery<T>([url, body], () =>
     fetch(url, {
       method: 'POST',
       headers,
@@ -70,7 +68,7 @@ export function useSanityGroqQuery<T>({
       .then((data) => data.result),
   );
 
-  const productsToFetch = extractProductsToFetch(data);
+  const productsToFetch = extractProductsToFetch(sanityData);
 
   const enhanceProductWithFragment = (product: ProductToFetch) => {
     if (typeof getProductGraphQLFragment === 'function') {
@@ -96,6 +94,14 @@ export function useSanityGroqQuery<T>({
   const productsWithFragments = Object.keys(productsToFetch)
     .map((id) => enhanceProductWithFragment(productsToFetch[id]))
     .filter((product) => Boolean(product.fragment));
+
+  // @TODO: how not to break Rules of Hooks here?
+  if (productsWithFragments.length <= 0) {
+    return {
+      sanityData,
+      errors: error,
+    };
+  }
 
   // @TODO: replace with final ProductProviderFragment
   const finalQuery = `
@@ -148,7 +154,7 @@ export function useSanityGroqQuery<T>({
     }, {});
 
   return {
-    sanityData: data,
+    sanityData,
     errors: error,
     shopifyData,
   };
