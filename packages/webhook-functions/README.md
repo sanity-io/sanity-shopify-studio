@@ -18,9 +18,11 @@ _Transactions are applied on both published and draft documents._
 - Determine the current Product ID based on the incoming webhook payload
 - Fetch the [product listing on Shopify Admin API](https://shopify.dev/api/admin-rest/2021-10/resources/productlisting#[get]/admin/api/2021-10/product_listings/{product_listing_id}.json) to determine whether it's available on the current sales channel (requires Shopify Admin API password)
   - if request yields a 404, it's either not enabled on the current sales channel (or is a draft)
-- Fetch the [product from Shopify Storefront API](https://shopify.dev/api/storefront/reference/products/product) (requires Storefront access token)
-  - Get price ranges across all variants
-  - Create a map of all product variant images
+- Get price ranges across all variants
+- Create a map of all product variant images
+- (Temporary) Fetch the [product from Shopify Storefront API](https://shopify.dev/api/storefront/reference/products/product) (requires Storefront access token)
+  - We temporarily store the output of this response on `shopify.product` documents as a JSON string – this is done so we can conveniently hydrate Hydrogen's `<ProductProvider>` components on the client when working with deeply nested references
+  - _You can ignore this step - it will be replaced by an upcoming data connector that will be used to fetch fresh data from Shopify at run time_
 - Map through product response and create individual `shopify.productVariant` objects
   - We store product-specific status fields (e.g. `isDeleted`, `isEnabled` and `status`) on individual product variants too, purely for editor ergonomics (this could possibly be omitted)
 - Create `shopify.product` document for upcoming transaction
