@@ -1,4 +1,4 @@
-import {CartServerProvider, ShopifyServerProvider} from '@shopify/hydrogen';
+import {ShopifyServerProvider} from '@shopify/hydrogen';
 
 import shopifyConfig from '../shopify.config';
 
@@ -10,17 +10,10 @@ export default function App({...serverState}) {
 
   return (
     <ShopifyServerProvider shopifyConfig={shopifyConfig} {...serverState}>
-      {/* START: Workaround for CartContext */}
-      <CartServerProvider request={serverState.request}>
-        {({cart, numCartLines}) => {
-          return (
-            <CartProvider cart={cart} numCartLines={numCartLines}>
-              {/* END: Workaround for CartContext */}
-              <Main pages={pages} serverState={serverState} />
-            </CartProvider>
-          );
-        }}
-      </CartServerProvider>
+      <CartProvider>
+        {/* END: Workaround for CartContext */}
+        <Main pages={pages} serverState={serverState} />
+      </CartProvider>
     </ShopifyServerProvider>
   );
 }

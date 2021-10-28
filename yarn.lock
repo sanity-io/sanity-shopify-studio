@@ -3198,14 +3198,6 @@
     lodash "^4.17.15"
     memoize-one "^3.1.1"
 
-"@sanity/studio-hints@^2.21.0":
-  version "2.21.0"
-  resolved "https://registry.npmjs.org/@sanity/studio-hints/-/studio-hints-2.21.0.tgz#84d3bf46beaee833ea749dc56b7dd8747ed3b2c2"
-  integrity sha512-gwUnkIk9WgqcAQSNbyBJ4KPbiTclLxq1ydwRYOYa0HxPgmvDmQ86x0OQfPw4y1NLzAlZ56xCBFh8Bjslm8zBJQ==
-  dependencies:
-    "@sanity/icons" "^1.2.1"
-    "@sanity/ui" "^0.36.12"
-
 "@sanity/timed-out@^4.0.2":
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/@sanity/timed-out/-/timed-out-4.0.2.tgz#c9f61f9a1609baa1eb3e4235a24ea2a775022cdf"
@@ -3378,10 +3370,10 @@
     pkg-dir "^5.0.0"
     pluralize "^8.0.0"
 
-"@shopify/hydrogen@0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@shopify/hydrogen/-/hydrogen-0.3.0.tgz#4cc6b2250252c2f273fb8dd7c76722d8e0d0b121"
-  integrity sha512-nZDZn+eDygKT+W4Itz+/rRAmciAYPA1z7x+r2vq3y4oHOo18rhDYeUu08UlpSV3IzXLVebSE2y9PcTwv5caTTQ==
+"@shopify/hydrogen@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@shopify/hydrogen/-/hydrogen-0.4.0.tgz#9db77ec0713a120675ff0a8fa8dee94c525cf87f"
+  integrity sha512-kjOto5z/JpuM/jqeBhEI9dJosyZJBQOB9Qr4bvf9L3n7kElvm6VdnjPdiS91bVDnsSF/Lx/2XX59XFHO0O+h+A==
   dependencies:
     "@vitejs/plugin-react" "^1.0.0"
     connect "^3.7.0"

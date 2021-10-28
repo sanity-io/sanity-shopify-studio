@@ -47,7 +47,7 @@ const ProductCard = (props) => {
                 </SelectedVariantAddToCartButton>
               ) : (
                 <button
-                  className="bg-gray-400 text-white text-center p-4 text-sm w-full"
+                  className="bg-gray-400 text-white text-center p-4 text-xs w-full"
                   disabled
                   type="button"
                 >
