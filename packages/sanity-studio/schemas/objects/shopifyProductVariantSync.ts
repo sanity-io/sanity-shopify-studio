@@ -4,7 +4,7 @@ export default {
   description: 'Synced data from Shopify',
   type: 'object',
   options: {
-    collapsed: false,
+    collapsed: true,
     collapsible: true
   },
   fieldsets: [

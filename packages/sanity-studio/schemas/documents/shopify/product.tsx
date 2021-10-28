@@ -18,13 +18,6 @@ export default {
       name: 'shopifyStatus',
       type: 'shopifyStatus'
     },
-    // Shopify product sync
-    {
-      name: 'shopify',
-      title: 'Shopify',
-      type: 'shopifyProductSync',
-      description: 'Synced data from Shopify'
-    },
     // Images
     {
       title: 'Images',
@@ -142,13 +135,20 @@ export default {
           type: 'blockProduct'
         }
       ]
+    },
+    // Shopify product sync
+    {
+      name: 'shopify',
+      title: 'Shopify',
+      type: 'shopifyProductSync',
+      description: 'Synced data from Shopify'
     }
   ],
   preview: {
     select: {
       isDeleted: 'shopify.isDeleted',
       isEnabled: 'shopify.isEnabled',
-      optionCount: 'options.length',
+      optionCount: 'shopify.options.length',
       previewImageUrl: 'shopify.previewImageUrl',
       priceRange: 'shopify.priceRange',
       status: 'shopify.status',
