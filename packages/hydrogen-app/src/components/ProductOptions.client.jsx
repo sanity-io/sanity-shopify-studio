@@ -10,7 +10,7 @@ export default function ProductOptions() {
           <fieldset key={name} className="my-3">
             <legend className="text-xs text-gray-700 uppercase">{name}</legend>
 
-            <div className="flex items-center flex-wrap gap-1 mt-1">
+            <div className="flex items-start flex-wrap gap-1 mt-1">
               {values.map((value) => {
                 const checked = selectedOptions[name] === value;
                 const id = `option-${name}-${value}`;

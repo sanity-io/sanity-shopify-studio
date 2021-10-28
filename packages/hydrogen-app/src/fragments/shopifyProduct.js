@@ -12,7 +12,6 @@ export const SHOPIFY_PRODUCT = groq`
   images[] {
     ${IMAGE}
   },
-  options,
   sections[]{
     _key,
     body[]{

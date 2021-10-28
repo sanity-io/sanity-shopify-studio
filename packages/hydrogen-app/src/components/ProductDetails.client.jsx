@@ -3,11 +3,9 @@ import {Product} from '@shopify/hydrogen/client';
 import PortableText from './PortableText.client';
 import ProductActions from './ProductActions.client';
 import SanityGallery from './SanityGallery.client';
-import SanityProductOptions from './SanityProductOptions.client';
+import ProductOptions from './ProductOptions.client';
 
 export default function ProductDetails({product, providerData}) {
-  const options = product?.options;
-
   const initialVariantId = providerData.variants.edges[0].node.id;
 
   return (
@@ -58,12 +56,10 @@ export default function ProductDetails({product, providerData}) {
                 */}
               </div>
 
-              {/* (Sanity powered) Product options */}
-              {options && (
-                <div className="mt-5">
-                  <SanityProductOptions options={options} />
-                </div>
-              )}
+              {/* Product options */}
+              <div className="mt-5">
+                <ProductOptions />
+              </div>
 
               {/* Product actions: Add to cart, buy now buttons, etc */}
               <div className="my-8 space-y-2">
