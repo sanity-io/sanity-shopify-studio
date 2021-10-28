@@ -25,28 +25,6 @@ export default {
       type: 'shopifyProductSync',
       description: 'Synced data from Shopify'
     },
-    // Options
-    {
-      name: 'options',
-      title: 'Options',
-      type: 'array',
-      options: {
-        // FIXME: remove this non-standard option which extends `/parts/customArrayFunctions`
-        creatable: false,
-        sortable: false
-      },
-      of: [
-        {
-          name: 'option',
-          title: 'Option',
-          type: 'productOption'
-        }
-      ],
-      hidden: ({ parent }) => {
-        // Hide if this product only has one variant
-        return parent?.shopify?.variants && parent?.shopify?.variants.length === 1
-      }
-    },
     // Images
     {
       title: 'Images',

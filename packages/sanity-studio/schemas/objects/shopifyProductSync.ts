@@ -9,6 +9,7 @@ export default {
     collapsed: true,
     collapsible: true
   },
+  readOnly: true,
   fieldsets: [
     {
       name: 'status',
@@ -23,6 +24,14 @@ export default {
       options: {
         columns: 2
       }
+    },
+    {
+      name: 'variants',
+      title: 'Variants',
+      options: {
+        collapsed: true,
+        collapsible: true
+      }
     }
   ],
   fields: [
@@ -31,22 +40,19 @@ export default {
       fieldset: 'status',
       name: 'isEnabled',
       title: 'Enabled on sales channel?',
-      type: 'boolean',
-      readOnly: true
+      type: 'boolean'
     },
     // Deleted
     {
       fieldset: 'status',
       name: 'isDeleted',
       title: 'Deleted from Shopify?',
-      type: 'boolean',
-      readOnly: true
+      type: 'boolean'
     },
     // Created at
     {
       fieldset: 'status',
       name: 'createdAt',
-      readOnly: true,
       title: 'Created at',
       type: 'string'
     },
@@ -54,7 +60,6 @@ export default {
     {
       fieldset: 'status',
       name: 'updatedAt',
-      readOnly: true,
       title: 'Last updated at',
       type: 'string'
     },
@@ -62,7 +67,6 @@ export default {
     {
       fieldset: 'status',
       name: 'status',
-      readOnly: true,
       title: 'Product status',
       type: 'string',
       options: {
@@ -74,7 +78,6 @@ export default {
     // Title
     {
       name: 'title',
-      readOnly: true,
       title: 'Title',
       type: 'string',
       description: 'Title displayed in both cart and checkout',
@@ -83,7 +86,6 @@ export default {
     // Product ID
     {
       name: 'id',
-      readOnly: true,
       title: 'ID',
       type: 'number',
       description: 'Shopify Product ID',
@@ -94,14 +96,12 @@ export default {
       title: 'Slug',
       description: 'Shopify Product handle',
       name: 'slug',
-      type: 'slug',
-      readOnly: true
+      type: 'slug'
     },
     // Product Type
     {
       fieldset: 'organization',
       name: 'productType',
-      readOnly: true,
       title: 'Product type',
       type: 'string'
     },
@@ -109,7 +109,6 @@ export default {
     {
       fieldset: 'organization',
       name: 'tags',
-      readOnly: true,
       title: 'Tags',
       type: 'string'
     },
@@ -126,14 +125,12 @@ export default {
           name: 'minVariantPrice',
           title: 'Min variant price',
           type: 'number',
-          readOnly: true,
           validation: Rule => Rule.required()
         },
         {
           name: 'maxVariantPrice',
           title: 'Max variant price',
           type: 'number',
-          readOnly: true,
           validation: Rule => Rule.required()
         }
       ]
@@ -151,14 +148,12 @@ export default {
           name: 'minVariantPrice',
           title: 'Min variant price',
           type: 'number',
-          readOnly: true,
           validation: Rule => Rule.required()
         },
         {
           name: 'maxVariantPrice',
           title: 'Max variant price',
           type: 'number',
-          readOnly: true,
           validation: Rule => Rule.required()
         }
       ]
@@ -166,13 +161,30 @@ export default {
     // Preview Image URL
     {
       name: 'previewImageUrl',
-      readOnly: true,
       title: 'Preview Image URL',
       type: 'string',
       description: 'Image displayed in both cart and checkout'
     },
+    // Options
+    {
+      name: 'options',
+      title: 'Options',
+      type: 'array',
+      of: [
+        {
+          name: 'option',
+          title: 'Option',
+          type: 'productOption'
+        }
+      ],
+      hidden: ({ parent }) => {
+        // Hide if this product only has one variant
+        return parent?.shopify?.variants && parent?.shopify?.variants.length === 1
+      }
+    },
     // Variants
     {
+      fieldset: 'variants',
       name: 'variants',
       title: 'Variants',
       type: 'array',
@@ -183,9 +195,7 @@ export default {
           weak: true,
           to: [{ type: SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE }]
         }
-      ],
-      hidden: true,
-      readOnly: true
+      ]
     }
   ]
 }

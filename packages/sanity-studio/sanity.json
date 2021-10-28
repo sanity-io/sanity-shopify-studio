@@ -5,11 +5,12 @@
     "dataset": "production"
   },
   "project": {
-    "name": "Hydrogen demo"
+    "name": "Sanity + Shopify demo"
   },
   "plugins": [
     "@sanity/base",
     "@sanity/components",
+    "@sanity/dashboard",
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
@@ -39,12 +40,12 @@
       "path": "./parts/assetSources.js"
     },
     {
-      "implements": "part:@sanity/base/document-actions/resolver",
-      "path": "./parts/resolveDocumentActions.js"
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./parts/dashboardConfig.js"
     },
     {
-      "implements": "part:@sanity/form-builder/input/array/functions",
-      "path": "./parts/customArrayFunctions.js"
+      "implements": "part:@sanity/base/document-actions/resolver",
+      "path": "./parts/resolveDocumentActions.js"
     }
   ]
 }
