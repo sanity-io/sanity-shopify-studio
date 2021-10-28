@@ -36,13 +36,13 @@ const createProductAndOptions = async (
 
   // Patch existing published document
   transaction.patch(publishedId, patch => {
-    return patch.set({ store: document.shopify })
+    return patch.set({ store: document.store })
   })
 
   // Patch existing draft (if present)
   if (draft) {
     transaction.patch(draftId, patch => {
-      return patch.set({ store: document.shopify })
+      return patch.set({ store: document.store })
     })
   }
 
