@@ -1,5 +1,4 @@
 import { EarthGlobeIcon } from '@sanity/icons'
-import { SHOPIFY_PRODUCT_DOCUMENT_TYPE, SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE } from '../constants'
 import { getShopifyProductUrl } from '../utils/getShopifyProductUrl'
 import { getShopifyProductVariantUrl } from '../utils/getShopifyProductVariantUrl'
 
@@ -11,10 +10,7 @@ type Props = {
 export default (props: Props) => {
   const { published, type } = props
 
-  const isProductOrProductVariant = [
-    SHOPIFY_PRODUCT_DOCUMENT_TYPE,
-    SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE
-  ].includes(type)
+  const isProductOrProductVariant = ['product', 'productVariant'].includes(type)
 
   // Return early if:
   // - Env var is not set
@@ -32,11 +28,11 @@ export default (props: Props) => {
 
   let label
   let url
-  if (type === SHOPIFY_PRODUCT_DOCUMENT_TYPE) {
+  if (type === 'product') {
     label = 'Edit product in Shopify'
     url = getShopifyProductUrl(published?.shopify?.id)
   }
-  if (type === SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE) {
+  if (type === 'productVariant') {
     label = 'Edit variant in Shopify'
     url = getShopifyProductVariantUrl(published?.shopify?.productId, published?.shopify?.id)
   }

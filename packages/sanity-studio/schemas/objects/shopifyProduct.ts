@@ -1,7 +1,5 @@
-import { SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE } from '../../constants'
-
 export default {
-  name: 'shopifyProductSync',
+  name: 'shopifyProduct',
   title: 'Shopify',
   description: 'Synced data from Shopify',
   type: 'object',
@@ -193,7 +191,7 @@ export default {
           title: 'Variant',
           type: 'reference',
           weak: true,
-          to: [{ type: SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE }]
+          to: [{ type: 'productVariant' }]
         }
       ]
     }

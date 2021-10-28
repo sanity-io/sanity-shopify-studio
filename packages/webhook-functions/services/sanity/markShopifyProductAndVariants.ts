@@ -4,8 +4,8 @@ const markDeletedProductAndVariants = async (productId: number) => {
   // Fetch all product variant documents with matching Shopify Product ID
   const productVariants: string[] = await sanityClient.fetch(
     `*[
-      _type == "shopify.productVariant"
-      && shopify.productId == $productId
+      _type == "productVariant"
+      && store.productId == $productId
     ]._id`,
     { productId: productId }
   )
@@ -18,20 +18,14 @@ const markDeletedProductAndVariants = async (productId: number) => {
 
   const transaction = sanityClient.transaction()
   // Mark product as deleted
-  transaction.patch(documentId, patch =>
-    patch.set({ 'shopify.isDeleted': true })
-  )
+  transaction.patch(documentId, patch => patch.set({ 'store.isDeleted': true }))
   if (draft) {
-    transaction.patch(draftDocumentId, patch =>
-      patch.set({ 'shopify.isDeleted': true })
-    )
+    transaction.patch(draftDocumentId, patch => patch.set({ 'store.isDeleted': true }))
   }
 
   // Mark all product variants as deleted
   productVariants.forEach(documentId =>
-    transaction.patch(documentId, patch =>
-      patch.set({ 'shopify.isDeleted': true })
-    )
+    transaction.patch(documentId, patch => patch.set({ 'store.isDeleted': true }))
   )
 
   await transaction.commit()

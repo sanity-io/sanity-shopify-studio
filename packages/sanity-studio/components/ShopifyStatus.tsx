@@ -3,7 +3,6 @@ import React, { forwardRef } from 'react'
 import { WarningOutlineIcon } from '@sanity/icons'
 import { Box, Card, Flex, Stack, Text } from '@sanity/ui'
 import { SanityDocument } from '@sanity/client'
-import { SHOPIFY_PRODUCT_DOCUMENT_TYPE, SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE } from '../constants'
 import { getShopifyProductUrl } from '../utils/getShopifyProductUrl'
 
 type Props = {
@@ -20,11 +19,11 @@ const ShopifyStatus = forwardRef<HTMLDivElement, Props>((props, ref) => {
 
   let shopifyProductUrl
   let title
-  if (document._type === SHOPIFY_PRODUCT_DOCUMENT_TYPE) {
+  if (document._type === 'product') {
     title = 'This product is hidden!'
     shopifyProductUrl = getShopifyProductUrl(document?.shopify?.id)
   }
-  if (document._type === SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE) {
+  if (document._type === 'productVariant') {
     title = `This variant's product is hidden!`
     shopifyProductUrl = getShopifyProductUrl(document?.shopify?.productId)
   }

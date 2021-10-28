@@ -1,15 +1,14 @@
 import { TagIcon } from '@sanity/icons'
 import pluralize from 'pluralize'
 import React from 'react'
-import { SHOPIFY_PRODUCT_DOCUMENT_TYPE } from '../../../constants'
-import ProductPreview from '../../../components/ProductPreview'
-import { getPriceRange } from '../../../utils/getPriceRange'
+import ProductPreview from '../../components/ProductPreview'
+import { getPriceRange } from '../../utils/getPriceRange'
 
 export default {
   // HACK: Required to hide 'create new' button in desk structure
   __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
-  name: SHOPIFY_PRODUCT_DOCUMENT_TYPE,
-  title: 'Shopify product',
+  name: 'product',
+  title: 'Product',
   type: 'document',
   icon: TagIcon,
   fields: [
@@ -136,24 +135,24 @@ export default {
         }
       ]
     },
-    // Shopify product sync
+    // Shopify product
     {
-      name: 'shopify',
+      name: 'store',
       title: 'Shopify',
-      type: 'shopifyProductSync',
+      type: 'shopifyProduct',
       description: 'Synced data from Shopify'
     }
   ],
   preview: {
     select: {
-      isDeleted: 'shopify.isDeleted',
-      isEnabled: 'shopify.isEnabled',
-      optionCount: 'shopify.options.length',
-      previewImageUrl: 'shopify.previewImageUrl',
-      priceRange: 'shopify.priceRange',
-      status: 'shopify.status',
-      title: 'shopify.title',
-      variantCount: 'shopify.variants.length'
+      isDeleted: 'store.isDeleted',
+      isEnabled: 'store.isEnabled',
+      optionCount: 'store.options.length',
+      previewImageUrl: 'store.previewImageUrl',
+      priceRange: 'store.priceRange',
+      status: 'store.status',
+      title: 'store.title',
+      variantCount: 'store.variants.length'
     },
     prepare(selection) {
       const {

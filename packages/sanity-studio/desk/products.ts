@@ -1,14 +1,13 @@
 import { BasketIcon, CopyIcon, InfoOutlineIcon } from '@sanity/icons'
 import S from '@sanity/desk-tool/structure-builder'
-import { SHOPIFY_PRODUCT_DOCUMENT_TYPE, SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE } from '../constants'
 
 // prettier-ignore
 export const products = S.listItem()
   .title('Products')
-  .schemaType(SHOPIFY_PRODUCT_DOCUMENT_TYPE)
+  .schemaType('product')
   .icon(BasketIcon)
   .child(
-    S.documentTypeList(SHOPIFY_PRODUCT_DOCUMENT_TYPE)
+    S.documentTypeList('product')
       // .defaultLayout('detail')
       .child(async id =>
         S.list()
@@ -20,7 +19,7 @@ export const products = S.listItem()
               .icon(InfoOutlineIcon)
               .child(
                 S.document()
-                  .schemaType(SHOPIFY_PRODUCT_DOCUMENT_TYPE)
+                  .schemaType('product')
                   .documentId(id)
               ),
             // Product variants
@@ -30,11 +29,11 @@ export const products = S.listItem()
               .child(
                 S.documentList()
                   .title('Variants')
-                  .schemaType(SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE)
+                  .schemaType('productVariant')
                   .filter(
                     `
-                      _type == "${SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE}"
-                      && shopify.productId == $productId
+                      _type == "productVariant"
+                      && store.productId == $productId
                     `
                   )
                   .params({

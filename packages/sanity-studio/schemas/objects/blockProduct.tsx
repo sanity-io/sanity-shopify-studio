@@ -1,6 +1,5 @@
 import React from 'react'
 import { TagIcon } from '@sanity/icons'
-import { SHOPIFY_PRODUCT_DOCUMENT_TYPE } from '../../constants'
 
 const ImagePreview = (props: { url: string }) => {
   const { url } = props
@@ -18,30 +17,30 @@ export default {
   icon: TagIcon,
   fields: [
     {
-      name: 'shopifyProduct',
-      title: 'Shopify product',
+      name: 'product',
+      title: 'Product',
       type: 'reference',
       weak: true,
-      to: [{ type: SHOPIFY_PRODUCT_DOCUMENT_TYPE }],
+      to: [{ type: 'product' }]
     },
     {
       name: 'caption',
       title: 'Caption',
-      type: 'string',
-    },
+      type: 'string'
+    }
   ],
   preview: {
     select: {
-      productImageUrl: 'shopifyProduct.previewImageUrl',
-      productTitle: 'shopifyProduct.title',
+      productImageUrl: 'product.store.previewImageUrl',
+      productTitle: 'product.store.title'
     },
     prepare(selection) {
       const { productImageUrl, productTitle } = selection
 
       return {
         media: <ImagePreview url={productImageUrl} />,
-        title: productTitle,
+        title: productTitle
       }
-    },
-  },
+    }
+  }
 }

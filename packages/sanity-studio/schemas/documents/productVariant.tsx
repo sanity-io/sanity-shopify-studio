@@ -1,13 +1,12 @@
 import { CopyIcon } from '@sanity/icons'
 import React from 'react'
-import ProductPreview from '../../../components/ProductPreview'
-import { SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE } from '../../../constants'
+import ProductPreview from '../../components/ProductPreview'
 
 export default {
   // HACK: Required to hide 'create new' button in desk structure
   __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
-  name: SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE,
-  title: 'Shopify product variant',
+  name: 'productVariant',
+  title: 'Product variant',
   type: 'document',
   icon: CopyIcon,
   fields: [
@@ -16,22 +15,22 @@ export default {
       name: 'shopifyStatus',
       type: 'shopifyStatus'
     },
-    // Shopify product variant sync
+    // Product variant sync
     {
-      name: 'shopify',
+      name: 'store',
       title: 'Shopify',
       description: 'Synced data from Shopify',
-      type: 'shopifyProductVariantSync'
+      type: 'shopifyProductVariant'
     }
   ],
   preview: {
     select: {
-      isDeleted: 'shopify.isDeleted',
-      isEnabled: 'shopify.isEnabled',
-      previewImageUrl: 'shopify.previewImageUrl',
-      sku: 'shopify.sku',
-      status: 'shopify.status',
-      title: 'shopify.title'
+      isDeleted: 'store.isDeleted',
+      isEnabled: 'store.isEnabled',
+      previewImageUrl: 'store.previewImageUrl',
+      sku: 'store.sku',
+      status: 'store.status',
+      title: 'store.title'
     },
     prepare(selection) {
       const { isDeleted, isEnabled, previewImageUrl, sku, status, title } = selection

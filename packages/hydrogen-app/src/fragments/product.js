@@ -1,18 +1,23 @@
 import groq from 'groq';
 
 import {PORTABLE_TEXT} from './portableText';
-import {SHOPIFY_PRODUCT} from './shopifyProduct';
+import {IMAGE} from './image';
 
 export const PRODUCT = groq`
-  ...,
+  _id,
+  "available": store.isEnabled && !store.isDeleted && store.status == 'active',
+  body[]{
+    ${PORTABLE_TEXT}
+  },
+  images[] {
+    ${IMAGE}
+  },
   sections[]{
+    _key,
     body[]{
       ${PORTABLE_TEXT}
     },
     title
   },
-  "slug": slug.current,
-  shopify->{
-    ${SHOPIFY_PRODUCT}
-  },
+  "slug": store.slug.current
 `;

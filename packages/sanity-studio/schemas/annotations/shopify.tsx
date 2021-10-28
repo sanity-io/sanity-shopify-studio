@@ -1,28 +1,27 @@
 import { TagIcon } from '@sanity/icons'
 import React from 'react'
-import { SHOPIFY_PRODUCT_DOCUMENT_TYPE } from '../../constants'
 
 export default {
   title: 'Product',
   name: 'annotationShopify',
   type: 'object',
   blockEditor: {
-    icon: () => <TagIcon />,
+    icon: () => <TagIcon />
   },
   fields: [
     // Product
     {
-      title: 'Shopify product',
-      name: 'shopifyProduct',
+      title: 'Product',
+      name: 'product',
       type: 'reference',
-      to: [{ type: SHOPIFY_PRODUCT_DOCUMENT_TYPE }],
+      to: [{ type: 'product' }]
     },
     // Quantity
     {
       name: 'quantity',
       title: 'Quantity',
       type: 'number',
-      validation: Rule => Rule.required().min(1).max(10),
+      validation: Rule => Rule.required().min(1).max(10)
     },
     // Action
     {
@@ -33,15 +32,15 @@ export default {
         list: [
           {
             title: 'Add to cart',
-            value: 'addToCart',
+            value: 'addToCart'
           },
           {
             title: 'Buy now',
-            value: 'buyNow',
-          },
-        ],
+            value: 'buyNow'
+          }
+        ]
       },
-      validation: Rule => Rule.required(),
-    },
-  ],
+      validation: Rule => Rule.required()
+    }
+  ]
 }

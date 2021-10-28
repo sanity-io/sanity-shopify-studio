@@ -6,7 +6,7 @@ import Gallery from '../components/Gallery.client';
 import Layout from '../components/Layout.client';
 import ProductCard from '../components/ProductCard.client';
 import {IMAGE} from '../fragments/image';
-import {SHOPIFY_PRODUCT} from '../fragments/shopifyProduct';
+import {PRODUCT} from '../fragments/product';
 import {useSanityGroqQuery} from '../utils/query/useSanityGroqQuery';
 
 export default function Index() {
@@ -51,7 +51,7 @@ const QUERY = groq`
   *[_id == 'home'][0]{
     featuredProducts[]->{
       ...,
-      ${SHOPIFY_PRODUCT}
+      ${PRODUCT}
     },
     gallery[] {
       ${IMAGE}

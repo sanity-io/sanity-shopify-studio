@@ -3,15 +3,10 @@ import defaultResolve, {
   CreateAction,
   DeleteAction,
   DuplicateAction,
-  PublishAction,
-  UnpublishAction,
+  UnpublishAction
 } from 'part:@sanity/base/document-actions'
 import deleteProductAndVariants from '../documentActions/deleteProductAndVariants'
 import shopifyLink from '../documentActions/shopifyLink'
-import {
-  SHOPIFY_PRODUCT_DOCUMENT_TYPE,
-  SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE,
-} from '../constants'
 
 export default function resolveDocumentActions(props) {
   return [
@@ -19,29 +14,22 @@ export default function resolveDocumentActions(props) {
     ...defaultResolve(props)
       // Filter out actions by document type
       .filter(action => {
-        if (props.type === SHOPIFY_PRODUCT_DOCUMENT_TYPE) {
+        if (props.type === 'product') {
           // Disable: creation, deletion, duplication
           if (
             [
               CreateAction,
               // DeleteAction,
-              DuplicateAction,
+              DuplicateAction
             ].includes(action)
           ) {
             return false
           }
         }
 
-        if (props.type === SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE) {
+        if (props.type === 'productVariant') {
           // Disable: creation, deletion, duplication, unpublishing
-          if (
-            [
-              CreateAction,
-              DeleteAction,
-              DuplicateAction,
-              UnpublishAction,
-            ].includes(action)
-          ) {
+          if ([CreateAction, DeleteAction, DuplicateAction, UnpublishAction].includes(action)) {
             return false
           }
         }
@@ -51,16 +39,13 @@ export default function resolveDocumentActions(props) {
       // Override any built-in actions with our own
       .map(action => {
         // Products: replace default delete action
-        if (
-          props.type === SHOPIFY_PRODUCT_DOCUMENT_TYPE &&
-          action === DeleteAction
-        ) {
+        if (props.type === 'product' && action === DeleteAction) {
           return deleteProductAndVariants
         }
 
         return action
       }),
     // Add our own custom actions
-    shopifyLink,
+    shopifyLink
   ]
 }

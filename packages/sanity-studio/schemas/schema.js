@@ -11,16 +11,16 @@ import annotationShopify from './annotations/shopify'
 import annotationShopifyMargin from './annotations/shopifyMargin'
 // Documents
 import page from './documents/page'
-import shopifyProduct from './documents/shopify/product'
-import shopifyProductVariant from './documents/shopify/productVariant'
+import product from './documents/product'
+import productVariant from './documents/productVariant'
 // Objects
 import blockImage from './objects/blockImage'
 import blockProduct from './objects/blockProduct'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
 import productOption from './objects/productOption'
-import shopifyProductSync from './objects/shopifyProductSync'
-import shopifyProductVariantSync from './objects/shopifyProductVariantSync'
+import shopifyProduct from './objects/shopifyProduct'
+import shopifyProductVariant from './objects/shopifyProductVariant'
 import shopifyStatus from './objects/shopifyStatus'
 // Singletons
 import home from './singletons/home'
@@ -41,16 +41,16 @@ export default createSchema({
     annotationShopifyMargin,
     // Documents
     page,
-    shopifyProduct,
-    shopifyProductVariant,
+    product,
+    productVariant,
     // Objects
     blockImage,
     blockProduct,
     linkExternal,
     linkInternal,
     productOption,
-    shopifyProductSync,
-    shopifyProductVariantSync,
+    shopifyProduct,
+    shopifyProductVariant,
     shopifyStatus,
     // Singletons
     home,

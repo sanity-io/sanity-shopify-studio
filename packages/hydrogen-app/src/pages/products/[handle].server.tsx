@@ -4,7 +4,7 @@ import {useParams} from 'react-router-dom';
 import Layout from '../../components/Layout.client';
 import NotFound from '../../components/NotFound.server';
 import ProductDetails from '../../components/ProductDetails.client';
-import {SHOPIFY_PRODUCT} from '../../fragments/shopifyProduct';
+import {PRODUCT} from '../../fragments/product';
 import {useSanityGroqQuery} from '../../utils/query/useSanityGroqQuery';
 
 export default function Product() {
@@ -19,7 +19,7 @@ export default function Product() {
     dataset: 'production',
   });
 
-  const providerData = shopifyData?.[sanityData?._id]
+  const providerData = shopifyData?.[sanityData?._id];
 
   if (!sanityData || !providerData) {
     return <NotFound />;
@@ -34,9 +34,9 @@ export default function Product() {
 
 const QUERY = groq`
   *[
-    _type == 'shopify.product'
-    && shopify.slug.current == $slug
+    _type == 'product'
+    && store.slug.current == $slug
   ][0]{
-    ${SHOPIFY_PRODUCT}
+    ${PRODUCT}
   }
 `;

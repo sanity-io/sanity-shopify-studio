@@ -1,10 +1,6 @@
 import { IdentifiedSanityDocumentStub, Transaction } from '@sanity/client'
 import { uuid } from '@sanity/uuid'
 import groq from 'groq'
-import {
-  SHOPIFY_PRODUCT_DOCUMENT_TYPE,
-  SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE
-} from '../../constants'
 import { sanityClient } from '../../lib/sanity'
 import fetchProductListingStatus from '../shopify/fetchProductListing'
 // import fetchProductMetafields from '../shopify/fetchProductMetafields'
@@ -40,13 +36,13 @@ const createProductAndOptions = async (
 
   // Patch existing published document
   transaction.patch(publishedId, patch => {
-    return patch.set({ shopify: document.shopify })
+    return patch.set({ store: document.shopify })
   })
 
   // Patch existing draft (if present)
   if (draft) {
     transaction.patch(draftId, patch => {
-      return patch.set({ shopify: document.shopify })
+      return patch.set({ store: document.shopify })
     })
   }
 
@@ -148,11 +144,11 @@ const syncShopifyProductAndVariants = async (body: ShopifyWebhookBody) => {
     return acc
   }, {})
 
-  // Build `shopify.productVariant` array
+  // Build `productVariant` array
   const shopifyProductVariants: IdentifiedSanityDocumentStub[] = variants.map(variant => ({
     _id: `shopifyProductVariant-${variant.id}`, // Shopify variant ID
-    _type: SHOPIFY_PRODUCT_VARIANT_DOCUMENT_TYPE,
-    shopify: {
+    _type: 'productVariant',
+    store: {
       compareAtPrice: Number(variant.compare_at_price),
       createdAt: variant.created_at,
       id: variant.id,
@@ -175,12 +171,12 @@ const syncShopifyProductAndVariants = async (body: ShopifyWebhookBody) => {
     }
   }))
 
-  // Build `shopify.product`
+  // Build `product`
   // We assign _key values of product option name and values since they're guaranteed unique in Shopify
   const shopifyProduct: IdentifiedSanityDocumentStub = {
     _id: `shopifyProduct-${id}`, // Shopify product ID
-    _type: SHOPIFY_PRODUCT_DOCUMENT_TYPE,
-    shopify: {
+    _type: 'product',
+    store: {
       compareAtPriceRange,
       createdAt: created_at,
       id,

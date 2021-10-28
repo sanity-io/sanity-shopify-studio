@@ -1,5 +1,5 @@
 export default {
-  name: 'shopifyProductVariantSync',
+  name: 'shopifyProductVariant',
   title: 'Shopify',
   description: 'Synced data from Shopify',
   type: 'object',
