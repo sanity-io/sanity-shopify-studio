@@ -21,7 +21,6 @@ _Transactions are applied on both published and draft documents._
 - Get price ranges across all variants
 - Create a map of all product variant images
 - Map through product response and create individual `productVariant` objects
-  - We store product-specific status fields (e.g. `isDeleted`, `isEnabled` and `status`) on individual product variants too, purely for editor ergonomics (this could possibly be omitted)
 - Create `product` document for upcoming transaction
   - Create a nested `store` object
     - Transform and store all data from Storefront API in here (in the studio, all data scoped within this object will be read-only)

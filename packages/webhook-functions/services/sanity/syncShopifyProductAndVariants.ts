@@ -1,5 +1,4 @@
 import { IdentifiedSanityDocumentStub, Transaction } from '@sanity/client'
-import { uuid } from '@sanity/uuid'
 import groq from 'groq'
 import { sanityClient } from '../../lib/sanity'
 import fetchProductListingStatus from '../shopify/fetchProductListing'
@@ -11,7 +10,7 @@ type VariantPriceRange = {
   minVariantPrice?: number
 }
 
-const createProductAndOptions = async (
+const createOrUpdateProduct = async (
   transaction: Transaction,
   document: IdentifiedSanityDocumentStub
 ) => {
@@ -55,6 +54,10 @@ const createProductVariant = async (
 ) => {
   const publishedId = document._id
   const draftId = `drafts.${document._id}`
+
+  // TODO: can we patch drafts without having to check if they exist first?
+  // TODO: this function is wildly inefficient and is fetching per-variant.
+  // Strongly consider moving this out and batch fetching instead
 
   // Create document if it doesn't exist, otherwise patch with existing content
   transaction.createIfNotExists(document).patch(publishedId, patch => patch.set(document))
@@ -153,7 +156,6 @@ const syncShopifyProductAndVariants = async (body: ShopifyWebhookBody) => {
       createdAt: variant.created_at,
       id: variant.id,
       isDeleted: false,
-      isEnabled,
       // inStock: !!variant.inventory_management
       //   ? variant.inventory_policy === 'continue' ||
       //     variant.inventory_quantity > 0
@@ -165,7 +167,6 @@ const syncShopifyProductAndVariants = async (body: ShopifyWebhookBody) => {
       price: Number(variant.price),
       productId: variant.product_id,
       sku: variant.sku,
-      status,
       title: variant.title,
       updatedAt: variant.updated_at
     }
@@ -205,7 +206,7 @@ const syncShopifyProductAndVariants = async (body: ShopifyWebhookBody) => {
       updatedAt: updated_at,
       variants: shopifyProductVariants?.map(variant => {
         return {
-          _key: uuid(),
+          _key: variant._id,
           _type: 'reference',
           _ref: variant._id,
           _weak: true
@@ -216,8 +217,24 @@ const syncShopifyProductAndVariants = async (body: ShopifyWebhookBody) => {
 
   const transaction = sanityClient.transaction()
 
-  // Create product and merge options
-  await createProductAndOptions(transaction, shopifyProduct)
+  // Create product
+  await createOrUpdateProduct(transaction, shopifyProduct)
+
+  // Fetch existing variants
+  const existingVariantIds: string[] = await sanityClient.fetch(
+    groq`*[_type == "productVariant" && store.productId == $id]._id`,
+    { id }
+  )
+
+  // Mark any dangling variants as deleted.
+  // Products with no custom variants will always have one default variant titled 'Default Title',
+  // which will be deleted as soon as user specified variants are added.
+  existingVariantIds.forEach(existingVariantId => {
+    const active = shopifyProductVariants.some(v => v._id === existingVariantId)
+    if (!active) {
+      transaction.patch(existingVariantId, patch => patch.set({ 'store.isDeleted': true }))
+    }
+  })
 
   // Create / update product variants
   for (let i = 0; i < shopifyProductVariants.length; i++) {

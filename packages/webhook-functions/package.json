@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@sanity/client": "^2.19.0",
-    "@sanity/uuid": "^3.0.1",
     "body-parser": "^1.19.0",
     "next": "11.1.2",
     "p-queue": "^7.1.0",
