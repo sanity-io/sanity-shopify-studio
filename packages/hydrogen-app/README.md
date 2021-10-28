@@ -24,9 +24,8 @@ _This is a work in progress_
   - Shopify
   - Sanity
 - Local development
-- Deployment (refer to Hydrogen docs)
-  - Oxygen
-  - Cloudflare workers
+- Deployment
+  - Reference: [Deploying a Hydrogen app](https://shopify.dev/beta/hydrogen/deployment)
 - Caveats
 - Further customisation
   - Recipes
