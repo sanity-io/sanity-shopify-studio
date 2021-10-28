@@ -1,32 +1,22 @@
-import { withDocument } from 'part:@sanity/form-builder'
-import React, { forwardRef } from 'react'
+import { SanityDocument } from '@sanity/client'
 import { WarningOutlineIcon } from '@sanity/icons'
 import { Box, Card, Flex, Stack, Text } from '@sanity/ui'
-import { SanityDocument } from '@sanity/client'
+import { withDocument } from 'part:@sanity/form-builder'
+import React, { forwardRef } from 'react'
 import { getShopifyProductUrl } from '../utils/getShopifyProductUrl'
 
 type Props = {
   document: SanityDocument
 }
 
-const ShopifyStatus = forwardRef<HTMLDivElement, Props>((props, ref) => {
+const ProductHidden = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { document } = props
 
-  // TODO: add helper
   const isActive = document?.store?.status === 'active'
   const isDeleted = document?.store?.isDeleted
   const isEnabled = document?.store?.isEnabled
 
-  let shopifyProductUrl
-  let title
-  if (document._type === 'product') {
-    title = 'This product is hidden!'
-    shopifyProductUrl = getShopifyProductUrl(document?.store?.id)
-  }
-  if (document._type === 'productVariant') {
-    title = `This variant's product is hidden!`
-    shopifyProductUrl = getShopifyProductUrl(document?.store?.productId)
-  }
+  const shopifyProductUrl = getShopifyProductUrl(document?.store?.id)
 
   let message
   if (!isEnabled) {
@@ -52,7 +42,7 @@ const ShopifyStatus = forwardRef<HTMLDivElement, Props>((props, ref) => {
         <Box flex={1} marginLeft={3}>
           <Box>
             <Text size={2} weight="semibold">
-              {title}
+              This product is hidden
             </Text>
           </Box>
           <Stack marginTop={4} space={2}>
@@ -74,4 +64,4 @@ const ShopifyStatus = forwardRef<HTMLDivElement, Props>((props, ref) => {
   )
 })
 
-export default withDocument(ShopifyStatus)
+export default withDocument(ProductHidden)

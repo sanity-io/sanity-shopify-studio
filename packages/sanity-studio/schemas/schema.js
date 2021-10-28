@@ -21,7 +21,6 @@ import linkInternal from './objects/linkInternal'
 import productOption from './objects/productOption'
 import shopifyProduct from './objects/shopifyProduct'
 import shopifyProductVariant from './objects/shopifyProductVariant'
-import shopifyStatus from './objects/shopifyStatus'
 // Singletons
 import home from './singletons/home'
 import navigation from './singletons/navigation'
@@ -51,7 +50,6 @@ export default createSchema({
     productOption,
     shopifyProduct,
     shopifyProductVariant,
-    shopifyStatus,
     // Singletons
     home,
     navigation

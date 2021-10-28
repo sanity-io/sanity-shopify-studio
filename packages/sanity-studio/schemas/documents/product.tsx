@@ -1,6 +1,7 @@
 import { TagIcon } from '@sanity/icons'
 import pluralize from 'pluralize'
 import React from 'react'
+import ProductHidden from '../../components/ProductHidden'
 import ProductPreview from '../../components/ProductPreview'
 import { getPriceRange } from '../../utils/getPriceRange'
 
@@ -12,10 +13,18 @@ export default {
   type: 'document',
   icon: TagIcon,
   fields: [
-    // Shopify status
+    // Product hidden status
     {
-      name: 'shopifyStatus',
-      type: 'shopifyStatus'
+      name: 'hidden',
+      type: 'string',
+      inputComponent: ProductHidden,
+      hidden: ({ parent }) => {
+        const isActive = parent?.store?.status === 'active'
+        const isEnabled = parent?.store?.isEnabled
+        const isDeleted = parent?.store?.isDeleted
+
+        return isActive && !isDeleted && isEnabled
+      }
     },
     // Images
     {

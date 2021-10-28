@@ -1,6 +1,7 @@
 import { CopyIcon } from '@sanity/icons'
 import React from 'react'
 import ProductPreview from '../../components/ProductPreview'
+import ProductVariantHidden from '../../components/ProductVariantHidden'
 
 export default {
   // HACK: Required to hide 'create new' button in desk structure
@@ -10,12 +11,18 @@ export default {
   type: 'document',
   icon: CopyIcon,
   fields: [
-    // Shopify status
+    // Product variant hidden status
     {
-      name: 'shopifyStatus',
-      type: 'shopifyStatus'
+      name: 'hidden',
+      type: 'string',
+      inputComponent: ProductVariantHidden,
+      hidden: ({ parent }) => {
+        const isDeleted = parent?.store?.isDeleted
+
+        return !isDeleted
+      }
     },
-    // Product variant sync
+    // Shopify product variant
     {
       name: 'store',
       title: 'Shopify',

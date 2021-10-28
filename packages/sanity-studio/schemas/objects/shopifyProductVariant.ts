@@ -32,20 +32,6 @@ export default {
       type: 'boolean',
     },
     */
-    // Enabled (on sales channel)
-    {
-      fieldset: 'status',
-      name: 'isEnabled',
-      title: 'Enabled on sales channel?',
-      type: 'boolean'
-    },
-    // Deleted
-    {
-      fieldset: 'status',
-      name: 'isDeleted',
-      title: 'Deleted from Shopify?',
-      type: 'boolean'
-    },
     // Created at
     {
       fieldset: 'status',
@@ -60,16 +46,12 @@ export default {
       title: 'Last updated at',
       type: 'string'
     },
-    // Product status
+    // Deleted
     {
       fieldset: 'status',
-      name: 'status',
-      title: 'Product status',
-      type: 'string',
-      options: {
-        layout: 'dropdown',
-        list: ['active', 'archived', 'draft']
-      }
+      name: 'isDeleted',
+      title: 'Deleted from Shopify?',
+      type: 'boolean'
     },
     // Title
     {
