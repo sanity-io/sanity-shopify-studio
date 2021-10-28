@@ -21,7 +21,7 @@ export default (props: Props) => {
     !process.env.SANITY_STUDIO_SHOPIFY_STORE_ID ||
     !published ||
     !isProductOrProductVariant ||
-    published?.shopify?.isDeleted
+    published?.store?.isDeleted
   ) {
     return null
   }
@@ -30,11 +30,11 @@ export default (props: Props) => {
   let url
   if (type === 'product') {
     label = 'Edit product in Shopify'
-    url = getShopifyProductUrl(published?.shopify?.id)
+    url = getShopifyProductUrl(published?.store?.id)
   }
   if (type === 'productVariant') {
     label = 'Edit variant in Shopify'
-    url = getShopifyProductVariantUrl(published?.shopify?.productId, published?.shopify?.id)
+    url = getShopifyProductVariantUrl(published?.store?.productId, published?.store?.id)
   }
 
   if (!label && !url) {

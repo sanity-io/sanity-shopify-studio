@@ -32,7 +32,7 @@ const deleteProductAndVariants = (props: Props) => {
       ),
       onCancel: onComplete,
       onConfirm: async () => {
-        const productId = published?.shopify?.id
+        const productId = published?.store?.id
 
         // Find product variant documents with matching Shopify Product ID
         let productVariantIds: string[] = []

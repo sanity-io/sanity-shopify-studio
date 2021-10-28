@@ -13,19 +13,19 @@ const ShopifyStatus = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { document } = props
 
   // TODO: add helper
-  const isActive = document?.shopify?.status === 'active'
-  const isDeleted = document?.shopify?.isDeleted
-  const isEnabled = document?.shopify?.isEnabled
+  const isActive = document?.store?.status === 'active'
+  const isDeleted = document?.store?.isDeleted
+  const isEnabled = document?.store?.isEnabled
 
   let shopifyProductUrl
   let title
   if (document._type === 'product') {
     title = 'This product is hidden!'
-    shopifyProductUrl = getShopifyProductUrl(document?.shopify?.id)
+    shopifyProductUrl = getShopifyProductUrl(document?.store?.id)
   }
   if (document._type === 'productVariant') {
     title = `This variant's product is hidden!`
-    shopifyProductUrl = getShopifyProductUrl(document?.shopify?.productId)
+    shopifyProductUrl = getShopifyProductUrl(document?.store?.productId)
   }
 
   let message

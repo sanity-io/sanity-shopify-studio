@@ -7,9 +7,9 @@ export default {
   inputComponent: ShopifyStatus,
   hidden: ({ parent }) => {
     // TODO: add helper
-    const isActive = parent?.shopify?.status === 'active'
-    const isEnabled = parent?.shopify?.isEnabled
-    const isDeleted = parent?.shopify?.isDeleted
+    const isActive = parent?.store?.status === 'active'
+    const isEnabled = parent?.store?.isEnabled
+    const isDeleted = parent?.store?.isDeleted
 
     return isActive && !isDeleted && isEnabled
   }
