@@ -15,6 +15,8 @@ A customised version of Hydrogen's official starter, tailored to showcase:
 
 It is designed to be as simple as possible with few dependencies and built with the expectation that users will add their own flavour of styling, animation and own structure.
 
+This is currently deployed on https://hydrogen-demo.fly.dev/
+
 ### [`sanity-studio`](/packages/sanity-studio/README.md)
 
 An opinionated Sanity studio built with defaults aimed at simpler shopfronts that want a clear path for managing (and customising) their shop content.
