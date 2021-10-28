@@ -29,10 +29,8 @@ _Transactions are applied on both published and draft documents._
 - Create Sanity transaction
 - For this Product ID
   - Fetch published and draft documents from Sanity dataset
-    - Grab existing product `options` in projection
   - If document doesn't exist, create new `shopify.product` in transaction
   - If document already exists (either published or draft)
-    - selectively merge previous and inbound product `options` (making sure to retain custom values)
     - patch new values for `shopify` and override all previous
 - Create new `shopify.productVariant` in transactions
 - Commit transaction
@@ -41,7 +39,6 @@ _Transactions are applied on both published and draft documents._
 >
 > - Create / patch products and product variants in Sanity
 > - Product variants are weakly referenced to products
-> - Selectively merge product options
 > - Update both published documents and drafts
 
 ---

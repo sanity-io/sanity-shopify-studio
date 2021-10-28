@@ -15,32 +15,6 @@ type VariantPriceRange = {
   minVariantPrice?: number
 }
 
-type ProductOption = {
-  name: string
-  values: ({
-    value: string
-  } & Record<string, any>)[]
-}
-
-// Conditionally merge two sets of product options.
-// Whenever a product is updated, we don't want to completely blow away previous product option content
-// as there may be user generated content present.
-const mergeProductOptions = (newOptions: ProductOption[], oldOptions: ProductOption[]) => {
-  return newOptions?.map(option => {
-    // Find previous option
-    const previousOption = oldOptions.find(o => o.name === option.name)
-    return {
-      ...previousOption,
-      ...option,
-      values: option.values.map(value => {
-        // Find previous product option value
-        const previousValue = previousOption?.values.find(v => v.value === value.value)
-        return { ...previousValue, ...value }
-      })
-    }
-  })
-}
-
 const createProductAndOptions = async (
   transaction: Transaction,
   document: IdentifiedSanityDocumentStub
@@ -48,11 +22,11 @@ const createProductAndOptions = async (
   const publishedId = document._id
   const draftId = `drafts.${document._id}`
 
-  // Fetch existing product options
+  // Fetch existing products
   const { draft, published } = await sanityClient.fetch(
     groq`{
-      "draft": *[_id == $draftId][0] { options },
-      "published": *[_id == $publishedId][0] { options },
+      "draft": *[_id == $draftId][0]._id,
+      "published": *[_id == $publishedId][0]._id,
     }
   `,
     { draftId, publishedId }
@@ -66,19 +40,13 @@ const createProductAndOptions = async (
 
   // Patch existing published document
   transaction.patch(publishedId, patch => {
-    return patch.set({
-      options: mergeProductOptions(document.options, published.options),
-      shopify: document.shopify
-    })
+    return patch.set({ shopify: document.shopify })
   })
 
   // Patch existing draft (if present)
   if (draft) {
     transaction.patch(draftId, patch => {
-      return patch.set({
-        options: mergeProductOptions(document.options, draft.options),
-        shopify: document.shopify
-      })
+      return patch.set({ shopify: document.shopify })
     })
   }
 
@@ -212,16 +180,6 @@ const syncShopifyProductAndVariants = async (body: ShopifyWebhookBody) => {
   const shopifyProduct: IdentifiedSanityDocumentStub = {
     _id: `shopifyProduct-${id}`, // Shopify product ID
     _type: SHOPIFY_PRODUCT_DOCUMENT_TYPE,
-    options: options.map((option, index) => ({
-      _type: 'option',
-      _key: option.name,
-      name: option.name,
-      values: option.values?.map(value => ({
-        _key: value,
-        _type: 'value',
-        value
-      }))
-    })),
     shopify: {
       compareAtPriceRange,
       createdAt: created_at,
@@ -233,6 +191,12 @@ const syncShopifyProductAndVariants = async (body: ShopifyWebhookBody) => {
             previewImageUrl: firstImage.src
           }
         : {}),
+      options: options.map(option => ({
+        _type: 'option',
+        _key: option.name,
+        name: option.name,
+        values: option.values
+      })),
       priceRange,
       productType: product_type,
       slug: {
