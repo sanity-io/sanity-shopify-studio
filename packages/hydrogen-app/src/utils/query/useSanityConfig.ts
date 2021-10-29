@@ -1,9 +1,14 @@
-import sanityClient, {ClientConfig, SanityClient} from '@sanity/client';
-import {useShop} from '@shopify/hydrogen';
+import {ClientConfig} from '@sanity/client';
+import {isClient, useShop} from '@shopify/hydrogen';
 
-const useSanityClient = (config: Partial<ClientConfig> = {}): SanityClient => {
+const useSanityConfig = (config: Partial<ClientConfig> = {}): ClientConfig => {
+  if (isClient()) {
+    throw new Error('Sanity requests should only be made from the server.');
+  }
+
   const shopifyConfig = useShop();
-  const globalClientConfig = (shopifyConfig as any).sanity || {};
+  const globalClientConfig = ((shopifyConfig as any).sanity ||
+    {}) as Partial<ClientConfig>;
 
   if (!(config.projectId || globalClientConfig.projectId)) {
     throw new Error(
@@ -20,13 +25,10 @@ const useSanityClient = (config: Partial<ClientConfig> = {}): SanityClient => {
       '[hydrogen-plugin-sanity] Missing apiVersion.\n Pass it directly to the hook or set its value in the `sanity` object inside shopify.config.js.',
     );
   }
-
-  const client = sanityClient({
+  return {
     ...globalClientConfig,
     ...config,
-  });
-
-  return client;
+  };
 };
 
-export default useSanityClient;
+export default useSanityConfig;

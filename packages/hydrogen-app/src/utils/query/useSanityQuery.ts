@@ -1,35 +1,16 @@
-import {useQuery, useShopQuery} from '@shopify/hydrogen';
-import {isClient} from '@shopify/hydrogen/client';
+import {useQuery} from '@shopify/hydrogen';
+import sanityClient from '@sanity/client';
 
-import extractProductsToFetch, {ProductToFetch} from './extractProductsToFetch';
-import useSanityClient from './useSanityClient';
-import getShopifyVariables from './getShopifyVariables';
-import productFragment from './productFragment';
-import {SanityQueryClientOptions} from './types';
-
-export interface UseSanityQueryResponse<T> {
-
-  /** The data returned by the query. */
-  sanityData: T;
-  shopifyProducts?: {[key: string]: unknown};
-  errors: any;
-}
+import {SanityQueryClientOptions, UseSanityQueryResponse} from './types';
+import useSanityConfig from './useSanityConfig';
+import useSanityShopifyProducts from './useSanityShopifyProducts';
 
 interface UseSanityQueryProps extends SanityQueryClientOptions {
-
   /** A string of the GROQ query. */
   query: string;
 
   /** An object of the variables for the GROQ query. */
   params?: {[key: string]: any};
-
-  /**
-   * Given a product's id & occurrence, what data should it fetch from Shopify?
-   *
-   * Return false if you don't want to fetch data for a given product.
-   * Defaults to Hydrogen's ProductProviderFragment.
-   */
-  getProductGraphQLFragment?: (product: ProductToFetch) => string | boolean;
 }
 
 /**
@@ -38,105 +19,17 @@ interface UseSanityQueryProps extends SanityQueryClientOptions {
 function useSanityQuery<T>({
   query,
   params = {},
-  getProductGraphQLFragment,
-  ...config
+  ...props
 }: UseSanityQueryProps): UseSanityQueryResponse<T> {
-  if (isClient()) {
-    throw new Error('Sanity requests should only be made from the server.');
-  }
-
-  const client = useSanityClient(config.clientConfig);
-  const shopifyVariables = getShopifyVariables(config.shopifyVariables);
+  const config = useSanityConfig(props.clientConfig);
+  const client = sanityClient(config);
 
   const {data: sanityData, error} = useQuery<T>([query, params], async () => {
     const data = await client.fetch(query, params);
     return data;
   });
 
-  const productsToFetch = extractProductsToFetch(sanityData);
-
-  const enhanceProductWithFragment = (product: ProductToFetch) => {
-    if (typeof getProductGraphQLFragment === 'function') {
-      const fragment = getProductGraphQLFragment(product);
-      if (typeof fragment === 'string') {
-        return {
-          ...product,
-          fragment,
-        };
-      } else if (fragment === false) {
-        return {
-          ...product,
-          fragment: undefined,
-        };
-      }
-    }
-    return {
-      ...product,
-      fragment: '...ProductProviderFragment',
-    };
-  };
-
-  const productsWithFragments = Object.keys(productsToFetch)
-    .map((id) => enhanceProductWithFragment(productsToFetch[id]))
-    .filter((product) => Boolean(product.fragment));
-
-  // @TODO: how not to break Rules of Hooks here?
-  if (productsWithFragments.length <= 0) {
-    return {
-      sanityData,
-      errors: error,
-    };
-  }
-
-  // @TODO: replace with final ProductProviderFragment
-  const finalQuery = `
-  query getProducts(
-    $numProductMetafields: Int!
-    $numProductVariants: Int!
-    $numProductMedia: Int!
-    $numProductVariantMetafields: Int!
-    $numProductVariantSellingPlanAllocations: Int!
-    $numProductSellingPlanGroups: Int!
-    $numProductSellingPlans: Int!
-  ) {
-    ${productsWithFragments
-      .map(
-        (product, index) => `
-      product${index}: product(id: "gid://shopify/Product/${product.shopifyId}") {
-        ${product.fragment}
-      }
-    `,
-      )
-      .join('\n')}
-  }
-
-  ${productFragment}
-  `;
-
-  const {data: shopifyData} = useShopQuery({
-    query: finalQuery,
-    variables: shopifyVariables,
-  });
-
-  const shopifyProducts = Object.keys(shopifyData)
-    .map((key) => ({index: Number(key.replace('product', '')), key}))
-    .map(({index, key}) => {
-      const {sanityId} = productsWithFragments[index] || {};
-      if (!sanityId) {
-        return;
-      }
-      return {
-        sanityId,
-        content: shopifyData[key],
-      };
-    })
-    .filter(Boolean)
-    .reduce((finalObject, curProduct) => {
-      return {
-        ...finalObject,
-        [curProduct.sanityId]: curProduct.content,
-      };
-    }, {});
+  const shopifyProducts = useSanityShopifyProducts(sanityData, props);
 
   return {
     sanityData,
