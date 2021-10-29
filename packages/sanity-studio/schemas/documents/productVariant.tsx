@@ -55,6 +55,7 @@ export default {
             isActive={status === 'active'}
             isDeleted={isDeleted}
             isEnabled={isEnabled}
+            type="productVariant"
             url={previewImageUrl}
           />
         ),

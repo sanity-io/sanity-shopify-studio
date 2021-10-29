@@ -3,7 +3,6 @@ import { WarningOutlineIcon } from '@sanity/icons'
 import { Box, Card, Flex, Stack, Text } from '@sanity/ui'
 import { withDocument } from 'part:@sanity/form-builder'
 import React, { forwardRef } from 'react'
-import { productUrl } from '../utils/shopifyUrls'
 
 type Props = {
   document: SanityDocument
@@ -11,8 +10,6 @@ type Props = {
 
 const ProductVariantHidden = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { document } = props
-
-  const shopifyProductUrl = productUrl(document?.store?.productId)
 
   return (
     <Card padding={4} radius={2} ref={ref} shadow={1} tone="critical">
@@ -29,16 +26,6 @@ const ProductVariantHidden = forwardRef<HTMLDivElement, Props>((props, ref) => {
           <Stack marginTop={4} space={2}>
             <Text size={1}>It has been deleted from Shopify</Text>
           </Stack>
-          {shopifyProductUrl && (
-            <Box marginTop={4}>
-              <Text size={1}>
-                →{' '}
-                <a href={shopifyProductUrl} target="_blank">
-                  View this product on Shopify
-                </a>
-              </Text>
-            </Box>
-          )}
         </Box>
       </Flex>
     </Card>

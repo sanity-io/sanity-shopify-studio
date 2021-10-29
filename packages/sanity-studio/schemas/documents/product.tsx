@@ -230,6 +230,7 @@ export default {
             isActive={status === 'active'}
             isDeleted={isDeleted}
             isEnabled={isEnabled}
+            type="product"
             url={previewImageUrl}
           />
         ),
