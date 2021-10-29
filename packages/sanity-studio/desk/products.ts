@@ -1,5 +1,5 @@
-import { BasketIcon, CopyIcon, InfoOutlineIcon } from '@sanity/icons'
 import S from '@sanity/desk-tool/structure-builder'
+import { BasketIcon, CopyIcon, InfoOutlineIcon } from '@sanity/icons'
 
 // prettier-ignore
 export const products = S.listItem()

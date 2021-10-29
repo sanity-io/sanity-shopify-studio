@@ -28,8 +28,16 @@ export default function resolveDocumentActions(props) {
         }
 
         if (props.type === 'productVariant') {
-          // Disable: creation, deletion, duplication, unpublishing
-          if ([CreateAction, DeleteAction, DuplicateAction, UnpublishAction].includes(action)) {
+          // Disable: creation, duplication, unpublishing
+          if ([CreateAction, DuplicateAction, UnpublishAction].includes(action)) {
+            return false
+          }
+
+          // Disable delete button if variant has been marked for deletion
+          if (action === DeleteAction) {
+            if (props?.published?.store?.isDeleted) {
+              return true
+            }
             return false
           }
         }
