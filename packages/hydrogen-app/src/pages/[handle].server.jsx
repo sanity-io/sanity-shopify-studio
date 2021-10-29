@@ -2,7 +2,6 @@ import groq from 'groq';
 import React from 'react';
 import {useParams} from 'react-router-dom';
 
-import sanityConfig from '../../sanity.config';
 import Layout from '../components/Layout.client';
 import NotFound from '../components/NotFound.server';
 import PortableText from '../components/PortableText.client';
@@ -19,7 +18,6 @@ export default function Page() {
     },
     // No need to query Shopify product data ✨
     getProductGraphQLFragment: () => false,
-    ...sanityConfig,
   });
 
   if (!sanityData) {

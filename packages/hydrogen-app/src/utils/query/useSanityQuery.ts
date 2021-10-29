@@ -1,13 +1,14 @@
 import {useQuery, useShopQuery} from '@shopify/hydrogen';
 import {isClient} from '@shopify/hydrogen/client';
-import sanityClient from '@sanity/client';
 
 import extractProductsToFetch, {ProductToFetch} from './extractProductsToFetch';
-import getConfig from './getConfig';
+import useSanityClient from './useSanityClient';
+import getShopifyVariables from './getShopifyVariables';
 import productFragment from './productFragment';
 import {SanityQueryClientOptions} from './types';
 
 export interface UseSanityQueryResponse<T> {
+
   /** The data returned by the query. */
   sanityData: T;
   shopifyProducts?: {[key: string]: unknown};
@@ -15,6 +16,7 @@ export interface UseSanityQueryResponse<T> {
 }
 
 interface UseSanityQueryProps extends SanityQueryClientOptions {
+
   /** A string of the GROQ query. */
   query: string;
 
@@ -43,16 +45,8 @@ function useSanityQuery<T>({
     throw new Error('Sanity requests should only be made from the server.');
   }
 
-  const {projectId, token, dataset, apiVersion, shopifyVariables, useCdn} =
-    getConfig(config);
-
-  const client = sanityClient({
-    projectId,
-    token,
-    dataset,
-    apiVersion,
-    useCdn,
-  });
+  const client = useSanityClient(config.clientConfig);
+  const shopifyVariables = getShopifyVariables(config.shopifyVariables);
 
   const {data: sanityData, error} = useQuery<T>([query, params], async () => {
     const data = await client.fetch(query, params);

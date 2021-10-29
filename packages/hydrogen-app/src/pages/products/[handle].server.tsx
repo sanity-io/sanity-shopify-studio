@@ -14,9 +14,6 @@ export default function Product() {
     params: {
       slug: handle,
     },
-    apiVersion: 'v2021-06-07',
-    projectId: 'wfr1r0dw',
-    dataset: 'production',
   });
 
   const providerData = shopifyProducts?.[sanityData?._id];
