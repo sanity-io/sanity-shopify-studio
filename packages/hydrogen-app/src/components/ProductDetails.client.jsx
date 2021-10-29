@@ -1,7 +1,8 @@
 import {Product} from '@shopify/hydrogen/client';
 
+import ButtonSelectedVariantAddToCart from './ButtonSelectedVariantAddToCart.client';
+import ButtonSelectedVariantBuyNow from './ButtonSelectedVariantBuyNow.client';
 import PortableText from './PortableText.client';
-import ProductActions from './ProductActions.client';
 import SanityGallery from './SanityGallery.client';
 import ProductOptions from './ProductOptions.client';
 
@@ -63,7 +64,8 @@ export default function ProductDetails({product, providerData}) {
 
               {/* Product actions: Add to cart, buy now buttons, etc */}
               <div className="my-8 space-y-2">
-                <ProductActions />
+                <ButtonSelectedVariantAddToCart />
+                <ButtonSelectedVariantBuyNow showSoldOut={false} />
               </div>
 
               {/* Custom sections */}
