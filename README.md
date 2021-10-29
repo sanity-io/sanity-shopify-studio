@@ -35,7 +35,7 @@ This is currently deployed on https://hydrogen-demo.vercel.app/
 
 ---
 
-Also associated with this demo is a Shopify Storefront (`sanity-io.myshopify.com`) which hosts all demo product content.
+Also associated with this demo is a Shopify Storefront (`sanity-dev-store.myshopify.com`) which hosts all demo product content.
 
 ## Getting started
 
