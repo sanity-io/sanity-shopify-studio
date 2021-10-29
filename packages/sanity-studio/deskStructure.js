@@ -20,6 +20,7 @@
  */
 
 import S from '@sanity/desk-tool/structure-builder'
+import { collections } from './desk/collections'
 import { debug } from './desk/debug'
 import { home } from './desk/home'
 import { navigation } from './desk/navigation'
@@ -39,6 +40,7 @@ export default () => {
         home,
         pages,
         S.divider(),
+        collections,
         products,
         S.divider(),
         debug,

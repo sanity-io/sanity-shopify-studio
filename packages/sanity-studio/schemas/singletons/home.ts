@@ -5,6 +5,20 @@ export default {
   title: TITLE,
   type: 'document',
   fields: [
+    // Featured collections
+    {
+      name: 'featuredCollections',
+      title: 'Featured collections',
+      type: 'array',
+      of: [
+        {
+          title: 'Collection',
+          type: 'reference',
+          to: [{ type: 'collection' }]
+        }
+      ],
+      validation: Rule => Rule.unique()
+    },
     // Featured products
     {
       name: 'featuredProducts',
@@ -16,7 +30,8 @@ export default {
           type: 'reference',
           to: [{ type: 'product' }]
         }
-      ]
+      ],
+      validation: Rule => Rule.unique()
     },
     // Gallery
     {

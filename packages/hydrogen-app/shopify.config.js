@@ -1,6 +1,6 @@
 export default {
   graphqlApiVersion: '2021-10',
   locale: 'en-us',
-  storeDomain: 'sanity-io.myshopify.com',
-  storefrontToken: 'ca7f2a46182c57042b474c3a4c5f2864',
+  storeDomain: 'sanity-dev-store.myshopify.com',
+  storefrontToken: '791dbd01268e4a7129288e24b1012710',
 };

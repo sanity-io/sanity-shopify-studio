@@ -5,11 +5,12 @@ type Props = {
   isActive: boolean
   isDeleted: boolean
   isEnabled: boolean
+  type: 'product' | 'productVariant'
   url: string
 }
 
-const ProductPreview = forwardRef<HTMLDivElement, Props>((props, ref) => {
-  const { isActive, isEnabled, isDeleted, url } = props
+const ProductMediaPreview = forwardRef<HTMLDivElement, Props>((props, ref) => {
+  const { isActive, isEnabled, isDeleted, type, url } = props
 
   return (
     <div
@@ -43,7 +44,9 @@ const ProductPreview = forwardRef<HTMLDivElement, Props>((props, ref) => {
           }}
         />
       )}
-      {isDeleted && (
+
+      {/* Item has been deleted */}
+      {isDeleted ? (
         <CloseIcon
           style={{
             background: 'rgba(255, 0, 0, 0.7)',
@@ -53,21 +56,24 @@ const ProductPreview = forwardRef<HTMLDivElement, Props>((props, ref) => {
             width: '100%'
           }}
         />
-      )}
-
-      {!isDeleted && (!isActive || !isEnabled) && (
-        <LinkRemovedIcon
-          style={{
-            background: 'rgba(0, 0, 0, 0.7)',
-            color: 'rgba(255, 255, 255, 0.85)',
-            height: '100%',
-            position: 'relative',
-            width: '100%'
-          }}
-        />
+      ) : (
+        <>
+          {/* Products only: item is no longer linked (inactive or not enabled) */}
+          {type === 'product' && (!isActive || !isEnabled) && (
+            <LinkRemovedIcon
+              style={{
+                background: 'rgba(0, 0, 0, 0.7)',
+                color: 'rgba(255, 255, 255, 0.85)',
+                height: '100%',
+                position: 'relative',
+                width: '100%'
+              }}
+            />
+          )}
+        </>
       )}
     </div>
   )
 })
 
-export default ProductPreview
+export default ProductMediaPreview
