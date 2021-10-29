@@ -7,7 +7,7 @@ import sanityConfig from '../../sanity.config';
 import NavigationProvider from '../contexts/NavigationProvider.client';
 import {LINKS} from '../fragments/links';
 import {PORTABLE_TEXT} from '../fragments/portableText';
-import {useSanityGroqQuery} from '../utils/query/useSanityGroqQuery';
+import useSanityQuery from '../utils/query/useSanityQuery';
 
 import DefaultSeo from './DefaultSeo.server';
 import NotFound from './NotFound.server';
@@ -15,7 +15,7 @@ import NotFound from './NotFound.server';
 export default function Main(props) {
   const {pages, serverState} = props;
 
-  const {sanityData} = useSanityGroqQuery({
+  const {sanityData} = useSanityQuery({
     query: QUERY,
     // No need to query Shopify product data ✨
     getProductGraphQLFragment: () => false,

@@ -13,7 +13,7 @@ export interface UseSanityQueryResponse<T> {
   errors: any;
 }
 
-interface UseSanityGroqQueryProps extends SanityQueryClientOptions {
+interface UseSanityQueryProps extends SanityQueryClientOptions {
   /** A string of the GROQ query. */
   query: string;
 
@@ -32,12 +32,12 @@ interface UseSanityGroqQueryProps extends SanityQueryClientOptions {
 /**
  * Hook to make server-only GROQ queries to a Sanity dataset.
  */
-export function useSanityGroqQuery<T>({
+function useSanityQuery<T>({
   query,
   params = {},
   getProductGraphQLFragment,
   ...config
-}: UseSanityGroqQueryProps): UseSanityQueryResponse<T> {
+}: UseSanityQueryProps): UseSanityQueryResponse<T> {
   if (isClient()) {
     throw new Error('Sanity requests should only be made from the server.');
   }
@@ -159,3 +159,5 @@ export function useSanityGroqQuery<T>({
     shopifyData,
   };
 }
+
+export default useSanityQuery;

@@ -7,12 +7,12 @@ import Layout from '../components/Layout.client';
 import NotFound from '../components/NotFound.server';
 import PortableText from '../components/PortableText.client';
 import {PORTABLE_TEXT} from '../fragments/portableText';
-import {useSanityGroqQuery} from '../utils/query/useSanityGroqQuery';
+import useSanityQuery from '../utils/query/useSanityQuery';
 
 export default function Page() {
   const {handle} = useParams();
 
-  const {sanityData} = useSanityGroqQuery({
+  const {sanityData} = useSanityQuery({
     query: QUERY,
     params: {
       slug: handle,
