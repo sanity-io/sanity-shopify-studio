@@ -9,7 +9,7 @@ export default () => {
   // prettier-ignore
   return (
     S.list()
-      .title('Menu')
+      .title('Content')
       .items([
         home,
         pages,
