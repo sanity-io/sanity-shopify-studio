@@ -26,6 +26,20 @@ export default {
         return isActive && !isDeleted && isEnabled
       }
     },
+    // Title (proxy)
+    {
+      title: 'Title',
+      name: 'titleProxy',
+      type: 'proxyString',
+      options: { field: 'store.title' }
+    },
+    // Slug (proxy)
+    {
+      title: 'Slug',
+      name: 'slugProxy',
+      type: 'proxyString',
+      options: { field: 'store.slug.current' }
+    },
     // Images
     {
       title: 'Images',
@@ -149,7 +163,7 @@ export default {
       name: 'store',
       title: 'Shopify',
       type: 'shopifyProduct',
-      description: 'Synced data from Shopify'
+      description: 'Product data from Shopify (read-only)'
     }
   ],
   preview: {

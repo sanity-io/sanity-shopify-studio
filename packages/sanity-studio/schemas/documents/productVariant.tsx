@@ -22,11 +22,18 @@ export default {
         return !isDeleted
       }
     },
+    // Title (proxy)
+    {
+      title: 'Title',
+      name: 'titleProxy',
+      type: 'proxyString',
+      options: { field: 'store.title' }
+    },
     // Shopify product variant
     {
       name: 'store',
       title: 'Shopify',
-      description: 'Synced data from Shopify',
+      description: 'Variant data from Shopify (read-only)',
       type: 'shopifyProductVariant'
     }
   ],

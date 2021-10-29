@@ -1,7 +1,6 @@
 export default {
   name: 'shopifyProduct',
   title: 'Shopify',
-  description: 'Synced data from Shopify',
   type: 'object',
   options: {
     collapsed: true,

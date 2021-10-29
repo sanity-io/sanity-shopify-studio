@@ -19,6 +19,7 @@ import blockProduct from './objects/blockProduct'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
 import productOption from './objects/productOption'
+import proxyString from './objects/proxyString'
 import shopifyProduct from './objects/shopifyProduct'
 import shopifyProductVariant from './objects/shopifyProductVariant'
 // Singletons
@@ -48,6 +49,7 @@ export default createSchema({
     linkExternal,
     linkInternal,
     productOption,
+    proxyString,
     shopifyProduct,
     shopifyProductVariant,
     // Singletons
