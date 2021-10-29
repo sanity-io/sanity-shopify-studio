@@ -5,11 +5,11 @@ import Layout from '../../components/Layout.client';
 import NotFound from '../../components/NotFound.server';
 import ProductDetails from '../../components/ProductDetails.client';
 import {PRODUCT} from '../../fragments/product';
-import {useSanityGroqQuery} from '../../utils/query/useSanityGroqQuery';
+import useSanityQuery from '../../utils/query/useSanityQuery';
 
 export default function Product() {
   const {handle} = useParams();
-  const {sanityData, errors, shopifyData} = useSanityGroqQuery({
+  const {sanityData, errors, shopifyData} = useSanityQuery({
     query: QUERY,
     params: {
       slug: handle,

@@ -7,10 +7,10 @@ import Layout from '../components/Layout.client';
 import ProductCard from '../components/ProductCard.client';
 import {IMAGE} from '../fragments/image';
 import {PRODUCT} from '../fragments/product';
-import {useSanityGroqQuery} from '../utils/query/useSanityGroqQuery';
+import useSanityQuery from '../utils/query/useSanityQuery';
 
 export default function Index() {
-  const {sanityData, shopifyData} = useSanityGroqQuery({
+  const {sanityData, shopifyData} = useSanityQuery({
     query: QUERY,
     ...sanityConfig,
   });
