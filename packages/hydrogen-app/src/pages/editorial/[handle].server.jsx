@@ -2,13 +2,13 @@ import groq from 'groq';
 import React from 'react';
 import {useParams} from 'react-router-dom';
 
-import Layout from '../components/Layout.client';
-import NotFound from '../components/NotFound.server';
-import PortableText from '../components/PortableText.client';
-import {PORTABLE_TEXT} from '../fragments/portableText';
-import useSanityQuery from '../utils/query/useSanityQuery';
+import Layout from '../../components/Layout.client';
+import NotFound from '../../components/NotFound.server';
+import PortableText from '../../components/PortableText.client';
+import {PORTABLE_TEXT} from '../../fragments/portableText';
+import useSanityQuery from '../../utils/query/useSanityQuery';
 
-export default function Page() {
+export default function EditorialPage() {
   const {handle} = useParams();
 
   const {sanityData} = useSanityQuery({
@@ -39,7 +39,7 @@ export default function Page() {
 
 const QUERY = groq`
   *[
-    _type == 'article.info'
+    _type == 'article.editorial'
     && slug.current == $slug
   ][0]{
     ...,
