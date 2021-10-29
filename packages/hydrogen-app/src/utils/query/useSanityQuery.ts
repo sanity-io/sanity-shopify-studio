@@ -1,5 +1,6 @@
 import {useQuery, useShopQuery} from '@shopify/hydrogen';
 import {isClient} from '@shopify/hydrogen/client';
+import sanityClient from '@sanity/client';
 
 import extractProductsToFetch, {ProductToFetch} from './extractProductsToFetch';
 import getConfig from './getConfig';
@@ -42,31 +43,21 @@ function useSanityQuery<T>({
     throw new Error('Sanity requests should only be made from the server.');
   }
 
-  const {projectId, token, dataset, apiVersion, shopifyVariables} =
+  const {projectId, token, dataset, apiVersion, shopifyVariables, useCdn} =
     getConfig(config);
 
-  const url = `https://${projectId}.api.sanity.io/${apiVersion}/data/query/${dataset}`;
-  const headers: {[key: string]: string} = {
-    'content-type': 'application/json',
-  };
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
-
-  const body = JSON.stringify({
-    query,
-    params,
+  const client = sanityClient({
+    projectId,
+    token,
+    dataset,
+    apiVersion,
+    useCdn,
   });
 
-  const {data: sanityData, error} = useQuery<T>([url, body], () =>
-    fetch(url, {
-      method: 'POST',
-      headers,
-      body,
-    })
-      .then((res) => res.json())
-      .then((data) => data.result),
-  );
+  const {data: sanityData, error} = useQuery<T>([query, params], async () => {
+    const data = await client.fetch(query, params);
+    return data;
+  });
 
   const productsToFetch = extractProductsToFetch(sanityData);
 
