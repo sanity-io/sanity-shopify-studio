@@ -1,6 +1,6 @@
 import React from 'react';
 
-import sanityImageUrl from '../utils/sanityImageUrl';
+import sanityImageUrl from '../../utils/sanityImageUrl';
 
 const BlockImage = (props) => {
   return (
