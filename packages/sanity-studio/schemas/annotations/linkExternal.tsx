@@ -6,14 +6,20 @@ export default {
   name: 'annotationLinkExternal',
   type: 'object',
   blockEditor: {
-    icon: () => <EarthGlobeIcon />,
+    icon: () => <EarthGlobeIcon />
   },
   fields: [
     {
       name: 'url',
       title: 'URL',
       type: 'url',
-      validation: Rule => Rule.required().uri({ scheme: ['http', 'https'] }),
+      validation: Rule => Rule.required().uri({ scheme: ['http', 'https'] })
     },
-  ],
+    // Open in a new window
+    {
+      title: 'Open in a new window?',
+      name: 'newWindow',
+      type: 'boolean'
+    }
+  ]
 }

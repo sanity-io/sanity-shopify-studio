@@ -2,8 +2,8 @@ import { MasterDetailIcon } from '@sanity/icons'
 import React from 'react'
 
 export default {
-  title: 'Product (margin)',
-  name: 'annotationShopifyMargin',
+  title: 'Product (marginalia)',
+  name: 'annotationProductMarginalia',
   type: 'object',
   blockEditor: {
     icon: () => <MasterDetailIcon />

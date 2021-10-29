@@ -7,8 +7,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import annotationLinkEmail from './annotations/linkEmail'
 import annotationLinkExternal from './annotations/linkExternal'
 import annotationLinkInternal from './annotations/linkInternal'
-import annotationShopify from './annotations/shopify'
-import annotationShopifyMargin from './annotations/shopifyMargin'
+import annotationProduct from './annotations/product'
+import annotationProductMarginalia from './annotations/productMarginalia'
 // Documents
 import articleEditorial from './documents/article/editorial'
 import articleInfo from './documents/article/info'
@@ -39,8 +39,8 @@ export default createSchema({
     annotationLinkEmail,
     annotationLinkExternal,
     annotationLinkInternal,
-    annotationShopify,
-    annotationShopifyMargin,
+    annotationProduct,
+    annotationProductMarginalia,
     // Documents
     articleEditorial,
     articleInfo,
