@@ -1,6 +1,5 @@
 import { EarthGlobeIcon } from '@sanity/icons'
-import { getShopifyProductUrl } from '../utils/getShopifyProductUrl'
-import { getShopifyProductVariantUrl } from '../utils/getShopifyProductVariantUrl'
+import { productUrl, productVariantUrl } from '../utils/shopifyUrls'
 
 type Props = {
   published: Record<string, any> // Sanity Document
@@ -26,23 +25,20 @@ export default (props: Props) => {
     return null
   }
 
-  let label
   let url
   if (type === 'product') {
-    label = 'Edit product in Shopify'
-    url = getShopifyProductUrl(published?.store?.id)
+    url = productUrl(published?.store?.id)
   }
   if (type === 'productVariant') {
-    label = 'Edit variant in Shopify'
-    url = getShopifyProductVariantUrl(published?.store?.productId, published?.store?.id)
+    url = productVariantUrl(published?.store?.productId, published?.store?.id)
   }
 
-  if (!label && !url) {
+  if (!url) {
     return null
   }
 
   return {
-    label,
+    label: 'Edit in Shopify',
     icon: EarthGlobeIcon,
     onHandle: () => {
       window.open(url)

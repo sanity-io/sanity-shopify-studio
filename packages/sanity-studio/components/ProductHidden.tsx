@@ -3,7 +3,7 @@ import { WarningOutlineIcon } from '@sanity/icons'
 import { Box, Card, Flex, Stack, Text } from '@sanity/ui'
 import { withDocument } from 'part:@sanity/form-builder'
 import React, { forwardRef } from 'react'
-import { getShopifyProductUrl } from '../utils/getShopifyProductUrl'
+import { productUrl } from '../utils/shopifyUrls'
 
 type Props = {
   document: SanityDocument
@@ -16,7 +16,7 @@ const ProductHidden = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const isDeleted = document?.store?.isDeleted
   const isEnabled = document?.store?.isEnabled
 
-  const shopifyProductUrl = getShopifyProductUrl(document?.store?.id)
+  const shopifyProductUrl = productUrl(document?.store?.id)
 
   let message
   if (!isEnabled) {

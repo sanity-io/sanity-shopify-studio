@@ -20,7 +20,7 @@ const ProductPreview = forwardRef<HTMLDivElement, Props>((props, ref) => {
         height: '5em',
         justifyContent: 'center',
         position: 'relative',
-        width: '5em',
+        width: '5em'
       }}
     >
       {url ? (
@@ -31,7 +31,7 @@ const ProductPreview = forwardRef<HTMLDivElement, Props>((props, ref) => {
             left: 0,
             position: 'absolute',
             top: 0,
-            width: '100%',
+            width: '100%'
           }}
         />
       ) : (
@@ -39,18 +39,18 @@ const ProductPreview = forwardRef<HTMLDivElement, Props>((props, ref) => {
           style={{
             height: '100%',
             position: 'absolute',
-            width: '100%',
+            width: '100%'
           }}
         />
       )}
       {isDeleted && (
         <CloseIcon
           style={{
-            background: 'rgba(0, 0, 0, 0.7)',
+            background: 'rgba(255, 0, 0, 0.7)',
             color: 'rgba(255, 255, 255, 0.85)',
             height: '100%',
             position: 'relative',
-            width: '100%',
+            width: '100%'
           }}
         />
       )}
@@ -62,7 +62,7 @@ const ProductPreview = forwardRef<HTMLDivElement, Props>((props, ref) => {
             color: 'rgba(255, 255, 255, 0.85)',
             height: '100%',
             position: 'relative',
-            width: '100%',
+            width: '100%'
           }}
         />
       )}

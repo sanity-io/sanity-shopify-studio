@@ -82,7 +82,7 @@ const deleteProductAndVariants = (props: Props) => {
       type: 'confirm'
     },
     icon: TrashIcon,
-    label: 'Delete product and variants',
+    label: 'Delete',
     onHandle: () => setDialogOpen(true),
     shortcut: 'Ctrl+Alt+D'
   }

@@ -3,7 +3,7 @@ import { WarningOutlineIcon } from '@sanity/icons'
 import { Box, Card, Flex, Stack, Text } from '@sanity/ui'
 import { withDocument } from 'part:@sanity/form-builder'
 import React, { forwardRef } from 'react'
-import { getShopifyProductUrl } from '../utils/getShopifyProductUrl'
+import { productUrl } from '../utils/shopifyUrls'
 
 type Props = {
   document: SanityDocument
@@ -12,7 +12,7 @@ type Props = {
 const ProductVariantHidden = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { document } = props
 
-  const shopifyProductUrl = getShopifyProductUrl(document?.store?.productId)
+  const shopifyProductUrl = productUrl(document?.store?.productId)
 
   return (
     <Card padding={4} radius={2} ref={ref} shadow={1} tone="critical">

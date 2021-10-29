@@ -1,6 +1,6 @@
 import { CopyIcon } from '@sanity/icons'
 import React from 'react'
-import ProductPreview from '../../components/ProductPreview'
+import ProductMediaPreview from '../../components/ProductMediaPreview'
 import ProductVariantHidden from '../../components/ProductVariantHidden'
 
 export default {
@@ -44,7 +44,7 @@ export default {
 
       return {
         media: (
-          <ProductPreview
+          <ProductMediaPreview
             isActive={status === 'active'}
             isDeleted={isDeleted}
             isEnabled={isEnabled}

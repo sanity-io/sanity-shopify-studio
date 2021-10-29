@@ -2,7 +2,7 @@ import { TagIcon } from '@sanity/icons'
 import pluralize from 'pluralize'
 import React from 'react'
 import ProductHidden from '../../components/ProductHidden'
-import ProductPreview from '../../components/ProductPreview'
+import ProductMediaPreview from '../../components/ProductMediaPreview'
 import { getPriceRange } from '../../utils/getPriceRange'
 
 export default {
@@ -190,7 +190,7 @@ export default {
 
       return {
         media: (
-          <ProductPreview
+          <ProductMediaPreview
             isActive={status === 'active'}
             isDeleted={isDeleted}
             isEnabled={isEnabled}
