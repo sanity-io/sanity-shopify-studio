@@ -166,6 +166,28 @@ export default {
       description: 'Product data from Shopify (read-only)'
     }
   ],
+  orderings: [
+    {
+      title: 'Title (A-Z)',
+      name: 'titleAsc',
+      by: [{ field: 'store.title', direction: 'asc' }]
+    },
+    {
+      title: 'Title (Z-A)',
+      name: 'titleAsc',
+      by: [{ field: 'store.title', direction: 'desc' }]
+    },
+    {
+      title: 'Price (Highest first)',
+      name: 'titleAsc',
+      by: [{ field: 'store.priceRange.minVariantPrice', direction: 'desc' }]
+    },
+    {
+      title: 'Title (Lowest first)',
+      name: 'titleAsc',
+      by: [{ field: 'store.priceRange.minVariantPrice', direction: 'asc' }]
+    }
+  ],
   preview: {
     select: {
       isDeleted: 'store.isDeleted',
