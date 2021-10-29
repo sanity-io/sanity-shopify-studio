@@ -6,8 +6,17 @@ import {
 } from '@shopify/hydrogen/client';
 import React from 'react';
 
+import {useProductsContext} from '../../contexts/ProductsContext.client';
+
 const BlockProduct = (props) => {
-  const product = JSON.parse(props?.node?.shopifyProduct?.provider);
+  const productId = props?.node?.product?._id;
+
+  const product = useProductsContext(productId);
+
+  if (!product) {
+    return null;
+  }
+
   const productVariant = product?.variants?.edges[0]?.node;
 
   return (

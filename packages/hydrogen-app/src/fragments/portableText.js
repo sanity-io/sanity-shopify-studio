@@ -14,7 +14,7 @@ export const PORTABLE_TEXT = groq`
   },
   (_type == 'blockProduct') => {
     ...,
-    shopifyProduct->{
+    product->{
       ...
     }
   },
@@ -26,15 +26,15 @@ export const PORTABLE_TEXT = groq`
     (_type == 'annotationLinkInternal') => {
       ${LINK_INTERNAL}
     },
-    (_type == 'annotationShopify') => {
+    (_type == 'annotationProduct') => {
       ...,
-      shopifyProduct->{
+      product->{
         ...
       }
     },
-    (_type == 'annotationShopifyMargin') => {
+    (_type == 'annotationProductMarginalia') => {
       ...,
-      shopifyProduct->{
+      product->{
         ...
       }
     },
