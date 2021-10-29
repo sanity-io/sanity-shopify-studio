@@ -2,7 +2,8 @@ export const DEFAULT_CURRENCY_CODE = 'USD'
 
 // References to include in 'internal' links
 export const PAGE_REFERENCES = [
-  { type: 'page' }, //
+  { type: 'article.editorial' },
+  { type: 'article.info' },
   { type: 'product' }
 ]
 

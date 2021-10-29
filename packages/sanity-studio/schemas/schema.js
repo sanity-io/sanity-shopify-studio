@@ -9,10 +9,15 @@ import annotationLinkExternal from './annotations/linkExternal'
 import annotationLinkInternal from './annotations/linkInternal'
 import annotationShopify from './annotations/shopify'
 import annotationShopifyMargin from './annotations/shopifyMargin'
+<<<<<<< HEAD
 
 // Document types
+=======
+// Documents
+import articleEditorial from './documents/article/editorial'
+import articleInfo from './documents/article/info'
+>>>>>>> f7e7e67 (feat(sanity-studio): add article document types (info + editorial), remove pages + update desk)
 import collection from './documents/collection'
-import page from './documents/page'
 import product from './documents/product'
 import productVariant from './documents/productVariant'
 
@@ -44,9 +49,14 @@ export default createSchema({
     annotationLinkInternal,
     annotationShopify,
     annotationShopifyMargin,
+<<<<<<< HEAD
     // Document types
+=======
+    // Documents
+    articleEditorial,
+    articleInfo,
+>>>>>>> f7e7e67 (feat(sanity-studio): add article document types (info + editorial), remove pages + update desk)
     collection,
-    page,
     product,
     productVariant,
     // Singleton document types
