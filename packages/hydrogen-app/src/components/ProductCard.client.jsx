@@ -9,23 +9,18 @@ import {
 import {useState} from 'react';
 
 const ProductCard = (props) => {
-  const {product, shopifyData} = props;
-
-  const providerProduct = shopifyData?.[product?._id];
+  const {product, providerData} = props;
 
   const [showAddToCart, setShowAddToCart] = useState(false);
 
-  if (!providerProduct) {
+  if (!providerData) {
     return null;
   }
 
-  const firstVariant = providerProduct?.variants?.edges[0]?.node;
+  const firstVariant = providerData?.variants?.edges[0]?.node;
 
   return (
-    <ProductProvider
-      product={providerProduct}
-      initialVariantId={firstVariant.id}
-    >
+    <ProductProvider product={providerData} initialVariantId={firstVariant.id}>
       <div className="col-span-2 bg-white">
         {/* Image */}
         <div
