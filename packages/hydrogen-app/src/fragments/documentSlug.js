@@ -4,7 +4,8 @@ import join from 'lodash/fp/join';
 import reduce from 'lodash/fp/reduce';
 
 const DOCUMENT_SLUG_MAP = {
-  page: `"/" + slug.current`,
+  'article.info': `"/" + slug.current`,
+  'article.editorial': `"/editorial/" + slug.current`,
   product: `"/products/" + slug.current`,
 };
 
