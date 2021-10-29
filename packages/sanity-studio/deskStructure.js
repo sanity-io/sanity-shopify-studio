@@ -1,9 +1,9 @@
 import S from '@sanity/desk-tool/structure-builder'
+import { articles } from './desk/articles'
 import { collections } from './desk/collections'
 import { debug } from './desk/debug'
 import { home } from './desk/home'
 import { navigation } from './desk/navigation'
-import { pages } from './desk/pages'
 import { products } from './desk/products'
 
 export default () => {
@@ -13,7 +13,7 @@ export default () => {
       .title('Menu')
       .items([
         home,
-        pages,
+        articles,
         S.divider(),
         collections,
         products,

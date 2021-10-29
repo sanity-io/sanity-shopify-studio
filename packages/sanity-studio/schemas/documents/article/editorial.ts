@@ -1,12 +1,10 @@
 import { DocumentIcon } from '@sanity/icons'
-import { validateSlug } from '../../utils/validateSlug'
-
-const TITLE = 'Page'
+import { validateSlug } from '../../../utils/validateSlug'
 
 export default {
   icon: DocumentIcon,
-  name: 'page',
-  title: TITLE,
+  name: 'article.editorial',
+  title: 'Article (editorial)',
   type: 'document',
   fields: [
     // Title
@@ -15,14 +13,14 @@ export default {
       title: 'Title',
       type: 'string',
       description: 'Title displayed in browser tab / search engine results',
-      validation: Rule => Rule.required(),
+      validation: Rule => Rule.required()
     },
     // Slug
     {
       name: 'slug',
       type: 'slug',
       options: { source: 'title' },
-      validation: validateSlug,
+      validation: validateSlug
     },
     // Body
     {
@@ -33,78 +31,77 @@ export default {
         {
           lists: [
             { title: 'Bullet', value: 'bullet' },
-            { title: 'Numbered', value: 'number' },
+            { title: 'Numbered', value: 'number' }
           ],
           marks: {
             annotations: [
               // Shopify
               {
                 name: 'annotationShopify',
-                type: 'annotationShopify',
+                type: 'annotationShopify'
               },
               // Shopify (margin)
               {
                 name: 'annotationShopifyMargin',
-                type: 'annotationShopifyMargin',
+                type: 'annotationShopifyMargin'
               },
               // Email
               {
                 name: 'annotationLinkEmail',
-                type: 'annotationLinkEmail',
+                type: 'annotationLinkEmail'
               },
               // Internal link
               {
                 name: 'annotationLinkInternal',
-                type: 'annotationLinkInternal',
+                type: 'annotationLinkInternal'
               },
               // URL
               {
                 name: 'annotationLinkExternal',
-                type: 'annotationLinkExternal',
-              },
+                type: 'annotationLinkExternal'
+              }
             ],
             decorators: [
               {
                 title: 'Italic',
-                value: 'em',
+                value: 'em'
               },
               {
                 title: 'Strong',
-                value: 'strong',
-              },
-            ],
+                value: 'strong'
+              }
+            ]
           },
           styles: [{ title: 'Quote', value: 'blockquote' }],
-          type: 'block',
+          type: 'block'
         },
         // Custom blocks
         {
           name: 'blockImage',
           title: 'Image',
-          type: 'blockImage',
+          type: 'blockImage'
         },
         {
           name: 'blockProduct',
           title: 'Product',
-          type: 'blockProduct',
-        },
-      ],
-    },
+          type: 'blockProduct'
+        }
+      ]
+    }
   ],
   preview: {
     select: {
       active: 'active',
       thumbnail: 'thumbnail',
-      title: 'title',
+      title: 'title'
     },
     prepare(selection) {
       const { thumbnail, title } = selection
 
       return {
         media: thumbnail,
-        subtitle: TITLE,
-        title,
+        title
       }
-    },
-  },
+    }
+  }
 }
