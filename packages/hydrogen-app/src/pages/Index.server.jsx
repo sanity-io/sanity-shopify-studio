@@ -1,7 +1,6 @@
 import groq from 'groq';
 import React from 'react';
 
-import sanityConfig from '../../sanity.config';
 import Gallery from '../components/Gallery.client';
 import Layout from '../components/Layout.client';
 import ProductCard from '../components/ProductCard.client';
@@ -12,7 +11,6 @@ import useSanityQuery from '../utils/query/useSanityQuery';
 export default function Index() {
   const {sanityData, shopifyProducts} = useSanityQuery({
     query: QUERY,
-    ...sanityConfig,
   });
 
   return (

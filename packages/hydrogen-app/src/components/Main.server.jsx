@@ -3,7 +3,6 @@ import groq from 'groq';
 import {Suspense} from 'react';
 import {Switch} from 'react-router-dom';
 
-import sanityConfig from '../../sanity.config';
 import NavigationProvider from '../contexts/NavigationProvider.client';
 import {LINKS} from '../fragments/links';
 import {PORTABLE_TEXT} from '../fragments/portableText';
@@ -19,7 +18,6 @@ export default function Main(props) {
     query: QUERY,
     // No need to query Shopify product data ✨
     getProductGraphQLFragment: () => false,
-    ...sanityConfig,
   });
 
   return (
