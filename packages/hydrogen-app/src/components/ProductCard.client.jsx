@@ -2,11 +2,12 @@ import {
   Link,
   Product,
   ProductProvider,
-  SelectedVariantAddToCartButton,
   SelectedVariantImage,
   SelectedVariantPrice,
 } from '@shopify/hydrogen/client';
 import {useState} from 'react';
+
+import ButtonSelectedVariantAddToCart from './ButtonSelectedVariantAddToCart.client';
 
 const ProductCard = (props) => {
   const {product, providerData} = props;
@@ -36,19 +37,7 @@ const ProductCard = (props) => {
           {/* Quick add to cart button */}
           {showAddToCart && (
             <div className="absolute bottom-0 left-0 w-full">
-              {firstVariant?.availableForSale ? (
-                <SelectedVariantAddToCartButton className="bg-black flex h-12 items-center justify-center text-center text-xs text-white w-full">
-                  Add to cart
-                </SelectedVariantAddToCartButton>
-              ) : (
-                <button
-                  className="bg-gray-400 text-white text-center p-4 text-xs w-full"
-                  disabled
-                  type="button"
-                >
-                  Sold out
-                </button>
-              )}
+              <ButtonSelectedVariantAddToCart />
             </div>
           )}
         </div>

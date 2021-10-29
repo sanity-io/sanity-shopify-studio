@@ -18,6 +18,14 @@ const AnnotationProduct = (props) => {
   }
 
   const productVariant = product?.variants?.edges[0]?.node;
+  const availableForSale = productVariant?.availableForSale;
+
+  // Return text only (with strikethrough + sold out prefix) if no longer available for sale
+  if (!availableForSale) {
+    return (
+      <span className="text-red-500 line-through">{children} (sold out)</span>
+    );
+  }
 
   return (
     <ProductProvider product={product} initialVariantId={productVariant?.id}>

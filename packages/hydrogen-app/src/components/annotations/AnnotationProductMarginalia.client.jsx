@@ -3,10 +3,10 @@ import {
   MediaFile,
   Product,
   ProductProvider,
-  SelectedVariantAddToCartButton,
 } from '@shopify/hydrogen/client';
 
 import {useProductsContext} from '../../contexts/ProductsContext.client';
+import ButtonSelectedVariantAddToCart from '../ButtonSelectedVariantAddToCart.client';
 
 const AnnotationProductMarginalia = (props) => {
   const {children, mark} = props;
@@ -45,9 +45,7 @@ const AnnotationProductMarginalia = (props) => {
                 crop: 'center',
               }}
             />
-            <SelectedVariantAddToCartButton className="bg-black flex h-10 items-center justify-center text-center text-xs text-white w-full">
-              Add to cart
-            </SelectedVariantAddToCartButton>
+            <ButtonSelectedVariantAddToCart small />
           </div>
         </>
       )}

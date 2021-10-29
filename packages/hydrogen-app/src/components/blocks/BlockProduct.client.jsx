@@ -1,12 +1,8 @@
-import {
-  MediaFile,
-  Product,
-  ProductProvider,
-  SelectedVariantAddToCartButton,
-} from '@shopify/hydrogen/client';
+import {MediaFile, Product, ProductProvider} from '@shopify/hydrogen/client';
 import React from 'react';
 
 import {useProductsContext} from '../../contexts/ProductsContext.client';
+import ButtonSelectedVariantAddToCart from '../ButtonSelectedVariantAddToCart.client';
 
 const BlockProduct = (props) => {
   const productId = props?.node?.product?._id;
@@ -38,9 +34,7 @@ const BlockProduct = (props) => {
               crop: 'center',
             }}
           />
-          <SelectedVariantAddToCartButton className="bg-gray-900 text-white text-center p-4 text-sm w-full">
-            Add to cart
-          </SelectedVariantAddToCartButton>
+          <ButtonSelectedVariantAddToCart />
         </div>
         {/* Caption */}
         {props?.node?.caption && (
