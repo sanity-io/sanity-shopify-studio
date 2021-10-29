@@ -104,17 +104,17 @@ export default {
           ],
           marks: {
             annotations: [
-              // Shopify
+              // Product
               {
                 title: 'Product',
-                name: 'annotationShopify',
-                type: 'annotationShopify'
+                name: 'annotationProduct',
+                type: 'annotationProduct'
               },
-              // Shopify (margin)
+              // Product (marginalia)
               {
-                title: 'Product',
-                name: 'annotationShopifyMargin',
-                type: 'annotationShopifyMargin'
+                title: 'Product (in margin)',
+                name: 'annotationProductMarginalia',
+                type: 'annotationProductMarginalia'
               },
               // Email
               {

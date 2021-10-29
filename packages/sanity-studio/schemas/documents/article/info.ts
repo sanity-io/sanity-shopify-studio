@@ -35,15 +35,15 @@ export default {
           ],
           marks: {
             annotations: [
-              // Shopify
+              // Product
               {
-                name: 'annotationShopify',
-                type: 'annotationShopify'
+                name: 'annotationProduct',
+                type: 'annotationProduct'
               },
-              // Shopify (margin)
+              // Product (marginalia)
               {
-                name: 'annotationShopifyMargin',
-                type: 'annotationShopifyMargin'
+                name: 'annotationProductMarginalia',
+                type: 'annotationProductMarginalia'
               },
               // Email
               {

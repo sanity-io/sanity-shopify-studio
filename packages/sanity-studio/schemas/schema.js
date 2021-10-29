@@ -7,12 +7,17 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import annotationLinkEmail from './annotations/linkEmail'
 import annotationLinkExternal from './annotations/linkExternal'
 import annotationLinkInternal from './annotations/linkInternal'
+<<<<<<< HEAD
 import annotationShopify from './annotations/shopify'
 import annotationShopifyMargin from './annotations/shopifyMargin'
 <<<<<<< HEAD
 
 // Document types
 =======
+=======
+import annotationProduct from './annotations/product'
+import annotationProductMarginalia from './annotations/productMarginalia'
+>>>>>>> 908e655 (refactor(sanity-studio): rename PT annotations, add external URL support on external links)
 // Documents
 import articleEditorial from './documents/article/editorial'
 import articleInfo from './documents/article/info'
@@ -47,11 +52,16 @@ export default createSchema({
     annotationLinkEmail,
     annotationLinkExternal,
     annotationLinkInternal,
+<<<<<<< HEAD
     annotationShopify,
     annotationShopifyMargin,
 <<<<<<< HEAD
     // Document types
 =======
+=======
+    annotationProduct,
+    annotationProductMarginalia,
+>>>>>>> 908e655 (refactor(sanity-studio): rename PT annotations, add external URL support on external links)
     // Documents
     articleEditorial,
     articleInfo,

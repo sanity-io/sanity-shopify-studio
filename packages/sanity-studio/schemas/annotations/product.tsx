@@ -3,7 +3,7 @@ import React from 'react'
 
 export default {
   title: 'Product',
-  name: 'annotationShopify',
+  name: 'annotationProduct',
   type: 'object',
   blockEditor: {
     icon: () => <TagIcon />
