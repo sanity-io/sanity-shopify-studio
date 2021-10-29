@@ -9,7 +9,7 @@ import useSanityQuery from '../../utils/query/useSanityQuery';
 
 export default function Product() {
   const {handle} = useParams();
-  const {sanityData, errors, shopifyData} = useSanityQuery({
+  const {sanityData, errors, shopifyProducts} = useSanityQuery({
     query: QUERY,
     params: {
       slug: handle,
@@ -19,7 +19,7 @@ export default function Product() {
     dataset: 'production',
   });
 
-  const providerData = shopifyData?.[sanityData?._id];
+  const providerData = shopifyProducts?.[sanityData?._id];
 
   if (!sanityData || !providerData) {
     return <NotFound />;

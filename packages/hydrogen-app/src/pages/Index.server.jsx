@@ -10,7 +10,7 @@ import {PRODUCT} from '../fragments/product';
 import useSanityQuery from '../utils/query/useSanityQuery';
 
 export default function Index() {
-  const {sanityData, shopifyData} = useSanityQuery({
+  const {sanityData, shopifyProducts} = useSanityQuery({
     query: QUERY,
     ...sanityConfig,
   });
@@ -37,7 +37,10 @@ export default function Index() {
           {sanityData?.featuredProducts?.map((product) => {
             return (
               <div key={product?._id}>
-                <ProductCard product={product} shopifyData={shopifyData} />
+                <ProductCard
+                  product={product}
+                  providerData={shopifyProducts?.[product?._id]}
+                />
               </div>
             );
           })}

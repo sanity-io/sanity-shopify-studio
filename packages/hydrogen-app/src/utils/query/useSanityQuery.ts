@@ -10,7 +10,7 @@ import {SanityQueryClientOptions} from './types';
 export interface UseSanityQueryResponse<T> {
   /** The data returned by the query. */
   sanityData: T;
-  shopifyData?: {[key: string]: unknown};
+  shopifyProducts?: {[key: string]: unknown};
   errors: any;
 }
 
@@ -119,12 +119,12 @@ function useSanityQuery<T>({
   ${productFragment}
   `;
 
-  const {data: rawShopifyData} = useShopQuery({
+  const {data: shopifyData} = useShopQuery({
     query: finalQuery,
     variables: shopifyVariables,
   });
 
-  const shopifyData = Object.keys(rawShopifyData)
+  const shopifyProducts = Object.keys(shopifyData)
     .map((key) => ({index: Number(key.replace('product', '')), key}))
     .map(({index, key}) => {
       const {sanityId} = productsWithFragments[index] || {};
@@ -133,7 +133,7 @@ function useSanityQuery<T>({
       }
       return {
         sanityId,
-        content: rawShopifyData[key],
+        content: shopifyData[key],
       };
     })
     .filter(Boolean)
@@ -147,7 +147,7 @@ function useSanityQuery<T>({
   return {
     sanityData,
     errors: error,
-    shopifyData,
+    shopifyProducts,
   };
 }
 
