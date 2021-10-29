@@ -8,27 +8,6 @@ export default {
   type: 'document',
   icon: JoystickIcon,
   fields: [
-    // Header
-    {
-      name: 'header',
-      title: 'Header',
-      type: 'object',
-      options: {
-        collapsed: false,
-        collapsible: true,
-      },
-      fields: [
-        // Announcements
-        {
-          name: 'announcements',
-          title: 'Announcements',
-          type: 'array',
-          description: 'Maximum of 3 items',
-          of: [{ type: 'linkInternal' }, { type: 'linkExternal' }],
-          validation: Rule => Rule.max(3),
-        },
-      ],
-    },
     // Menu
     {
       name: 'menu',
@@ -36,7 +15,7 @@ export default {
       type: 'object',
       options: {
         collapsed: false,
-        collapsible: true,
+        collapsible: true
       },
       fields: [
         // Links
@@ -44,9 +23,9 @@ export default {
           name: 'links',
           title: 'Links',
           type: 'array',
-          of: [{ type: 'linkInternal' }, { type: 'linkExternal' }],
-        },
-      ],
+          of: [{ type: 'linkInternal' }, { type: 'linkExternal' }]
+        }
+      ]
     },
     // Footer
     {
@@ -55,7 +34,7 @@ export default {
       type: 'object',
       options: {
         collapsed: false,
-        collapsible: true,
+        collapsible: true
       },
       fields: [
         // Links
@@ -63,7 +42,7 @@ export default {
           name: 'links',
           title: 'Links',
           type: 'array',
-          of: [{ type: 'linkInternal' }, { type: 'linkExternal' }],
+          of: [{ type: 'linkInternal' }, { type: 'linkExternal' }]
         },
         // Text
         {
@@ -79,37 +58,37 @@ export default {
                   {
                     title: 'Email',
                     name: 'annotationLinkEmail',
-                    type: 'annotationLinkEmail',
+                    type: 'annotationLinkEmail'
                   },
                   // Internal link
                   {
                     title: 'Internal page',
                     name: 'annotationLinkInternal',
-                    type: 'annotationLinkInternal',
+                    type: 'annotationLinkInternal'
                   },
                   // URL
                   {
                     title: 'URL',
                     name: 'annotationLinkExternal',
-                    type: 'annotationLinkExternal',
-                  },
+                    type: 'annotationLinkExternal'
+                  }
                 ],
-                decorators: [],
+                decorators: []
               },
               // Block styles
               styles: [{ title: 'Normal', value: 'normal' }],
-              type: 'block',
-            },
-          ],
-        },
-      ],
-    },
+              type: 'block'
+            }
+          ]
+        }
+      ]
+    }
   ],
   preview: {
     prepare() {
       return {
-        title: TITLE,
+        title: TITLE
       }
-    },
-  },
+    }
+  }
 }

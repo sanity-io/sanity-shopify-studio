@@ -10,6 +10,7 @@ import annotationLinkInternal from './annotations/linkInternal'
 import annotationShopify from './annotations/shopify'
 import annotationShopifyMargin from './annotations/shopifyMargin'
 // Documents
+import collection from './documents/collection'
 import page from './documents/page'
 import product from './documents/product'
 import productVariant from './documents/productVariant'
@@ -40,6 +41,7 @@ export default createSchema({
     annotationShopify,
     annotationShopifyMargin,
     // Documents
+    collection,
     page,
     product,
     productVariant,
