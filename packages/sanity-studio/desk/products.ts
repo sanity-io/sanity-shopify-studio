@@ -1,11 +1,10 @@
 import S from '@sanity/desk-tool/structure-builder'
-import { CopyIcon, InfoOutlineIcon, TagIcon } from '@sanity/icons'
+import { InfoOutlineIcon } from '@sanity/icons'
 
 // prettier-ignore
 export const products = S.listItem()
   .title('Products')
   .schemaType('product')
-  .icon(TagIcon)
   .child(
     S.documentTypeList('product')
       // .defaultLayout('detail')
@@ -25,7 +24,7 @@ export const products = S.listItem()
             // Product variants
             S.listItem()
               .title('Variants')
-              .icon(CopyIcon)
+              .schemaType('productVariant')
               .child(
                 S.documentList()
                   .title('Variants')

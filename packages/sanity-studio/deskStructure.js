@@ -24,8 +24,8 @@ import { articles } from './desk/articles'
 import { collections } from './desk/collections'
 import { debug } from './desk/debug'
 import { home } from './desk/home'
-import { navigation } from './desk/navigation'
 import { products } from './desk/products'
+import { settings } from './desk/settings'
 
 
 // If you add document types to desk structure manually, you can add them to this array to prevent duplicates in the root pane
@@ -45,11 +45,10 @@ export default () => {
         S.divider(),
         debug,
         S.divider(),
-        navigation,
+        settings,
         S.divider(),
         // Automatically add new document types to the root pane
         ...S.documentTypeListItems().filter(listItem => !DOCUMENT_TYPES_IN_STRUCTURE.includes(listItem.getId()))
-
       ])
   )
 }

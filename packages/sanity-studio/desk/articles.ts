@@ -1,5 +1,5 @@
 import S from '@sanity/desk-tool/structure-builder'
-import { BookIcon, DocumentIcon, DocumentsIcon, InfoOutlineIcon } from '@sanity/icons'
+import { DocumentsIcon } from '@sanity/icons'
 
 // prettier-ignore
 export const articles = S.listItem()
@@ -11,13 +11,13 @@ export const articles = S.listItem()
       .items([
         S.listItem()
           .title('Editorial')
-          .icon(BookIcon)
+          .schemaType('article.editorial')
           .child(
             S.documentTypeList('article.editorial')
           ),
         S.listItem()
           .title('Info')
-          .icon(InfoOutlineIcon)
+          .schemaType('article.info')
           .child(
             S.documentTypeList('article.info')
           ),

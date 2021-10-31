@@ -1,11 +1,11 @@
-import { DocumentIcon } from '@sanity/icons'
+import { InfoOutlineIcon } from '@sanity/icons'
 import { validateSlug } from '../../../utils/validateSlug'
 
 export default {
-  icon: DocumentIcon,
   name: 'article.info',
   title: 'Article (info)',
   type: 'document',
+  icon: InfoOutlineIcon,
   fields: [
     // Title
     {
@@ -87,6 +87,12 @@ export default {
           type: 'blockProduct'
         }
       ]
+    },
+    // SEO
+    {
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo'
     }
   ],
   preview: {

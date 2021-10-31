@@ -1,8 +1,10 @@
+import { PackageIcon } from '@sanity/icons'
+
 export default {
   name: 'collection',
   title: 'Collection',
   type: 'document',
-  // icon: TagIcon,
+  icon: PackageIcon,
   fields: [
     // Title
     {
@@ -32,6 +34,12 @@ export default {
         }
       ],
       validation: Rule => Rule.unique()
+    },
+    // SEO
+    {
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo'
     }
   ]
 }
