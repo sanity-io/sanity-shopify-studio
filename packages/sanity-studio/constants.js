@@ -4,6 +4,7 @@ export const DEFAULT_CURRENCY_CODE = 'USD'
 export const PAGE_REFERENCES = [
   { type: 'article.editorial' },
   { type: 'article.info' },
+  { type: 'home' },
   { type: 'product' }
 ]
 

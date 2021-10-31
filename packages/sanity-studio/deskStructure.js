@@ -3,8 +3,8 @@ import { articles } from './desk/articles'
 import { collections } from './desk/collections'
 import { debug } from './desk/debug'
 import { home } from './desk/home'
-import { navigation } from './desk/navigation'
 import { products } from './desk/products'
+import { settings } from './desk/settings'
 
 export default () => {
   // prettier-ignore
@@ -20,7 +20,7 @@ export default () => {
         S.divider(),
         debug,
         S.divider(),
-        navigation,
+        settings,
       ])
   )
 }

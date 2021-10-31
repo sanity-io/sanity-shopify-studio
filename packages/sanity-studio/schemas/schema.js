@@ -22,11 +22,12 @@ import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
 import productOption from './objects/productOption'
 import proxyString from './objects/proxyString'
+import seo from './objects/seo'
 import shopifyProduct from './objects/shopifyProduct'
 import shopifyProductVariant from './objects/shopifyProductVariant'
 // Singletons
 import home from './singletons/home'
-import navigation from './singletons/navigation'
+import settings from './singletons/settings'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -54,10 +55,11 @@ export default createSchema({
     linkInternal,
     productOption,
     proxyString,
+    seo,
     shopifyProduct,
     shopifyProductVariant,
     // Singletons
     home,
-    navigation
+    settings
   ])
 })

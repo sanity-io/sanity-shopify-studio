@@ -1,12 +1,12 @@
-import { JoystickIcon } from '@sanity/icons'
+import { CogIcon } from '@sanity/icons'
 
-const TITLE = 'Navigation'
+const TITLE = 'Settings'
 
 export default {
-  name: 'navigation',
+  name: 'settings',
   title: TITLE,
   type: 'document',
-  icon: JoystickIcon,
+  icon: CogIcon,
   fields: [
     // Menu
     {
@@ -82,6 +82,18 @@ export default {
           ]
         }
       ]
+    },
+    // SEO
+    {
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo',
+      description:
+        'Home page metadata. Also used as a fallback for other documents with undefined SEO values.',
+      options: {
+        collapsed: true,
+        collapsible: true
+      }
     }
   ],
   preview: {

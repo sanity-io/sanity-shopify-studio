@@ -45,6 +45,7 @@ export default {
       title: 'Images',
       name: 'images',
       type: 'array',
+      options: { layout: 'grid' },
       of: [
         {
           name: 'image',
@@ -164,6 +165,12 @@ export default {
       title: 'Shopify',
       type: 'shopifyProduct',
       description: 'Product data from Shopify (read-only)'
+    },
+    // SEO
+    {
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo'
     }
   ],
   orderings: [

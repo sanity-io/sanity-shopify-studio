@@ -23,8 +23,6 @@ const ProxyString = forwardRef<HTMLInputElement, Props>((props, ref) => {
 
   const path = type?.options?.field
   const proxyValue = get(document, type?.options?.field)
-  console.log('type?.options', type?.options)
-  console.log('proxyValue', proxyValue)
 
   return (
     <FormField
@@ -38,7 +36,7 @@ const ProxyString = forwardRef<HTMLInputElement, Props>((props, ref) => {
         content={
           <Box padding={2}>
             <Text muted size={1}>
-              This value can be changed in Shopify (<code>{path}</code>)
+              This value is defined in (<code>{path}</code>)
             </Text>
           </Box>
         }

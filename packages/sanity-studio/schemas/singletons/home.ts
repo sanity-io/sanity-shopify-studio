@@ -1,9 +1,12 @@
+import { HomeIcon } from '@sanity/icons'
+
 const TITLE = 'Home'
 
 export default {
   name: 'home',
   title: TITLE,
   type: 'document',
+  icon: HomeIcon,
   fields: [
     // Featured collections
     {
