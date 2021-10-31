@@ -1,11 +1,11 @@
 import {Link} from '@shopify/hydrogen/client';
 
-import {useNavigationContext} from '../contexts/NavigationContext.client';
+import {useSettingsContext} from '../contexts/SettingsContext.client';
 
 import PortableText from './PortableText.client';
 
 export default function Footer() {
-  const data = useNavigationContext();
+  const data = useSettingsContext();
 
   return (
     <footer role="contentinfo" className="border-t border-black mt-32 p-4">
