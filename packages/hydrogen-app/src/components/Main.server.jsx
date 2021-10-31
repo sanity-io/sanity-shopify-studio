@@ -3,7 +3,7 @@ import groq from 'groq';
 import {Suspense} from 'react';
 import {Switch} from 'react-router-dom';
 
-import NavigationProvider from '../contexts/NavigationProvider.client';
+import SettingsProvider from '../contexts/SettingsProvider.client';
 import {LINKS} from '../fragments/links';
 import {PORTABLE_TEXT} from '../fragments/portableText';
 import useSanityQuery from '../utils/query/useSanityQuery';
@@ -23,7 +23,7 @@ export default function Main(props) {
   return (
     <Suspense fallback={<div className="p-4">Loading...</div>}>
       <DefaultSeo />
-      <NavigationProvider value={sanityData}>
+      <SettingsProvider value={sanityData}>
         <Switch>
           <DefaultRoutes
             pages={pages}
@@ -31,13 +31,13 @@ export default function Main(props) {
             fallback={<NotFound />}
           />
         </Switch>
-      </NavigationProvider>
+      </SettingsProvider>
     </Suspense>
   );
 }
 
 const QUERY = groq`
-  *[_type == 'navigation'][0] {
+  *[_type == 'settings'][0] {
     footer {
       links[] {
         ${LINKS}
