@@ -1,3 +1,8 @@
+/**
+ * Annotations are ways of marking up text in the block content editor.
+ *
+ * Read more: https://www.sanity.io/docs/customization#f924645007e1
+ */
 import { TagIcon } from '@sanity/icons'
 import React from 'react'
 

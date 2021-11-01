@@ -1,3 +1,8 @@
+/**
+ * Custom document action
+ *
+ * Learn more: https://www.sanity.io/docs/document-actions
+ */
 import { useRouter } from '@sanity/base/router'
 import { TrashIcon } from '@sanity/icons'
 import { Stack, Text, useToast } from '@sanity/ui'
@@ -26,7 +31,9 @@ const deleteProductAndVariants = (props: Props) => {
       header: 'Delete current product and associated variants?',
       message: (
         <Stack space={4}>
-          <Text>Delete the current product and all associated variants in Sanity.</Text>
+          <Text>
+            Delete the current product and all associated variants in your Sanity Content Lake.
+          </Text>
           <Text weight="medium">No content on Shopify will be deleted.</Text>
         </Stack>
       ),
