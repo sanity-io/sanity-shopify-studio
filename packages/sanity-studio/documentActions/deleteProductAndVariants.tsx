@@ -1,3 +1,8 @@
+/**
+ * Custom document action
+ *
+ * Learn more: https://www.sanity.io/docs/document-actions
+ */
 import { useRouter } from '@sanity/base/router'
 import { TrashIcon } from '@sanity/icons'
 import { Stack, Text, useToast } from '@sanity/ui'

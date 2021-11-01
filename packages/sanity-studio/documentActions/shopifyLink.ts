@@ -1,3 +1,8 @@
+/**
+ * Custom document action
+ *
+ * Learn more: https://www.sanity.io/docs/document-actions
+ */
 import { EarthGlobeIcon } from '@sanity/icons'
 import { productUrl, productVariantUrl } from '../utils/shopifyUrls'
 
