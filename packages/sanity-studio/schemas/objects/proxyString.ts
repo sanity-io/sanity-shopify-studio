@@ -1,7 +1,8 @@
-import ProxyString from '../../components/ProxyString'
+import ProxyStringInput from '../../components/ProxyStringInput'
 
 export default {
   name: 'proxyString',
+  title: 'Title',
   type: 'string',
-  inputComponent: ProxyString
+  inputComponent: ProxyStringInput
 }

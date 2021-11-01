@@ -48,6 +48,12 @@ export default {
           type: 'image'
         }
       ]
+    },
+    // SEO
+    {
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo.singleton'
     }
   ],
   preview: {

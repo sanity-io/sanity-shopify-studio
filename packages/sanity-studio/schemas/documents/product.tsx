@@ -4,6 +4,7 @@ import React from 'react'
 import ProductHidden from '../../components/ProductHidden'
 import ProductMediaPreview from '../../components/ProductMediaPreview'
 import { getPriceRange } from '../../utils/getPriceRange'
+import seo from '../objects/seo/standard'
 
 export default {
   // HACK: Required to hide 'create new' button in desk structure
@@ -170,7 +171,7 @@ export default {
     {
       name: 'seo',
       title: 'SEO',
-      type: 'seo'
+      type: 'seo.product'
     }
   ],
   orderings: [

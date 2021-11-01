@@ -12,7 +12,6 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
-      description: 'Title displayed in browser tab / search engine results',
       validation: Rule => Rule.required()
     },
     // Slug
@@ -92,7 +91,7 @@ export default {
     {
       name: 'seo',
       title: 'SEO',
-      type: 'seo'
+      type: 'seo.standard'
     }
   ],
   preview: {

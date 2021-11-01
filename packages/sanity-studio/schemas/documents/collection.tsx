@@ -39,7 +39,7 @@ export default {
     {
       name: 'seo',
       title: 'SEO',
-      type: 'seo'
+      type: 'seo.standard'
     }
   ]
 }

@@ -20,9 +20,12 @@ import blockImage from './objects/blockImage'
 import blockProduct from './objects/blockProduct'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
+import placeholderString from './objects/placeholderString'
 import productOption from './objects/productOption'
 import proxyString from './objects/proxyString'
-import seo from './objects/seo'
+import seoProduct from './objects/seo/product'
+import seoSingleton from './objects/seo/singleton'
+import seoStandard from './objects/seo/standard'
 import shopifyProduct from './objects/shopifyProduct'
 import shopifyProductVariant from './objects/shopifyProductVariant'
 // Singletons
@@ -53,9 +56,12 @@ export default createSchema({
     blockProduct,
     linkExternal,
     linkInternal,
+    placeholderString,
     productOption,
     proxyString,
-    seo,
+    seoProduct,
+    seoSingleton,
+    seoStandard,
     shopifyProduct,
     shopifyProductVariant,
     // Singletons
