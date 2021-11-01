@@ -8,23 +8,30 @@ export default {
   fields: [
     // Title
     {
-      title: 'Title',
       name: 'title',
+      title: 'Title',
       type: 'string',
       validation: Rule => Rule.required()
     },
     // Slug
     {
-      title: 'Slug',
       name: 'slug',
+      title: 'Slug',
       type: 'slug',
       options: { source: 'title' },
       validation: Rule => Rule.required()
     },
+    // Image
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      validation: Rule => Rule.required()
+    },
     // Products
     {
-      title: 'Products',
       name: 'products',
+      title: 'Products',
       type: 'array',
       of: [
         {

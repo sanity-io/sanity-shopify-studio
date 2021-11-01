@@ -1,6 +1,6 @@
+import { useRouter } from '@sanity/base/router'
 import { TrashIcon } from '@sanity/icons'
 import { Stack, Text, useToast } from '@sanity/ui'
-import { useRouter } from '@sanity/base/router'
 import sanityClient from 'part:@sanity/base/client'
 import React, { useState } from 'react'
 import { SANITY_API_VERSION } from '../constants'

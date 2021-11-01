@@ -1,10 +1,9 @@
 import { TagIcon } from '@sanity/icons'
 import pluralize from 'pluralize'
 import React from 'react'
-import ProductHidden from '../../components/ProductHidden'
+import ProductHiddenInput from '../../components/ProductHiddenInput'
 import ProductMediaPreview from '../../components/ProductMediaPreview'
 import { getPriceRange } from '../../utils/getPriceRange'
-import seo from '../objects/seo/standard'
 
 export default {
   // HACK: Required to hide 'create new' button in desk structure
@@ -18,7 +17,7 @@ export default {
     {
       name: 'hidden',
       type: 'string',
-      inputComponent: ProductHidden,
+      inputComponent: ProductHiddenInput,
       hidden: ({ parent }) => {
         const isActive = parent?.store?.status === 'active'
         const isEnabled = parent?.store?.isEnabled

@@ -14,26 +14,22 @@ export default function resolveDocumentActions(props) {
     ...defaultResolve(props)
       // Filter out actions by document type
       .filter(action => {
+        // Products:
+        // - Disable creation and duplication
         if (props.type === 'product') {
-          // Disable: creation, deletion, duplication
-          if (
-            [
-              CreateAction,
-              // DeleteAction,
-              DuplicateAction
-            ].includes(action)
-          ) {
+          if ([CreateAction, DuplicateAction].includes(action)) {
             return false
           }
         }
 
+        // Product variants:
+        // - Disable creation, duplication and unpublishing
+        // - Enable delete button only if variant has been marked for deletion
         if (props.type === 'productVariant') {
-          // Disable: creation, duplication, unpublishing
           if ([CreateAction, DuplicateAction, UnpublishAction].includes(action)) {
             return false
           }
 
-          // Disable delete button if variant has been marked for deletion
           if (action === DeleteAction) {
             if (props?.published?.store?.isDeleted) {
               return true
