@@ -1,7 +1,8 @@
 import groq from 'groq';
 
-import {PORTABLE_TEXT} from './portableText';
 import {IMAGE} from './image';
+import {PORTABLE_TEXT} from './portableText';
+import {SEO} from './seo';
 
 export const PRODUCT = groq`
   _id,
@@ -19,5 +20,11 @@ export const PRODUCT = groq`
     },
     title
   },
-  "slug": store.slug.current
+  "seo": {
+    ...seo {
+      ${SEO}
+    },
+    "title": store.title
+  },
+  "slug": store.slug.current,
 `;
