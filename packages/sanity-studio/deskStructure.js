@@ -29,7 +29,17 @@ import { settings } from './desk/settings'
 
 
 // If you add document types to desk structure manually, you can add them to this array to prevent duplicates in the root pane
-const DOCUMENT_TYPES_IN_STRUCTURE = ['page', 'product', 'productVariant', 'home', 'navigation', 'media.tag']
+const DOCUMENT_TYPES_IN_STRUCTURE = [
+  'article.editorial',
+  'article.info',
+  'collection',
+  'home',
+  'media.tag',
+  'navigation',
+  'page',
+  'product',
+  'productVariant',
+]
 
 export default () => {
   // prettier-ignore

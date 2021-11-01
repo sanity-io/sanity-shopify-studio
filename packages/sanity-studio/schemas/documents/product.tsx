@@ -1,8 +1,8 @@
 import { TagIcon } from '@sanity/icons'
 import pluralize from 'pluralize'
 import React from 'react'
-import ProductHiddenInput from '../../components/ProductHiddenInput'
-import ProductMediaPreview from '../../components/ProductMediaPreview'
+import ProductHiddenInput from '../../components/inputs/ProductHidden'
+import ProductStatusMedia from '../../components/media/ProductStatus'
 import { getPriceRange } from '../../utils/getPriceRange'
 
 export default {
@@ -170,7 +170,7 @@ export default {
     {
       name: 'seo',
       title: 'SEO',
-      type: 'seo'
+      type: 'seo.product'
     }
   ],
   orderings: [
@@ -233,7 +233,7 @@ export default {
 
       return {
         media: (
-          <ProductMediaPreview
+          <ProductStatusMedia
             isActive={status === 'active'}
             isDeleted={isDeleted}
             isEnabled={isEnabled}

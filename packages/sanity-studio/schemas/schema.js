@@ -26,11 +26,17 @@ import blockImage from './objects/blockImage'
 import blockProduct from './objects/blockProduct'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
+import placeholderString from './objects/placeholderString'
 import productOption from './objects/productOption'
 import proxyString from './objects/proxyString'
-import seo from './objects/seo'
+import seoProduct from './objects/seo/product'
+import seoSingleton from './objects/seo/singleton'
+import seoStandard from './objects/seo/standard'
 import shopifyProduct from './objects/shopifyProduct'
 import shopifyProductVariant from './objects/shopifyProductVariant'
+// Singletons
+import home from './singletons/home'
+import settings from './singletons/settings'
 
 // Build the schemas and export to the Sanity Studio app
 export default createSchema({
@@ -43,12 +49,9 @@ export default createSchema({
         annotationLinkEmail,
         annotationLinkExternal,
         annotationLinkInternal,
-        annotationShopify,
-        annotationShopifyMargin,
-        // Document types
         annotationProduct,
         annotationProductMarginalia,
-        // Documents
+        // Document types
         articleEditorial,
         articleInfo,
         collection,
@@ -62,9 +65,12 @@ export default createSchema({
         blockProduct,
         linkExternal,
         linkInternal,
+        placeholderString,
         productOption,
         proxyString,
-        seo,
+        seoProduct,
+        seoSingleton,
+        seoStandard,
         shopifyProduct,
         shopifyProductVariant,
     ])

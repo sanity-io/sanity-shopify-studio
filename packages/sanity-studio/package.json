@@ -23,6 +23,7 @@
     "@sanity/default-layout": "^2.21.7",
     "@sanity/default-login": "^2.21.7",
     "@sanity/desk-tool": "^2.21.7",
+    "@sanity/uuid": "^3.0.1",
     "@sanity/vision": "^2.21.7",
     "lodash.get": "^4.4.2",
     "pluralize": "^8.0.0",

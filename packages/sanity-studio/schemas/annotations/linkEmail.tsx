@@ -6,14 +6,20 @@ export default {
   name: 'annotationLinkEmail',
   type: 'object',
   blockEditor: {
-    icon: () => <EnvelopeIcon strokeWidth="8" />,
+    icon: () => <EnvelopeIcon />,
+    render: ({ children }) => (
+      <span>
+        {children}
+        <EnvelopeIcon style={{ marginLeft: '0.2em', verticalAlign: 'text-bottom' }} />
+      </span>
+    )
   },
   fields: [
     // Email
     {
       title: 'Email',
       name: 'email',
-      type: 'email',
-    },
-  ],
+      type: 'email'
+    }
+  ]
 }

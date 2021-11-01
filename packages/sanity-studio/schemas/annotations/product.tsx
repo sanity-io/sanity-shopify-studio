@@ -1,12 +1,23 @@
+/**
+ * Annotations are ways of marking up text in the block content editor.
+ *
+ * Read more: https://www.sanity.io/docs/customization#f924645007e1
+ */
 import { TagIcon } from '@sanity/icons'
 import React from 'react'
 
 export default {
-  title: 'Product',
+  title: 'Product (inline link)',
   name: 'annotationProduct',
   type: 'object',
   blockEditor: {
-    icon: () => <TagIcon />
+    icon: () => <TagIcon />,
+    render: ({ children }) => (
+      <span>
+        {children}
+        <TagIcon style={{ marginLeft: '0.2em', verticalAlign: 'text-bottom' }} />
+      </span>
+    )
   },
   fields: [
     // Product

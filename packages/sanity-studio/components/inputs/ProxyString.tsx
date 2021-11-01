@@ -1,8 +1,9 @@
-import { withDocument } from 'part:@sanity/form-builder'
 import { FormField } from '@sanity/base/components'
 import { LockIcon } from '@sanity/icons'
 import { Box, Text, TextInput, Tooltip } from '@sanity/ui'
+import { uuid } from '@sanity/uuid'
 import get from 'lodash.get'
+import { withDocument } from 'part:@sanity/form-builder'
 import React, { forwardRef } from 'react'
 // import { SanityDocument } from '@sanity/client'
 
@@ -18,16 +19,20 @@ const ProxyString = forwardRef<HTMLInputElement, Props>((props, ref) => {
     onBlur,
     placeholder,
     presence,
+    readOnly,
     type
   } = props
 
   const path = type?.options?.field
-  const proxyValue = get(document, type?.options?.field)
+  const proxyValue = get(document, path)
+
+  const inputId = uuid()
 
   return (
     <FormField
       compareValue={compareValue}
       description={type?.description}
+      inputId={inputId}
       markers={markers}
       presence={presence}
       title={type?.title}
@@ -40,14 +45,13 @@ const ProxyString = forwardRef<HTMLInputElement, Props>((props, ref) => {
             </Text>
           </Box>
         }
-        // fallbackPlacements={['right', 'left']}
-        // placement="top"
         portal
       >
         <TextInput
           iconRight={LockIcon}
-          onFocus={onFocus}
+          id={inputId}
           onBlur={onBlur}
+          onFocus={onFocus}
           placeholder={placeholder}
           readOnly={true}
           ref={ref}

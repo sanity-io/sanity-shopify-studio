@@ -87,13 +87,27 @@ export default {
     {
       name: 'seo',
       title: 'SEO',
-      type: 'seo',
-      description:
-        'Home page metadata. Also used as a fallback for other documents with undefined SEO values.',
+      type: 'object',
       options: {
-        collapsed: true,
+        collapsed: false,
         collapsible: true
-      }
+      },
+      fields: [
+        {
+          name: 'title',
+          title: 'Site title',
+          type: 'string',
+          description: 'Displayed on all pages',
+          validation: Rule => Rule.required()
+        },
+        {
+          name: 'image',
+          title: 'Image',
+          type: 'image',
+          description: 'Fallback displayed on pages with no SEO image defined'
+        }
+      ],
+      validation: Rule => Rule.required()
     }
   ],
   preview: {

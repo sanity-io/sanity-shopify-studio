@@ -1,3 +1,8 @@
+/**
+ * Annotations are ways of marking up text in the block content editor.
+ *
+ * Read more: https://www.sanity.io/docs/customization#f924645007e1
+ */
 import { EarthGlobeIcon } from '@sanity/icons'
 import React from 'react'
 
@@ -6,7 +11,13 @@ export default {
   name: 'annotationLinkExternal',
   type: 'object',
   blockEditor: {
-    icon: () => <EarthGlobeIcon />
+    icon: () => <EarthGlobeIcon />,
+    render: ({ children }) => (
+      <span>
+        {children}
+        <EarthGlobeIcon style={{ marginLeft: '0.2em', verticalAlign: 'text-bottom' }} />
+      </span>
+    )
   },
   fields: [
     {
