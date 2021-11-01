@@ -1,9 +1,39 @@
-import {useShopQuery} from '@shopify/hydrogen';
-
 import extractProductsToFetch, {ProductToFetch} from './extractProductsToFetch';
 import getShopifyVariables from './getShopifyVariables';
 import productFragment from './productFragment';
 import {SanityQueryClientOptions} from './types';
+import {useSkippableShopQuery} from './useSkippableShopQuery';
+
+interface ProductWithFragment extends ProductToFetch {
+  fragment?: string;
+}
+
+function getQuery(products: ProductWithFragment[]): string {
+  // @TODO: replace with final ProductProviderFragment
+  return `
+  query getProducts(
+    $numProductMetafields: Int!
+    $numProductVariants: Int!
+    $numProductMedia: Int!
+    $numProductVariantMetafields: Int!
+    $numProductVariantSellingPlanAllocations: Int!
+    $numProductSellingPlanGroups: Int!
+    $numProductSellingPlans: Int!
+  ) {
+    ${products
+      .map(
+        (product, index) => `
+      product${index}: product(id: "gid://shopify/Product/${product.shopifyId}") {
+        ${product.fragment}
+      }
+    `,
+      )
+      .join('\n')}
+  }
+
+  ${productFragment}
+  `;
+}
 
 const useSanityShopifyProducts = (
   data: unknown,
@@ -38,60 +68,40 @@ const useSanityShopifyProducts = (
     .map((id) => enhanceProductWithFragment(productsToFetch[id]))
     .filter((product) => Boolean(product.fragment));
 
-  // @TODO: how not to break Rules of Hooks here?
-  if (productsWithFragments.length <= 0) {
-    return;
-  }
+  const shouldFetch = productsWithFragments.length > 0;
 
-  // @TODO: replace with final ProductProviderFragment
-  const finalQuery = `
-  query getProducts(
-    $numProductMetafields: Int!
-    $numProductVariants: Int!
-    $numProductMedia: Int!
-    $numProductVariantMetafields: Int!
-    $numProductVariantSellingPlanAllocations: Int!
-    $numProductSellingPlanGroups: Int!
-    $numProductSellingPlans: Int!
-  ) {
-    ${productsWithFragments
-      .map(
-        (product, index) => `
-      product${index}: product(id: "gid://shopify/Product/${product.shopifyId}") {
-        ${product.fragment}
-      }
-    `,
-      )
-      .join('\n')}
-  }
+  const finalQuery = shouldFetch ? getQuery(productsWithFragments) : undefined;
 
-  ${productFragment}
-  `;
-
-  const {data: shopifyData} = useShopQuery({
+  const {data: shopifyData} = useSkippableShopQuery<{[key: string]: any}>({
     query: finalQuery,
     variables: shopifyVariables,
   });
 
-  const shopifyProducts = Object.keys(shopifyData)
-    .map((key) => ({index: Number(key.replace('product', '')), key}))
-    .map(({index, key}) => {
-      const {sanityId} = productsWithFragments[index] || {};
-      if (!sanityId) {
-        return;
-      }
-      return {
-        sanityId,
-        content: shopifyData[key],
-      };
-    })
-    .filter(Boolean)
-    .reduce((finalObject, curProduct) => {
-      return {
-        ...finalObject,
-        [curProduct.sanityId]: curProduct.content,
-      };
-    }, {});
+  const shopifyProducts = shopifyData
+    ? Object.keys(shopifyData)
+        .map((key) => ({index: Number(key.replace('product', '')), key}))
+        .map(({index, key}) => {
+          const {sanityId} = productsWithFragments[index] || {};
+          if (!sanityId) {
+            return;
+          }
+          return {
+            sanityId,
+            content: shopifyData[key],
+          };
+        })
+        .filter(Boolean)
+        .reduce((finalObject, curProduct) => {
+          if (!curProduct?.sanityId) {
+            return finalObject;
+          }
+
+          return {
+            ...finalObject,
+            [curProduct.sanityId]: curProduct.content,
+          };
+        }, {})
+    : undefined;
 
   return shopifyProducts;
 };
