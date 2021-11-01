@@ -19,6 +19,7 @@ const ProductCard = (props) => {
   }
 
   const firstVariant = product.storefront?.variants?.edges[0]?.node;
+  const productUrl = `/products/${product?.slug}`;
 
   return (
     <ProductProvider
@@ -33,7 +34,7 @@ const ProductCard = (props) => {
           onMouseEnter={() => setShowAddToCart(true)}
           onMouseLeave={() => setShowAddToCart(false)}
         >
-          <Link to={`/products/${product?.slug}`}>
+          <Link to={productUrl}>
             <SelectedVariantImage />
           </Link>
 
@@ -45,7 +46,7 @@ const ProductCard = (props) => {
           )}
         </div>
         {/* Title */}
-        <Link to={`/products/${product?.slug}`}>
+        <Link to={productUrl}>
           <div className="font-medium mt-2">
             <Product.Title />
           </div>

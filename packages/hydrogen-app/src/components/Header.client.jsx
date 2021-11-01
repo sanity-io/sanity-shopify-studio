@@ -16,7 +16,6 @@ export default function Header() {
         <Link className="font-medium" to="/">
           Sanity + Hydrogen
         </Link>
-        <div>Example storefront</div>
       </div>
       <div onClick={toggleCart} style={{cursor: 'pointer'}}>
         <CartIcon />

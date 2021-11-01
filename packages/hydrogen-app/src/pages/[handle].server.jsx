@@ -29,10 +29,12 @@ export default function InfoArticle() {
   return (
     <Layout>
       <div className="max-w-3xl p-4">
-        <h1>{sanityArticle.title}</h1>
+        <h1 className="font-medium text-xl">{sanityArticle.title}</h1>
 
         {/* Body */}
-        {sanityArticle?.body && <PortableText blocks={sanityArticle.body} />}
+        {sanityArticle?.body && (
+          <PortableText blocks={sanityArticle.body} className="mt-4" />
+        )}
       </div>
 
       {/* SEO */}
@@ -61,5 +63,6 @@ const QUERY = groq`
         ${SEO}
       },
     },
+    title,
   }
 `;

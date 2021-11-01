@@ -11,7 +11,6 @@ export default function App({...serverState}) {
   return (
     <ShopifyServerProvider shopifyConfig={shopifyConfig} {...serverState}>
       <CartProvider>
-        {/* END: Workaround for CartContext */}
         <Main pages={pages} serverState={serverState} />
       </CartProvider>
     </ShopifyServerProvider>

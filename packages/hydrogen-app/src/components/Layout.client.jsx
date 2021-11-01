@@ -7,6 +7,8 @@ import Cart from './Cart.client';
 export default function Layout({children}) {
   const {isCartOpen, closeCart} = useCartUI();
 
+  // TODO: close the cart automatically whenever the URL changes
+
   return (
     <>
       <div className="min-h-screen max-w-screen text-gray-700">
