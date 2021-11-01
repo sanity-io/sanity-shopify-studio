@@ -2,7 +2,7 @@ import groq from 'groq';
 
 import {IMAGE} from './image';
 import {PORTABLE_TEXT} from './portableText';
-import {SEO} from './seo';
+import {SEO_PRODUCT} from './seoProduct';
 
 export const PRODUCT = groq`
   _id,
@@ -20,11 +20,8 @@ export const PRODUCT = groq`
     },
     title
   },
-  "seo": {
-    ...seo {
-      ${SEO}
-    },
-    "title": store.title
+  seo {
+    ${SEO_PRODUCT}
   },
   "slug": store.slug.current,
 `;

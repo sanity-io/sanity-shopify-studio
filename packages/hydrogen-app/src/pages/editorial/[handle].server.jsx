@@ -42,6 +42,7 @@ export default function EditorialArticle() {
           page={{
             description: sanityArticle.seo?.description,
             image: sanityArticle.seo?.image,
+            keywords: sanityArticle.seo?.keywords,
             title: sanityArticle.seo?.title,
           }}
         />
@@ -58,11 +59,8 @@ const QUERY = groq`
     body[]{
       ${PORTABLE_TEXT}
     },
-    "seo": {
-      "title": title,
-      ...seo {
-        ${SEO}
-      },
+    seo {
+      ${SEO}
     },
     title,
   }
