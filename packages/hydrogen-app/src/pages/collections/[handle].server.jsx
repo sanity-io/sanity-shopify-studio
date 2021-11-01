@@ -39,6 +39,7 @@ export default function Collection() {
         page={{
           description: sanityCollection.seo?.description,
           image: sanityCollection.seo?.image,
+          keywords: sanityCollection.seo?.keywords,
           title: sanityCollection.seo?.title,
         }}
       />

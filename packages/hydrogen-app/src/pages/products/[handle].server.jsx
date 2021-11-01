@@ -40,6 +40,7 @@ export default function Product() {
         page={{
           description: product.seo?.description,
           image: product.seo?.image,
+          keywords: product.seo?.keywords,
           product: {
             availableForSale: productVariant?.node?.availableForSale,
             description: product.seo?.description,

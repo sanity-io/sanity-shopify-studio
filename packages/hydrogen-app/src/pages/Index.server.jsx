@@ -62,6 +62,7 @@ export default function Index() {
         page={{
           description: sanityPage.seo?.description,
           image: sanityPage.seo?.image,
+          keywords: sanityPage.seo?.keywords,
           title: sanityPage.seo?.title,
         }}
       />

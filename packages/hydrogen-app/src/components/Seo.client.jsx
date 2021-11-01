@@ -39,12 +39,8 @@ export default function Seo(props) {
         {url && <meta property="og:url" content={url} />}
 
         {/* OpenGraph image */}
-        {imageUrl && (
-          <>
-            <meta property="og:image" content={imageUrl} />
-            <meta property="og:image:secure_url" content={imageUrl} />
-          </>
-        )}
+        {imageUrl && <meta property="og:image" content={imageUrl} />}
+        {imageUrl && <meta property="og:image:secure_url" content={imageUrl} />}
 
         {/* OpenGraph type */}
         {type && <meta property="og:type" content={type} />}
@@ -60,7 +56,9 @@ export default function Seo(props) {
         {/* Twitter card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
+        {description && (
+          <meta name="twitter:description" content={description} />
+        )}
 
         {/* Product JSON-LD */}
         {page?.product && (

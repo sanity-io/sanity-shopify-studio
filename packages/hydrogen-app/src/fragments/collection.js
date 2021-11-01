@@ -8,11 +8,8 @@ export const COLLECTION = groq`
   products[]->{
     ${PRODUCT}
   },
-  "seo": {
-      "title": title,
-    ...seo {
-      ${SEO}
-    },
+  seo {
+    ${SEO}
   },
   "slug": slug.current,
   title,
