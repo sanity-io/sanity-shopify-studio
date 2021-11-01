@@ -19,7 +19,7 @@ import productVariant from './documents/productVariant'
 
 // Singleton document types
 import home from './singletons/home'
-import navigation from './singletons/navigation'
+import settings from './singletons/settings'
 
 // Object types
 import blockImage from './objects/blockImage'
@@ -31,10 +31,6 @@ import proxyString from './objects/proxyString'
 import seo from './objects/seo'
 import shopifyProduct from './objects/shopifyProduct'
 import shopifyProductVariant from './objects/shopifyProductVariant'
-// Singletons
-import home from './singletons/home'
-import settings from './singletons/settings'
-
 
 // Build the schemas and export to the Sanity Studio app
 export default createSchema({
