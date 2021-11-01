@@ -14,7 +14,7 @@ import NotFound from './NotFound.server';
 export default function Main(props) {
   const {pages, serverState} = props;
 
-  const {sanityData} = useSanityQuery({
+  const {sanityData: sanitySettings} = useSanityQuery({
     query: QUERY,
     // No need to query Shopify product data ✨
     getProductGraphQLFragment: () => false,
@@ -23,7 +23,7 @@ export default function Main(props) {
   return (
     <Suspense fallback={<div className="p-4">Loading...</div>}>
       <DefaultSeo />
-      <SettingsProvider value={sanityData}>
+      <SettingsProvider value={sanitySettings}>
         <Switch>
           <DefaultRoutes
             pages={pages}

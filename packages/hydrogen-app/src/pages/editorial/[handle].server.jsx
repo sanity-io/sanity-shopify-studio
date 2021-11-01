@@ -5,21 +5,23 @@ import {useParams} from 'react-router-dom';
 import Layout from '../../components/Layout.client';
 import NotFound from '../../components/NotFound.server';
 import PortableText from '../../components/PortableText.client';
+import Seo from '../../components/Seo.client';
 import ProductsProvider from '../../contexts/ProductsProvider.client';
 import {PORTABLE_TEXT} from '../../fragments/portableText';
+import {SEO} from '../../fragments/seo';
 import useSanityQuery from '../../utils/query/useSanityQuery';
 
-export default function EditorialPage() {
+export default function EditorialArticle() {
   const {handle} = useParams();
 
-  const {errors, sanityData, shopifyProducts} = useSanityQuery({
+  const {sanityData: sanityArticle, shopifyProducts} = useSanityQuery({
     query: QUERY,
     params: {
       slug: handle,
     },
   });
 
-  if (!sanityData) {
+  if (!sanityArticle) {
     return <NotFound />;
   }
 
@@ -27,11 +29,20 @@ export default function EditorialPage() {
     <ProductsProvider value={shopifyProducts}>
       <Layout>
         <div className="max-w-3xl p-4">
-          <h1>{sanityData.title}</h1>
+          <h1>{sanityArticle.title}</h1>
 
           {/* Body */}
-          {sanityData?.body && <PortableText blocks={sanityData.body} />}
+          {sanityArticle?.body && <PortableText blocks={sanityArticle.body} />}
         </div>
+
+        {/* SEO */}
+        <Seo
+          page={{
+            description: sanityArticle.seo?.description,
+            image: sanityArticle.seo?.image,
+            title: sanityArticle.seo?.title,
+          }}
+        />
       </Layout>
     </ProductsProvider>
   );
@@ -45,6 +56,12 @@ const QUERY = groq`
     ...,
     body[]{
       ${PORTABLE_TEXT}
+    },
+    "seo": {
+      "title": title,
+      ...seo {
+        ${SEO}
+      },
     },
   }
 `;

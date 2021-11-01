@@ -10,18 +10,21 @@ import {useState} from 'react';
 import ButtonSelectedVariantAddToCart from './ButtonSelectedVariantAddToCart.client';
 
 const ProductCard = (props) => {
-  const {product, providerData} = props;
+  const {product} = props;
 
   const [showAddToCart, setShowAddToCart] = useState(false);
 
-  if (!providerData) {
+  if (!product.storefront) {
     return null;
   }
 
-  const firstVariant = providerData?.variants?.edges[0]?.node;
+  const firstVariant = product.storefront?.variants?.edges[0]?.node;
 
   return (
-    <ProductProvider product={providerData} initialVariantId={firstVariant.id}>
+    <ProductProvider
+      product={product.storefront}
+      initialVariantId={firstVariant.id}
+    >
       <div className="col-span-2 bg-white">
         {/* Image */}
         <div

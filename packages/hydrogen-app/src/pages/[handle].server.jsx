@@ -5,13 +5,15 @@ import {useParams} from 'react-router-dom';
 import Layout from '../components/Layout.client';
 import NotFound from '../components/NotFound.server';
 import PortableText from '../components/PortableText.client';
+import Seo from '../components/Seo.client';
 import {PORTABLE_TEXT} from '../fragments/portableText';
+import {SEO} from '../fragments/seo';
 import useSanityQuery from '../utils/query/useSanityQuery';
 
-export default function Page() {
+export default function InfoArticle() {
   const {handle} = useParams();
 
-  const {sanityData} = useSanityQuery({
+  const {sanityData: sanityArticle} = useSanityQuery({
     query: QUERY,
     params: {
       slug: handle,
@@ -20,19 +22,27 @@ export default function Page() {
     getProductGraphQLFragment: () => false,
   });
 
-  if (!sanityData) {
+  if (!sanityArticle) {
     return <NotFound />;
   }
 
   return (
     <Layout>
       <div className="max-w-3xl p-4">
-        <h1>{sanityData.title}</h1>
-        <br />
+        <h1>{sanityArticle.title}</h1>
 
         {/* Body */}
-        {sanityData?.body && <PortableText blocks={sanityData.body} />}
+        {sanityArticle?.body && <PortableText blocks={sanityArticle.body} />}
       </div>
+
+      {/* SEO */}
+      <Seo
+        page={{
+          description: sanityArticle.seo?.description,
+          image: sanityArticle.seo?.image,
+          title: sanityArticle.seo?.title,
+        }}
+      />
     </Layout>
   );
 }
@@ -42,9 +52,14 @@ const QUERY = groq`
     _type == 'article.info'
     && slug.current == $slug
   ][0]{
-    ...,
     body[]{
       ${PORTABLE_TEXT}
+    },
+    "seo": {
+      "title": title,
+      ...seo {
+        ${SEO}
+      },
     },
   }
 `;

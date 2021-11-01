@@ -1,22 +1,31 @@
-import {useShopQuery} from '@shopify/hydrogen';
-import gql from 'graphql-tag';
+import groq from 'groq';
+
+import {IMAGE} from '../fragments/image';
+import useSanityQuery from '../utils/query/useSanityQuery';
 
 import Seo from './Seo.client';
 
 export default function SeoServer() {
-  const {
-    data: {
-      shop: {name: shopName},
-    },
-  } = useShopQuery({query: QUERY});
+  const {sanityData: sanitySeo} = useSanityQuery({
+    query: QUERY,
+    // No need to query Shopify product data ✨
+    getProductGraphQLFragment: () => false,
+  });
 
-  return <Seo shopName={shopName} />;
+  if (!sanitySeo) {
+    return null;
+  }
+
+  return (
+    <Seo defaultImage={sanitySeo?.image} defaultTitle={sanitySeo?.title} />
+  );
 }
 
-const QUERY = gql`
-  query shopName {
-    shop {
-      name
-    }
+const QUERY = groq`
+  *[_type == 'settings'][0].seo {
+    image {
+      ${IMAGE}
+    },
+    title
   }
 `;

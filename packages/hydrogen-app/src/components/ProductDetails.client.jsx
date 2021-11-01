@@ -3,16 +3,25 @@ import {Product} from '@shopify/hydrogen/client';
 import ButtonSelectedVariantAddToCart from './ButtonSelectedVariantAddToCart.client';
 import ButtonSelectedVariantBuyNow from './ButtonSelectedVariantBuyNow.client';
 import PortableText from './PortableText.client';
-import SanityGallery from './SanityGallery.client';
 import ProductOptions from './ProductOptions.client';
+import SanityGallery from './SanityGallery.client';
+import Seo from './Seo.client';
 
-export default function ProductDetails({product, providerData}) {
-  const initialVariantId = providerData.variants.edges[0].node.id;
+export default function ProductDetails({product}) {
+  const initialVariantId = product.storefront.variants.edges[0].node.id;
 
   return (
     <div className="p-4">
-      {/* <Seo product={product} /> */}
-      <Product product={providerData} initialVariantId={initialVariantId}>
+      {/* SEO */}
+      {/*
+      <Seo
+        description={product.seo?.description}
+        image={product.seo?.image}
+        title={product.seo?.title}
+      />
+      */}
+
+      <Product product={product.storefront} initialVariantId={initialVariantId}>
         <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           <section className="lg:col-span-2 grid gap-10" aria-label="Gallery">
             {product?.images && <SanityGallery images={product.images} />}
