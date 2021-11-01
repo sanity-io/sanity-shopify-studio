@@ -1,7 +1,7 @@
 import { CopyIcon } from '@sanity/icons'
 import React from 'react'
 import ProductMediaPreview from '../../components/ProductMediaPreview'
-import ProductVariantHidden from '../../components/ProductVariantHidden'
+import ProductVariantHiddenInput from '../../components/ProductVariantHiddenInput'
 
 export default {
   // HACK: Required to hide 'create new' button in desk structure
@@ -15,7 +15,7 @@ export default {
     {
       name: 'hidden',
       type: 'string',
-      inputComponent: ProductVariantHidden,
+      inputComponent: ProductVariantHiddenInput,
       hidden: ({ parent }) => {
         const isDeleted = parent?.store?.isDeleted
 

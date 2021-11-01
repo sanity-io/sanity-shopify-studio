@@ -9,7 +9,7 @@ type Props = {
   document: SanityDocument
 }
 
-const ProductHidden = forwardRef<HTMLDivElement, Props>((props, ref) => {
+const ProductHiddenInput = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { document } = props
 
   const isActive = document?.store?.status === 'active'
@@ -64,4 +64,4 @@ const ProductHidden = forwardRef<HTMLDivElement, Props>((props, ref) => {
   )
 })
 
-export default withDocument(ProductHidden)
+export default withDocument(ProductHiddenInput)
