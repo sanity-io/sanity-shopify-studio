@@ -26,7 +26,9 @@ const deleteProductAndVariants = (props: Props) => {
       header: 'Delete current product and associated variants?',
       message: (
         <Stack space={4}>
-          <Text>Delete the current product and all associated variants in Sanity.</Text>
+          <Text>
+            Delete the current product and all associated variants in your Sanity Content Lake.
+          </Text>
           <Text weight="medium">No content on Shopify will be deleted.</Text>
         </Stack>
       ),
