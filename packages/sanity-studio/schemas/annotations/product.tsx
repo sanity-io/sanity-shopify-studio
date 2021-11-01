@@ -2,11 +2,17 @@ import { TagIcon } from '@sanity/icons'
 import React from 'react'
 
 export default {
-  title: 'Product',
+  title: 'Product (inline link)',
   name: 'annotationProduct',
   type: 'object',
   blockEditor: {
-    icon: () => <TagIcon />
+    icon: () => <TagIcon />,
+    render: ({ children }) => (
+      <span>
+        {children}
+        <TagIcon style={{ marginLeft: '0.2em', verticalAlign: 'text-bottom' }} />
+      </span>
+    )
   },
   fields: [
     // Product

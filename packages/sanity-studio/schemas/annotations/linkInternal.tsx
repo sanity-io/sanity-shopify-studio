@@ -1,4 +1,4 @@
-import { DocumentIcon } from '@sanity/icons'
+import { LinkIcon } from '@sanity/icons'
 import React from 'react'
 import { PAGE_REFERENCES } from '../../constants'
 
@@ -7,7 +7,13 @@ export default {
   name: 'annotationLinkInternal',
   type: 'object',
   blockEditor: {
-    icon: () => <DocumentIcon />,
+    icon: () => <LinkIcon />,
+    render: ({ children }) => (
+      <span>
+        {children}
+        <LinkIcon style={{ marginLeft: '0.2em', verticalAlign: 'text-bottom' }} />
+      </span>
+    )
   },
   fields: [
     // Reference
@@ -16,7 +22,7 @@ export default {
       type: 'reference',
       weak: true,
       validation: Rule => Rule.required(),
-      to: PAGE_REFERENCES,
-    },
-  ],
+      to: PAGE_REFERENCES
+    }
+  ]
 }

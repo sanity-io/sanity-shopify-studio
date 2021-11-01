@@ -6,7 +6,13 @@ export default {
   name: 'annotationLinkExternal',
   type: 'object',
   blockEditor: {
-    icon: () => <EarthGlobeIcon />
+    icon: () => <EarthGlobeIcon />,
+    render: ({ children }) => (
+      <span>
+        {children}
+        <EarthGlobeIcon style={{ marginLeft: '0.2em', verticalAlign: 'text-bottom' }} />
+      </span>
+    )
   },
   fields: [
     {

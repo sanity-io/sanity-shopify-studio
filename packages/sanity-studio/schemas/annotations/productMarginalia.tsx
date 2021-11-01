@@ -6,7 +6,13 @@ export default {
   name: 'annotationProductMarginalia',
   type: 'object',
   blockEditor: {
-    icon: () => <MasterDetailIcon />
+    icon: () => <MasterDetailIcon />,
+    render: ({ children }) => (
+      <span>
+        {children}
+        <MasterDetailIcon style={{ marginLeft: '0.2em', verticalAlign: 'text-bottom' }} />
+      </span>
+    )
   },
   fields: [
     // Product

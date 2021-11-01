@@ -1,7 +1,7 @@
 import { CopyIcon } from '@sanity/icons'
 import React from 'react'
-import ProductMediaPreview from '../../components/ProductMediaPreview'
-import ProductVariantHiddenInput from '../../components/ProductVariantHiddenInput'
+import ProductMediaPreview from '../../components/media/ProductStatus'
+import ProductVariantHiddenInput from '../../components/inputs/ProductVariantHidden'
 
 export default {
   // HACK: Required to hide 'create new' button in desk structure

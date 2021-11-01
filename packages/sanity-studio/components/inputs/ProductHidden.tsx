@@ -3,7 +3,7 @@ import { WarningOutlineIcon } from '@sanity/icons'
 import { Box, Card, Flex, Stack, Text } from '@sanity/ui'
 import { withDocument } from 'part:@sanity/form-builder'
 import React, { forwardRef } from 'react'
-import { productUrl } from '../utils/shopifyUrls'
+import { productUrl } from '../../utils/shopifyUrls'
 
 type Props = {
   document: SanityDocument
