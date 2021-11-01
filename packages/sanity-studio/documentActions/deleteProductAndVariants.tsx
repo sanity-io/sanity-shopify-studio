@@ -48,9 +48,9 @@ const deleteProductAndVariants = (props: Props) => {
             .withConfig({ apiVersion: SANITY_API_VERSION })
             .fetch(
               `*[
-            _type == "productVariant"
-            && store.productId == $productId
-          ]._id`,
+                _type == "productVariant"
+                && store.productId == $productId
+              ]._id`,
               { productId: productId }
             )
         }

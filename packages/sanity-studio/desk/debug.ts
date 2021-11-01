@@ -2,6 +2,8 @@ import S from '@sanity/desk-tool/structure-builder'
 import { EyeOpenIcon, RobotIcon } from '@sanity/icons'
 import sanityClient from 'part:@sanity/base/client'
 
+import { SANITY_API_VERSION } from '../constants'
+
 // prettier-ignore
 export const debug = S.listItem()
   .title('Debug')
@@ -32,9 +34,11 @@ export const debug = S.listItem()
             .title('Product Variants (orphaned)')
             .icon(EyeOpenIcon)
             .child(async () => {
-              const productIds = await sanityClient.fetch(`
-                *[_type == "product"].store.id
-              `)
+              const productIds = await sanityClient
+                .withConfig({ apiVersion: SANITY_API_VERSION })
+                .fetch(`
+                  *[_type == "product"].store.id
+                `)
 
               return S.documentList()
                 .title('Variants')
