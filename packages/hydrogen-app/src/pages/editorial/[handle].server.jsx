@@ -29,10 +29,12 @@ export default function EditorialArticle() {
     <ProductsProvider value={shopifyProducts}>
       <Layout>
         <div className="max-w-3xl p-4">
-          <h1>{sanityArticle.title}</h1>
+          <h1 className="font-medium text-xl">{sanityArticle.title}</h1>
 
           {/* Body */}
-          {sanityArticle?.body && <PortableText blocks={sanityArticle.body} />}
+          {sanityArticle?.body && (
+            <PortableText blocks={sanityArticle.body} className="mt-4" />
+          )}
         </div>
 
         {/* SEO */}
@@ -53,7 +55,6 @@ const QUERY = groq`
     _type == 'article.editorial'
     && slug.current == $slug
   ][0]{
-    ...,
     body[]{
       ${PORTABLE_TEXT}
     },
@@ -63,5 +64,6 @@ const QUERY = groq`
         ${SEO}
       },
     },
+    title,
   }
 `;

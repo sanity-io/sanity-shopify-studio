@@ -1,13 +1,12 @@
 import {
+  CartCheckoutButton,
+  CartEstimatedCost,
+  CartLine,
+  CartLines,
+  Link,
+  Money,
   useCart,
   useCartLinesTotalQuantity,
-  Money,
-  CartCheckoutButton,
-  // Link,
-  CartEstimatedCost,
-  CartLines,
-  CartLine,
-  // CartShopPayButton,
 } from '@shopify/hydrogen/client';
 
 import {useCartUI} from '../contexts/CartUIProvider.client';
@@ -74,68 +73,49 @@ function CartLineItems() {
         <div role="columnheader">Price</div>
       </div>
       <CartLines>
-        {({merchandise}) => (
-          <div
-            role="row"
-            className="border-b border-solid border-gray-300 last:border-0 py-4"
-          >
-            <div className="flex space-x-8 relative">
-              <div role="cell">
-                <div className="w-20 h-20 relative">
-                  {/* <Link to={`/products/${merchandise.product.handle}`}> */}
-                  <CartLine.Image className="bg-white w-full h-full object-contain" />
-                  {/* </Link> */}
-                </div>
-              </div>
-              <div
-                role="cell"
-                className="flex-grow flex flex-col justify-between"
-              >
-                <div className="flex gap-2">
-                  <div className="flex-grow">
-                    <CartLine.ProductTitle className="text-gray-900 text-sm font-medium" />
-                    <CartLine.SelectedOptions className="text-sm">
-                      {({name, value}) => (
-                        <>
-                          {name}: {value}
-                        </>
-                      )}
-                    </CartLine.SelectedOptions>
-                    <CartLine.Attributes className="text-sm">
-                      {({key, value}) => (
-                        <>
-                          {key}: {value}
-                        </>
-                      )}
-                    </CartLine.Attributes>
-                  </div>
-                  <div className="flex-shrink">
-                    <CartLine.QuantityAdjustButton
-                      adjust="remove"
-                      aria-label="Remove from cart"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </CartLine.QuantityAdjustButton>
+        {({merchandise}) => {
+          const productUrl = `/products/${merchandise.product.handle}`;
+          return (
+            <div
+              role="row"
+              className="border-b border-solid border-gray-300 last:border-0 py-4"
+            >
+              <div className="flex space-x-8 relative">
+                <div role="cell">
+                  <div className="w-20 h-20 relative">
+                    <Link to={productUrl}>
+                      <CartLine.Image className="bg-white w-full h-full object-contain" />
+                    </Link>
                   </div>
                 </div>
-                <div className="flex mt-2">
-                  <div className="flex-grow">
-                    <div className="border border-solid border-gray-300 inline-flex items-center text-gray-500">
+                <div
+                  role="cell"
+                  className="flex-grow flex flex-col justify-between"
+                >
+                  <div className="flex gap-2">
+                    <div className="flex-grow">
+                      <Link to={productUrl}>
+                        <CartLine.ProductTitle className="text-gray-900 text-sm font-medium" />
+                      </Link>
+                      <CartLine.SelectedOptions className="text-sm">
+                        {({name, value}) => (
+                          <>
+                            {name}: {value}
+                          </>
+                        )}
+                      </CartLine.SelectedOptions>
+                      <CartLine.Attributes className="text-sm">
+                        {({key, value}) => (
+                          <>
+                            {key}: {value}
+                          </>
+                        )}
+                      </CartLine.Attributes>
+                    </div>
+                    <div className="flex-shrink">
                       <CartLine.QuantityAdjustButton
-                        adjust="decrease"
-                        className="p-2"
-                        aria-label="Decrease quantity"
+                        adjust="remove"
+                        aria-label="Remove from cart"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -145,44 +125,68 @@ function CartLineItems() {
                         >
                           <path
                             fillRule="evenodd"
-                            d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </CartLine.QuantityAdjustButton>
-                      <CartLine.Quantity
-                        as="div"
-                        className="p-2 text-gray-900 text-center text-sm"
-                      />
-                      <CartLine.QuantityAdjustButton
-                        adjust="increase"
-                        className="p-2"
-                        aria-label="Increase quantity"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                             clipRule="evenodd"
                           />
                         </svg>
                       </CartLine.QuantityAdjustButton>
                     </div>
                   </div>
+                  <div className="flex mt-2">
+                    <div className="flex-grow">
+                      <div className="border border-solid border-gray-300 inline-flex items-center text-gray-500">
+                        <CartLine.QuantityAdjustButton
+                          adjust="decrease"
+                          className="p-2"
+                          aria-label="Decrease quantity"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </CartLine.QuantityAdjustButton>
+                        <CartLine.Quantity
+                          as="div"
+                          className="p-2 text-gray-900 text-center text-sm"
+                        />
+                        <CartLine.QuantityAdjustButton
+                          adjust="increase"
+                          className="p-2"
+                          aria-label="Increase quantity"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </CartLine.QuantityAdjustButton>
+                      </div>
+                    </div>
+                  </div>
+                  <CartLine.Price
+                    role="cell"
+                    className="absolute bottom-0 right-0 mb-3 text-sm"
+                  />
                 </div>
-                <CartLine.Price
-                  role="cell"
-                  className="absolute bottom-0 right-0 mb-3 text-sm"
-                />
               </div>
             </div>
-          </div>
-        )}
+          );
+        }}
       </CartLines>
     </div>
   );
