@@ -1,4 +1,5 @@
 import { PackageIcon } from '@sanity/icons'
+import pluralize from 'pluralize'
 
 export default {
   name: 'collection',
@@ -48,5 +49,20 @@ export default {
       title: 'SEO',
       type: 'seo.standard'
     }
-  ]
+  ],
+  preview: {
+    select: {
+      image: 'image',
+      productCount: 'products.length',
+      title: 'title'
+    },
+    prepare(selection) {
+      const { image, productCount, title } = selection
+      return {
+        media: image,
+        subtitle: pluralize('product', productCount, true),
+        title
+      }
+    }
+  }
 }
