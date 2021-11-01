@@ -34,44 +34,41 @@ import seoSingleton from './objects/seo/singleton'
 import seoStandard from './objects/seo/standard'
 import shopifyProduct from './objects/shopifyProduct'
 import shopifyProductVariant from './objects/shopifyProductVariant'
-// Singletons
-import home from './singletons/home'
-import settings from './singletons/settings'
 
 // Build the schemas and export to the Sanity Studio app
 export default createSchema({
-    // We name our schema
-    name: 'default',
-    // Then proceed to concatenate our document type
-    // to the ones provided by any plugins that are installed
-    types: schemaTypes.concat([
-        // Annotations
-        annotationLinkEmail,
-        annotationLinkExternal,
-        annotationLinkInternal,
-        annotationProduct,
-        annotationProductMarginalia,
-        // Document types
-        articleEditorial,
-        articleInfo,
-        collection,
-        product,
-        productVariant,
-        // Singleton document types
-        home,
-        settings,
-        // Objects
-        blockImage,
-        blockProduct,
-        linkExternal,
-        linkInternal,
-        placeholderString,
-        productOption,
-        proxyString,
-        seoProduct,
-        seoSingleton,
-        seoStandard,
-        shopifyProduct,
-        shopifyProductVariant,
-    ])
+  // We name our schema
+  name: 'default',
+  // Then proceed to concatenate our document type
+  // to the ones provided by any plugins that are installed
+  types: schemaTypes.concat([
+    // Annotations
+    annotationLinkEmail,
+    annotationLinkExternal,
+    annotationLinkInternal,
+    annotationProduct,
+    annotationProductMarginalia,
+    // Document types
+    articleEditorial,
+    articleInfo,
+    collection,
+    product,
+    productVariant,
+    // Singleton document types
+    home,
+    settings,
+    // Objects
+    blockImage,
+    blockProduct,
+    linkExternal,
+    linkInternal,
+    placeholderString,
+    productOption,
+    proxyString,
+    seoProduct,
+    seoSingleton,
+    seoStandard,
+    shopifyProduct,
+    shopifyProductVariant
+  ])
 })

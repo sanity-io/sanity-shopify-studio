@@ -11,7 +11,7 @@
   *
   * Sanity Studio will automatically list document types out of the box.
   * With this custom desk structure we achieve things like showing the `home`
-  * and `navigation` document types as singletons, and grouping product details
+  * and `settings` document types as singletons, and grouping product details
   * and variants for easy access.
   *
   * You can customize this even further as your schemas progress.
@@ -27,7 +27,6 @@ import { home } from './desk/home'
 import { products } from './desk/products'
 import { settings } from './desk/settings'
 
-
 // If you add document types to desk structure manually, you can add them to this array to prevent duplicates in the root pane
 const DOCUMENT_TYPES_IN_STRUCTURE = [
   'article.editorial',
@@ -35,10 +34,10 @@ const DOCUMENT_TYPES_IN_STRUCTURE = [
   'collection',
   'home',
   'media.tag',
-  'navigation',
   'page',
   'product',
   'productVariant',
+  'settings'
 ]
 
 export default () => {
