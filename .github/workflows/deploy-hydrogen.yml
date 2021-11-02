@@ -1,5 +1,10 @@
-name: Fly Deploy
-on: [push]
+name: Deploy Hydrogen (fly.io)
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - packages/hydrogen-app/**
 env:
   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 jobs:
