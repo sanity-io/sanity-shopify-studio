@@ -21,7 +21,7 @@ export const PORTABLE_TEXT = groq`
   },
   children[] {
     ...,
-    (_type == 'blockInlineLinkProduct') => {
+    (_type == 'blockInlineProduct') => {
       ...,
       product->{
         ...

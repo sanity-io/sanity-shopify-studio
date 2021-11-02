@@ -1,12 +1,8 @@
-import {
-  BuyNowButton,
-  MediaFile,
-  Product,
-  ProductProvider,
-} from '@shopify/hydrogen/client';
+import {MediaFile, Product, ProductProvider} from '@shopify/hydrogen/client';
 
 import {useProductsContext} from '../../contexts/ProductsContext.client';
 import ButtonSelectedVariantAddToCart from '../ButtonSelectedVariantAddToCart.client';
+import ButtonSelectedVariantBuyNow from '../ButtonSelectedVariantBuyNow.client';
 
 const AnnotationProductMarginalia = (props) => {
   const {children, mark} = props;
@@ -23,65 +19,30 @@ const AnnotationProductMarginalia = (props) => {
 
   return (
     <ProductProvider product={product} initialVariantId={productVariant?.id}>
-      {mark?.action === 'addToCart' && (
-        <>
-          {children}
-          <div
-            className="absolute border border-gray-500 left-full ml-10 p-2 rounded-sm top-0 w-44"
-            quantity={mark?.quantity || 1}
-          >
-            <div className="text-sm">
-              <Product.Title className="font-medium" />
-              <Product.Price />
-            </div>
-            <MediaFile
-              className="my-2 w-full"
-              media={{
-                mediaContentType: 'IMAGE',
-                image: productVariant?.image,
-              }}
-              options={{
-                height: '700',
-                crop: 'center',
-              }}
-            />
+      <>
+        {children}
+        <div className="absolute border border-gray-500 left-full ml-10 p-2 rounded-sm top-0 w-44">
+          <div className="text-sm">
+            <Product.Title className="font-medium" />
+            <Product.Price />
+          </div>
+          <MediaFile
+            className="my-2 w-full"
+            media={{
+              mediaContentType: 'IMAGE',
+              image: productVariant?.image,
+            }}
+            options={{
+              height: '700',
+              crop: 'center',
+            }}
+          />
+          {mark?.action === 'addToCart' && (
             <ButtonSelectedVariantAddToCart small />
-          </div>
-        </>
-      )}
-
-      {mark?.action === 'buyNow' && (
-        <>
-          {children}
-          <div
-            className="absolute border border-gray-500 left-full ml-10 p-2 rounded-sm top-0 w-44"
-            quantity={mark?.quantity || 1}
-          >
-            <div className="text-sm">
-              <Product.Title className="font-medium" />
-              <Product.Price />
-            </div>
-            <MediaFile
-              className="my-2 w-full"
-              media={{
-                mediaContentType: 'IMAGE',
-                image: productVariant?.image,
-              }}
-              options={{
-                height: '700',
-                crop: 'center',
-              }}
-            />
-            <BuyNowButton
-              className="bg-black flex h-10 items-center justify-center text-center text-xs text-white w-full"
-              quantity={mark?.quantity || 1}
-              variantId={productVariant?.id}
-            >
-              Buy now
-            </BuyNowButton>
-          </div>
-        </>
-      )}
+          )}
+          {mark?.action === 'buyNow' && <ButtonSelectedVariantBuyNow small />}
+        </div>
+      </>
     </ProductProvider>
   );
 };
