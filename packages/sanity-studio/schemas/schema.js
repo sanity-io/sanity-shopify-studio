@@ -23,7 +23,7 @@ import settings from './singletons/settings'
 
 // Object types
 import blockImage from './objects/blockImage'
-import blockInlineLinkProduct from './objects/blockInlineLinkProduct'
+import blockInlineProduct from './objects/blockInlineProduct'
 import blockProduct from './objects/blockProduct'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
@@ -60,7 +60,7 @@ export default createSchema({
     settings,
     // Objects
     blockImage,
-    blockInlineLinkProduct,
+    blockInlineProduct,
     blockProduct,
     linkExternal,
     linkInternal,

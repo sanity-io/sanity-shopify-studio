@@ -71,6 +71,8 @@ export default {
               }
             ]
           },
+          // Inline blocks
+          of: [{ type: 'blockInlineProduct' }],
           styles: [{ title: 'Quote', value: 'blockquote' }],
           type: 'block'
         },

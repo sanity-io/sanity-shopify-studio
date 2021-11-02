@@ -1,5 +1,4 @@
 import { BookIcon } from '@sanity/icons'
-import React from 'react'
 import { validateSlug } from '../../../utils/validateSlug'
 
 export default {
@@ -74,7 +73,7 @@ export default {
             ]
           },
           // Inline blocks
-          of: [{ type: 'blockInlineLinkProduct' }],
+          of: [{ type: 'blockInlineProduct' }],
           styles: [{ title: 'Quote', value: 'blockquote' }],
           type: 'block'
         },
