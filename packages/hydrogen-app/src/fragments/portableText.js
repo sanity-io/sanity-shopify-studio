@@ -4,6 +4,7 @@ import {IMAGE} from './image';
 import {LINK_EXTERNAL} from './linkExternal';
 import {LINK_INTERNAL} from './linkInternal';
 
+// TODO: reduce overfetching for all block and mark defs here
 export const PORTABLE_TEXT = groq`
   ...,
   (_type == 'blockImage') => {
@@ -17,6 +18,15 @@ export const PORTABLE_TEXT = groq`
     product->{
       ...
     }
+  },
+  children[] {
+    ...,
+    (_type == 'blockInlineLinkProduct') => {
+      ...,
+      product->{
+        ...
+      }
+    },
   },
   markDefs[] {
     ...,

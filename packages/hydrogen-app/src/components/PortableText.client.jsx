@@ -9,6 +9,7 @@ import AnnotationProduct from './annotations/AnnotationProduct.client';
 import AnnotationProductMarginalia from './annotations/AnnotationProductMarginalia.client';
 import Block from './blocks/Block.client';
 import BlockImage from './blocks/BlockImage.client';
+import BlockInlineLinkProduct from './blocks/BlockInlineLinkProduct.client';
 import BlockProduct from './blocks/BlockProduct.client';
 
 const portableTextMarks = {
@@ -36,9 +37,10 @@ const PortableText = (props) => {
           marks: portableTextMarks,
           // Block types
           types: {
-            block: (props) => <Block {...props} />,
-            blockImage: (props) => <BlockImage {...props} />,
-            blockProduct: (props) => <BlockProduct {...props} />,
+            block: Block,
+            blockImage: BlockImage,
+            blockProduct: BlockProduct,
+            blockInlineLinkProduct: BlockInlineLinkProduct,
           },
         }}
       />
