@@ -7,7 +7,7 @@ const DOCUMENT_SLUG_MAP = {
   'article.info': `"/" + slug.current`,
   'article.editorial': `"/editorial/" + slug.current`,
   home: `"/"`,
-  product: `"/products/" + slug.current`,
+  product: `"/products/" + store.slug.current`,
 };
 
 export const DOCUMENT_SLUG = flow(
