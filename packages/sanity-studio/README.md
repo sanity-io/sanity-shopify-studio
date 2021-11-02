@@ -5,6 +5,8 @@
   - [Shopify friendly content schemas](#shopify-friendly-content-schemas)
   - [Desk structure](#desk-structure)
   - [Custom document actions](#custom-document-actions)
+  - [Delete product and variants](#delete-product-and-variants)
+  - [Edit in Shopify shortcut](#edit-in-shopify-shortcut)
   - [Bundled custom input components](#bundled-custom-input-components)
 - [Setup](#setup)
 - [Local Development](#local-development)
@@ -29,7 +31,11 @@ This studio can be used with our [Hydrogen starter][hydrogen-demo], your own fro
 
 This studio is built to accomodate product information coming from a Shopify Store. You can use the [Saniy Shopify app][sanity-shopify] to sync your product information, add content on top of it and integrate with editorial content. The content will be available over APIs that you can use with a
 
-Inside `/schemas` you'll find the
+Inside `/schemas` you'll find schema definitions for all the content types. They are organized in folders:
+
+- `/schemas/annotations/`: Annotations let editors mark up text in the block content editor with rich objects. These can be used to agument editorial content with product information. It also uses referential integrity to keep you from unwillingly delete a product that's used in editorial content.
+- `/schemas/documents/`: Document types determines the shape of the JSON documents that's stored in your content lake. This is where you define the content forms for things like products, collections, variants, as well as articles.
+- `/schemas/objects/`:
 
 ### Desk structure
 
@@ -46,13 +52,13 @@ Custom document actions let you override the default behavior of the publish but
 
 You can find custom document actions in `/documentActions/`.
 
-**Delete product and variants**
+### Delete product and variants
 
 `/documentActions/deleteProductAndVariants.tsx`
 
 This custom document action lets you delete a product documet including all its variants in your Sanity Content Lake. Without this document action, one would have to delete all variant document one-by-one.
 
-**Edit in Shopify shortcut**
+### Edit in Shopify shortcut
 
 `/documentActions/shopifyLink.ts`
 
