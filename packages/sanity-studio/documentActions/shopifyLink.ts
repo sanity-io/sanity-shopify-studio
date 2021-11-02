@@ -5,6 +5,7 @@
  */
 import { EarthGlobeIcon } from '@sanity/icons'
 import { productUrl, productVariantUrl } from '../utils/shopifyUrls'
+import { SHOPIFY_STORE_ID } from '../constants'
 
 type Props = {
   published: Record<string, any> // Sanity Document
@@ -17,12 +18,12 @@ export default (props: Props) => {
   const isProductOrProductVariant = ['product', 'productVariant'].includes(type)
 
   // Return early if:
-  // - Env var is not set
+  // - Shopify store ID is not set
   // - No published document was found
   // - Document type is not a product or product variant
   // - Product has been deleted from Shopify
   if (
-    !process.env.SANITY_STUDIO_SHOPIFY_STORE_ID ||
+    !SHOPIFY_STORE_ID ||
     !published ||
     !isProductOrProductVariant ||
     published?.store?.isDeleted

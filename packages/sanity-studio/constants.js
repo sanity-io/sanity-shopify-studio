@@ -23,3 +23,6 @@ export const PAGE_REFERENCES = [
 // API version to use when using the Sanity client within the studio
 // https://www.sanity.io/help/studio-client-specify-api-version
 export const SANITY_API_VERSION = '2021-06-07'
+
+// The ID of your Shopify storefront, which is the first part of your .myshopify.com URL
+export const SHOPIFY_STORE_ID = 'sanity-dev-store'
