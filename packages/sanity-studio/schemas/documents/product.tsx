@@ -96,68 +96,7 @@ export default {
     {
       name: 'body',
       title: 'Body',
-      type: 'array',
-      of: [
-        {
-          lists: [
-            { title: 'Bullet', value: 'bullet' },
-            { title: 'Numbered', value: 'number' }
-          ],
-          marks: {
-            annotations: [
-              // Product
-              {
-                title: 'Product',
-                name: 'annotationProduct',
-                type: 'annotationProduct'
-              },
-              // Product (marginalia)
-              {
-                title: 'Product (in margin)',
-                name: 'annotationProductMarginalia',
-                type: 'annotationProductMarginalia'
-              },
-              // Email
-              {
-                title: 'Email',
-                name: 'annotationLinkEmail',
-                type: 'annotationLinkEmail'
-              },
-              // Internal link
-              {
-                title: 'Internal page',
-                name: 'annotationLinkInternal',
-                type: 'annotationLinkInternal'
-              },
-              // URL
-              {
-                title: 'URL',
-                name: 'annotationLinkExternal',
-                type: 'annotationLinkExternal'
-              }
-            ],
-            decorators: [
-              {
-                title: 'Strong',
-                value: 'strong'
-              }
-            ]
-          },
-          styles: [],
-          type: 'block'
-        },
-        // Custom blocks
-        {
-          name: 'blockImage',
-          title: 'Image',
-          type: 'blockImage'
-        },
-        {
-          name: 'blockProduct',
-          title: 'Product',
-          type: 'blockProduct'
-        }
-      ]
+      type: 'body'
     },
     // Shopify product
     {

@@ -21,6 +21,9 @@ import productVariant from './documents/productVariant'
 import home from './singletons/home'
 import settings from './singletons/settings'
 
+// Block content
+import body from './blocks/body'
+
 // Object types
 import blockImage from './objects/blockImage'
 import blockInlineProduct from './objects/blockInlineProduct'
@@ -58,6 +61,8 @@ export default createSchema({
     // Singleton document types
     home,
     settings,
+    // Block content
+    body,
     // Objects
     blockImage,
     blockInlineProduct,
