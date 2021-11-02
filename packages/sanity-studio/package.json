@@ -31,6 +31,7 @@
     "react": "^17.0",
     "react-dom": "^17.0",
     "sanity-plugin-color-picker": "^1.0.3",
+    "sanity-plugin-dashboard-widget-document-list": "^0.0.13",
     "sanity-plugin-media": "^1.4.0",
     "slug": "^5.1.0",
     "styled-components": "^5.2.0"
