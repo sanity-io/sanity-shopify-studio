@@ -3,6 +3,7 @@
  *
  * Read more: https://www.sanity.io/docs/customization#f924645007e1
  */
+import { hues } from '@sanity/color'
 import { TagIcon } from '@sanity/icons'
 import React from 'react'
 
@@ -13,9 +14,9 @@ export default {
   blockEditor: {
     icon: () => <TagIcon />,
     render: ({ children }) => (
-      <span>
+      <span style={{ color: hues.blue[500].hex }}>
+        <TagIcon style={{ verticalAlign: 'text-bottom' }} />
         {children}
-        <TagIcon style={{ marginLeft: '0.2em', verticalAlign: 'text-bottom' }} />
       </span>
     )
   },
@@ -25,7 +26,8 @@ export default {
       title: 'Product',
       name: 'product',
       type: 'reference',
-      to: [{ type: 'product' }]
+      to: [{ type: 'product' }],
+      validation: Rule => Rule.required()
     },
     // Quantity
     {

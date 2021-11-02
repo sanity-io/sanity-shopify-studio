@@ -1,3 +1,9 @@
+/**
+ * Annotations are ways of marking up text in the block content editor.
+ *
+ * Read more: https://www.sanity.io/docs/customization#f924645007e1
+ */
+import { hues } from '@sanity/color'
 import { MasterDetailIcon } from '@sanity/icons'
 import React from 'react'
 
@@ -8,9 +14,9 @@ export default {
   blockEditor: {
     icon: () => <MasterDetailIcon />,
     render: ({ children }) => (
-      <span>
+      <span style={{ color: hues.blue[500].hex }}>
+        <MasterDetailIcon style={{ marginRight: '0.2em', verticalAlign: 'text-bottom' }} />
         {children}
-        <MasterDetailIcon style={{ marginLeft: '0.2em', verticalAlign: 'text-bottom' }} />
       </span>
     )
   },

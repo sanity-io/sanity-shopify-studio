@@ -14,8 +14,8 @@ export default {
     icon: () => <EarthGlobeIcon />,
     render: ({ children }) => (
       <span>
+        <EarthGlobeIcon style={{ marginRight: '0.2em', verticalAlign: 'text-bottom' }} />
         {children}
-        <EarthGlobeIcon style={{ marginLeft: '0.2em', verticalAlign: 'text-bottom' }} />
       </span>
     )
   },
