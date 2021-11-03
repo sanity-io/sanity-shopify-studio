@@ -75,24 +75,30 @@ function Widget() {
                 </Stack>
               </Box>
             </Box>
-            <Box flex={1} padding={[4, null, 5]}>
-              <Stack space={5}>
+            <Box flex={1} padding={[0, null, 4]}>
+              <Stack>
                 <Resource
                   byline="Knut Melvær, head of developer relations"
+                  href="https://www.sanity.io"
+                  posterUrl="https://i.imgur.com/nZm7o1a.png"
                   title="Getting started with Shopify and Sanity"
-                  type="Screencast"
+                  type="screencast"
                 />
                 <Resource
                   byline="Even Westvang, Co-founder"
+                  href="https://www.sanity.io"
+                  posterUrl="https://cdn.sanity.io/images/81pocpw8/production/c62d3f4f17ad1ef3d9be3d89648fde68f8d88d91-1200x900.png?rect=0,75,1200,750&w=600"
                   title="Structure Sanity Studio to Your Heart’s Content!"
-                  type="Guide"
+                  type="guide"
                 />
-                <Text size={1}>
-                  <a href="https://www.sanity.io" target="_blank" rel="noreferrer">
-                    <LaunchIcon style={{ marginRight: '0.1em' }} />
-                    View more resources at sanity.io/docs
-                  </a>
-                </Text>
+                <Box padding={4}>
+                  <Text size={1}>
+                    <a href="https://www.sanity.io" target="_blank" rel="noreferrer">
+                      <LaunchIcon style={{ marginRight: '0.1em' }} />
+                      View more resources at sanity.io/docs
+                    </a>
+                  </Text>
+                </Box>
               </Stack>
             </Box>
           </Container>

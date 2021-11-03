@@ -1,18 +1,57 @@
 import { hues } from '@sanity/color'
 import { DashboardWidget } from '@sanity/dashboard'
 import { CogIcon } from '@sanity/icons'
-import { Box, Button, Card, Flex, Label, Stack, Text } from '@sanity/ui'
+import { Box, Card, Flex, Label, Stack, Text } from '@sanity/ui'
 import TimeAgo from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en.json'
-import React from 'react'
-import SyncItemAutomatic from './SyncItemAutomatic'
-import SyncItemManual from './SyncItemManual'
+import sanityClient from 'part:@sanity/base/client'
+import React, { useEffect, useState } from 'react'
+import ReactTimeAgo from 'react-time-ago'
+import { SANITY_API_VERSION } from '../../constants'
+import SyncItem from './SyncItem'
 
 TimeAgo.addDefaultLocale(en)
 
+const SAMPLE_PAYLOAD = [
+  {
+    completedAt: '2021-11-03T00:04:00',
+    documentId: 'shopifyProduct-6636208390231',
+    status: 'completed'
+  },
+  {
+    completedAt: '2021-11-02T00:04:00',
+    documentId: 'shopifyProduct-6636208914519',
+    error: 'An error has occurred',
+    status: 'failed'
+  },
+  {
+    completedAt: '2021-11-01T00:04:00',
+    documentId: 'shopifyProduct-6636040683607',
+    status: 'completed'
+  }
+]
+
 function Widget() {
+  const [products, setProducts] = useState([])
+  const [productsLoaded, setProductsLoaded] = useState(false)
+
+  // TODO: add sanity document listener once `sanity.shopify.sync` is ready for use
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const products = await sanityClient
+        .withConfig({ apiVersion: SANITY_API_VERSION })
+        .fetch(`*[_id in $ids]`, { ids: SAMPLE_PAYLOAD.map(v => v.documentId) })
+
+      setProducts(products)
+      setProductsLoaded(true)
+    }
+
+    fetchProducts()
+  }, [])
+
   return (
-    <DashboardWidget header="Shopify → Sanity Sync">
+    <DashboardWidget header="Shopify Connect">
       <Card>
         {/* Shopify details */}
         <Box
@@ -43,26 +82,9 @@ function Widget() {
                 </Box>
               </Flex>
             </Stack>
-            <Box marginTop={5}>
-              <Stack space={3}>
-                <Text size={1}>
-                  <a>
-                    <CogIcon style={{ marginRight: '0.1em' }} />
-                    Shopify admin
-                  </a>
-                </Text>
-                <Text size={1}>
-                  <a>
-                    <CogIcon style={{ marginRight: '0.1em' }} />
-                    Sync App settings
-                  </a>
-                </Text>
-              </Stack>
-            </Box>
           </Box>
         </Box>
 
-        {/* Manual sync */}
         <Box
           padding={4}
           style={{
@@ -72,61 +94,56 @@ function Widget() {
           }}
         >
           <Stack space={4}>
-            {/* Alert - no sync items */}
-            {/*
-            <Text size={1}>
-              We haven't received any sync operations from your store. Please update a product or
-              trigger a manual sync from your Shopify admin panel.
-            </Text>
-            */}
-
             <Text size={2} weight="semibold">
-              Manual Sync
+              Product updates from Shopify
             </Text>
-            {/* Items */}
-            <SyncItemManual count={80} status="queued" />
-            <SyncItemManual count={31} error="Example error message" status="failed" />
-            <SyncItemManual count={27} status="completed" />
-            <SyncItemManual count={12} status="completed" />
-            <SyncItemManual count={1} status="completed" />
-
-            <Button fontSize={1} text="Re-sync products" tone="primary" />
+            <Box>
+              {/* Sync items */}
+              {productsLoaded &&
+                SAMPLE_PAYLOAD.map(payload => {
+                  const product = products.find(product => product._id === payload.documentId)
+                  if (!product) {
+                    // TODO: account for scenarios where existing products cannot be found
+                    return null
+                  }
+                  return (
+                    <SyncItem
+                      completedAt={new Date(payload.completedAt)}
+                      documentId={payload.documentId}
+                      key={product._id}
+                      imageUrl={product?.store?.previewImageUrl}
+                      product={product}
+                      status={payload.status}
+                      title={product?.store?.title}
+                    />
+                  )
+                })}
+            </Box>
           </Stack>
+          <Box marginTop={5}>
+            <Stack space={3}>
+              <Text muted size={1}>
+                Last manual sync: <ReactTimeAgo date={new Date('2021-10-30')} locale="en-US" />
+              </Text>
+            </Stack>
+          </Box>
         </Box>
 
-        {/* Automatic sync */}
+        {/* Additional actions */}
         <Box padding={4}>
-          <Stack space={4}>
-            <Text size={2} weight="semibold">
-              Automatic Sync
+          <Stack space={3}>
+            <Text size={1}>
+              <a href="#">
+                <CogIcon style={{ marginRight: '0.1em' }} />
+                View full log
+              </a>
             </Text>
-            {/* Items */}
-            <SyncItemAutomatic
-              completedAt={new Date('2021-11-03T00:04:00')}
-              status="completed"
-              title="Product 1"
-            />
-            <SyncItemAutomatic
-              completedAt={new Date('2021-11-02')}
-              status="completed"
-              title="Product 2"
-            />
-            <SyncItemAutomatic
-              completedAt={new Date('2021-11-01')}
-              error="Example error message"
-              status="failed"
-              title="Product 3"
-            />
-            <SyncItemAutomatic
-              completedAt={new Date('2021-10-30')}
-              status="completed"
-              title="Product 4"
-            />
-            <SyncItemAutomatic
-              completedAt={new Date('2021-10-29')}
-              status="completed"
-              title="Product 5"
-            />
+            <Text size={1}>
+              <a href="#">
+                <CogIcon style={{ marginRight: '0.1em' }} />
+                Sync App settings
+              </a>
+            </Text>
           </Stack>
         </Box>
       </Card>
