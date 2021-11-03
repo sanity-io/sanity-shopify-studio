@@ -16,8 +16,8 @@
     "@sanity/desk-tool",
     "media",
     "@sanity/color-input",
-    "dashboard-widget-document-list",
-    "sanity-shopify-intro"
+    "sanity-shopify-intro",
+    "sanity-shopify-sync"
   ],
   "env": {
     "development": {
