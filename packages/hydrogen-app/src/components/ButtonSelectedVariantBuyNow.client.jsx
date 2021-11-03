@@ -10,31 +10,18 @@ export default function ButtonSelectedVariantBuyNow(props) {
 
   const availableForSale = selectedVariant?.availableForSale;
 
+  if (!showSoldOut && !availableForSale) {
+    return null;
+  }
+
   return (
-    <>
-      {availableForSale ? (
-        <Product.SelectedVariant.BuyNowButton
-          className={`bg-gray-900 text-white text-center ${
-            small ? 'p-3 text-xs' : 'p-4 text-sm'
-          } w-full`}
-        >
-          Buy it now
-        </Product.SelectedVariant.BuyNowButton>
-      ) : (
-        <>
-          {showSoldOut && (
-            <button
-              className={`bg-gray-900 disabled:opacity-20 text-white text-center ${
-                small ? 'p-3 text-xs' : 'p-4 text-sm'
-              } w-full`}
-              disabled
-              type="button"
-            >
-              Sold out
-            </button>
-          )}
-        </>
-      )}
-    </>
+    <Product.SelectedVariant.BuyNowButton
+      className={`bg-gray-900 text-white text-center ${
+        small ? 'p-3 text-xs' : 'p-4 text-sm'
+      } w-full`}
+      disabled={!availableForSale}
+    >
+      {availableForSale ? 'Buy it now' : 'Sold out'}
+    </Product.SelectedVariant.BuyNowButton>
   );
 }

@@ -10,31 +10,18 @@ export default function ButtonSelectedVariantAddToCart(props) {
 
   const availableForSale = selectedVariant?.availableForSale;
 
+  if (!showSoldOut && !availableForSale) {
+    return null;
+  }
+
   return (
-    <>
-      {availableForSale ? (
-        <Product.SelectedVariant.AddToCartButton
-          className={`bg-gray-900 text-white text-center ${
-            small ? 'p-3 text-xs' : 'p-4 text-sm'
-          } w-full`}
-        >
-          Add to cart
-        </Product.SelectedVariant.AddToCartButton>
-      ) : (
-        <>
-          {showSoldOut && (
-            <button
-              className={`bg-gray-900 disabled:opacity-20 text-white text-center ${
-                small ? 'p-3 text-xs' : 'p-4 text-sm'
-              } w-full`}
-              disabled
-              type="button"
-            >
-              Sold out
-            </button>
-          )}
-        </>
-      )}
-    </>
+    <Product.SelectedVariant.AddToCartButton
+      className={`bg-gray-900 disabled:opacity-20 text-white text-center ${
+        small ? 'p-3 text-xs' : 'p-4 text-sm'
+      } w-full`}
+      disabled={!availableForSale}
+    >
+      {availableForSale ? 'Add to cart' : 'Sold out'}
+    </Product.SelectedVariant.AddToCartButton>
   );
 }

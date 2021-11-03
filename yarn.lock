@@ -3370,10 +3370,10 @@
     pkg-dir "^5.0.0"
     pluralize "^8.0.0"
 
-"@shopify/hydrogen@0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@shopify/hydrogen/-/hydrogen-0.4.0.tgz#9db77ec0713a120675ff0a8fa8dee94c525cf87f"
-  integrity sha512-kjOto5z/JpuM/jqeBhEI9dJosyZJBQOB9Qr4bvf9L3n7kElvm6VdnjPdiS91bVDnsSF/Lx/2XX59XFHO0O+h+A==
+"@shopify/hydrogen@0.5.3":
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@shopify/hydrogen/-/hydrogen-0.5.3.tgz#9f7d2333e2e3d4ab9b4a3fc9c337f3f2e1c3d020"
+  integrity sha512-sL5YldjPG/0EAUP+a5cme9L5FmOHzvhFDzQdW5GoHD04i41nnY3SlIxhlNHuHqB+QmGRgCq7Snwji+qDCK9PPw==
   dependencies:
     "@vitejs/plugin-react" "^1.0.0"
     connect "^3.7.0"

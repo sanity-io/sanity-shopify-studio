@@ -26,14 +26,13 @@ const ProductCard = (props) => {
       product={product.storefront}
       initialVariantId={firstVariant.id}
     >
-      <div className="col-span-2 bg-white">
+      <div
+        className="col-span-2 bg-white"
+        onMouseEnter={() => setShowAddToCart(true)}
+        onMouseLeave={() => setShowAddToCart(false)}
+      >
         {/* Image */}
-        <div
-          className="relative"
-          onClick={() => setShowAddToCart(false)}
-          onMouseEnter={() => setShowAddToCart(true)}
-          onMouseLeave={() => setShowAddToCart(false)}
-        >
+        <div className="relative" onClick={() => setShowAddToCart(false)}>
           <Link to={productUrl}>
             <SelectedVariantImage />
           </Link>
