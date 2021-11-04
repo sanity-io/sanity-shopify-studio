@@ -148,8 +148,8 @@ export default {
         selection
 
       let description = [
-        pluralize('variant', variantCount, true),
-        pluralize('option', optionCount, true)
+        variantCount ? pluralize('variant', variantCount, true) : 'No variants',
+        optionCount ? pluralize('option', optionCount, true) : 'No options'
       ]
 
       let subtitle = getPriceRange(priceRange)

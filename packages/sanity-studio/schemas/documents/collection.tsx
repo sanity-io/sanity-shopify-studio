@@ -60,7 +60,7 @@ export default {
       const { image, productCount, title } = selection
       return {
         media: image,
-        subtitle: pluralize('product', productCount, true),
+        subtitle: productCount ? pluralize('product', productCount, true) : 'No products',
         title
       }
     }

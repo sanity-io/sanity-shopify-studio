@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "description": "",
   "main": "package.json",
-  "author": "Robin Pyon <robin@robinpyon.com>",
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
