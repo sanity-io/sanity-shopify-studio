@@ -20,18 +20,18 @@ const SAMPLE_PAYLOAD = {
   productSync: [
     {
       completedAt: '2021-11-03T00:04:00',
-      documentId: 'shopifyProduct-6636208390231',
+      documentId: 'shopifyProduct-6639629926487',
       status: 'completed'
     },
     {
       completedAt: '2021-11-02T00:04:00',
-      documentId: 'shopifyProduct-6636208914519',
+      documentId: 'shopifyProduct-6639506456663',
       error: 'An error has occurred',
       status: 'failed'
     },
     {
       completedAt: '2021-11-01T00:04:00',
-      documentId: 'shopifyProduct-6636040683607',
+      documentId: 'shopifyProduct-6639530049623',
       status: 'completed'
     }
   ]
@@ -93,18 +93,6 @@ function Widget() {
                 <Box flex={1}>
                   <Text align="right" muted size={1}>
                     {SAMPLE_PAYLOAD.store?.id}
-                  </Text>
-                </Box>
-              </Flex>
-              <Flex>
-                <Box flex={1}>
-                  <Text size={1} weight="medium">
-                    products
-                  </Text>
-                </Box>
-                <Box flex={1}>
-                  <Text align="right" muted size={1}>
-                    85
                   </Text>
                 </Box>
               </Flex>
