@@ -25,6 +25,10 @@ export default function Footer() {
           );
         }
         if (link._type === 'linkInternal') {
+          if (!link.slug) {
+            return null;
+          }
+
           return (
             <div key={link?._key}>
               <Link to={link.slug}>{link.title}</Link>

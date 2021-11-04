@@ -1,10 +1,16 @@
+import {Link} from '@shopify/hydrogen/client';
+
 const AnnotationLinkInternal = (props) => {
   const {children, mark} = props;
 
+  if (!mark?.slug) {
+    return null;
+  }
+
   return (
-    <a className="underline" href={mark?.slug}>
+    <Link className="underline" to={mark?.slug}>
       {children}
-    </a>
+    </Link>
   );
 };
 
