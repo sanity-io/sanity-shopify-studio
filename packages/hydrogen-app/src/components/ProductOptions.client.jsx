@@ -3,9 +3,9 @@ import {useProduct} from '@shopify/hydrogen/client';
 export default function ProductOptions() {
   const {options, setSelectedOption, selectedOptions} = useProduct();
 
-  // Display nothing if we only have one product option with one value
+  // Display nothing if we only have one product option with less than one value
   // (typically a product with only a default variant)
-  if (options.length <= 1 && options?.values.length <= 1) {
+  if (options.length === 1 && options?.[0]?.values.length <= 1) {
     return null;
   }
 
