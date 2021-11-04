@@ -1,5 +1,5 @@
 import { DashboardWidget } from '@sanity/dashboard'
-import { BookIcon, EarthGlobeIcon, HomeIcon, LaunchIcon } from '@sanity/icons'
+import { BookIcon, CommentIcon, HomeIcon, LaunchIcon, RocketIcon } from '@sanity/icons'
 import { Box, Card, ElementQuery, Flex, Stack, Text } from '@sanity/ui'
 import userStore from 'part:@sanity/base/user'
 import React, { useEffect, useState } from 'react'
@@ -29,47 +29,53 @@ function Widget() {
     getUser()
   }, [])
   return (
-    <DashboardWidget header={displayName ? `Welcome, ${displayName}!` : `Welcome!`}>
+    <DashboardWidget header={displayName ? `Hello, ${displayName}!` : `Welcome!`}>
       <Card>
         <ElementQuery>
           <Container>
             <Box flex={1} padding={[4, null, 5]}>
               <Stack space={4}>
                 <img
-                  src="https://cdn.sanity.io/images/3do82whm/next/5d5de9a040f233d3daf280505894b5b7eb271899-1600x800.png"
+                  src="https://cdn.sanity.io/images/3do82whm/next/2c15d260780e68fbf7db19d5580b011f266fc839-1982x1228.png?w=1200"
                   style={{ width: '100%' }}
                 />
                 <Text>
-                  <strong style={{ fontWeight: 600 }}>
-                    Sanity Studio is built from the ground up with customization in mind.
-                  </strong>{' '}
-                  You can extend and personalize the studio with your own styling, custom input
-                  components, custom previews and leverage our powerful plugin system.
+                  We’re excited for you to use Sanity and Shopify together to build vibrant shopping
+                  experiences.
                 </Text>
                 <Text>
-                  Not happy with how Sanity looks? Need to provide styles for a custom component or
-                  just change a couple of brand colors? More introductory copy to add here!
+                  This dashboard is where you’ll get an overview of your products, your project
+                  details, and access to educational material that will help ensure you get maximum
+                  value out of Sanity.
+                </Text>
+                <Text>
+                  Please explore the resources available to you here, and we encourage you to join
+                  the Slack community and post any questions you may have.
                 </Text>
               </Stack>
               {/* Links */}
-              <Box marginTop={5}>
-                <Stack space={3}>
-                  <Text size={1}>
-                    <a href="https://www.sanity.io" target="_blank" rel="noreferrer">
+              <Box marginTop={6}>
+                <Stack space={4}>
+                  <Text size={1} weight="medium">
+                    <a
+                      href="https://www.sanity.io/docs/getting-started"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <RocketIcon style={{ marginRight: '0.1em' }} />
+                      Documentation
+                    </a>
+                  </Text>
+                  <Text size={1} weight="medium">
+                    <a href="https://www.sanity.io/docs/reference" target="_blank" rel="noreferrer">
                       <BookIcon style={{ marginRight: '0.1em' }} />
                       Reference docs
                     </a>
                   </Text>
-                  <Text size={1}>
-                    <a href="https://www.sanity.io" target="_blank" rel="noreferrer">
-                      <EarthGlobeIcon style={{ marginRight: '0.1em' }} />
-                      Built with Sanity
-                    </a>
-                  </Text>
-                  <Text size={1}>
-                    <a href="https://www.sanity.io" target="_blank" rel="noreferrer">
-                      <HomeIcon style={{ marginRight: '0.1em' }} />
-                      Sanity Community
+                  <Text size={1} weight="medium">
+                    <a href="https://slack.sanity.io/" target="_blank" rel="noreferrer">
+                      <CommentIcon style={{ marginRight: '0.1em' }} />
+                      Support community
                     </a>
                   </Text>
                 </Stack>
@@ -91,14 +97,6 @@ function Widget() {
                   title="Structure Sanity Studio to Your Heart’s Content!"
                   type="guide"
                 />
-                <Box padding={4}>
-                  <Text size={1}>
-                    <a href="https://www.sanity.io" target="_blank" rel="noreferrer">
-                      <LaunchIcon style={{ marginRight: '0.1em' }} />
-                      View more resources at sanity.io/docs
-                    </a>
-                  </Text>
-                </Box>
               </Stack>
             </Box>
           </Container>

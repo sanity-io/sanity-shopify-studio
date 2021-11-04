@@ -132,29 +132,6 @@ export default {
         }
       ]
     },
-    // Compare at price range
-    {
-      name: 'compareAtPriceRange',
-      title: 'Compare at price range',
-      type: 'object',
-      options: {
-        columns: 2
-      },
-      fields: [
-        {
-          name: 'minVariantPrice',
-          title: 'Min variant price',
-          type: 'number',
-          validation: Rule => Rule.required()
-        },
-        {
-          name: 'maxVariantPrice',
-          title: 'Max variant price',
-          type: 'number',
-          validation: Rule => Rule.required()
-        }
-      ]
-    },
     // Preview Image URL
     {
       name: 'previewImageUrl',
