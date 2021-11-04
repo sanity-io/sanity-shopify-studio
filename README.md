@@ -25,14 +25,6 @@ It's been structured to accomodate the default sync options provided by the upco
 
 We try and provide a few studio affordances to give users more visibility into product availability – such as displaying when products are not available (due to Shopify configuration) or if products have since been removed on Shopify's end.
 
-## [`webhook-functions`](/packages/webhook-functions/README.md)
-
-> **This package is temporary and will be removed once the official Sanity Shopify App is available on Shopify's App store**
-
-A simple Next.js app which receives Shopify webhooks (on product updates) and transforms data on a linked Sanity dataset.
-
-This is currently deployed on [https://hydrogen-demo.vercel.app/](https://hydrogen-demo.vercel.app/)
-
 ---
 
 Also associated with this demo is a Shopify Storefront (`sanity-dev-store.myshopify.com`) which hosts all demo product content.
@@ -55,10 +47,4 @@ Run Sanity Studio locally
 
 ```sh
 yarn dev-sanity
-```
-
-Run the Next.js webhook app
-
-```sh
-yarn dev-webhooks
 ```

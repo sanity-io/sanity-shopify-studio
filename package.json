@@ -17,7 +17,6 @@
   "scripts": {
     "dev-hydrogen": "yarn workspace @sanity-shopify-demo/hydrogen-app dev",
     "dev-sanity": "yarn workspace @sanity-shopify-demo/sanity-studio start",
-    "dev-webhooks": "yarn workspace @sanity-shopify-demo/webhook-functions dev",
     "deploy-sanity": "yarn workspace @sanity-shopify-demo/sanity-studio deploy"
   },
   "config": {
