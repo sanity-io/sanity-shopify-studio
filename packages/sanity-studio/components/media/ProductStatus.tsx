@@ -4,13 +4,12 @@ import React, { forwardRef } from 'react'
 type Props = {
   isActive: boolean
   isDeleted: boolean
-  isEnabled: boolean
   type: 'product' | 'productVariant'
   url: string
 }
 
 const ProductMediaPreview = forwardRef<HTMLDivElement, Props>((props, ref) => {
-  const { isActive, isEnabled, isDeleted, type, url } = props
+  const { isActive, isDeleted, type, url } = props
 
   return (
     <div
@@ -58,8 +57,8 @@ const ProductMediaPreview = forwardRef<HTMLDivElement, Props>((props, ref) => {
         />
       ) : (
         <>
-          {/* Products only: item is no longer linked (inactive or not enabled) */}
-          {type === 'product' && (!isActive || !isEnabled) && (
+          {/* Products only: item is no longer active */}
+          {type === 'product' && !isActive && (
             <LinkRemovedIcon
               style={{
                 background: 'rgba(0, 0, 0, 0.7)',

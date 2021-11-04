@@ -40,21 +40,19 @@ export default {
   preview: {
     select: {
       isDeleted: 'store.isDeleted',
-      isEnabled: 'store.isEnabled',
       previewImageUrl: 'store.previewImageUrl',
       sku: 'store.sku',
       status: 'store.status',
       title: 'store.title'
     },
     prepare(selection) {
-      const { isDeleted, isEnabled, previewImageUrl, sku, status, title } = selection
+      const { isDeleted, previewImageUrl, sku, status, title } = selection
 
       return {
         media: (
           <ProductMediaPreview
             isActive={status === 'active'}
             isDeleted={isDeleted}
-            isEnabled={isEnabled}
             type="productVariant"
             url={previewImageUrl}
           />

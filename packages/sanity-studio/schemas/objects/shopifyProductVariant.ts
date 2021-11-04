@@ -82,12 +82,6 @@ export default {
       title: 'Price',
       type: 'number'
     },
-    // Compare price
-    {
-      name: 'compareAtPrice',
-      title: 'Compare price',
-      type: 'number'
-    },
     // Option 1
     {
       fieldset: 'options',

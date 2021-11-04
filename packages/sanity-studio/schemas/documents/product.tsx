@@ -20,10 +20,9 @@ export default {
       inputComponent: ProductHiddenInput,
       hidden: ({ parent }) => {
         const isActive = parent?.store?.status === 'active'
-        const isEnabled = parent?.store?.isEnabled
         const isDeleted = parent?.store?.isDeleted
 
-        return isActive && !isDeleted && isEnabled
+        return isActive && !isDeleted
       }
     },
     // Title (proxy)
@@ -137,7 +136,6 @@ export default {
   preview: {
     select: {
       isDeleted: 'store.isDeleted',
-      isEnabled: 'store.isEnabled',
       optionCount: 'store.options.length',
       previewImageUrl: 'store.previewImageUrl',
       priceRange: 'store.priceRange',
@@ -146,16 +144,8 @@ export default {
       variantCount: 'store.variants.length'
     },
     prepare(selection) {
-      const {
-        isDeleted,
-        isEnabled,
-        optionCount,
-        previewImageUrl,
-        priceRange,
-        status,
-        title,
-        variantCount
-      } = selection
+      const { isDeleted, optionCount, previewImageUrl, priceRange, status, title, variantCount } =
+        selection
 
       let description = [
         pluralize('variant', variantCount, true),
@@ -163,7 +153,7 @@ export default {
       ]
 
       let subtitle = getPriceRange(priceRange)
-      if (status !== 'active' || !isEnabled) {
+      if (status !== 'active') {
         subtitle = '(Unavailable in Shopify)'
       }
       if (isDeleted) {
@@ -175,7 +165,6 @@ export default {
           <ProductStatusMedia
             isActive={status === 'active'}
             isDeleted={isDeleted}
-            isEnabled={isEnabled}
             type="product"
             url={previewImageUrl}
           />

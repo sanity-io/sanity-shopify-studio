@@ -32,20 +32,6 @@ export default {
     }
   ],
   fields: [
-    // Enabled (on sales channel)
-    {
-      fieldset: 'status',
-      name: 'isEnabled',
-      title: 'Enabled on sales channel?',
-      type: 'boolean'
-    },
-    // Deleted
-    {
-      fieldset: 'status',
-      name: 'isDeleted',
-      title: 'Deleted from Shopify?',
-      type: 'boolean'
-    },
     // Created at
     {
       fieldset: 'status',
@@ -71,6 +57,13 @@ export default {
         list: ['active', 'archived', 'draft']
       },
       validation: Rule => Rule.required()
+    },
+    // Deleted
+    {
+      fieldset: 'status',
+      name: 'isDeleted',
+      title: 'Deleted from Shopify?',
+      type: 'boolean'
     },
     // Title
     {

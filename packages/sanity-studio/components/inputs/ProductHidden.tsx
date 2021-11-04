@@ -14,14 +14,10 @@ const ProductHiddenInput = forwardRef<HTMLDivElement, Props>((props, ref) => {
 
   const isActive = document?.store?.status === 'active'
   const isDeleted = document?.store?.isDeleted
-  const isEnabled = document?.store?.isEnabled
 
   const shopifyProductUrl = productUrl(document?.store?.id)
 
   let message
-  if (!isEnabled) {
-    message = 'It is not enabled on the current sales channel in Shopify.'
-  }
   if (!isActive) {
     message = (
       <>
