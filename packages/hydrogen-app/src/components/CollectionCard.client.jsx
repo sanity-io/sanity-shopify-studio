@@ -10,20 +10,22 @@ const CollectionCard = (props) => {
   // TODO: create generic SanityImage wrapper
 
   return (
-    <div className="col-span-2 bg-white">
-      {/* Image */}
-      <div className="relative">
-        <Link to={collectionUrl}>
-          <img
-            alt=""
-            className="w-full bg-white object-fill"
-            src={sanityImageUrl(collection.image, {width: 500})}
-          />
-        </Link>
-      </div>
-      {/* Title */}
+    <div className="col-span-2">
       <Link to={collectionUrl}>
-        <div className="font-medium mt-2">{collection?.title}</div>
+        <div className="aspect-w-4 aspect-h-3">
+          <div className="bg-black flex flex items-center justify-center">
+            {/* Image */}
+            <img
+              alt=""
+              className="absolute bg-white h-full object-cover opacity-90 w-full"
+              src={sanityImageUrl(collection.image, {width: 800})}
+            />
+            {/* Title */}
+            <div className="font-medium relative md:text-4xl text-2xl text-white">
+              {collection?.title}
+            </div>
+          </div>
+        </div>
       </Link>
     </div>
   );

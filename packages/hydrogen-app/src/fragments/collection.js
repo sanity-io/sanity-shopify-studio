@@ -5,6 +5,7 @@ import {SEO} from './seo';
 
 export const COLLECTION = groq`
   _id,
+  description,
   products[]->{
     ${PRODUCT}
   },

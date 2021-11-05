@@ -5,14 +5,11 @@ import {
   SelectedVariantImage,
   SelectedVariantPrice,
 } from '@shopify/hydrogen/client';
-import {useState} from 'react';
 
 import ButtonSelectedVariantAddToCart from './ButtonSelectedVariantAddToCart.client';
 
 const ProductCard = (props) => {
   const {product} = props;
-
-  const [showAddToCart, setShowAddToCart] = useState(false);
 
   if (!product.storefront) {
     return null;
@@ -26,23 +23,17 @@ const ProductCard = (props) => {
       product={product.storefront}
       initialVariantId={firstVariant.id}
     >
-      <div
-        className="col-span-2 bg-white"
-        onMouseEnter={() => setShowAddToCart(true)}
-        onMouseLeave={() => setShowAddToCart(false)}
-      >
+      <div className="bg-white col-span-2 group">
         {/* Image */}
-        <div className="relative" onClick={() => setShowAddToCart(false)}>
+        <div className="relative">
           <Link to={productUrl}>
             <SelectedVariantImage />
           </Link>
 
           {/* Quick add to cart button */}
-          {showAddToCart && (
-            <div className="absolute bottom-0 left-0 w-full">
-              <ButtonSelectedVariantAddToCart />
-            </div>
-          )}
+          <div className="absolute bottom-0 group-hover:block hidden left-0 w-full">
+            <ButtonSelectedVariantAddToCart />
+          </div>
         </div>
         {/* Title */}
         <Link to={productUrl}>

@@ -19,8 +19,6 @@ strong {
 .embla {
   position: relative;
   background-color: #f7f7f7;
-  padding: 1rem;
-  max-width: 670px;
 }
 
 .embla__viewport {
@@ -43,13 +41,11 @@ strong {
   -webkit-touch-callout: none;
   -khtml-user-select: none;
   -webkit-tap-highlight-color: transparent;
-  margin-left: -10px;
 }
 
 .embla__slide {
   position: relative;
   min-width: 100%;
-  padding-left: 10px;
 }
 
 .embla__slide__inner {

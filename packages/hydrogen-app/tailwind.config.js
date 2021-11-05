@@ -3,5 +3,8 @@ module.exports = {
   mode: 'jit',
   darkMode: false, // or 'media' or 'class'
   variants: {},
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography'),
+  ],
 };
