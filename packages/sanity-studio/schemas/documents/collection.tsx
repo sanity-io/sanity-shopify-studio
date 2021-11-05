@@ -22,6 +22,13 @@ export default {
       options: { source: 'title' },
       validation: Rule => Rule.required()
     },
+    // Description
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      rows: 3
+    },
     // Image
     {
       name: 'image',

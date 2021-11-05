@@ -8,6 +8,12 @@ export default {
   type: 'document',
   icon: HomeIcon,
   fields: [
+    // Intro
+    {
+      name: 'intro',
+      title: 'Intro',
+      type: 'body'
+    },
     // Featured collections
     {
       name: 'featuredCollections',
@@ -20,7 +26,20 @@ export default {
           to: [{ type: 'collection' }]
         }
       ],
-      validation: Rule => Rule.unique()
+      validation: Rule => Rule.max(2).unique()
+    },
+    // Gallery
+    {
+      name: 'gallery',
+      title: 'Gallery',
+      type: 'array',
+      of: [
+        {
+          name: 'image',
+          title: 'Image',
+          type: 'image'
+        }
+      ]
     },
     // Featured products
     {
@@ -35,19 +54,6 @@ export default {
         }
       ],
       validation: Rule => Rule.unique()
-    },
-    // Gallery
-    {
-      name: 'gallery',
-      title: 'Gallery',
-      type: 'array',
-      of: [
-        {
-          name: 'image',
-          title: 'Image',
-          type: 'image'
-        }
-      ]
     },
     // SEO
     {
