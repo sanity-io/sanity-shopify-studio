@@ -6,7 +6,7 @@ import {SEO_PRODUCT} from './seoProduct';
 
 export const PRODUCT = groq`
   _id,
-  "available": store.isEnabled && !store.isDeleted && store.status == 'active',
+  "available": !store.isDeleted && store.status == 'active',
   body[]{
     ${PORTABLE_TEXT}
   },
