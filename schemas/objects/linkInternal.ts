@@ -26,6 +26,7 @@ export default {
   ],
   preview: {
     select: {
+      reference: 'reference',
       referenceProductTitle: 'reference.store.title',
       referenceProductPriceRange: 'reference.store.priceRange',
       referenceTitle: 'reference.title',
@@ -34,6 +35,7 @@ export default {
     },
     prepare(selection) {
       const {
+        reference,
         referenceProductPriceRange,
         referenceProductTitle,
         referenceTitle,
@@ -41,9 +43,14 @@ export default {
         title
       } = selection
 
-      let subtitle = [`→ ${referenceTitle || referenceProductTitle}`]
-      if (referenceType === 'product' && referenceProductPriceRange) {
-        subtitle.push(`(${getPriceRange(referenceProductPriceRange)})`)
+      let subtitle = []
+      if (reference) {
+        subtitle.push([`→ ${referenceTitle || referenceProductTitle}`])
+        if (referenceType === 'product' && referenceProductPriceRange) {
+          subtitle.push(`(${getPriceRange(referenceProductPriceRange)})`)
+        }
+      } else {
+        subtitle.push('(Nonexistent document reference)')
       }
 
       return {
