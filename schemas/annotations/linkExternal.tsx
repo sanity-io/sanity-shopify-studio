@@ -19,6 +19,9 @@ export default {
       </span>
     )
   },
+  initialValue: {
+    newWindow: true
+  },
   fields: [
     {
       name: 'url',

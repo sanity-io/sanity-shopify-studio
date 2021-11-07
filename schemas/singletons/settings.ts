@@ -1,4 +1,4 @@
-import { CogIcon } from '@sanity/icons'
+import { CogIcon, FolderIcon } from '@sanity/icons'
 
 const TITLE = 'Settings'
 
@@ -23,7 +23,30 @@ export default {
           name: 'links',
           title: 'Links',
           type: 'array',
-          of: [{ type: 'linkInternal' }, { type: 'linkExternal' }]
+          of: [
+            {
+              title: 'Group',
+              name: 'linkGroup',
+              type: 'object',
+              icon: FolderIcon,
+              fields: [
+                {
+                  title: 'Title',
+                  name: 'title',
+                  type: 'string',
+                  validation: Rule => Rule.required()
+                },
+                {
+                  title: 'Links',
+                  name: 'links',
+                  type: 'array',
+                  of: [{ type: 'linkInternal' }, { type: 'linkExternal' }]
+                }
+              ]
+            },
+            { type: 'linkInternal' },
+            { type: 'linkExternal' }
+          ]
         }
       ]
     },

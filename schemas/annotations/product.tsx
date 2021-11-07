@@ -20,6 +20,10 @@ export default {
       </span>
     )
   },
+  initialValue: {
+    action: 'addToCart',
+    quantity: 1
+  },
   fields: [
     // Product
     {

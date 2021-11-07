@@ -7,6 +7,10 @@ export default {
   name: 'blockInlineProduct',
   type: 'object',
   icon: TagIcon,
+  initialValue: {
+    action: 'addToCart',
+    quantity: 1
+  },
   fields: [
     // Product
     {

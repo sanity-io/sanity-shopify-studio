@@ -16,6 +16,7 @@ export const LOCKED_DOCUMENT_TYPES = ['media.tag']
 export const PAGE_REFERENCES = [
   { type: 'article.editorial' },
   { type: 'article.info' },
+  { type: 'collection' },
   { type: 'home' },
   { type: 'product' }
 ]
