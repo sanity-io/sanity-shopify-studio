@@ -15,7 +15,6 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "media",
-    "@sanity/color-input",
     "dashboard-widget-shopify"
   ],
   "env": {
