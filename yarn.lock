@@ -9300,10 +9300,10 @@ sanity-plugin-color-picker@^1.0.3:
     rgb2hex "^0.1.10"
     styled-components "^4.4.1"
 
-sanity-plugin-dashboard-widget-shopify@^0.1.2:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/sanity-plugin-dashboard-widget-shopify/-/sanity-plugin-dashboard-widget-shopify-0.1.4.tgz#3d5cfdbc237dbfe262b107eafe86824575f77452"
-  integrity sha512-OdFTP+bODp7dfX1lZm8cQ9e0bVV6GAEoRfmFn0AkfjTV78HGJJYwTg1c0JYXjaPNM9a+HC5Uhqq4HNrHbo0IDA==
+sanity-plugin-dashboard-widget-shopify@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/sanity-plugin-dashboard-widget-shopify/-/sanity-plugin-dashboard-widget-shopify-0.1.5.tgz#a4b21d8e07ee018c568e8154e8b23fd408667f4a"
+  integrity sha512-KqHKIaRlwWDfSwLdeXXMjDfWPksBBU6kwWy2mjmzsiWkJyHiG1CNWcfuInwg9oVBbLBcGJkLWUyTVGoj+JRpqA==
   dependencies:
     date-fns "^2.25.0"
     javascript-time-ago "^2.3.10"
