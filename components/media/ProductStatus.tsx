@@ -29,6 +29,7 @@ const ProductMediaPreview = forwardRef<HTMLDivElement, Props>((props, ref) => {
           style={{
             height: '100%',
             left: 0,
+            objectFit: 'contain',
             position: 'absolute',
             top: 0,
             width: '100%'

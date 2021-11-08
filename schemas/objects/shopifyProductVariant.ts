@@ -45,6 +45,18 @@ export default {
       title: 'Last updated at',
       type: 'string'
     },
+    // Product status
+    {
+      fieldset: 'status',
+      name: 'status',
+      title: 'Product status',
+      type: 'string',
+      options: {
+        layout: 'dropdown',
+        list: ['active', 'archived', 'draft']
+      },
+      validation: Rule => Rule.required()
+    },
     // Deleted
     {
       fieldset: 'status',
@@ -80,6 +92,12 @@ export default {
     {
       name: 'price',
       title: 'Price',
+      type: 'number'
+    },
+    // Compare at price
+    {
+      name: 'compareAtPrice',
+      title: 'Compare at price',
       type: 'number'
     },
     // Option 1

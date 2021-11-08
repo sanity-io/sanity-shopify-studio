@@ -32,6 +32,7 @@ import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
 import placeholderString from './objects/placeholderString'
 import productOption from './objects/productOption'
+import productWithVariant from './objects/productWithVariant'
 import proxyString from './objects/proxyString'
 import seoProduct from './objects/seo/product'
 import seoSingleton from './objects/seo/singleton'
@@ -71,6 +72,7 @@ export default createSchema({
     linkInternal,
     placeholderString,
     productOption,
+    productWithVariant,
     proxyString,
     seoProduct,
     seoSingleton,

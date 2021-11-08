@@ -45,8 +45,8 @@ export default {
       of: [
         {
           title: 'Product',
-          type: 'reference',
-          to: [{ type: 'product' }]
+          name: 'product',
+          type: 'productWithVariant'
         }
       ],
       validation: Rule => Rule.unique()

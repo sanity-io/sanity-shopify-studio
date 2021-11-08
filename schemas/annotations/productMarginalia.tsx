@@ -24,16 +24,26 @@ export default {
     action: 'addToCart',
     quantity: 1
   },
+  fieldsets: [
+    {
+      name: 'callToAction',
+      title: 'Call to action',
+      options: {
+        columns: 2
+      }
+    }
+  ],
   fields: [
     // Product
     {
-      title: 'Product',
-      name: 'product',
-      type: 'reference',
-      to: [{ type: 'product' }]
+      name: 'productWithVariant',
+      title: 'Product + Variant',
+      type: 'productWithVariant',
+      validation: Rule => Rule.required()
     },
     // Quantity
     {
+      fieldset: 'callToAction',
       name: 'quantity',
       title: 'Quantity',
       type: 'number',
@@ -41,6 +51,7 @@ export default {
     },
     // Action
     {
+      fieldset: 'callToAction',
       name: 'action',
       title: 'Action',
       type: 'string',

@@ -1,4 +1,5 @@
 import { HomeIcon } from '@sanity/icons'
+import sanityClient from 'part:@sanity/base/client'
 
 const TITLE = 'Home'
 
@@ -49,8 +50,8 @@ export default {
       of: [
         {
           title: 'Product',
-          type: 'reference',
-          to: [{ type: 'product' }]
+          name: 'product',
+          type: 'productWithVariant'
         }
       ],
       validation: Rule => Rule.unique()
