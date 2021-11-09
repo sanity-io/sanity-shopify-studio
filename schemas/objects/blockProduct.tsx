@@ -13,7 +13,7 @@ const ImagePreview = (props: { url: string }) => {
 
 export default {
   name: 'blockProduct',
-  title: 'Image',
+  title: 'Product',
   type: 'object',
   icon: TagIcon,
   fields: [

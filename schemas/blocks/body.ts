@@ -15,11 +15,6 @@ export default {
             name: 'annotationProduct',
             type: 'annotationProduct'
           },
-          // Product (marginalia)
-          {
-            name: 'annotationProductMarginalia',
-            type: 'annotationProductMarginalia'
-          },
           // Email
           {
             name: 'annotationLinkEmail',
@@ -48,19 +43,17 @@ export default {
         ]
       },
       // Inline blocks
-      of: [{ type: 'blockInlineProduct' }],
+      of: [{ type: 'blockInlineProduct' }, { type: 'blockInlineProductMarginalia' }],
       styles: [{ title: 'Quote', value: 'blockquote' }],
       type: 'block'
     },
     // Custom blocks
     {
       name: 'blockImage',
-      title: 'Image',
       type: 'blockImage'
     },
     {
       name: 'blockProduct',
-      title: 'Product',
       type: 'blockProduct'
     }
   ]

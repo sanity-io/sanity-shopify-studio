@@ -8,7 +8,6 @@ import annotationLinkEmail from './annotations/linkEmail'
 import annotationLinkExternal from './annotations/linkExternal'
 import annotationLinkInternal from './annotations/linkInternal'
 import annotationProduct from './annotations/product'
-import annotationProductMarginalia from './annotations/productMarginalia'
 
 // Document types
 import articleEditorial from './documents/article/editorial'
@@ -27,6 +26,7 @@ import body from './blocks/body'
 // Object types
 import blockImage from './objects/blockImage'
 import blockInlineProduct from './objects/blockInlineProduct'
+import blockInlineProductMarginalia from './objects/blockInlineProductMarginalia'
 import blockProduct from './objects/blockProduct'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
@@ -52,7 +52,6 @@ export default createSchema({
     annotationLinkExternal,
     annotationLinkInternal,
     annotationProduct,
-    annotationProductMarginalia,
     // Document types
     articleEditorial,
     articleInfo,
@@ -67,6 +66,7 @@ export default createSchema({
     // Objects
     blockImage,
     blockInlineProduct,
+    blockInlineProductMarginalia,
     blockProduct,
     linkExternal,
     linkInternal,

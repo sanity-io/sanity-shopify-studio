@@ -1,25 +1,12 @@
-/**
- * Annotations are ways of marking up text in the block content editor.
- *
- * Read more: https://www.sanity.io/docs/customization#f924645007e1
- */
 import { hues } from '@sanity/color'
-import { MasterDetailIcon } from '@sanity/icons'
+import { TagIcon } from '@sanity/icons'
 import React from 'react'
 
 export default {
   title: 'Product (marginalia)',
-  name: 'annotationProductMarginalia',
+  name: 'blockInlineProductMarginalia',
   type: 'object',
-  blockEditor: {
-    icon: () => <MasterDetailIcon />,
-    render: ({ children }) => (
-      <span style={{ color: hues.blue[500].hex }}>
-        <MasterDetailIcon style={{ marginRight: '0.2em', verticalAlign: 'text-bottom' }} />
-        {children}
-      </span>
-    )
-  },
+  icon: TagIcon,
   initialValue: {
     action: 'addToCart',
     quantity: 1
@@ -69,5 +56,19 @@ export default {
       },
       validation: Rule => Rule.required()
     }
-  ]
+  ],
+  preview: {
+    select: {
+      productTitle: 'productWithVariant.product.store.title'
+    },
+    component(props) {
+      // Selected object values are accessible via `props.value`
+      return (
+        <span style={{ color: hues.orange[500].hex }}>
+          <TagIcon style={{ verticalAlign: 'text-bottom' }} />
+          {props?.value?.productTitle || 'Select product'}
+        </span>
+      )
+    }
+  }
 }
