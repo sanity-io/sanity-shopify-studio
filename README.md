@@ -25,13 +25,13 @@ This studio can be used with our [Hydrogen starter][hydrogen-demo], your own fro
 
 ### Shopify friendly content schemas
 
-This studio is built to accomodate product information coming from a Shopify Store. You can use the [Saniy Shopify app][sanity-shopify] to sync your product information, add content on top of it and integrate with editorial content. The content will be available over APIs that you can use with a
+This studio is built to accomodate product information coming from a Shopify Store. You can use the [Sanity Shopify app][sanity-shopify] to sync your product information, add content on top of it and integrate with editorial content. The content will be available over APIs that you can access with [`@sanity/client`][sanity-client] or the [HTTP API][http-api-docs]. If using Hydrogen, the [Sanity plugin for Hydrogen][hydrogen-plugin].
 
 Inside `/schemas` you'll find schema definitions for all the content types. They are organized in folders:
 
 - `/schemas/annotations/`: Annotations let editors mark up text in the block content editor with rich objects. These can be used to agument editorial content with product information. It also uses referential integrity to keep you from unwillingly delete a product that's used in editorial content.
 - `/schemas/documents/`: Document types determines the shape of the JSON documents that's stored in your content lake. This is where you define the content forms for things like products, collections, variants, as well as articles.
-- `/schemas/objects/`:
+- `/schemas/objects/`: General purpose & re-usable content structures, such as links (`linkExternal`, `linkInternal`), `productOption` and `blockImage`
 
 ### Desk structure
 
@@ -46,15 +46,15 @@ Sanity Studio will automatically list all your [document types][document-types] 
 
 Custom document actions let you override the default behavior of the publish button. The included document actions adds to the menu that you can find by pushing the chevron right to a document's publish button.
 
-You can find custom document actions in `/documentActions/`.
+You can find custom document actions in `/documentActions/`. Read more on [document action documentation][document-actions].
 
-### Delete product and variants
+#### Delete product and variants
 
 `/documentActions/deleteProductAndVariants.tsx`
 
 This custom document action lets you delete a product documet including all its variants in your Sanity Content Lake. Without this document action, one would have to delete all variant document one-by-one.
 
-### Edit in Shopify shortcut
+#### Edit in Shopify shortcut
 
 `/documentActions/shopifyLink.ts`
 
@@ -105,7 +105,11 @@ This repository is published under the [MIT](license) license.
 [desk-structure]: https://www.sanity.io/docs/structure-builder
 [document-actions]: https://www.sanity.io/docs/custom–document-actions
 [document-types]: https://www.sanity.io/docs/
+[input-components]: https://www.sanity.io/docs/custom-input-widgets
 [hydrogen-demo]: https://github.com/sanity-io/hydrogen-sanity-demo
 [license]: https://github.com/sanity-io/sanity/blob/next/LICENSE
 [sanity-cli]: https://www.sanity.io/docs/cli
-[sanity-shopify]: https://shopify.com/marketplace
+[sanity-shopify]: https://apps.shopify.com/sanity-connect
+[hydrogen-plugin]: https://www.npmjs.com/package/@shopify/hydrogen-plugin-sanity
+[http-api-docs]: https://www.sanity.io/docs/http-api
+[sanity-client]: https://www.sanity.io/docs/js-client
