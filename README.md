@@ -13,10 +13,6 @@
   - [Starting development server](#starting-development-server)
   - [Deploying the studio](#deploying-the-studio)
   - [Upgrading Sanity Studio](#upgrading-sanity-studio)
-- [Caveats](#caveats)
-- [Further customization](#further-customization)
-- [FAQ](#faq)
-- [Resources](#resources)
 - [License](#license)
 
 ## About
@@ -101,20 +97,15 @@ npm run upgrade
 
 If you have the [Sanity CLI][sanity-cli] installed, you can also run thes with `sanity start|deploy|upgrade`. It comes with additional useful functionality.
 
-## Caveats
-
-## Further customization
-
-## FAQ
-
-## Resources
-
 ## License
 
-[sanity-shopify]: https://shopify.com/marketplace
+This repository is published under the [MIT](license) license.
+
+[custom-input-components]: https://www.sanity.io/docs/custom-input-components
 [desk-structure]: https://www.sanity.io/docs/structure-builder
 [document-actions]: https://www.sanity.io/docs/custom–document-actions
-[custom-input-components]: https://www.sanity.io/docs/custom-input-components
 [document-types]: https://www.sanity.io/docs/
-[hydrogen-demo]: https://www.github.com/@TODO
+[hydrogen-demo]: https://github.com/sanity-io/hydrogen-sanity-demo
+[license]: https://github.com/sanity-io/sanity/blob/next/LICENSE
 [sanity-cli]: https://www.sanity.io/docs/cli
+[sanity-shopify]: https://shopify.com/marketplace
