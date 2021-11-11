@@ -1,6 +1,6 @@
 # Sanity Studio for Shopify Projects
 
-![](https://user-images.githubusercontent.com/209129/141306762-2cd2c6a1-2016-4a0c-b3a4-b0c8ff114625.png)
+<p><img src="https://user-images.githubusercontent.com/209129/141306762-2cd2c6a1-2016-4a0c-b3a4-b0c8ff114625.png" width="800" /></p>
 
 - [About](#about)
 - [Features](#features)
