@@ -22,13 +22,13 @@
 
 This Sanity Studio is configured for headless Shopify projects that use the official [Sanity Connect app][sanity-shopify]. It will let you augment extend product information with additional content, as well as integrate products with editoral content. This studio also contains example of customization of your [desk structure][desk-structure], [document actions][document-actions], as well as [input components][input-components].
 
-This studio can be used with our [Hydrogen starter][hydrogen-demo], your own frontend, or anywhere else you else you want your e-commerce content to go.
+This studio can be used with our [Hydrogen starter][hydrogen-demo], your own frontend, or anywhere else you want your e-commerce content to go.
 
 ## Features
 
 ### Shopify friendly content schemas
 
-This studio is built to accomodate product information coming from a Shopify Store. You can use the official [Sanity Connect app on Shopify][sanity-shopify] to sync your product information, add content on top of it and integrate with editorial content. All your data will be available over APIs that you can access with [`@sanity/client`][sanity-client] or the [HTTP API][http-api-docs]. If you're using Hydrogen, there's also an [official plugin][hydrogen-plugin] available.
+This studio is built to accommodate product information coming from a Shopify Store. You can use the official [Sanity Connect app on Shopify][sanity-shopify] to sync your product information, add content on top of it and integrate with editorial content. All your data will be available over APIs that you can access with [`@sanity/client`][sanity-client] or the [HTTP API][http-api-docs]. If you're using Hydrogen, there's also an [official plugin][hydrogen-plugin] available.
 
 Inside `/schemas` you'll find schema definitions for all the content types. They are organized in folders:
 
@@ -151,7 +151,7 @@ Sanity Connect will never delete your product and product variant documents.
 
 <p><img width="800" alt="Shopify dashboard widgets" src="https://user-images.githubusercontent.com/209129/141157755-37f4c8aa-9b1a-489e-9264-a6cacfb9a0dd.png"></p>
 
-This studio comes pre-installed with two Shopify dashboard widgets: `shopify-connect` and `shopify-intro`, provided by the [`sanity-plugin-dashboard-widget-shopify`](https://github.com/sanity-io/sanity-plugin-dashboard-widget-shopify) plugin.
+This studio comes preinstalled with two Shopify dashboard widgets: `shopify-connect` and `shopify-intro`, provided by the [`sanity-plugin-dashboard-widget-shopify`](https://github.com/sanity-io/sanity-plugin-dashboard-widget-shopify) plugin.
 
 These can be configured and removed as you see fit. Please consult the plugin repo for more information.
 
