@@ -147,6 +147,14 @@ Sanity Connect will never delete your product and product variant documents.
 <details><summary>Preview</summary>
 <img width="320" src="https://user-images.githubusercontent.com/209129/141305895-8e26700a-b48e-4809-bee7-7a52d808db6e.png"></details>
 
+### Bundled dashboard widgets
+
+<p><img width="800" alt="Shopify dashboard widgets" src="https://user-images.githubusercontent.com/209129/141157755-37f4c8aa-9b1a-489e-9264-a6cacfb9a0dd.png"></p>
+
+This studio comes pre-installed with two Shopify dashboard widgets: `shopify-connect` and `shopify-intro`, provided by the [`sanity-plugin-dashboard-widget-shopify`](https://github.com/sanity-io/sanity-plugin-dashboard-widget-shopify) plugin.
+
+These can be configured and removed as you see fit. Please consult the plugin repo for more information.
+
 ## Assumptions
 
 No two custom storefronts are the same, and we've taken a few strong opinions with how we've approached this studio.
