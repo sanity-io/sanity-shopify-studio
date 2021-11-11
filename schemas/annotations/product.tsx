@@ -39,6 +39,7 @@ export default {
       name: 'productWithVariant',
       title: 'Product + Variant',
       type: 'productWithVariant',
+      description: 'No links will be displayed if the product is not available or sold out',
       validation: Rule => Rule.required()
     },
     // Quantity

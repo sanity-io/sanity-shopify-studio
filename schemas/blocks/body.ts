@@ -44,7 +44,10 @@ export default {
       },
       // Inline blocks
       of: [{ type: 'blockInlineProduct' }, { type: 'blockInlineProductMarginalia' }],
-      styles: [{ title: 'Quote', value: 'blockquote' }],
+      styles: [
+        { title: 'Heading', value: 'h2' },
+        { title: 'Quote', value: 'blockquote' }
+      ],
       type: 'block'
     },
     // Custom blocks
