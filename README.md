@@ -176,15 +176,14 @@ It's possible that you have differing opinions on how content best be modelled t
 
 ## Setup
 
-If you're reading this on GitHub, chances are you haven't initialized the studio locally yet. To do so, run one of these shell commands:
+If you're reading this on GitHub, chances are you haven't initialized the studio locally yet. To do so, run the following shell command:
 
 ```sh
 # run a one-off initializing script:
-npx @sanity/cli init --template shopify
-
-# or install the Sanity CLI globally on your machine
-npm i -g @sanity/cli && sanity init --template shopify
+npx @sanity/cli@shopify init --template shopify
 ```
+
+Please note that the `shopify` template is currently only available on a tagged release of `@sanity/cli`.
 
 ## Local Development
 
