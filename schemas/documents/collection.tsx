@@ -1,33 +1,66 @@
 import { PackageIcon } from '@sanity/icons'
 import pluralize from 'pluralize'
+import React from 'react'
+import CollectionHiddenInput from '../../components/inputs/CollectionHidden'
+import CollectionMedia from '../../components/media/Collection'
+
+const GROUPS = [
+  {
+    default: true,
+    name: 'editorial',
+    title: 'Editorial'
+  },
+  {
+    name: 'shopifySync',
+    title: 'Shopify sync'
+  },
+  {
+    name: 'seo',
+    title: 'SEO'
+  }
+]
 
 export default {
+  // Required to hide 'create new' button in desk structure
+  __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
   name: 'collection',
   title: 'Collection',
   type: 'document',
   icon: PackageIcon,
+  groups: GROUPS,
   fields: [
-    // Title
+    // Product hidden status
     {
-      name: 'title',
-      title: 'Title',
+      name: 'hidden',
       type: 'string',
-      validation: Rule => Rule.required()
+      inputComponent: CollectionHiddenInput,
+      group: GROUPS.map(group => group.name),
+      hidden: ({ parent }) => {
+        const isDeleted = parent?.store?.isDeleted
+        return !isDeleted
+      }
     },
-    // Slug
+    // Title (proxy)
     {
-      name: 'slug',
+      name: 'titleProxy',
+      title: 'Title',
+      type: 'proxyString',
+      options: { field: 'store.title' }
+    },
+    // Slug (proxy)
+    {
+      name: 'slugProxy',
       title: 'Slug',
-      type: 'slug',
-      options: { source: 'title' },
-      validation: Rule => Rule.required()
+      type: 'proxyString',
+      options: { field: 'store.slug.current' }
     },
     // Description
     {
       name: 'description',
       title: 'Description',
       type: 'text',
-      rows: 3
+      rows: 3,
+      group: 'editorial'
     },
     // Image
     {
@@ -35,40 +68,36 @@ export default {
       title: 'Image',
       type: 'image',
       options: { hotspot: true },
-      validation: Rule => Rule.required()
+      group: 'editorial'
     },
-    // Products
+    // Shopify collection
     {
-      name: 'products',
-      title: 'Products',
-      type: 'array',
-      of: [
-        {
-          title: 'Product',
-          name: 'product',
-          type: 'productWithVariant'
-        }
-      ],
-      validation: Rule => Rule.unique()
+      name: 'store',
+      title: 'Shopify',
+      type: 'shopifyCollection',
+      description: 'Collection data from Shopify (read-only)',
+      group: 'shopifySync'
     },
     // SEO
     {
       name: 'seo',
       title: 'SEO',
-      type: 'seo.standard'
+      type: 'seo.standard',
+      group: 'seo'
     }
   ],
   preview: {
     select: {
-      image: 'image',
-      productCount: 'products.length',
-      title: 'title'
+      imageUrl: 'store.imageUrl',
+      isDeleted: 'store.isDeleted',
+      ruleCount: 'store.rules.length',
+      title: 'store.title'
     },
     prepare(selection) {
-      const { image, productCount, title } = selection
+      const { imageUrl, isDeleted, ruleCount, title } = selection
       return {
-        media: image,
-        subtitle: productCount ? pluralize('product', productCount, true) : 'No products',
+        media: <CollectionMedia isDeleted={isDeleted} url={imageUrl} />,
+        subtitle: ruleCount > 0 ? `Automated (${pluralize('rule', ruleCount, true)})` : 'Manual',
         title
       }
     }

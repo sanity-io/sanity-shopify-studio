@@ -3,7 +3,7 @@ export default {
   title: 'Shopify',
   type: 'object',
   options: {
-    collapsed: true,
+    collapsed: false,
     collapsible: true
   },
   readOnly: true,
@@ -55,8 +55,7 @@ export default {
       options: {
         layout: 'dropdown',
         list: ['active', 'archived', 'draft']
-      },
-      validation: Rule => Rule.required()
+      }
     },
     // Deleted
     {
@@ -70,23 +69,21 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
-      description: 'Title displayed in both cart and checkout',
-      validation: Rule => Rule.required()
+      description: 'Title displayed in both cart and checkout'
     },
     // Product ID
     {
       name: 'id',
       title: 'ID',
       type: 'number',
-      description: 'Shopify Product ID',
-      validation: Rule => Rule.required()
+      description: 'Shopify Product ID'
     },
     // Slug
     {
-      title: 'Slug',
-      description: 'Shopify Product handle',
       name: 'slug',
-      type: 'slug'
+      title: 'Slug',
+      type: 'slug',
+      description: 'Shopify Product handle'
     },
     // Product Type
     {
@@ -114,14 +111,12 @@ export default {
         {
           name: 'minVariantPrice',
           title: 'Min variant price',
-          type: 'number',
-          validation: Rule => Rule.required()
+          type: 'number'
         },
         {
           name: 'maxVariantPrice',
           title: 'Max variant price',
-          type: 'number',
-          validation: Rule => Rule.required()
+          type: 'number'
         }
       ]
     },

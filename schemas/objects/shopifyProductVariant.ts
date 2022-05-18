@@ -3,7 +3,7 @@ export default {
   title: 'Shopify',
   type: 'object',
   options: {
-    collapsed: true,
+    collapsed: false,
     collapsible: true
   },
   fieldsets: [

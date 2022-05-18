@@ -41,7 +41,7 @@ const ProxyString = forwardRef<HTMLInputElement, Props>((props, ref) => {
         content={
           <Box padding={2}>
             <Text muted size={1}>
-              This value is defined in (<code>{path}</code>)
+              This value is set in Shopify (<code>{path}</code>)
             </Text>
           </Box>
         }

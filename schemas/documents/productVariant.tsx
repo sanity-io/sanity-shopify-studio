@@ -10,6 +10,12 @@ export default {
   title: 'Product variant',
   type: 'document',
   icon: CopyIcon,
+  groups: [
+    {
+      name: 'shopifySync',
+      title: 'Shopify sync'
+    }
+  ],
   fields: [
     // Product variant hidden status
     {
@@ -34,7 +40,8 @@ export default {
       name: 'store',
       title: 'Shopify',
       description: 'Variant data from Shopify (read-only)',
-      type: 'shopifyProductVariant'
+      type: 'shopifyProductVariant',
+      group: 'shopifySync'
     }
   ],
   preview: {

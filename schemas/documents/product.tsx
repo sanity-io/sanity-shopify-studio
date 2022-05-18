@@ -5,44 +5,61 @@ import ProductHiddenInput from '../../components/inputs/ProductHidden'
 import ProductStatusMedia from '../../components/media/ProductStatus'
 import { getPriceRange } from '../../utils/getPriceRange'
 
+const GROUPS = [
+  {
+    default: true,
+    name: 'editorial',
+    title: 'Editorial'
+  },
+  {
+    name: 'shopifySync',
+    title: 'Shopify sync'
+  },
+  {
+    name: 'seo',
+    title: 'SEO'
+  }
+]
+
 export default {
-  // HACK: Required to hide 'create new' button in desk structure
+  // Required to hide 'create new' button in desk structure
   __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
   name: 'product',
   title: 'Product',
   type: 'document',
   icon: TagIcon,
+  groups: GROUPS,
   fields: [
     // Product hidden status
     {
       name: 'hidden',
       type: 'string',
       inputComponent: ProductHiddenInput,
+      group: GROUPS.map(group => group.name),
       hidden: ({ parent }) => {
         const isActive = parent?.store?.status === 'active'
         const isDeleted = parent?.store?.isDeleted
-
         return isActive && !isDeleted
       }
     },
     // Title (proxy)
     {
-      title: 'Title',
       name: 'titleProxy',
+      title: 'Title',
       type: 'proxyString',
       options: { field: 'store.title' }
     },
     // Slug (proxy)
     {
-      title: 'Slug',
       name: 'slugProxy',
+      title: 'Slug',
       type: 'proxyString',
       options: { field: 'store.slug.current' }
     },
     // Images
     {
-      title: 'Images',
       name: 'images',
+      title: 'Images',
       type: 'array',
       options: { layout: 'grid' },
       of: [
@@ -52,7 +69,8 @@ export default {
           type: 'image',
           options: { hotspot: true }
         }
-      ]
+      ],
+      group: 'editorial'
     },
     // Sections
     {
@@ -89,47 +107,51 @@ export default {
           ]
         }
       ],
-      validation: Rule => Rule.max(3)
+      validation: Rule => Rule.max(3),
+      group: 'editorial'
     },
     // Body
     {
       name: 'body',
       title: 'Body',
-      type: 'body'
+      type: 'body',
+      group: 'editorial'
     },
     // Shopify product
     {
       name: 'store',
       title: 'Shopify',
       type: 'shopifyProduct',
-      description: 'Product data from Shopify (read-only)'
+      description: 'Product data from Shopify (read-only)',
+      group: 'shopifySync'
     },
     // SEO
     {
       name: 'seo',
       title: 'SEO',
-      type: 'seo.product'
+      type: 'seo.product',
+      group: 'seo'
     }
   ],
   orderings: [
     {
-      title: 'Title (A-Z)',
       name: 'titleAsc',
+      title: 'Title (A-Z)',
       by: [{ field: 'store.title', direction: 'asc' }]
     },
     {
-      title: 'Title (Z-A)',
       name: 'titleAsc',
+      title: 'Title (Z-A)',
       by: [{ field: 'store.title', direction: 'desc' }]
     },
     {
-      title: 'Price (Highest first)',
       name: 'titleAsc',
+      title: 'Price (Highest first)',
       by: [{ field: 'store.priceRange.minVariantPrice', direction: 'desc' }]
     },
     {
-      title: 'Title (Lowest first)',
       name: 'titleAsc',
+      title: 'Title (Lowest first)',
       by: [{ field: 'store.priceRange.minVariantPrice', direction: 'asc' }]
     }
   ],

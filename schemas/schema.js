@@ -28,6 +28,7 @@ import blockImage from './objects/blockImage'
 import blockInlineProduct from './objects/blockInlineProduct'
 import blockInlineProductMarginalia from './objects/blockInlineProductMarginalia'
 import blockProduct from './objects/blockProduct'
+import collectionRule from './objects/collectionRule'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
 import placeholderString from './objects/placeholderString'
@@ -37,6 +38,7 @@ import proxyString from './objects/proxyString'
 import seoProduct from './objects/seo/product'
 import seoSingleton from './objects/seo/singleton'
 import seoStandard from './objects/seo/standard'
+import shopifyCollection from './objects/shopifyCollection'
 import shopifyProduct from './objects/shopifyProduct'
 import shopifyProductVariant from './objects/shopifyProductVariant'
 
@@ -68,6 +70,7 @@ export default createSchema({
     blockInlineProduct,
     blockInlineProductMarginalia,
     blockProduct,
+    collectionRule,
     linkExternal,
     linkInternal,
     placeholderString,
@@ -77,6 +80,7 @@ export default createSchema({
     seoProduct,
     seoSingleton,
     seoStandard,
+    shopifyCollection,
     shopifyProduct,
     shopifyProductVariant
   ])

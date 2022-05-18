@@ -8,7 +8,6 @@ import { TrashIcon } from '@sanity/icons'
 import { Stack, Text, useToast } from '@sanity/ui'
 import sanityClient from 'part:@sanity/base/client'
 import React, { useState } from 'react'
-import { SANITY_API_VERSION } from '../constants'
 
 type Props = {
   draft?: Record<string, any> // Sanity Document
@@ -17,7 +16,7 @@ type Props = {
   type: string
 }
 
-const deleteProductAndVariants = (props: Props) => {
+const deleteCollection = (props: Props) => {
   const { draft, onComplete, published } = props
 
   const [dialogOpen, setDialogOpen] = useState(false)
@@ -29,31 +28,15 @@ const deleteProductAndVariants = (props: Props) => {
     color: 'danger',
     dialog: dialogOpen && {
       color: 'danger',
-      header: 'Delete current product and associated variants?',
+      header: 'Delete current collection?',
       message: (
         <Stack space={4}>
-          <Text>Delete the current product and all associated variants in your dataset.</Text>
+          <Text>Delete the current collection in your dataset.</Text>
           <Text weight="medium">No content on Shopify will be deleted.</Text>
         </Stack>
       ),
       onCancel: onComplete,
       onConfirm: async () => {
-        const productId = published?.store?.id
-
-        // Find product variant documents with matching Shopify Product ID
-        let productVariantIds: string[] = []
-        if (productId) {
-          productVariantIds = await sanityClient
-            .withConfig({ apiVersion: SANITY_API_VERSION })
-            .fetch(
-              `*[
-                _type == "productVariant"
-                && store.productId == $productId
-              ]._id`,
-              { productId: productId }
-            )
-        }
-
         // Delete current document (including draft)
         const transaction = sanityClient.transaction()
         if (published?._id) {
@@ -63,18 +46,10 @@ const deleteProductAndVariants = (props: Props) => {
           transaction.delete(draft._id)
         }
 
-        // Delete all product variants with matching IDs
-        productVariantIds?.forEach(documentId => {
-          if (documentId) {
-            transaction.delete(documentId)
-            transaction.delete(`drafts.${documentId}`)
-          }
-        })
-
         try {
           await transaction.commit()
-          // Navigate back to products root
-          router.navigateUrl('/desk/products')
+          // Navigate back to collections root
+          router.navigateUrl('/desk/collections')
         } catch (err) {
           toast.push({
             status: 'error',
@@ -94,4 +69,4 @@ const deleteProductAndVariants = (props: Props) => {
   }
 }
 
-export default deleteProductAndVariants
+export default deleteCollection

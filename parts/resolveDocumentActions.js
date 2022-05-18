@@ -6,6 +6,7 @@ import defaultResolve, {
   UnpublishAction
 } from 'part:@sanity/base/document-actions'
 import { LOCKED_DOCUMENT_IDS, LOCKED_DOCUMENT_TYPES } from '../constants'
+import deleteCollection from '../documentActions/deleteCollection'
 import deleteProductAndVariants from '../documentActions/deleteProductAndVariants'
 import shopifyLink from '../documentActions/shopifyLink'
 
@@ -25,6 +26,14 @@ export default function resolveDocumentActions(props) {
         // Prevent creation & deletion on certain document ids (singletons)
         if (LOCKED_DOCUMENT_IDS.includes(props.id)) {
           if ([DeleteAction, DuplicateAction, UnpublishAction].includes(action)) {
+            return false
+          }
+        }
+
+        // Collections:
+        // - Disable creation and duplication
+        if (props.type === 'collection') {
+          if ([CreateAction, DuplicateAction].includes(action)) {
             return false
           }
         }
@@ -57,6 +66,10 @@ export default function resolveDocumentActions(props) {
       })
       // Override any built-in actions with our own
       .map(action => {
+        // Collections: replace default delete action
+        if (props.type === 'collection' && action === DeleteAction) {
+          return deleteCollection
+        }
         // Products: replace default delete action
         if (props.type === 'product' && action === DeleteAction) {
           return deleteProductAndVariants
