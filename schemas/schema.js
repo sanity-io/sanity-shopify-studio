@@ -10,9 +10,8 @@ import annotationLinkInternal from './annotations/linkInternal'
 import annotationProduct from './annotations/product'
 
 // Document types
-import articleEditorial from './documents/article/editorial'
-import articleInfo from './documents/article/info'
 import collection from './documents/collection'
+import page from './documents/page'
 import product from './documents/product'
 import productVariant from './documents/productVariant'
 
@@ -55,9 +54,8 @@ export default createSchema({
     annotationLinkInternal,
     annotationProduct,
     // Document types
-    articleEditorial,
-    articleInfo,
     collection,
+    page,
     product,
     productVariant,
     // Singleton document types

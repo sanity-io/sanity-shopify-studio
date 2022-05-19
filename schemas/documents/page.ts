@@ -1,11 +1,11 @@
-import { InfoOutlineIcon } from '@sanity/icons'
-import { validateSlug } from '../../../utils/validateSlug'
+import { DocumentIcon } from '@sanity/icons'
+import { validateSlug } from '../../utils/validateSlug'
 
 export default {
-  name: 'article.info',
-  title: 'Article (info)',
+  name: 'page',
+  title: 'Page',
   type: 'document',
-  icon: InfoOutlineIcon,
+  icon: DocumentIcon,
   fields: [
     // Title
     {

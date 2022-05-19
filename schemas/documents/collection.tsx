@@ -86,6 +86,18 @@ export default {
       group: 'seo'
     }
   ],
+  orderings: [
+    {
+      name: 'titleAsc',
+      title: 'Title (A-Z)',
+      by: [{ field: 'store.title', direction: 'asc' }]
+    },
+    {
+      name: 'titleAsc',
+      title: 'Title (Z-A)',
+      by: [{ field: 'store.title', direction: 'desc' }]
+    },
+  ],
   preview: {
     select: {
       imageUrl: 'store.imageUrl',
