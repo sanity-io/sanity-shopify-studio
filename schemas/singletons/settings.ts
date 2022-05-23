@@ -128,6 +128,27 @@ export default {
         }
       ]
     },
+    // Custom product options
+    {
+      name: 'customProductOptions',
+      title: 'Custom product options',
+      type: 'array',
+      of: [
+        {
+          name: 'customProductOption.color',
+          type: 'customProductOption.color'
+        }
+      ],
+      validation: Rule =>
+        Rule.custom(options => {
+          // Ensure each product option title is unique
+          const uniqueTitles = new Set(options.map(option => option.title))
+          if (options.length > uniqueTitles.size) {
+            return 'Each product option must have a unique title'
+          }
+          return true
+        })
+    },
     // SEO
     {
       name: 'seo',

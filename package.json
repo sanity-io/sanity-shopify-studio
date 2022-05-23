@@ -16,6 +16,7 @@
   "author": "Sanity.io <hello@sanity.io>",
   "dependencies": {
     "@sanity/base": "^2.30.0",
+    "@sanity/color-input": "^2.30.0",
     "@sanity/components": "^2.14.0",
     "@sanity/core": "^2.30.0",
     "@sanity/dashboard": "^2.30.0",

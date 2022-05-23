@@ -28,6 +28,7 @@ import blockInlineProduct from './objects/blockInlineProduct'
 import blockInlineProductMarginalia from './objects/blockInlineProductMarginalia'
 import blockProduct from './objects/blockProduct'
 import collectionRule from './objects/collectionRule'
+import customProductOptionColor from './objects/customProductOption/color'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
 import placeholderString from './objects/placeholderString'
@@ -69,6 +70,7 @@ export default createSchema({
     blockInlineProductMarginalia,
     blockProduct,
     collectionRule,
+    customProductOptionColor,
     linkExternal,
     linkInternal,
     placeholderString,

@@ -15,11 +15,14 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "media",
-    "dashboard-widget-shopify"
+    "dashboard-widget-shopify",
+    "@sanity/color-input"
   ],
   "env": {
     "development": {
-      "plugins": ["@sanity/vision"]
+      "plugins": [
+        "@sanity/vision"
+      ]
     }
   },
   "parts": [
