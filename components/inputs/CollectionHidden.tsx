@@ -13,14 +13,14 @@ type Props = {
 const CollectionHiddenInput = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { document } = props
 
-  const [shopifyProductUrl, setShopifyProductUrl] = useState<string>()
+  const [shopifyCollectionUrl, setShopifyCollectionUrl] = useState<string>()
 
   const isDeleted = document?.store?.isDeleted
 
   useEffect(() => {
     getShopifyStoreId().then(storeId => {
       if (storeId) {
-        setShopifyProductUrl(collectionUrl(storeId, document?.store?.id))
+        setShopifyCollectionUrl(collectionUrl(storeId, document?.store?.id))
       }
     })
   }, [])
@@ -34,17 +34,17 @@ const CollectionHiddenInput = forwardRef<HTMLDivElement, Props>((props, ref) => 
         <Box flex={1} marginLeft={3}>
           <Box>
             <Text size={2} weight="semibold">
-              This product is hidden
+              This collection is hidden
             </Text>
           </Box>
           <Stack marginTop={4} space={2}>
             <Text size={1}>It has been deleted from Shopify.</Text>
           </Stack>
-          {!isDeleted && shopifyProductUrl && (
+          {!isDeleted && shopifyCollectionUrl && (
             <Box marginTop={4}>
               <Text size={1}>
                 →{' '}
-                <a href={shopifyProductUrl} target="_blank">
+                <a href={shopifyCollectionUrl} target="_blank">
                   View this collection on Shopify
                 </a>
               </Text>
