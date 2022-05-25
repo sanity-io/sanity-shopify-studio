@@ -51,22 +51,20 @@ export default {
               name: 'color',
               title: 'Color',
               type: 'color',
-              options: {
-                disableAlpha: true
-              },
+              options: { disableAlpha: true },
               validation: Rule => Rule.required()
             }
           ],
           preview: {
             select: {
-              colorHex: 'color.hex',
+              color: 'color.hex',
               title: 'title'
             },
             prepare(selection) {
-              const { colorHex, title } = selection
+              const { color, title } = selection
               return {
-                media: <ColorPreview color={colorHex} />,
-                subtitle: colorHex,
+                media: <ColorPreview color={color} />,
+                subtitle: color,
                 title
               }
             }

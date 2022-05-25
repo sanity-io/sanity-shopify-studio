@@ -11,6 +11,7 @@ import annotationProduct from './annotations/product'
 
 // Document types
 import collection from './documents/collection'
+import colorTheme from './documents/colorTheme'
 import page from './documents/page'
 import product from './documents/product'
 import productVariant from './documents/productVariant'
@@ -70,6 +71,7 @@ export default createSchema({
     blockInlineProductMarginalia,
     blockProduct,
     collectionRule,
+    colorTheme,
     customProductOptionColor,
     linkExternal,
     linkInternal,

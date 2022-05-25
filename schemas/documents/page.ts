@@ -21,6 +21,13 @@ export default {
       options: { source: 'title' },
       validation: validateSlug
     },
+    // Color theme
+    {
+      name: 'colorTheme',
+      title: 'Color theme',
+      type: 'reference',
+      to: [{ type: 'colorTheme' }]
+    },
     // Body
     {
       name: 'body',

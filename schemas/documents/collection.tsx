@@ -54,6 +54,14 @@ export default {
       type: 'proxyString',
       options: { field: 'store.slug.current' }
     },
+    // Color theme
+    {
+      name: 'colorTheme',
+      title: 'Color theme',
+      type: 'reference',
+      to: [{ type: 'colorTheme' }],
+      group: 'editorial'
+    },
     // Description
     {
       name: 'description',
@@ -96,7 +104,7 @@ export default {
       name: 'titleAsc',
       title: 'Title (Z-A)',
       by: [{ field: 'store.title', direction: 'desc' }]
-    },
+    }
   ],
   preview: {
     select: {
