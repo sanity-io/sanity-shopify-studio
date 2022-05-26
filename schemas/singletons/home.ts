@@ -15,6 +15,20 @@ export default {
       title: 'Intro',
       type: 'body'
     },
+    // Modules
+    {
+      name: 'modules',
+      title: 'Modules',
+      type: 'array',
+      of: [
+        {
+          title: 'Collection',
+          type: 'reference',
+          weak: true,
+          to: [{ type: 'collection' }]
+        }
+      ]
+    },
     // Featured collections
     {
       name: 'featuredCollections',
@@ -24,6 +38,7 @@ export default {
         {
           title: 'Collection',
           type: 'reference',
+          weak: true,
           to: [{ type: 'collection' }]
         }
       ],

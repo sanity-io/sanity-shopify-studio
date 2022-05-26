@@ -32,6 +32,7 @@ import collectionRule from './objects/collectionRule'
 import customProductOptionColor from './objects/customProductOption/color'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
+import pageHero from './objects/pageHero'
 import placeholderString from './objects/placeholderString'
 import productOption from './objects/productOption'
 import productWithVariant from './objects/productWithVariant'
@@ -75,6 +76,7 @@ export default createSchema({
     customProductOptionColor,
     linkExternal,
     linkInternal,
+    pageHero,
     placeholderString,
     productOption,
     productWithVariant,

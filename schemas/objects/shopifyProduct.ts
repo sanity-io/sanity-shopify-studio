@@ -78,6 +78,13 @@ export default {
       type: 'number',
       description: 'Shopify Product ID'
     },
+    // Product ID
+    {
+      name: 'gid',
+      title: 'GID',
+      type: 'string',
+      description: 'Shopify Product GID'
+    },
     // Slug
     {
       name: 'slug',
@@ -85,11 +92,25 @@ export default {
       type: 'slug',
       description: 'Shopify Product handle'
     },
+    // Description
+    {
+      name: 'descriptionHtml',
+      title: 'HTML Description',
+      type: 'text',
+      rows: 5
+    },
     // Product Type
     {
       fieldset: 'organization',
       name: 'productType',
       title: 'Product type',
+      type: 'string'
+    },
+    // Vendor
+    {
+      fieldset: 'organization',
+      name: 'vendor',
+      title: 'Vendor',
       type: 'string'
     },
     // Tags

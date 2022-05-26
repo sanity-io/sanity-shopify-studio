@@ -2,6 +2,7 @@ import { CopyIcon } from '@sanity/icons'
 import React from 'react'
 import ProductMediaPreview from '../../components/media/ProductStatus'
 import ProductVariantHiddenInput from '../../components/inputs/ProductVariantHidden'
+import ShopifyIcon from '../../components/icons/Shopify'
 
 export default {
   // HACK: Required to hide 'create new' button in desk structure
@@ -13,7 +14,8 @@ export default {
   groups: [
     {
       name: 'shopifySync',
-      title: 'Shopify sync'
+      title: 'Shopify sync',
+      icon: ShopifyIcon
     }
   ],
   fields: [

@@ -45,11 +45,8 @@ export default {
                     {
                       name: 'collection',
                       type: 'reference',
-                      to: [
-                        {
-                          type: 'collection'
-                        }
-                      ]
+                      weak: true,
+                      to: [{ type: 'collection' }]
                     }
                   ]
                 },
@@ -58,11 +55,8 @@ export default {
                   title: 'Collection products',
                   type: 'reference',
                   description: 'Products from this collection will be listed',
-                  to: [
-                    {
-                      type: 'collection'
-                    }
-                  ]
+                  weak: true,
+                  to: [{ type: 'collection' }]
                 }
               ]
             },

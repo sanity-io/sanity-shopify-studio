@@ -1,6 +1,7 @@
 import { PackageIcon } from '@sanity/icons'
 import pluralize from 'pluralize'
 import React from 'react'
+import ShopifyIcon from '../../components/icons/Shopify'
 import CollectionHiddenInput from '../../components/inputs/CollectionHidden'
 import CollectionMedia from '../../components/media/Collection'
 
@@ -12,7 +13,8 @@ const GROUPS = [
   },
   {
     name: 'shopifySync',
-    title: 'Shopify sync'
+    title: 'Shopify sync',
+    icon: ShopifyIcon
   },
   {
     name: 'seo',
@@ -60,6 +62,22 @@ export default {
       title: 'Color theme',
       type: 'reference',
       to: [{ type: 'colorTheme' }],
+      group: 'editorial'
+    },
+    // Show hero
+    {
+      name: 'showHero',
+      title: 'Show hero',
+      type: 'boolean',
+      description: 'If disabled, page title will be displayed instead',
+      group: 'editorial'
+    },
+    // Hero
+    {
+      name: 'hero',
+      title: 'Hero',
+      type: 'pageHero',
+      hidden: ({ document }) => !document?.showHero,
       group: 'editorial'
     },
     // Description

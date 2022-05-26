@@ -1,6 +1,7 @@
 import { TagIcon } from '@sanity/icons'
 import pluralize from 'pluralize'
 import React from 'react'
+import ShopifyIcon from '../../components/icons/Shopify'
 import ProductHiddenInput from '../../components/inputs/ProductHidden'
 import ProductStatusMedia from '../../components/media/ProductStatus'
 import { getPriceRange } from '../../utils/getPriceRange'
@@ -13,7 +14,8 @@ const GROUPS = [
   },
   {
     name: 'shopifySync',
-    title: 'Shopify sync'
+    title: 'Shopify sync',
+    icon: ShopifyIcon
   },
   {
     name: 'seo',

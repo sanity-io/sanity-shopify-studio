@@ -51,12 +51,26 @@ export default {
       type: 'number',
       description: 'Shopify Collection ID'
     },
+    // GID
+    {
+      name: 'gid',
+      title: 'GID',
+      type: 'string',
+      description: 'Shopify Collection GID'
+    },
     // Slug
     {
       name: 'slug',
       title: 'Slug',
       description: 'Shopify Collection handle',
       type: 'slug'
+    },
+    // Description
+    {
+      name: 'descriptionHtml',
+      title: 'HTML Description',
+      type: 'text',
+      rows: 5
     },
     // Image URL
     {

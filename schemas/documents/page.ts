@@ -6,6 +6,17 @@ export default {
   title: 'Page',
   type: 'document',
   icon: DocumentIcon,
+  groups: [
+    {
+      default: true,
+      name: 'editorial',
+      title: 'Editorial'
+    },
+    {
+      name: 'seo',
+      title: 'SEO'
+    }
+  ],
   fields: [
     // Title
     {
@@ -26,21 +37,43 @@ export default {
       name: 'colorTheme',
       title: 'Color theme',
       type: 'reference',
-      to: [{ type: 'colorTheme' }]
+      to: [{ type: 'colorTheme' }],
+      group: 'editorial'
+    },
+    // Show hero
+    {
+      name: 'showHero',
+      title: 'Show hero',
+      type: 'boolean',
+      description: 'If disabled, page title will be displayed instead',
+      group: 'editorial'
+    },
+    // Hero
+    {
+      name: 'hero',
+      title: 'Hero',
+      type: 'pageHero',
+      hidden: ({ document }) => !document?.showHero,
+      group: 'editorial'
     },
     // Body
     {
       name: 'body',
       title: 'Body',
-      type: 'body'
+      type: 'body',
+      group: 'editorial'
     },
     // SEO
     {
       name: 'seo',
       title: 'SEO',
-      type: 'seo.standard'
+      type: 'seo.standard',
+      group: 'seo'
     }
   ],
+  initialValue: {
+    showHero: false
+  },
   preview: {
     select: {
       active: 'active',

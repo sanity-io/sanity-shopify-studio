@@ -8,29 +8,21 @@ export default {
   },
   fieldsets: [
     {
-      name: 'status',
-      title: 'Status',
-      options: {
-        columns: 2
-      }
-    },
-    {
       name: 'options',
       title: 'Options',
       options: {
         columns: 3
       }
+    },
+    {
+      name: 'status',
+      title: 'Status',
+      options: {
+        columns: 2
+      }
     }
   ],
   fields: [
-    /*
-    // In stock
-    {
-      name: 'inStock',
-      title: 'In stock',
-      type: 'boolean',
-    },
-    */
     // Created at
     {
       fieldset: 'status',
@@ -80,13 +72,27 @@ export default {
     {
       name: 'id',
       title: 'ID',
-      type: 'number'
+      type: 'number',
+      description: 'Shopify Product Variant ID'
+    },
+    // GID
+    {
+      name: 'gid',
+      title: 'GID',
+      type: 'string',
+      description: 'Shopify Product Variant GID'
     },
     // Product ID
     {
       name: 'productId',
       title: 'Product ID',
       type: 'number'
+    },
+    // Product GID
+    {
+      name: 'productGid',
+      title: 'Product GID',
+      type: 'string'
     },
     // Price
     {
@@ -99,6 +105,35 @@ export default {
       name: 'compareAtPrice',
       title: 'Compare at price',
       type: 'number'
+    },
+    // Inventory
+    {
+      name: 'inventory',
+      title: 'Inventory',
+      type: 'object',
+      options: {
+        columns: 3
+      },
+      fields: [
+        // Quantity
+        {
+          name: 'quantity',
+          title: 'Quantity',
+          type: 'number'
+        },
+        // Management
+        {
+          name: 'management',
+          title: 'Management',
+          type: 'string'
+        },
+        // Policy
+        {
+          name: 'policy',
+          title: 'Policy',
+          type: 'string'
+        }
+      ]
     },
     // Option 1
     {
