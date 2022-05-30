@@ -1,7 +1,7 @@
 import { ImageIcon } from '@sanity/icons'
 
 export default {
-  name: 'pageHero',
+  name: 'hero.page',
   title: 'Page hero',
   type: 'object',
   fields: [

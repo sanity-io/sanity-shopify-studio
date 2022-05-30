@@ -28,11 +28,12 @@ import blockImage from './objects/blockImage'
 import blockInlineProduct from './objects/blockInlineProduct'
 import blockInlineProductMarginalia from './objects/blockInlineProductMarginalia'
 import blockProduct from './objects/blockProduct'
+import collectionHero from './objects/hero/collection'
 import collectionRule from './objects/collectionRule'
 import customProductOptionColor from './objects/customProductOption/color'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
-import pageHero from './objects/pageHero'
+import pageHero from './objects/hero/page'
 import placeholderString from './objects/placeholderString'
 import productOption from './objects/productOption'
 import productWithVariant from './objects/productWithVariant'
@@ -71,6 +72,7 @@ export default createSchema({
     blockInlineProduct,
     blockInlineProductMarginalia,
     blockProduct,
+    collectionHero,
     collectionRule,
     colorTheme,
     customProductOptionColor,

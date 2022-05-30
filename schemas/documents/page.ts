@@ -38,7 +38,8 @@ export default {
       title: 'Color theme',
       type: 'reference',
       to: [{ type: 'colorTheme' }],
-      group: 'editorial'
+      group: 'editorial',
+      validation: Rule => Rule.required()
     },
     // Show hero
     {
@@ -52,7 +53,7 @@ export default {
     {
       name: 'hero',
       title: 'Hero',
-      type: 'pageHero',
+      type: 'hero.page',
       hidden: ({ document }) => !document?.showHero,
       group: 'editorial'
     },
