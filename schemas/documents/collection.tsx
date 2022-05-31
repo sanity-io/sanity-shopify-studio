@@ -56,6 +56,29 @@ export default {
       type: 'proxyString',
       options: { field: 'store.slug.current' }
     },
+    // Vector
+    {
+      name: 'vector',
+      title: 'Vector artwork',
+      type: 'image',
+      description: 'Displayed in collection links using color theme',
+      options: {
+        accept: 'image/svg+xml'
+      },
+      group: 'editorial',
+      validation: Rule =>
+        Rule.custom(image => {
+          if (!image) {
+            return true
+          }
+          const pattern = /^image-([a-f\d]+)-(\d+x\d+)-(\w+)$/
+          const format = image.asset._ref.match(pattern)[3]
+          if (format !== 'svg') {
+            return 'Image must be an SVG'
+          }
+          return true
+        })
+    },
     // Color theme
     {
       name: 'colorTheme',
