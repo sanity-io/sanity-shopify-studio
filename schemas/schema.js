@@ -31,6 +31,7 @@ import blockProduct from './objects/blockProduct'
 import collectionHero from './objects/hero/collection'
 import collectionRule from './objects/collectionRule'
 import customProductOptionColor from './objects/customProductOption/color'
+import customProductOptionSize from './objects/customProductOption/size'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
 import pageHero from './objects/hero/page'
@@ -76,6 +77,7 @@ export default createSchema({
     collectionRule,
     colorTheme,
     customProductOptionColor,
+    customProductOptionSize,
     linkExternal,
     linkInternal,
     pageHero,

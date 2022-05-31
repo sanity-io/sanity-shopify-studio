@@ -131,14 +131,18 @@ export default {
         {
           name: 'customProductOption.color',
           type: 'customProductOption.color'
+        },
+        {
+          name: 'customProductOption.size',
+          type: 'customProductOption.size'
         }
       ],
       validation: Rule =>
         Rule.custom(options => {
-          // Ensure each product option title is unique
+          // Each product option type must have a unique title
           const uniqueTitles = new Set(options.map(option => option.title))
           if (options.length > uniqueTitles.size) {
-            return 'Each product option must have a unique title'
+            return 'Each product option type must have a unique title'
           }
           return true
         })

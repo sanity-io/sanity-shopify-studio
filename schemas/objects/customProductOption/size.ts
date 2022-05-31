@@ -1,23 +1,8 @@
 import pluralize from 'pluralize'
-import React from 'react'
-
-const ColorPreview = ({ color }: { color: string }) => {
-  return (
-    <div
-      style={{
-        backgroundColor: color,
-        borderRadius: 'inherit',
-        display: 'flex',
-        height: '100%',
-        width: '100%'
-      }}
-    />
-  )
-}
 
 export default {
-  name: 'customProductOption.color',
-  title: 'Color',
+  name: 'customProductOption.size',
+  title: 'Size',
   type: 'object',
   icon: false,
   fields: [
@@ -29,10 +14,10 @@ export default {
       description: 'Shopify product option name (case sensitive)',
       validation: Rule => Rule.required()
     },
-    // Colors
+    // Sizes
     {
-      name: 'colors',
-      title: 'Colors',
+      name: 'sizes',
+      title: 'Sizes',
       type: 'array',
       of: [
         {
@@ -48,23 +33,30 @@ export default {
               validation: Rule => Rule.required()
             },
             {
-              name: 'color',
-              title: 'Color',
-              type: 'color',
-              options: { disableAlpha: true },
-              validation: Rule => Rule.required()
+              name: 'width',
+              title: 'Width',
+              type: 'number',
+              description: 'In cm',
+              validation: Rule => Rule.required().precision(2)
+            },
+            {
+              name: 'height',
+              title: 'Height',
+              type: 'number',
+              description: 'In cm',
+              validation: Rule => Rule.required().precision(2)
             }
           ],
           preview: {
             select: {
-              color: 'color.hex',
-              title: 'title'
+              height: 'height',
+              title: 'title',
+              width: 'width'
             },
             prepare(selection) {
-              const { color, title } = selection
+              const { height, title, width } = selection
               return {
-                media: <ColorPreview color={color} />,
-                subtitle: color,
+                subtitle: `${width || '??'}cm x ${height || '??'}cm`,
                 title
               }
             }
@@ -84,13 +76,13 @@ export default {
   ],
   preview: {
     select: {
-      colorCount: 'colors.length',
+      sizeCount: 'sizes.length',
       title: 'title'
     },
     prepare(selection) {
-      const { colorCount, title } = selection
+      const { sizeCount, title } = selection
       return {
-        subtitle: colorCount ? pluralize('color', colorCount, true) : 'No colors',
+        subtitle: sizeCount ? pluralize('size', sizeCount, true) : 'No sizes',
         title
       }
     }
