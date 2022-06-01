@@ -7,6 +7,10 @@ import CollectionMedia from '../../components/media/Collection'
 
 const GROUPS = [
   {
+    name: 'theme',
+    title: 'Theme'
+  },
+  {
     default: true,
     name: 'editorial',
     title: 'Editorial'
@@ -56,6 +60,15 @@ export default {
       type: 'proxyString',
       options: { field: 'store.slug.current' }
     },
+    // Color theme
+    {
+      name: 'colorTheme',
+      title: 'Color theme',
+      type: 'reference',
+      to: [{ type: 'colorTheme' }],
+      group: 'theme',
+      validation: Rule => Rule.required()
+    },
     // Vector
     {
       name: 'vector',
@@ -65,7 +78,7 @@ export default {
       options: {
         accept: 'image/svg+xml'
       },
-      group: 'editorial',
+      group: 'theme',
       validation: Rule =>
         Rule.custom(image => {
           if (!image) {
@@ -78,15 +91,6 @@ export default {
           }
           return true
         })
-    },
-    // Color theme
-    {
-      name: 'colorTheme',
-      title: 'Color theme',
-      type: 'reference',
-      to: [{ type: 'colorTheme' }],
-      group: 'editorial',
-      validation: Rule => Rule.required()
     },
     // Show hero
     {
@@ -104,12 +108,12 @@ export default {
       hidden: ({ document }) => !document?.showHero,
       group: 'editorial'
     },
-    // Image
+    // Modules
     {
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      options: { hotspot: true },
+      name: 'modules',
+      title: 'Modules',
+      type: 'array',
+      of: [{ type: 'module.image' }, { type: 'module.instagram' }],
       group: 'editorial'
     },
     // Shopify collection

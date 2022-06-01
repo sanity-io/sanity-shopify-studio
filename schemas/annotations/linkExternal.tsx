@@ -19,9 +19,6 @@ export default {
       </span>
     )
   },
-  initialValue: {
-    newWindow: true
-  },
   fields: [
     {
       name: 'url',
@@ -33,7 +30,8 @@ export default {
     {
       title: 'Open in a new window?',
       name: 'newWindow',
-      type: 'boolean'
+      type: 'boolean',
+      initialValue: true
     }
   ]
 }

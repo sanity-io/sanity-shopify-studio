@@ -21,8 +21,8 @@ export default {
       type: 'array',
       of: [
         {
-          name: 'color',
-          title: 'Color',
+          name: 'size',
+          title: 'Size',
           type: 'object',
           fields: [
             {
@@ -36,14 +36,14 @@ export default {
               name: 'width',
               title: 'Width',
               type: 'number',
-              description: 'In cm',
+              description: 'In mm',
               validation: Rule => Rule.required().precision(2)
             },
             {
               name: 'height',
               title: 'Height',
               type: 'number',
-              description: 'In cm',
+              description: 'In mm',
               validation: Rule => Rule.required().precision(2)
             }
           ],

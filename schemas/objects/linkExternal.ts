@@ -5,9 +5,6 @@ export default {
   name: 'linkExternal',
   type: 'object',
   icon: EarthGlobeIcon,
-  initialValue: {
-    newWindow: true
-  },
   fields: [
     // Title
     {
@@ -27,7 +24,8 @@ export default {
     {
       title: 'Open in a new window?',
       name: 'newWindow',
-      type: 'boolean'
+      type: 'boolean',
+      initialValue: true
     }
   ],
   preview: {

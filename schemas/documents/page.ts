@@ -47,6 +47,7 @@ export default {
       title: 'Show hero',
       type: 'boolean',
       description: 'If disabled, page title will be displayed instead',
+      initialValue: false,
       group: 'editorial'
     },
     // Hero
@@ -72,9 +73,6 @@ export default {
       group: 'seo'
     }
   ],
-  initialValue: {
-    showHero: false
-  },
   preview: {
     select: {
       active: 'active',

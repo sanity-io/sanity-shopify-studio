@@ -7,10 +7,6 @@ export default {
   name: 'blockInlineProductMarginalia',
   type: 'object',
   icon: TagIcon,
-  initialValue: {
-    action: 'addToCart',
-    quantity: 1
-  },
   fieldsets: [
     {
       name: 'callToAction',
@@ -34,6 +30,7 @@ export default {
       name: 'quantity',
       title: 'Quantity',
       type: 'number',
+      initialValue: 1,
       validation: Rule => Rule.required().min(1).max(10)
     },
     // Action
@@ -54,6 +51,7 @@ export default {
           }
         ]
       },
+      initialValue: 'addToCart',
       validation: Rule => Rule.required()
     }
   ],

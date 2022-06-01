@@ -34,6 +34,8 @@ import customProductOptionColor from './objects/customProductOption/color'
 import customProductOptionSize from './objects/customProductOption/size'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
+import moduleImage from './objects/module/image'
+import moduleInstagram from './objects/module/instagram'
 import pageHero from './objects/hero/page'
 import placeholderString from './objects/placeholderString'
 import productOption from './objects/productOption'
@@ -80,6 +82,8 @@ export default createSchema({
     customProductOptionSize,
     linkExternal,
     linkInternal,
+    moduleImage,
+    moduleInstagram,
     pageHero,
     placeholderString,
     productOption,
