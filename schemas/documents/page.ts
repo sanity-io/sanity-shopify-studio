@@ -8,6 +8,10 @@ export default {
   icon: DocumentIcon,
   groups: [
     {
+      name: 'theme',
+      title: 'Theme'
+    },
+    {
       default: true,
       name: 'editorial',
       title: 'Editorial'
@@ -38,7 +42,7 @@ export default {
       title: 'Color theme',
       type: 'reference',
       to: [{ type: 'colorTheme' }],
-      group: 'editorial',
+      group: 'theme',
       validation: Rule => Rule.required()
     },
     // Show hero

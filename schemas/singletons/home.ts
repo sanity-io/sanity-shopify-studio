@@ -8,12 +8,24 @@ export default {
   title: TITLE,
   type: 'document',
   icon: HomeIcon,
+  groups: [
+    {
+      default: true,
+      name: 'editorial',
+      title: 'Editorial'
+    },
+    {
+      name: 'seo',
+      title: 'SEO'
+    }
+  ],
   fields: [
     // Hero
     {
       name: 'hero',
       title: 'Hero',
-      type: 'hero.home'
+      type: 'hero.home',
+      group: 'editorial'
     },
     // Modules
     {
@@ -21,16 +33,13 @@ export default {
       title: 'Modules',
       type: 'array',
       of: [
-        {
-          title: 'Collection',
-          type: 'reference',
-          weak: true,
-          to: [{ type: 'collection' }]
-        },
         { type: 'module.callout' },
+        { type: 'module.collection' },
         { type: 'module.image' },
-        { type: 'module.instagram' }
-      ]
+        { type: 'module.instagram' },
+        { type: 'module.product' }
+      ],
+      group: 'editorial'
     },
     /*
     // Gallery
@@ -112,7 +121,8 @@ export default {
     {
       name: 'seo',
       title: 'SEO',
-      type: 'seo.singleton'
+      type: 'seo.singleton',
+      group: 'seo'
     }
   ],
   preview: {

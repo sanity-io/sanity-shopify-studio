@@ -33,12 +33,14 @@ import customProductOptionColor from './objects/customProductOption/color'
 import customProductOptionSize from './objects/customProductOption/size'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
-import moduleCallout from './objects/module/callout'
-import moduleImage from './objects/module/image'
-import moduleInstagram from './objects/module/instagram'
 import heroCollection from './objects/hero/collection'
 import heroHome from './objects/hero/home'
 import heroPage from './objects/hero/page'
+import moduleCallout from './objects/module/callout'
+import moduleCollection from './objects/module/collection'
+import moduleImage from './objects/module/image'
+import moduleInstagram from './objects/module/instagram'
+import moduleProduct from './objects/module/product'
 import placeholderString from './objects/placeholderString'
 import productOption from './objects/productOption'
 import productWithVariant from './objects/productWithVariant'
@@ -87,8 +89,10 @@ export default createSchema({
     linkExternal,
     linkInternal,
     moduleCallout,
+    moduleCollection,
     moduleImage,
     moduleInstagram,
+    moduleProduct,
     placeholderString,
     productOption,
     productWithVariant,
