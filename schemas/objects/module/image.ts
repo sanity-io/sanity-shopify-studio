@@ -18,7 +18,8 @@ export default {
       name: 'image',
       title: 'Image',
       type: 'image',
-      options: { hotspot: true }
+      options: { hotspot: true },
+      validation: Rule => Rule.required()
     },
     // Variant
     {
@@ -52,10 +53,10 @@ export default {
           title: 'Title',
           type: 'string'
         },
-        // Links
+        // Link
         {
           name: 'links',
-          title: 'Links',
+          title: 'Link',
           type: 'array',
           of: [{ type: 'linkInternal' }, { type: 'linkExternal' }],
           validation: Rule => Rule.max(1)

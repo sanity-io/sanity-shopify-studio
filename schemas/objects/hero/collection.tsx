@@ -19,10 +19,10 @@ export default {
       type: 'text',
       rows: 3
     },
-    // Module
+    // Content
     {
-      name: 'module',
-      title: 'Module',
+      name: 'content',
+      title: 'Content',
       type: 'array',
       validation: Rule => Rule.max(1),
       of: [
@@ -33,30 +33,10 @@ export default {
         },
         {
           icon: ImageIcon,
-          name: 'imageWithOptions',
+          name: 'image',
           title: 'Image',
-          type: 'object',
-          fields: [
-            {
-              name: 'image',
-              title: 'Image',
-              type: 'image',
-              options: { hotspot: true }
-            }
-          ],
-          preview: {
-            select: {
-              fileName: 'image.asset.originalFilename',
-              image: 'image'
-            },
-            prepare(selection) {
-              const { fileName, image } = selection
-              return {
-                media: image,
-                title: fileName
-              }
-            }
-          }
+          options: { hotspot: true },
+          type: 'image'
         }
       ]
     }

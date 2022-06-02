@@ -1,5 +1,5 @@
 import { HomeIcon } from '@sanity/icons'
-import { getPriceRange } from '../../utils/getPriceRange'
+// import { getPriceRange } from '../../utils/getPriceRange'
 
 const TITLE = 'Home'
 
@@ -9,11 +9,11 @@ export default {
   type: 'document',
   icon: HomeIcon,
   fields: [
-    // Intro
+    // Hero
     {
-      name: 'intro',
-      title: 'Intro',
-      type: 'body'
+      name: 'hero',
+      title: 'Hero',
+      type: 'hero.home'
     },
     // Modules
     {
@@ -26,24 +26,13 @@ export default {
           type: 'reference',
           weak: true,
           to: [{ type: 'collection' }]
-        }
+        },
+        { type: 'module.callout' },
+        { type: 'module.image' },
+        { type: 'module.instagram' }
       ]
     },
-    // Featured collections
-    {
-      name: 'featuredCollections',
-      title: 'Featured collections',
-      type: 'array',
-      of: [
-        {
-          title: 'Collection',
-          type: 'reference',
-          weak: true,
-          to: [{ type: 'collection' }]
-        }
-      ],
-      validation: Rule => Rule.max(2).unique()
-    },
+    /*
     // Gallery
     {
       name: 'gallery',
@@ -118,20 +107,7 @@ export default {
         }
       ]
     },
-    // Featured products
-    {
-      name: 'featuredProducts',
-      title: 'Featured products',
-      type: 'array',
-      of: [
-        {
-          title: 'Product',
-          name: 'product',
-          type: 'productWithVariant'
-        }
-      ],
-      validation: Rule => Rule.unique()
-    },
+    */
     // SEO
     {
       name: 'seo',

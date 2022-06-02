@@ -28,15 +28,17 @@ import blockImage from './objects/blockImage'
 import blockInlineProduct from './objects/blockInlineProduct'
 import blockInlineProductMarginalia from './objects/blockInlineProductMarginalia'
 import blockProduct from './objects/blockProduct'
-import collectionHero from './objects/hero/collection'
 import collectionRule from './objects/collectionRule'
 import customProductOptionColor from './objects/customProductOption/color'
 import customProductOptionSize from './objects/customProductOption/size'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
+import moduleCallout from './objects/module/callout'
 import moduleImage from './objects/module/image'
 import moduleInstagram from './objects/module/instagram'
-import pageHero from './objects/hero/page'
+import heroCollection from './objects/hero/collection'
+import heroHome from './objects/hero/home'
+import heroPage from './objects/hero/page'
 import placeholderString from './objects/placeholderString'
 import productOption from './objects/productOption'
 import productWithVariant from './objects/productWithVariant'
@@ -75,16 +77,18 @@ export default createSchema({
     blockInlineProduct,
     blockInlineProductMarginalia,
     blockProduct,
-    collectionHero,
     collectionRule,
     colorTheme,
     customProductOptionColor,
     customProductOptionSize,
+    heroCollection,
+    heroHome,
+    heroPage,
     linkExternal,
     linkInternal,
+    moduleCallout,
     moduleImage,
     moduleInstagram,
-    pageHero,
     placeholderString,
     productOption,
     productWithVariant,

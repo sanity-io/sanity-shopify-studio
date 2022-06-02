@@ -1,8 +1,8 @@
 import { ImageIcon } from '@sanity/icons'
 
 export default {
-  name: 'hero.page',
-  title: 'Page hero',
+  name: 'hero.home',
+  title: 'Home hero',
   type: 'object',
   fields: [
     // Title
@@ -11,6 +11,14 @@ export default {
       title: 'Title',
       type: 'text',
       rows: 3
+    },
+    // Link
+    {
+      name: 'links',
+      title: 'Link',
+      type: 'array',
+      of: [{ type: 'linkInternal' }, { type: 'linkExternal' }],
+      validation: Rule => Rule.max(1)
     },
     // Content
     {
@@ -28,8 +36,8 @@ export default {
           icon: ImageIcon,
           name: 'image',
           title: 'Image',
-          options: { hotspot: true },
-          type: 'image'
+          type: 'image',
+          options: { hotspot: true }
         }
       ]
     }
