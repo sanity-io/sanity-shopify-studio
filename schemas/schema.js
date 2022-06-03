@@ -37,6 +37,7 @@ import heroCollection from './objects/hero/collection'
 import heroHome from './objects/hero/home'
 import heroPage from './objects/hero/page'
 import moduleCallout from './objects/module/callout'
+import moduleCallToAction from './objects/module/callToAction'
 import moduleCollection from './objects/module/collection'
 import moduleImage from './objects/module/image'
 import moduleInstagram from './objects/module/instagram'
@@ -89,6 +90,7 @@ export default createSchema({
     linkExternal,
     linkInternal,
     moduleCallout,
+    moduleCallToAction,
     moduleCollection,
     moduleImage,
     moduleInstagram,

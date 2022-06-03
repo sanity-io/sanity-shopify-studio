@@ -34,6 +34,7 @@ export default {
       type: 'array',
       of: [
         { type: 'module.callout' },
+        { type: 'module.callToAction' },
         { type: 'module.collection' },
         { type: 'module.image' },
         { type: 'module.instagram' },

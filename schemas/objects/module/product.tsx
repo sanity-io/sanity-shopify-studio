@@ -24,7 +24,6 @@ export default {
     },
     prepare(selection) {
       const { isDeleted, previewImageUrl, status, title } = selection
-      console.log('selection', selection)
       return {
         media: (
           <ProductStatusMedia
