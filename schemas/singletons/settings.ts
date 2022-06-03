@@ -7,12 +7,32 @@ export default {
   title: TITLE,
   type: 'document',
   icon: CogIcon,
+  groups: [
+    {
+      default: true,
+      name: 'navigation',
+      title: 'Navigation'
+    },
+    {
+      name: 'productOptions',
+      title: 'Product options'
+    },
+    {
+      name: 'notFoundPage',
+      title: '404 page'
+    },
+    {
+      name: 'seo',
+      title: 'SEO'
+    }
+  ],
   fields: [
     // Menu
     {
       name: 'menu',
       title: 'Menu',
       type: 'object',
+      group: 'navigation',
       options: {
         collapsed: false,
         collapsible: true
@@ -71,6 +91,7 @@ export default {
       name: 'footer',
       title: 'Footer',
       type: 'object',
+      group: 'navigation',
       options: {
         collapsed: false,
         collapsible: true
@@ -127,6 +148,7 @@ export default {
       name: 'customProductOptions',
       title: 'Custom product options',
       type: 'array',
+      group: 'productOptions',
       of: [
         {
           name: 'customProductOption.color',
@@ -147,11 +169,53 @@ export default {
           return true
         })
     },
+    // Not found page
+    {
+      name: 'notFoundPage',
+      title: '404 page',
+      type: 'object',
+      group: 'notFoundPage',
+      fields: [
+        {
+          name: 'title',
+          title: 'Title',
+          type: 'string',
+          validation: Rule => Rule.required()
+        },
+        {
+          name: 'body',
+          title: 'Body',
+          type: 'text',
+          rows: 2
+        },
+        {
+          name: 'collection',
+          title: 'Collection',
+          type: 'reference',
+          description: 'Collection products displayed on this page',
+          weak: true,
+          to: [
+            {
+              name: 'collection',
+              type: 'collection'
+            }
+          ]
+        },
+        // Color theme
+        {
+          name: 'colorTheme',
+          title: 'Color theme',
+          type: 'reference',
+          to: [{ type: 'colorTheme' }]
+        }
+      ]
+    },
     // SEO
     {
       name: 'seo',
       title: 'SEO',
       type: 'object',
+      group: 'seo',
       options: {
         collapsed: false,
         collapsible: true
