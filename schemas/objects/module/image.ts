@@ -31,7 +31,7 @@ export default {
         layout: 'radio',
         list: VARIANTS
       },
-      initialValue: ''
+      initialValue: undefined
     },
     // Caption
     {
@@ -91,7 +91,7 @@ export default {
 
       return {
         media: image,
-        subtitle: 'Image' + (currentVariant && ` [${currentVariant.title}]`),
+        subtitle: 'Image' + (currentVariant ? ` [${currentVariant.title}]` : ''),
         title: fileName
       }
     }

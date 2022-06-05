@@ -24,10 +24,8 @@ import settings from './singletons/settings'
 import body from './blocks/body'
 
 // Object types
-import blockImage from './objects/blockImage'
 import blockInlineProduct from './objects/blockInlineProduct'
 import blockInlineProductMarginalia from './objects/blockInlineProductMarginalia'
-import blockProduct from './objects/blockProduct'
 import collectionRule from './objects/collectionRule'
 import customProductOptionColor from './objects/customProductOption/color'
 import customProductOptionSize from './objects/customProductOption/size'
@@ -40,8 +38,10 @@ import moduleCallout from './objects/module/callout'
 import moduleCallToAction from './objects/module/callToAction'
 import moduleCollection from './objects/module/collection'
 import moduleImage from './objects/module/image'
+import moduleImages from './objects/module/images'
 import moduleInstagram from './objects/module/instagram'
 import moduleProduct from './objects/module/product'
+import moduleProducts from './objects/module/products'
 import placeholderString from './objects/placeholderString'
 import productOption from './objects/productOption'
 import productWithVariant from './objects/productWithVariant'
@@ -76,10 +76,8 @@ export default createSchema({
     // Block content
     body,
     // Objects
-    blockImage,
     blockInlineProduct,
     blockInlineProductMarginalia,
-    blockProduct,
     collectionRule,
     colorTheme,
     customProductOptionColor,
@@ -93,8 +91,10 @@ export default createSchema({
     moduleCallToAction,
     moduleCollection,
     moduleImage,
+    moduleImages,
     moduleInstagram,
     moduleProduct,
+    moduleProducts,
     placeholderString,
     productOption,
     productWithVariant,

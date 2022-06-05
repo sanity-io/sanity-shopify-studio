@@ -9,6 +9,7 @@ export default {
         { title: 'Numbered', value: 'number' }
       ],
       marks: {
+        /*
         annotations: [
           // Product
           {
@@ -31,6 +32,7 @@ export default {
             type: 'annotationLinkExternal'
           }
         ],
+        */
         decorators: [
           {
             title: 'Italic',
@@ -43,21 +45,32 @@ export default {
         ]
       },
       // Inline blocks
-      of: [{ type: 'blockInlineProduct' }, { type: 'blockInlineProductMarginalia' }],
-      styles: [
-        { title: 'Heading', value: 'h2' },
-        { title: 'Quote', value: 'blockquote' }
+      /*
+      of: [
+        { type: 'blockInlineProduct' }, //
+        { type: 'blockInlineProductMarginalia' }
       ],
+      */
+      // Regular styles
+      styles: [
+        { title: 'Heading', value: 'h2' }
+        // { title: 'Quote', value: 'blockquote' }
+      ],
+      // Paragraphs
       type: 'block'
     },
     // Custom blocks
     {
-      name: 'blockImage',
-      type: 'blockImage'
+      name: 'blockCallout',
+      type: 'module.callout'
     },
     {
-      name: 'blockProduct',
-      type: 'blockProduct'
+      name: 'blockImages',
+      type: 'module.images'
+    },
+    {
+      name: 'blockProducts',
+      type: 'module.products'
     }
   ]
 }
