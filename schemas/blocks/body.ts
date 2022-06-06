@@ -52,6 +52,10 @@ export default {
     },
     // Custom blocks
     {
+      name: 'blockAccordion',
+      type: 'module.accordion'
+    },
+    {
       name: 'blockCallout',
       type: 'module.callout'
     },
