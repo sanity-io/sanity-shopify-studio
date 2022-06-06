@@ -8,6 +8,7 @@ export default {
   type: 'object',
   icon: PackageIcon,
   fields: [
+    // Collection
     {
       name: 'collection',
       title: 'Collection',
@@ -15,6 +16,14 @@ export default {
       weak: true,
       to: [{ type: 'collection' }],
       validation: Rule => Rule.required()
+    },
+    // Show background
+    {
+      name: 'showBackground',
+      title: 'Show background',
+      type: 'boolean',
+      description: 'Use Shopify collection image as background (if available)',
+      initialValue: false
     }
   ],
   preview: {
