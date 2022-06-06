@@ -23,6 +23,32 @@ export default {
       description: 'Display single image at full width (on larger breakpoints)',
       initialValue: false,
       hidden: ({ parent }) => parent?.modules.length > 1
+    },
+    // Vertical alignment
+    {
+      name: 'verticalAlign',
+      title: 'Vertical alignment',
+      type: 'string',
+      initialValue: 'top',
+      options: {
+        direction: 'horizontal',
+        layout: 'radio',
+        list: [
+          {
+            title: 'Top',
+            value: 'top'
+          },
+          {
+            title: 'Center',
+            value: 'center'
+          },
+          {
+            title: 'Bottom',
+            value: 'bottom'
+          }
+        ]
+      },
+      hidden: ({ parent }) => parent?.modules.length === 1
     }
   ],
   preview: {
