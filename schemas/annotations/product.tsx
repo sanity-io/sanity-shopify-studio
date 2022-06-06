@@ -3,58 +3,43 @@
  *
  * Read more: https://www.sanity.io/docs/customization#f924645007e1
  */
-import { hues } from '@sanity/color'
 import { TagIcon } from '@sanity/icons'
 import React from 'react'
 
 export default {
-  title: 'Product (inline link)',
+  title: 'Product',
   name: 'annotationProduct',
   type: 'object',
   blockEditor: {
     icon: () => <TagIcon />,
     render: ({ children }) => (
-      <span style={{ color: hues.blue[500].hex }}>
-        <TagIcon style={{ verticalAlign: 'text-bottom' }} />
+      <span>
+        <TagIcon style={{ marginRight: '0.1em', width: '0.75em' }} />
         {children}
       </span>
     )
   },
-  fieldsets: [
-    {
-      name: 'callToAction',
-      title: 'Call to action',
-      options: {
-        columns: 2
-      }
-    }
-  ],
   fields: [
     // Product
     {
       name: 'productWithVariant',
       title: 'Product + Variant',
       type: 'productWithVariant',
-      description: 'No links will be displayed if the product is not available or sold out',
       validation: Rule => Rule.required()
     },
-    // Quantity
+    // Link action
     {
-      fieldset: 'callToAction',
-      name: 'quantity',
-      title: 'Quantity',
-      type: 'number',
-      initialValue: 1,
-      validation: Rule => Rule.required().min(1).max(10)
-    },
-    // Action
-    {
-      fieldset: 'callToAction',
-      name: 'action',
-      title: 'Action',
+      name: 'linkAction',
+      title: 'Link action',
       type: 'string',
+      initialValue: 'link',
       options: {
+        layout: 'radio',
         list: [
+          {
+            title: 'Navigate to product',
+            value: 'link'
+          },
           {
             title: 'Add to cart',
             value: 'addToCart'
@@ -65,8 +50,16 @@ export default {
           }
         ]
       },
-      initialValue: 'addToCart',
       validation: Rule => Rule.required()
+    },
+    // Quantity
+    {
+      name: 'quantity',
+      title: 'Quantity',
+      type: 'number',
+      initialValue: 1,
+      hidden: ({ parent }) => parent.linkAction === 'link',
+      validation: Rule => Rule.required().min(1).max(10)
     }
   ]
 }

@@ -9,7 +9,6 @@ export default {
         { title: 'Numbered', value: 'number' }
       ],
       marks: {
-        /*
         annotations: [
           // Product
           {
@@ -32,7 +31,6 @@ export default {
             type: 'annotationLinkExternal'
           }
         ],
-        */
         decorators: [
           {
             title: 'Italic',
@@ -44,13 +42,6 @@ export default {
           }
         ]
       },
-      // Inline blocks
-      /*
-      of: [
-        { type: 'blockInlineProduct' }, //
-        { type: 'blockInlineProductMarginalia' }
-      ],
-      */
       // Regular styles
       styles: [
         { title: 'Heading', value: 'h2' }

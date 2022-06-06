@@ -24,8 +24,6 @@ import settings from './singletons/settings'
 import body from './blocks/body'
 
 // Object types
-import blockInlineProduct from './objects/blockInlineProduct'
-import blockInlineProductMarginalia from './objects/blockInlineProductMarginalia'
 import collectionRule from './objects/collectionRule'
 import customProductOptionColor from './objects/customProductOption/color'
 import customProductOptionSize from './objects/customProductOption/size'
@@ -76,8 +74,6 @@ export default createSchema({
     // Block content
     body,
     // Objects
-    blockInlineProduct,
-    blockInlineProductMarginalia,
     collectionRule,
     colorTheme,
     customProductOptionColor,

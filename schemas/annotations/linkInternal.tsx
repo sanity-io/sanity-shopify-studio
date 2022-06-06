@@ -15,7 +15,7 @@ export default {
     icon: () => <LinkIcon />,
     render: ({ children }) => (
       <span>
-        <LinkIcon style={{ marginRight: '0.2em', verticalAlign: 'text-bottom' }} />
+        <LinkIcon style={{ marginRight: '0.1em', width: '0.75em' }} />
         {children}
       </span>
     )
