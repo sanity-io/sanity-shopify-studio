@@ -60,6 +60,10 @@ export default {
       type: 'module.callout'
     },
     {
+      name: 'blockGrid',
+      type: 'module.grid'
+    },
+    {
       name: 'blockImages',
       type: 'module.images'
     },

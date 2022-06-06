@@ -14,7 +14,13 @@ export default {
     icon: () => <EnvelopeIcon />,
     render: ({ children }) => (
       <span>
-        <EnvelopeIcon style={{ marginRight: '0.1em', width: '0.75em' }} />
+        <EnvelopeIcon
+          style={{
+            marginLeft: '0.05em',
+            marginRight: '0.1em',
+            width: '0.75em'
+          }}
+        />
         {children}
       </span>
     )
