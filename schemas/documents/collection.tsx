@@ -113,6 +113,7 @@ export default {
       name: 'modules',
       title: 'Modules',
       type: 'array',
+      description: 'Inserted between products at regular intervals',
       of: [
         { type: 'module.callout' },
         { type: 'module.callToAction' },

@@ -66,60 +66,6 @@ export default {
       to: [{ type: 'colorTheme' }],
       group: 'editorial'
     },
-    // Images
-    {
-      name: 'images',
-      title: 'Images',
-      type: 'array',
-      options: { layout: 'grid' },
-      of: [
-        {
-          name: 'image',
-          title: 'Image',
-          type: 'image',
-          options: { hotspot: true }
-        }
-      ],
-      group: 'editorial'
-    },
-    // Sections
-    {
-      name: 'sections',
-      title: 'Sections',
-      type: 'array',
-      of: [
-        {
-          name: 'section',
-          title: 'Section',
-          type: 'object',
-          fields: [
-            // Title
-            {
-              name: 'title',
-              title: 'Title',
-              type: 'string',
-              validation: Rule => Rule.required()
-            },
-            // Body
-            {
-              name: 'body',
-              title: 'Body',
-              type: 'array',
-              of: [
-                {
-                  lists: [],
-                  marks: { decorators: [] },
-                  styles: [],
-                  type: 'block'
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      validation: Rule => Rule.max(3),
-      group: 'editorial'
-    },
     // Body
     {
       name: 'body',

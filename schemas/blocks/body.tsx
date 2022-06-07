@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default {
   name: 'body',
   title: 'Body',
@@ -44,8 +46,15 @@ export default {
       },
       // Regular styles
       styles: [
-        { title: 'Heading', value: 'h2' }
-        // { title: 'Quote', value: 'blockquote' }
+        {
+          blockEditor: {
+            render: ({ children }) => (
+              <div style={{ fontSize: '1.25rem', lineHeight: 1.25 }}>{children}</div>
+            )
+          },
+          title: 'Heading',
+          value: 'h2'
+        }
       ],
       // Paragraphs
       type: 'block'
