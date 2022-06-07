@@ -48,7 +48,8 @@ export default {
           }
         ]
       },
-      hidden: ({ parent }) => parent?.modules.length === 1
+      hidden: ({ parent }) => !parent?.modules || parent?.modules.length < 2,
+      validation: Rule => Rule.required()
     }
   ],
   preview: {

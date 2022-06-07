@@ -68,7 +68,8 @@ export default {
       of: [
         {
           icon: ImageIcon,
-          type: 'image'
+          type: 'image',
+          options: { hotspot: true }
         },
         {
           name: 'productWithVariant',

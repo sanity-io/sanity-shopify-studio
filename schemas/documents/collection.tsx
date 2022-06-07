@@ -113,7 +113,12 @@ export default {
       name: 'modules',
       title: 'Modules',
       type: 'array',
-      of: [{ type: 'module.callout' }, { type: 'module.image' }, { type: 'module.instagram' }],
+      of: [
+        { type: 'module.callout' },
+        { type: 'module.callToAction' },
+        { type: 'module.image' },
+        { type: 'module.instagram' }
+      ],
       group: 'editorial'
     },
     // Shopify collection
