@@ -1,6 +1,6 @@
 import { PackageIcon } from '@sanity/icons'
 import React from 'react'
-import CollectionMedia from '../../../components/media/Collection'
+import ShopifyDocumentStatus from '../../../components/media/ShopifyDocumentStatus'
 
 export default {
   name: 'module.collection',
@@ -35,7 +35,7 @@ export default {
     prepare(selection) {
       const { collectionTitle, imageUrl, isDeleted } = selection
       return {
-        media: <CollectionMedia isDeleted={isDeleted} url={imageUrl} />,
+        media: <ShopifyDocumentStatus isDeleted={isDeleted} type="collection" url={imageUrl} />,
         subtitle: 'Collection',
         title: collectionTitle
       }

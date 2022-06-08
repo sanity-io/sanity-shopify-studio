@@ -3,7 +3,7 @@ import pluralize from 'pluralize'
 import React from 'react'
 import ShopifyIcon from '../../components/icons/Shopify'
 import CollectionHiddenInput from '../../components/inputs/CollectionHidden'
-import CollectionMedia from '../../components/media/Collection'
+import ShopifyDocumentStatus from '../../components/media/ShopifyDocumentStatus'
 
 const GROUPS = [
   {
@@ -160,7 +160,7 @@ export default {
     prepare(selection) {
       const { imageUrl, isDeleted, ruleCount, title } = selection
       return {
-        media: <CollectionMedia isDeleted={isDeleted} url={imageUrl} />,
+        media: <ShopifyDocumentStatus isDeleted={isDeleted} type="collection" url={imageUrl} />,
         subtitle: ruleCount > 0 ? `Automated (${pluralize('rule', ruleCount, true)})` : 'Manual',
         title
       }

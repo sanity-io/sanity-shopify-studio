@@ -1,6 +1,6 @@
 import { TagIcon } from '@sanity/icons'
 import React from 'react'
-import ProductStatusMedia from '../../../components/media/ProductStatus'
+import ShopifyDocumentStatus from '../../../components/media/ShopifyDocumentStatus'
 
 export default {
   name: 'module.product',
@@ -26,7 +26,7 @@ export default {
       const { isDeleted, previewImageUrl, status, title } = selection
       return {
         media: (
-          <ProductStatusMedia
+          <ShopifyDocumentStatus
             isActive={status === 'active'}
             isDeleted={isDeleted}
             type="product"

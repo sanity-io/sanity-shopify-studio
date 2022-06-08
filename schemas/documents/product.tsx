@@ -3,7 +3,7 @@ import pluralize from 'pluralize'
 import React from 'react'
 import ShopifyIcon from '../../components/icons/Shopify'
 import ProductHiddenInput from '../../components/inputs/ProductHidden'
-import ProductStatusMedia from '../../components/media/ProductStatus'
+import ShopifyDocumentStatus from '../../components/media/ShopifyDocumentStatus'
 import { getPriceRange } from '../../utils/getPriceRange'
 
 const GROUPS = [
@@ -140,7 +140,7 @@ export default {
 
       return {
         media: (
-          <ProductStatusMedia
+          <ShopifyDocumentStatus
             isActive={status === 'active'}
             isDeleted={isDeleted}
             type="product"

@@ -2,7 +2,7 @@ import { TagIcon } from '@sanity/icons'
 import sanityClient from 'part:@sanity/base/client'
 import pluralize from 'pluralize'
 import React from 'react'
-import ProductStatusMedia from '../../components/media/ProductStatus'
+import ShopifyDocumentStatus from '../../components/media/ShopifyDocumentStatus'
 import { SANITY_API_VERSION } from '../../constants'
 import { getPriceRange } from '../../utils/getPriceRange'
 
@@ -121,7 +121,7 @@ export default {
 
       return {
         media: (
-          <ProductStatusMedia
+          <ShopifyDocumentStatus
             isActive={status === 'active'}
             isDeleted={isDeleted}
             type="product"

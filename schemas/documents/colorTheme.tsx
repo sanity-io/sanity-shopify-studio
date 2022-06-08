@@ -1,6 +1,6 @@
 import { IceCreamIcon } from '@sanity/icons'
 import React from 'react'
-import ColorThemePreview from '../../components/media/ColorTheme'
+import ColorTheme from '../../components/media/ColorTheme'
 
 export default {
   name: 'colorTheme',
@@ -48,7 +48,7 @@ export default {
       const { backgroundColor, textColor, title } = selection
 
       return {
-        media: <ColorThemePreview background={backgroundColor} text={textColor} />,
+        media: <ColorTheme background={backgroundColor} text={textColor} />,
         subtitle: `${textColor || '(No color)'} / ${backgroundColor || '(No color)'}`,
         title
       }

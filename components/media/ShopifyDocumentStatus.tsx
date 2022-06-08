@@ -2,13 +2,13 @@ import { CloseIcon, ImageIcon, LinkRemovedIcon } from '@sanity/icons'
 import React, { forwardRef, useState } from 'react'
 
 type Props = {
-  isActive: boolean
+  isActive?: boolean
   isDeleted: boolean
-  type: 'product' | 'productVariant'
+  type: 'collection' | 'product' | 'productVariant'
   url: string
 }
 
-const ProductMediaPreview = forwardRef<HTMLDivElement, Props>((props, ref) => {
+const ShopifyDocumentStatus = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { isActive, isDeleted, type, url } = props
 
   const [imageVisible, setImageVisible] = useState(true)
@@ -77,4 +77,4 @@ const ProductMediaPreview = forwardRef<HTMLDivElement, Props>((props, ref) => {
   )
 })
 
-export default ProductMediaPreview
+export default ShopifyDocumentStatus

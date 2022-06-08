@@ -1,8 +1,8 @@
 import { CopyIcon } from '@sanity/icons'
 import React from 'react'
-import ProductMediaPreview from '../../components/media/ProductStatus'
-import ProductVariantHiddenInput from '../../components/inputs/ProductVariantHidden'
 import ShopifyIcon from '../../components/icons/Shopify'
+import ProductVariantHiddenInput from '../../components/inputs/ProductVariantHidden'
+import ShopifyDocumentStatus from '../../components/media/ShopifyDocumentStatus'
 
 export default {
   // HACK: Required to hide 'create new' button in desk structure
@@ -59,7 +59,7 @@ export default {
 
       return {
         media: (
-          <ProductMediaPreview
+          <ShopifyDocumentStatus
             isActive={status === 'active'}
             isDeleted={isDeleted}
             type="productVariant"

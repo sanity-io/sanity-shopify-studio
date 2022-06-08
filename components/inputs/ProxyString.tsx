@@ -5,7 +5,6 @@ import { uuid } from '@sanity/uuid'
 import get from 'lodash.get'
 import { withDocument } from 'part:@sanity/form-builder'
 import React, { forwardRef } from 'react'
-// import { SanityDocument } from '@sanity/client'
 
 // TODO: type correctly
 type Props = any
