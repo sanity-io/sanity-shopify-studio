@@ -15,13 +15,14 @@ export default {
     {
       name: 'product',
       type: 'reference',
-      weak: true,
-      to: [{ type: 'product' }]
+      to: [{ type: 'product' }],
+      weak: true
     },
     {
       name: 'variant',
       type: 'reference',
       to: [{ type: 'productVariant' }],
+      weak: true,
       description: 'First variant will be selected if left empty',
       options: {
         filter: ({ parent }) => {
