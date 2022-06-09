@@ -216,6 +216,7 @@ export default {
       title: 'SEO',
       type: 'object',
       group: 'seo',
+      description: 'Defaults for every page',
       options: {
         collapsed: false,
         collapsible: true
@@ -225,14 +226,15 @@ export default {
           name: 'title',
           title: 'Site title',
           type: 'string',
-          description: 'Displayed on all pages',
           validation: Rule => Rule.required()
         },
         {
-          name: 'image',
-          title: 'Image',
-          type: 'image',
-          description: 'Fallback displayed on pages with no SEO image defined'
+          name: 'description',
+          title: 'Description',
+          type: 'text',
+          rows: 2,
+          validation: Rule =>
+            Rule.max(150).warning('Longer descriptions may be truncated by search engines')
         }
       ],
       validation: Rule => Rule.required()

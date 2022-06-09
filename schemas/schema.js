@@ -46,9 +46,9 @@ import placeholderString from './objects/placeholderString'
 import productOption from './objects/productOption'
 import productWithVariant from './objects/productWithVariant'
 import proxyString from './objects/proxyString'
-import seoProduct from './objects/seo/product'
-import seoSingleton from './objects/seo/singleton'
-import seoStandard from './objects/seo/standard'
+import seoHome from './objects/seo/home'
+import seoPage from './objects/seo/page'
+import seoShopify from './objects/seo/shopify'
 import shopifyCollection from './objects/shopifyCollection'
 import shopifyProduct from './objects/shopifyProduct'
 import shopifyProductVariant from './objects/shopifyProductVariant'
@@ -99,9 +99,9 @@ export default createSchema({
     productOption,
     productWithVariant,
     proxyString,
-    seoProduct,
-    seoSingleton,
-    seoStandard,
+    seoHome,
+    seoPage,
+    seoShopify,
     shopifyCollection,
     shopifyProduct,
     shopifyProductVariant

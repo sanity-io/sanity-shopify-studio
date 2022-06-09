@@ -45,7 +45,7 @@ export default {
     {
       name: 'seo',
       title: 'SEO',
-      type: 'seo.singleton',
+      type: 'seo.home',
       group: 'seo'
     }
   ],

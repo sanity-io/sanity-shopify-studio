@@ -85,7 +85,7 @@ export default {
     {
       name: 'seo',
       title: 'SEO',
-      type: 'seo.product',
+      type: 'seo.shopify',
       group: 'seo'
     }
   ],

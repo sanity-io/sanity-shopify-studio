@@ -72,7 +72,7 @@ export default {
     {
       name: 'seo',
       title: 'SEO',
-      type: 'seo.standard',
+      type: 'seo.page',
       group: 'seo'
     }
   ],
