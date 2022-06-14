@@ -45,7 +45,7 @@ export default {
 
       let subtitle = []
       if (reference) {
-        subtitle.push([`→ ${referenceTitle || referenceProductTitle}`])
+        subtitle.push([`→ ${referenceTitle || referenceProductTitle || reference?._id}`])
         if (referenceType === 'product' && referenceProductPriceRange) {
           subtitle.push(`(${getPriceRange(referenceProductPriceRange)})`)
         }
