@@ -27,6 +27,7 @@ import body from './blocks/body'
 import collectionRule from './objects/collectionRule'
 import customProductOptionColor from './objects/customProductOption/color'
 import customProductOptionSize from './objects/customProductOption/size'
+import imageWithProductHotspots from './objects/imageWithProductHotspots'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
 import heroCollection from './objects/hero/collection'
@@ -43,6 +44,7 @@ import moduleInstagram from './objects/module/instagram'
 import moduleProduct from './objects/module/product'
 import moduleProducts from './objects/module/products'
 import placeholderString from './objects/placeholderString'
+import productHotspots from './objects/productHotspots'
 import productOption from './objects/productOption'
 import productWithVariant from './objects/productWithVariant'
 import proxyString from './objects/proxyString'
@@ -83,6 +85,7 @@ export default createSchema({
     heroCollection,
     heroHome,
     heroPage,
+    imageWithProductHotspots,
     linkExternal,
     linkInternal,
     moduleAccordion,
@@ -96,6 +99,7 @@ export default createSchema({
     moduleProduct,
     moduleProducts,
     placeholderString,
+    productHotspots,
     productOption,
     productWithVariant,
     proxyString,

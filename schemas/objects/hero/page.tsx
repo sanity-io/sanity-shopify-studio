@@ -1,5 +1,3 @@
-import { ImageIcon } from '@sanity/icons'
-
 export default {
   name: 'hero.page',
   title: 'Page hero',
@@ -25,11 +23,9 @@ export default {
           type: 'productWithVariant'
         },
         {
-          icon: ImageIcon,
-          name: 'image',
+          name: 'imageWithProductHotspots',
           title: 'Image',
-          options: { hotspot: true },
-          type: 'image'
+          type: 'imageWithProductHotspots'
         }
       ]
     }

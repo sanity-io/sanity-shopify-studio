@@ -4,7 +4,8 @@ const VARIANTS = [
   { title: 'Simple', value: undefined },
   { title: 'Caption', value: 'caption' },
   { title: 'Call to action', value: 'callToAction' },
-  { title: 'Products', value: 'products' }
+  { title: 'Product hotspots', value: 'productHotspots' },
+  { title: 'Product tags', value: 'productTags' }
 ]
 
 export default {
@@ -64,15 +65,22 @@ export default {
       ],
       hidden: ({ parent }) => parent.variant !== 'callToAction'
     },
-    // Products
+    // Product hotspots
     {
-      name: 'products',
-      title: 'Product',
+      name: 'productHotspots',
+      title: 'Hotspots',
+      type: 'productHotspots',
+      hidden: ({ parent }) => parent.variant !== 'productHotspots'
+    },
+    // Product tags
+    {
+      name: 'productTags',
+      title: 'Products',
       type: 'array',
-      hidden: ({ parent }) => parent.variant !== 'products',
+      hidden: ({ parent }) => parent.variant !== 'productTags',
       of: [
         {
-          name: 'product',
+          name: 'productWithVariant',
           title: 'Product + Variant',
           type: 'productWithVariant'
         }

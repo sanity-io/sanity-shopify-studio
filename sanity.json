@@ -16,7 +16,8 @@
     "@sanity/desk-tool",
     "media",
     "dashboard-widget-shopify",
-    "@sanity/color-input"
+    "@sanity/color-input",
+    "hotspot-array"
   ],
   "env": {
     "development": {

@@ -66,8 +66,7 @@ export default {
       title: 'Color theme',
       type: 'reference',
       to: [{ type: 'colorTheme' }],
-      group: 'theme',
-      validation: Rule => Rule.required()
+      group: 'theme'
     },
     // Vector
     {
