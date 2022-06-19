@@ -43,7 +43,7 @@ Sanity Studio will automatically list all your [document types][docs-document-ty
 
 ### Image
 
-<p><img width="600" src="https://user-images.githubusercontent.com/209129/173630526-f753a8c4-7e6d-432b-bf26-64aadf45aad1.png"></p>
+<p><img width="600" src="https://user-images.githubusercontent.com/209129/174492490-aefa1a0d-40ea-473d-be73-ba6326d66ee8.png"></p>
 
 `/schemas/objects/module/image.tsx`
 

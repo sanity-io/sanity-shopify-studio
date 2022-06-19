@@ -9356,10 +9356,10 @@ sanity-diff-patch@^1.0.9:
   dependencies:
     diff-match-patch "^1.0.5"
 
-sanity-plugin-dashboard-widget-shopify@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/sanity-plugin-dashboard-widget-shopify/-/sanity-plugin-dashboard-widget-shopify-0.1.7.tgz#7eb85b8d8126c67bc1efaf466cf6b92bfbce0466"
-  integrity sha512-u2NBELzzVr+PjX1z1utz+vVvs/bgDyT88qFjhLviOwlc98tYC96THU6N0bvZexJhTrddngEBMlZ4V+vQdGD3vg==
+sanity-plugin-dashboard-widget-shopify@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/sanity-plugin-dashboard-widget-shopify/-/sanity-plugin-dashboard-widget-shopify-0.1.8.tgz#4ddd56411af89881d112313a8e9eabe4c44e78bf"
+  integrity sha512-nFcskh47iBd7WP5YS+6rGtVpJwZUsQzaAJ8CHkC2e1BsXQOLVxptnLnZrDIS4WXiKy3/DgVVsQJ0Z5bp/CmgkQ==
   dependencies:
     date-fns "^2.25.0"
     javascript-time-ago "^2.3.10"
