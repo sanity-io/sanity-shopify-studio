@@ -77,6 +77,10 @@ export default {
       type: 'module.images'
     },
     {
+      name: 'blockInstagram',
+      type: 'module.instagram'
+    },
+    {
       name: 'blockProducts',
       type: 'module.products'
     }
