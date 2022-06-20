@@ -13,7 +13,7 @@ export default {
       validation: Rule =>
         Rule.custom(url => {
           const pattern = /(https?:\/\/(?:www\.)?instagram\.com\/p\/([^/?#&]+)).*/g
-          const isValid = url.match(pattern)
+          const isValid = url?.match(pattern)
           return isValid ? true : 'Not a valid Instagram post URL'
         })
     }
