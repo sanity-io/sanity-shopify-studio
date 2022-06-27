@@ -162,9 +162,11 @@ export default {
       validation: Rule =>
         Rule.custom(options => {
           // Each product option type must have a unique title
-          const uniqueTitles = new Set(options.map(option => option.title))
-          if (options.length > uniqueTitles.size) {
-            return 'Each product option type must have a unique title'
+          if (options) {
+            const uniqueTitles = new Set(options.map(option => option.title))
+            if (options.length > uniqueTitles.size) {
+              return 'Each product option type must have a unique title'
+            }
           }
           return true
         })
