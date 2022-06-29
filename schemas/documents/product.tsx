@@ -96,17 +96,17 @@ export default {
       by: [{ field: 'store.title', direction: 'asc' }]
     },
     {
-      name: 'titleAsc',
+      name: 'titleDesc',
       title: 'Title (Z-A)',
       by: [{ field: 'store.title', direction: 'desc' }]
     },
     {
-      name: 'titleAsc',
+      name: 'priceDesc',
       title: 'Price (Highest first)',
       by: [{ field: 'store.priceRange.minVariantPrice', direction: 'desc' }]
     },
     {
-      name: 'titleAsc',
+      name: 'priceAsc',
       title: 'Title (Lowest first)',
       by: [{ field: 'store.priceRange.minVariantPrice', direction: 'asc' }]
     }

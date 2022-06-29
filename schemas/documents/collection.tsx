@@ -144,7 +144,7 @@ export default {
       by: [{ field: 'store.title', direction: 'asc' }]
     },
     {
-      name: 'titleAsc',
+      name: 'titleDesc',
       title: 'Title (Z-A)',
       by: [{ field: 'store.title', direction: 'desc' }]
     }
