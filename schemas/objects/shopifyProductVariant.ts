@@ -16,10 +16,7 @@ export default {
     },
     {
       name: 'status',
-      title: 'Status',
-      options: {
-        columns: 2
-      }
+      title: 'Status'
     }
   ],
   fields: [
@@ -28,13 +25,6 @@ export default {
       fieldset: 'status',
       name: 'createdAt',
       title: 'Created at',
-      type: 'string'
-    },
-    // Updated at
-    {
-      fieldset: 'status',
-      name: 'updatedAt',
-      title: 'Last updated at',
       type: 'string'
     },
     // Product status

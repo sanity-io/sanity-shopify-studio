@@ -16,14 +16,11 @@
     "@sanity/desk-tool",
     "media",
     "dashboard-widget-shopify",
-    "@sanity/color-input",
-    "hotspot-array"
+    "@sanity/color-input"
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
   "parts": [
