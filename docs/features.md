@@ -151,18 +151,9 @@ This preview component also has visual states for when a product is _unavailable
 
 Sanity Connect will never delete your collection, product and product variant documents.
 
-## Dashboard widgets
-
-<p><img width="800" alt="Shopify dashboard widgets" src="https://user-images.githubusercontent.com/209129/173607082-e82bb35a-2692-4d8f-837f-3b4adcf1e5e7.png"></p>
-
-This studio comes preinstalled with two Shopify dashboard widgets: `shopify-connect` and `shopify-intro`, provided by the [`sanity-plugin-dashboard-widget-shopify`][sanity-dashboard-plugin] plugin.
-
-These can be configured and removed as you see fit. Please consult the [plugin repo][sanity-dashboard-plugin] for more information.
-
 [docs-desk-structure]: https://www.sanity.io/docs/structure-builder
 [docs-document-actions]: https://www.sanity.io/docs/document-actions
 [docs-document-types]: https://www.sanity.io/docs/schema-types
 [docs-http-api]: https://www.sanity.io/docs/http-api
 [docs-js-client]: https://www.sanity.io/docs/js-client
-[sanity-dashboard-plugin]: https://github.com/sanity-io/sanity-plugin-dashboard-widget-shopify
 [sanity-shopify]: https://apps.shopify.com/sanity-connect

@@ -105,11 +105,11 @@ export default {
         columns: 3
       },
       fields: [
-        // Quantity
+        // Available
         {
-          name: 'quantity',
-          title: 'Quantity',
-          type: 'number'
+          name: 'isAvailable',
+          title: 'Available',
+          type: 'boolean'
         },
         // Management
         {

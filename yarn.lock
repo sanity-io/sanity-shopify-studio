@@ -1710,18 +1710,6 @@
     postcss-value-parser "^3.3.0"
     source-list-map "^2.0.0"
 
-"@sanity/dashboard@^2.31.0":
-  version "2.31.0"
-  resolved "https://registry.npmjs.org/@sanity/dashboard/-/dashboard-2.31.0.tgz#d990a6d537a127ab74d0e9b5836efbd40d0be1bb"
-  integrity sha512-fAJLt2MmThEV7YmfEJiwtvPgVCOec09jQ9E9X0y7Ds/NFKpTdMCrGRAyCcyykZTiL/k7eDGsIP3O0yoGR90dLQ==
-  dependencies:
-    "@sanity/icons" "^1.2.6"
-    "@sanity/image-url" "^1.0.1"
-    "@sanity/types" "2.31.0"
-    "@sanity/ui" "^0.37.9"
-    lodash "^4.17.15"
-    rxjs "^6.5.3"
-
 "@sanity/data-aspects@2.29.3":
   version "2.29.3"
   resolved "https://registry.npmjs.org/@sanity/data-aspects/-/data-aspects-2.29.3.tgz#441f1a19cb4b13be9640b3ba692603d83923fcc2"
@@ -4402,7 +4390,7 @@ dataloader@^2.0.0:
   resolved "https://registry.yarnpkg.com/dataloader/-/dataloader-2.0.0.tgz#41eaf123db115987e21ca93c005cd7753c55fe6f"
   integrity sha512-YzhyDAwA4TaQIhM5go+vCLmU0UikghC/t9DTQYZR2M/UvZ1MdOhPezSDZcjj9uqQJOMqjLcpWtyW2iNINdlatQ==
 
-date-fns@^2.16.1, date-fns@^2.25.0:
+date-fns@^2.16.1:
   version "2.25.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.25.0.tgz#8c5c8f1d958be3809a9a03f4b742eba894fc5680"
   integrity sha512-ovYRFnTrbGPD4nqaEqescPEv1mNwvt+UTqI3Ay9SzNtey9NZnYu6E2qCcBBgJ6/2VF1zGGygpyTDITqpQQ5e+w==
@@ -6486,13 +6474,6 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
-
-javascript-time-ago@^2.3.10:
-  version "2.3.10"
-  resolved "https://registry.yarnpkg.com/javascript-time-ago/-/javascript-time-ago-2.3.10.tgz#483e960d158a24394806aed96f34f00669b671e8"
-  integrity sha512-eeZx3B8ACZpFTiaow4Xl3YTIG9UjebwVjHEDnKyzJ1NBve1ZqJIgy97yoT9Esw+Vf+XgSk4YCpOsyK5X/ByRzQ==
-  dependencies:
-    relative-time-format "^1.0.6"
 
 js-base64@^2.1.9:
   version "2.6.4"
@@ -9171,14 +9152,6 @@ react-textarea-autosize@^8.3.2:
     use-composed-ref "^1.0.0"
     use-latest "^1.0.0"
 
-react-time-ago@7.1.3:
-  version "7.1.3"
-  resolved "https://registry.yarnpkg.com/react-time-ago/-/react-time-ago-7.1.3.tgz#3f937bde06c018e5c0e379827debd5a432dd53e9"
-  integrity sha512-H+mhWft++gNt2x8Y9eAZ9vYwL6giPDnVIo68Ty7xFTJ2L+Tt7cyZ1sbMkTMKzHeeaQ+J8F2vt3PatdW6mFJmWQ==
-  dependencies:
-    prop-types "^15.7.2"
-    raf "^3.4.1"
-
 react-transition-group@^4.3.0:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.2.tgz#8b59a56f09ced7b55cbd53c36768b922890d5470"
@@ -9442,11 +9415,6 @@ regjsparser@^0.7.0:
   dependencies:
     jsesc "~0.5.0"
 
-relative-time-format@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/relative-time-format/-/relative-time-format-1.0.6.tgz#4956f6aa161f63cbab8a7f2d8b2e92d7b6a888a3"
-  integrity sha512-voemOJLxlKun4P1fAo4PEg2WXNGjhqfE/G8Xen4gcy24Hyu/djn5bT5axmhx4MnjynoZ8f0HCOjk3RZpsY6X/g==
-
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/remove-trailing-separator/-/remove-trailing-separator-1.1.0.tgz#c24bce2a283adad5bc3f58e0d48249b92379d8ef"
@@ -9690,16 +9658,6 @@ sanity-diff-patch@^1.0.9:
   integrity sha512-J5YeuM/S7rLTp51iqUunwzz7Rf68K/jCDGKtNCj6Wzcfgf9CH+0GtPlvf2DFsg0QQhYYZ72FOVn6skmoLjMCdw==
   dependencies:
     diff-match-patch "^1.0.5"
-
-sanity-plugin-dashboard-widget-shopify@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/sanity-plugin-dashboard-widget-shopify/-/sanity-plugin-dashboard-widget-shopify-0.1.8.tgz#4ddd56411af89881d112313a8e9eabe4c44e78bf"
-  integrity sha512-nFcskh47iBd7WP5YS+6rGtVpJwZUsQzaAJ8CHkC2e1BsXQOLVxptnLnZrDIS4WXiKy3/DgVVsQJ0Z5bp/CmgkQ==
-  dependencies:
-    date-fns "^2.25.0"
-    javascript-time-ago "^2.3.10"
-    pluralize "^8.0.0"
-    react-time-ago "7.1.3"
 
 sanity-plugin-hotspot-array@^0.0.8:
   version "0.0.8"
