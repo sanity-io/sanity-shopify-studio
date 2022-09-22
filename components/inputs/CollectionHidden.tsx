@@ -2,8 +2,7 @@ import { SanityDocument } from '@sanity/client'
 import { WarningOutlineIcon } from '@sanity/icons'
 import { Box, Card, Flex, Stack, Text } from '@sanity/ui'
 import { withDocument } from 'part:@sanity/form-builder'
-import React, { forwardRef, useEffect, useState } from 'react'
-import { getShopifyStoreId } from '../../utils/getShopifyStoreId'
+import React, { forwardRef } from 'react'
 import { collectionUrl } from '../../utils/shopifyUrls'
 
 type Props = {
@@ -13,17 +12,9 @@ type Props = {
 const CollectionHiddenInput = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { document } = props
 
-  const [shopifyCollectionUrl, setShopifyCollectionUrl] = useState<string>()
+  const shopifyCollectionUrl = collectionUrl(document?.store?.id)
 
   const isDeleted = document?.store?.isDeleted
-
-  useEffect(() => {
-    getShopifyStoreId().then(storeId => {
-      if (storeId) {
-        setShopifyCollectionUrl(collectionUrl(storeId, document?.store?.id))
-      }
-    })
-  }, [])
 
   return (
     <Card padding={4} radius={2} ref={ref} shadow={1} tone="critical">

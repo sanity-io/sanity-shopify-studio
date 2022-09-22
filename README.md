@@ -46,6 +46,17 @@ npx @sanity/cli@shopify init --template shopify
 
 Make sure to run the tagged release! (`@sanity/cli@shopify`)
 
+#### (Optional) Enable product and collection helper links
+
+Specify your Shopify's unique store URL to enable easy-to-access shortcuts to your Shopify admin panel.
+
+See [studio features][studio-features] for more information.
+
+```javascript
+// constants.js
+SHOPIFY_STORE_ID = 'my-storefront.myshopify.com'
+```
+
 ## Local Development
 
 ### Starting development server
