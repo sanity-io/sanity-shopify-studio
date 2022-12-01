@@ -3,7 +3,7 @@ import {Box} from '@sanity/ui'
 import {HotspotTooltipProps} from 'sanity-plugin-hotspot-array'
 
 interface HotspotFields {
-  productWithVariant: {
+  productWithVariant?: {
     product: {
       _ref: string
     }
@@ -14,7 +14,7 @@ export default function ProductPreview({value, renderPreview}: HotspotTooltipPro
   const productSchemaType = useSchema().get('product')
   return (
     <Box padding={2} style={{minWidth: 200}}>
-      {value?.productWithVariant?.product?._ref
+      {value?.productWithVariant?.product?._ref && productSchemaType
         ? renderPreview({
             value: value?.productWithVariant?.product,
             schemaType: productSchemaType,

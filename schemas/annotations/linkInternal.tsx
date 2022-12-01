@@ -12,10 +12,10 @@ export default defineField({
   title: 'Internal Link',
   name: 'annotationLinkInternal',
   type: 'object',
-  // @ts-ignore - TODO - fix these TS errors
+  // @ts-ignore
   blockEditor: {
     icon: () => <LinkIcon />,
-    // @ts-ignore - TODO
+    // @ts-ignore
     render: ({children}) => (
       <span>
         <LinkIcon

@@ -114,7 +114,7 @@ export default defineType({
       priceRange: 'store.priceRange',
       status: 'store.status',
       title: 'store.title',
-      variantCount: 'store.variants',
+      variants: 'store.variants',
     },
     prepare(selection) {
       const {isDeleted, options, previewImageUrl, priceRange, status, title, variants} = selection
@@ -145,6 +145,7 @@ export default defineType({
             isDeleted={isDeleted}
             type="product"
             url={previewImageUrl}
+            title={title}
           />
         ),
       }

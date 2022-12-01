@@ -11,7 +11,7 @@ export default defineField({
   title: 'Email link',
   name: 'annotationLinkEmail',
   type: 'object',
-  // @ts-ignore - TODO - fix these TS errors
+  // @ts-ignore
   blockEditor: {
     icon: () => <EnvelopeIcon />,
     // @ts-ignore

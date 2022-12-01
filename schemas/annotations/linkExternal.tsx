@@ -11,7 +11,7 @@ export default defineField({
   title: 'External Link',
   name: 'annotationLinkExternal',
   type: 'object',
-  // @ts-ignore - TODO - fix these TS errors
+  // @ts-ignore
   blockEditor: {
     icon: () => <EarthGlobeIcon />,
     // @ts-ignore

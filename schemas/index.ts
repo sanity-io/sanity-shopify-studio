@@ -18,7 +18,7 @@ import page from './documents/page'
 import product from './documents/product'
 import productVariant from './documents/productVariant'
 
-const documents = [product, productVariant, collection, colorTheme, page]
+const documents = [collection, colorTheme, page, product, productVariant]
 
 // Singleton document types
 import home from './singletons/home'
@@ -64,25 +64,14 @@ import shopifyProduct from './objects/shopifyProduct'
 import shopifyProductVariant from './objects/shopifyProductVariant'
 
 const objects = [
-  linkExternal,
-  linkInternal,
-  shopifyProduct,
-  productOption,
-  shopifyProductVariant,
-  shopifyCollection,
-  shopifyCollectionRule,
-  seoShopify,
-  seoPage,
-  seoHome,
   customProductOptionColor,
   customProductOptionSize,
-  proxyString,
+  imageWithProductHotspots,
+  linkExternal,
+  linkInternal,
   heroCollection,
   heroHome,
   heroPage,
-  productWithVariant,
-  imageWithProductHotspots,
-  productHotspots,
   moduleAccordion,
   moduleCallout,
   moduleCallToAction,
@@ -94,6 +83,17 @@ const objects = [
   moduleProduct,
   moduleProducts,
   placeholderString,
+  productHotspots,
+  productOption,
+  productWithVariant,
+  proxyString,
+  seoHome,
+  seoPage,
+  seoShopify,
+  shopifyCollection,
+  shopifyCollectionRule,
+  shopifyProduct,
+  shopifyProductVariant,
 ]
 
 export const schemaTypes = [...annotations, ...documents, ...singletons, ...objects, ...blocks]

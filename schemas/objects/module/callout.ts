@@ -37,6 +37,7 @@ export default defineField({
       return {
         subtitle: 'Callout',
         title: text,
+        media: BulbOutlineIcon,
       }
     },
   },

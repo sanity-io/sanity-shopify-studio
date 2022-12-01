@@ -1,7 +1,8 @@
 import React from 'react'
-import {PackageIcon} from '@sanity/icons'
-import pluralize from 'pluralize'
 import {defineField, defineType} from 'sanity'
+import {PackageIcon} from '@sanity/icons'
+import {getExtension} from '@sanity/asset-utils'
+import pluralize from 'pluralize'
 import CollectionHiddenInput from '../../components/inputs/CollectionHidden'
 import ShopifyIcon from '../../components/icons/Shopify'
 import ShopifyDocumentStatus from '../../components/media/ShopifyDocumentStatus'
@@ -80,11 +81,12 @@ export default defineType({
       group: 'theme',
       validation: (Rule) =>
         Rule.custom((image) => {
-          if (!image) {
+          if (!image?.asset?._ref) {
             return true
           }
-          const pattern = /^image-([a-f\d]+)-(\d+x\d+)-(\w+)$/
-          const format = image.asset._ref.match(pattern)[3]
+
+          const format = getExtension(image.asset._ref)
+
           if (format !== 'svg') {
             return 'Image must be an SVG'
           }
@@ -161,7 +163,14 @@ export default defineType({
       const ruleCount = rules?.length || 0
 
       return {
-        media: <ShopifyDocumentStatus isDeleted={isDeleted} type="collection" url={imageUrl} />,
+        media: (
+          <ShopifyDocumentStatus
+            isDeleted={isDeleted}
+            type="collection"
+            url={imageUrl}
+            title={title}
+          />
+        ),
         subtitle: ruleCount > 0 ? `Automated (${pluralize('rule', ruleCount, true)})` : 'Manual',
         title,
       }

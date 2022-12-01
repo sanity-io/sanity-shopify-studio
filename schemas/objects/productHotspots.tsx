@@ -55,6 +55,7 @@ export default defineField({
                 isDeleted={isDeleted}
                 type="product"
                 url={variantPreviewImageUrl || previewImageUrl}
+                title={productTitle}
               />
             ),
             title: productTitle,

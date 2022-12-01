@@ -2,6 +2,9 @@ import {CogIcon, PackageIcon} from '@sanity/icons'
 import {defineType, defineField} from 'sanity'
 
 const TITLE = 'Settings'
+interface ProductOptions {
+  title: string
+}
 
 export default defineType({
   name: 'settings',
@@ -161,7 +164,7 @@ export default defineType({
         },
       ],
       validation: (Rule) =>
-        Rule.custom((options) => {
+        Rule.custom((options: ProductOptions[] | undefined) => {
           // Each product option type must have a unique title
           if (options) {
             const uniqueTitles = new Set(options.map((option) => option.title))

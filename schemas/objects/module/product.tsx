@@ -32,6 +32,7 @@ export default defineField({
             isDeleted={isDeleted}
             type="product"
             url={previewImageUrl}
+            title={title}
           />
         ),
         subtitle: 'Product',

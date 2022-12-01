@@ -3,7 +3,7 @@ import {TrashIcon} from '@sanity/icons'
 import {Stack, Text, useToast} from '@sanity/ui'
 import {
   type DocumentActionDescription,
-  type DocumentActionConfirmModalProps,
+  type DocumentActionConfirmDialogProps,
   useClient,
 } from 'sanity'
 import {useRouter} from 'sanity/router'
@@ -29,7 +29,7 @@ export default (props: ShopifyDocumentActionProps): DocumentActionDescription | 
   const toast = useToast()
   const client = useClient({apiVersion: SANITY_API_VERSION})
 
-  let dialog: DocumentActionConfirmModalProps | null = null
+  let dialog: DocumentActionConfirmDialogProps | null = null
 
   if (type === 'product') {
     dialog = {
@@ -51,7 +51,7 @@ export default (props: ShopifyDocumentActionProps): DocumentActionDescription | 
                 _type == "productVariant"
                 && store.productId == $productId
               ]._id`,
-            {productId: productId}
+            {productId}
           )
         }
 
@@ -139,7 +139,7 @@ export default (props: ShopifyDocumentActionProps): DocumentActionDescription | 
 
   return {
     tone: 'critical',
-    modal: dialogOpen && dialog,
+    dialog: dialogOpen && dialog,
     icon: TrashIcon,
     label: 'Delete',
     onHandle: () => setDialogOpen(true),

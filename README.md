@@ -41,10 +41,10 @@ If you're reading this on GitHub, chances are you haven't initialized the studio
 
 ```sh
 # run a one-off initializing script:
-npx @sanity/cli@shopify init --template shopify
+npx @sanity/cli init --template shopify
 ```
 
-Make sure to run the tagged release! (`@sanity/cli@shopify`)
+Make sure to run the tagged release! (`@sanity/cli`)
 
 ## Local Development
 

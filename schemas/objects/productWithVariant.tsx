@@ -26,6 +26,7 @@ export default defineField({
       description: 'First variant will be selected if left empty',
       options: {
         filter: ({parent}) => {
+          // @ts-ignore
           const productId = parent?.product?._ref
           const shopifyProductId = Number(productId?.replace('shopifyProduct-', ''))
 
@@ -50,6 +51,7 @@ export default defineField({
       validation: (Rule) =>
         Rule.custom(async (value, {parent, getClient}) => {
           // Selected product in adjacent `product` field
+          // @ts-ignore
           const productId = parent?.product?._ref
 
           // Selected product variant
@@ -127,6 +129,7 @@ export default defineField({
             isDeleted={isDeleted}
             type="product"
             url={variantPreviewImageUrl || previewImageUrl}
+            title={previewTitle.join(' ')}
           />
         ),
         description: description.join(' / '),

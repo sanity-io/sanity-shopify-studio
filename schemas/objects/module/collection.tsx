@@ -36,7 +36,14 @@ export default defineField({
     prepare(selection) {
       const {collectionTitle, imageUrl, isDeleted} = selection
       return {
-        media: <ShopifyDocumentStatus isDeleted={isDeleted} type="collection" url={imageUrl} />,
+        media: (
+          <ShopifyDocumentStatus
+            isDeleted={isDeleted}
+            type="collection"
+            url={imageUrl}
+            title={collectionTitle}
+          />
+        ),
         subtitle: 'Collection',
         title: collectionTitle,
       }

@@ -62,6 +62,7 @@ export default defineField({
       return {
         subtitle: 'Images',
         title: images.length > 0 ? pluralize('image', images.length, true) : 'No images',
+        media: ImageIcon,
       }
     },
   },

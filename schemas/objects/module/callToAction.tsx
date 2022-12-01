@@ -90,6 +90,7 @@ export default defineField({
       return {
         subtitle: 'Call to action',
         title,
+        media: BlockElementIcon,
       }
     },
   },

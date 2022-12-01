@@ -14,7 +14,7 @@ Inside `/schemas` you'll find schema definitions for all the content types. The
 
 ## Desk structure
 
-Sanity Studio will automatically list all your [document types][docs-document-types] out of the box. Sometimes you want a more streamlined editor experience. That's why you'll find a custom [desk-structure][docs-desk-structure] that's defined in `/deskStructure.js`. It does the following things:
+Sanity Studio will automatically list all your [document types][docs-document-types] out of the box. Sometimes you want a more streamlined editor experience. That's why you'll find a custom [desk-structure][docs-desk-structure] that's defined in `/desk`. It does the following things:
 
 - Groups product information and variants by individual products for more convenient editing
 - Creates a singleton document for controlling a homepage with custom editorial modules.
@@ -45,13 +45,13 @@ Sanity Studio will automatically list all your [document types][docs-document-ty
 
 <p><img width="600" src="https://user-images.githubusercontent.com/209129/174492490-aefa1a0d-40ea-473d-be73-ba6326d66ee8.png"></p>
 
-`/schemas/objects/module/image.tsx`
+`/schemas/objects/module/image.ts`
 
 ### Instagram
 
 <p><img width="600" src="https://user-images.githubusercontent.com/209129/173630524-b8b7253f-704a-4935-9b66-1c5673477b1c.png"></p>
 
-`/schemas/objects/module/instagram.tsx`
+`/schemas/objects/module/instagram.ts`
 
 ### Product
 
@@ -63,7 +63,7 @@ Sanity Studio will automatically list all your [document types][docs-document-ty
 
 Custom document actions let you override the default behavior of the publish button. The included document actions adds to the menu that you can find by pushing the chevron right to a document's publish button.
 
-You can find these in `/documentActions/`.
+You can find these in `/plugins/customDocumentActions/`.
 
 Read more about [document actions][docs-document-actions].
 
@@ -71,7 +71,7 @@ Read more about [document actions][docs-document-actions].
 
 <p><img width="400" src="https://user-images.githubusercontent.com/209129/173621376-66dc614d-a8ef-4d05-9e23-56806bf63a60.png"></p>
 
-`/documentActions/deleteProductAndVariants.tsx`
+`/plugins/customDocumentActions/shopifyDelete.tsx`
 
 Delete a product document including all its associated variants in your Sanity Content Lake. Without this document action, one would have to delete all variant document one-by-one.
 
@@ -79,9 +79,9 @@ Delete a product document including all its associated variants in your Sanity C
 
 <p><img width="280" src="https://user-images.githubusercontent.com/209129/173621897-cfe069e9-4719-4433-b78b-f932d079fce3.png"></p>
 
-`/documentActions/shopifyLink.ts`
+`/plugins/customDocumentActions/shopifyLink.ts`
 
-A shortcut to edit the current product or product variant in Shopify in a new window.
+A shortcut to edit the current product or product variant in Shopify in a new window. You'll need to set your Shopify admin domain in `constants.ts`.
 
 ## Custom input and preview components
 
@@ -108,8 +108,8 @@ A simple wrapper around a regular [string input](string-input) that uses the val
 
 <p><img width="476" src="https://user-images.githubusercontent.com/209129/141304763-8b08d0d8-93d6-4c26-bde3-224857d45468.png" /></p>
 
-`/components/inputs/CollectionHidden.tsx`  
-`/components/inputs/ProductHidden.tsx`  
+`/components/inputs/CollectionHidden.tsx`
+`/components/inputs/ProductHidden.tsx`
 `/components/inputs/ProductVariantHidden.tsx`
 
 Display-only input fields that show the corresponding document's status in Shopify.

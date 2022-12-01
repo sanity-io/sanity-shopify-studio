@@ -6,10 +6,11 @@ type Props = {
   isDeleted: boolean
   type: 'collection' | 'product' | 'productVariant'
   url: string
+  title: string
 }
 
 const ShopifyDocumentStatus = forwardRef<HTMLDivElement, Props>((props, ref) => {
-  const {isActive, isDeleted, type, url} = props
+  const {isActive, isDeleted, type, url, title} = props
 
   const [imageVisible, setImageVisible] = useState(true)
 
@@ -41,6 +42,7 @@ const ShopifyDocumentStatus = forwardRef<HTMLDivElement, Props>((props, ref) => 
             top: 0,
             width: '100%',
           }}
+          alt={`${title} preview`}
         />
       ) : (
         <ImageIcon style={{position: 'absolute'}} />

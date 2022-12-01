@@ -64,6 +64,7 @@ export default defineType({
             isDeleted={isDeleted}
             type="productVariant"
             url={previewImageUrl}
+            title={title}
           />
         ),
         subtitle: sku,

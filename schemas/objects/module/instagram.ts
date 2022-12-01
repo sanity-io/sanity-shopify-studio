@@ -28,6 +28,7 @@ export default defineField({
       return {
         subtitle: 'Instagram',
         title: url,
+        media: UserIcon,
       }
     },
   },
