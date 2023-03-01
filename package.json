@@ -12,7 +12,8 @@
     "deploy-graphql": "sanity graphql deploy"
   },
   "keywords": [
-    "sanity"
+    "sanity",
+    "shopify"
   ],
   "dependencies": {
     "@sanity/asset-utils": "^1.3.0",

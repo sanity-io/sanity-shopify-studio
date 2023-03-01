@@ -16,8 +16,8 @@ export default defineConfig({
   name: 'default',
   title: 'Sanity + Shopify demo',
 
-  projectId: 'g2b4qblu',
-  dataset: 'production',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID || 'g2b4qblu',
+  dataset: process.env.SANITY_STUDIO_PROJECT_DATASET || 'production',
 
   plugins: [
     deskTool({structure}),
