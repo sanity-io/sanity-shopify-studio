@@ -58,6 +58,7 @@ import productWithVariant from './objects/productWithVariant'
 import proxyString from './objects/proxyString'
 import seoHome from './objects/seo/home'
 import seoPage from './objects/seo/page'
+import seoDescription from './objects/seo/description'
 import seoShopify from './objects/seo/shopify'
 import shopifyCollection from './objects/shopifyCollection'
 import shopifyCollectionRule from './objects/shopifyCollectionRule'
@@ -91,6 +92,7 @@ const objects = [
   proxyString,
   seoHome,
   seoPage,
+  seoDescription,
   seoShopify,
   shopifyCollection,
   shopifyCollectionRule,
