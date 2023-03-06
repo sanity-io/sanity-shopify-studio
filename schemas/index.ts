@@ -41,6 +41,8 @@ import heroCollection from './objects/hero/collection'
 import heroHome from './objects/hero/home'
 import heroPage from './objects/hero/page'
 import moduleAccordion from './objects/module/accordion'
+import accordionBody from './objects/module/accordionBody'
+import accordionGroup from './objects/module/accordionGroup'
 import moduleCallout from './objects/module/callout'
 import moduleCallToAction from './objects/module/callToAction'
 import moduleCollection from './objects/module/collection'
@@ -76,6 +78,8 @@ const objects = [
   heroHome,
   heroPage,
   moduleAccordion,
+  accordionBody,
+  accordionGroup,
   moduleCallout,
   moduleCallToAction,
   moduleCollection,
