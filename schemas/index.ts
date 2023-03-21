@@ -44,6 +44,7 @@ import customProductOptionWidth from './objects/customProductOption/width'
 import imageWithProductHotspots from './objects/imageWithProductHotspots'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
+import notFoundPage from './objects/notFoundPage'
 import heroCollection from './objects/hero/collection'
 import heroHome from './objects/hero/home'
 import heroPage from './objects/hero/page'
@@ -77,7 +78,6 @@ import shopifyProduct from './objects/shopifyProduct'
 import shopifyProductVariant from './objects/shopifyProductVariant'
 
 // Collections
-
 import collectionGroup from './objects/collection/group'
 import collectionLinks from './objects/collection/links'
 
@@ -91,6 +91,7 @@ const objects = [
   imageWithProductHotspots,
   linkExternal,
   linkInternal,
+  notFoundPage,
   heroCollection,
   heroHome,
   heroPage,
