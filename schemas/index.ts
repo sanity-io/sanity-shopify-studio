@@ -52,6 +52,7 @@ import heroPage from './objects/hero/page'
 import moduleAccordion from './objects/module/accordion'
 import accordionBody from './objects/module/accordionBody'
 import accordionGroup from './objects/module/accordionGroup'
+import accordionObject from './objects/module/accordionObject'
 import moduleCallout from './objects/module/callout'
 import moduleCallToAction from './objects/module/callToAction'
 import moduleCollection from './objects/module/collection'
@@ -99,6 +100,7 @@ const objects = [
   moduleAccordion,
   accordionBody,
   accordionGroup,
+  accordionObject,
   moduleCallout,
   moduleCallToAction,
   moduleCollection,
