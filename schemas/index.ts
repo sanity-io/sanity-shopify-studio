@@ -36,7 +36,11 @@ const blocks = [body]
 
 // Object types
 import customProductOptionColor from './objects/customProductOption/color'
+import customProductOptionHeight from './objects/customProductOption/height'
 import customProductOptionSize from './objects/customProductOption/size'
+import customProductOptionSizeObject from './objects/customProductOption/sizeObject'
+import customProductOptionTitle from './objects/customProductOption/title'
+import customProductOptionWidth from './objects/customProductOption/width'
 import imageWithProductHotspots from './objects/imageWithProductHotspots'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
@@ -79,7 +83,11 @@ import collectionLinks from './objects/collection/links'
 
 const objects = [
   customProductOptionColor,
+  customProductOptionHeight,
   customProductOptionSize,
+  customProductOptionSizeObject,
+  customProductOptionTitle,
+  customProductOptionWidth,
   imageWithProductHotspots,
   linkExternal,
   linkInternal,
