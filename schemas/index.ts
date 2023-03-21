@@ -21,10 +21,13 @@ import productVariant from './documents/productVariant'
 const documents = [collection, colorTheme, page, product, productVariant]
 
 // Singleton document types
+import footer from './singletons/footer'
 import home from './singletons/home'
+import links from './singletons/links'
+import menu from './singletons/menu'
 import settings from './singletons/settings'
 
-const singletons = [home, settings]
+const singletons = [footer, home, links, menu, settings]
 
 // Block content
 import body from './blocks/body'
@@ -69,6 +72,11 @@ import shopifyCollectionRule from './objects/shopifyCollectionRule'
 import shopifyProduct from './objects/shopifyProduct'
 import shopifyProductVariant from './objects/shopifyProductVariant'
 
+// Collections
+
+import collectionGroup from './objects/collection/group'
+import collectionLinks from './objects/collection/links'
+
 const objects = [
   customProductOptionColor,
   customProductOptionSize,
@@ -106,6 +114,8 @@ const objects = [
   shopifyCollectionRule,
   shopifyProduct,
   shopifyProductVariant,
+  collectionGroup,
+  collectionLinks,
 ]
 
 export const schemaTypes = [...annotations, ...documents, ...singletons, ...objects, ...blocks]

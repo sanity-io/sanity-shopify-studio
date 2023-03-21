@@ -1,4 +1,4 @@
-import {CogIcon, PackageIcon} from '@sanity/icons'
+import {CogIcon} from '@sanity/icons'
 import {defineType, defineField} from 'sanity'
 
 const TITLE = 'Settings'
@@ -35,117 +35,13 @@ export default defineType({
     defineField({
       name: 'menu',
       title: 'Menu',
-      type: 'object',
-      group: 'navigation',
-      options: {
-        collapsed: false,
-        collapsible: true,
-      },
-      fields: [
-        // Links
-        defineField({
-          name: 'links',
-          title: 'Links',
-          type: 'array',
-          of: [
-            {
-              name: 'collectionGroup',
-              title: 'Collection group',
-              type: 'object',
-              icon: PackageIcon,
-              fields: [
-                {
-                  name: 'title',
-                  title: 'Title',
-                  type: 'string',
-                  validation: (Rule) => Rule.required(),
-                },
-                {
-                  name: 'collectionLinks',
-                  title: 'Collection links',
-                  type: 'array',
-                  validation: (Rule) => Rule.unique().max(4),
-                  of: [
-                    {
-                      name: 'collection',
-                      type: 'reference',
-                      weak: true,
-                      to: [{type: 'collection'}],
-                    },
-                  ],
-                },
-                {
-                  name: 'collectionProducts',
-                  title: 'Collection products',
-                  type: 'reference',
-                  description: 'Products from this collection will be listed',
-                  weak: true,
-                  to: [{type: 'collection'}],
-                },
-              ],
-            },
-            {type: 'linkInternal'},
-            {type: 'linkExternal'},
-          ],
-        }),
-      ],
+      type: 'menuSettings',
     }),
     // Footer
     defineField({
       name: 'footer',
       title: 'Footer',
-      type: 'object',
-      group: 'navigation',
-      options: {
-        collapsed: false,
-        collapsible: true,
-      },
-      fields: [
-        // Links
-        defineField({
-          name: 'links',
-          title: 'Links',
-          type: 'array',
-          of: [{type: 'linkInternal'}, {type: 'linkExternal'}],
-        }),
-        // Text
-        defineField({
-          name: 'text',
-          title: 'Text',
-          type: 'array',
-          of: [
-            {
-              lists: [],
-              marks: {
-                annotations: [
-                  // Email
-                  {
-                    title: 'Email',
-                    name: 'annotationLinkEmail',
-                    type: 'annotationLinkEmail',
-                  },
-                  // Internal link
-                  {
-                    title: 'Internal page',
-                    name: 'annotationLinkInternal',
-                    type: 'annotationLinkInternal',
-                  },
-                  // URL
-                  {
-                    title: 'URL',
-                    name: 'annotationLinkExternal',
-                    type: 'annotationLinkExternal',
-                  },
-                ],
-                decorators: [],
-              },
-              // Block styles
-              styles: [{title: 'Normal', value: 'normal'}],
-              type: 'block',
-            },
-          ],
-        }),
-      ],
+      type: 'footerSettings',
     }),
     // Custom product options
     defineField({
