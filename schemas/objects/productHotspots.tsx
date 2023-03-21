@@ -1,4 +1,5 @@
 import {defineField} from 'sanity'
+
 import ProductTooltip from '../../components/hotspots/ProductTooltip'
 
 export default defineField({

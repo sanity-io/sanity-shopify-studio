@@ -1,5 +1,6 @@
 import pluralize from 'pluralize-esm'
 import {defineField} from 'sanity'
+
 interface SizeOption {
   title: string
 }

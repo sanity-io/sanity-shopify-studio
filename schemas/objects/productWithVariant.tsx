@@ -2,6 +2,7 @@ import {TagIcon} from '@sanity/icons'
 import pluralize from 'pluralize-esm'
 import React from 'react'
 import {defineField} from 'sanity'
+
 import ShopifyDocumentStatus from '../../components/media/ShopifyDocumentStatus'
 import {SANITY_API_VERSION} from '../../constants'
 import {getPriceRange} from '../../utils/getPriceRange'
