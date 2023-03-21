@@ -25,9 +25,10 @@ import footer from './singletons/footer'
 import home from './singletons/home'
 import links from './singletons/links'
 import menu from './singletons/menu'
+import seo from './singletons/seo'
 import settings from './singletons/settings'
 
-const singletons = [footer, home, links, menu, settings]
+const singletons = [footer, home, links, menu, seo, settings]
 
 // Block content
 import body from './blocks/body'
