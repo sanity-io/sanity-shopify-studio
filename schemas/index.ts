@@ -43,6 +43,7 @@ import customProductOptionSizeObject from './objects/customProductOption/sizeObj
 import customProductOptionTitle from './objects/customProductOption/title'
 import customProductOptionWidth from './objects/customProductOption/width'
 import imageWithProductHotspots from './objects/imageWithProductHotspots'
+import inventory from './objects/inventory'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
 import notFoundPage from './objects/notFoundPage'
@@ -92,6 +93,7 @@ const objects = [
   customProductOptionTitle,
   customProductOptionWidth,
   imageWithProductHotspots,
+  inventory,
   linkExternal,
   linkInternal,
   notFoundPage,
@@ -132,4 +134,4 @@ const objects = [
   collectionLinks,
 ]
 
-export const schemaTypes = [...annotations, ...documents, ...singletons, ...objects, ...blocks]
+export const schemaTypes = [...annotations, ...singletons, ...objects, ...blocks, ...documents]

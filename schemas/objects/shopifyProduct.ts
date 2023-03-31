@@ -139,8 +139,6 @@ export default defineField({
       type: 'array',
       of: [
         {
-          name: 'option',
-          title: 'Option',
           type: 'productOption',
         },
       ],
