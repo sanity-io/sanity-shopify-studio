@@ -1,4 +1,4 @@
-import {AssetSource, defineConfig, isDev} from 'sanity'
+import {defineConfig, isDev} from 'sanity'
 
 import {deskTool} from 'sanity/desk'
 import {schemaTypes} from './schemas'
@@ -34,12 +34,12 @@ export default defineConfig({
 
   form: {
     file: {
-      assetSources: (previousAssetSources: AssetSource[]) => {
+      assetSources: (previousAssetSources) => {
         return previousAssetSources.filter((assetSource) => assetSource !== mediaAssetSource)
       },
     },
     image: {
-      assetSources: (previousAssetSources: AssetSource[]) => {
+      assetSources: (previousAssetSources) => {
         return previousAssetSources.filter((assetSource) => assetSource === mediaAssetSource)
       },
     },
