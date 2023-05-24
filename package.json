@@ -12,7 +12,8 @@
     "deploy-graphql": "sanity graphql deploy"
   },
   "keywords": [
-    "sanity"
+    "sanity",
+    "shopify"
   ],
   "dependencies": {
     "@portabletext/types": "^2.0.2",

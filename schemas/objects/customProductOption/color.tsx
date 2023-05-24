@@ -1,6 +1,7 @@
-import pluralize from 'pluralize-esm'
 import React from 'react'
+import pluralize from 'pluralize-esm'
 import {defineField} from 'sanity'
+
 interface ColorOption {
   title: string
 }
