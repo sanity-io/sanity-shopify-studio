@@ -29,7 +29,7 @@ export default defineField({
       const {items} = selection
       return {
         subtitle: 'Grid',
-        title: items.length > 0 ? pluralize('item', items.length, true) : 'No items',
+        title: items?.length > 0 ? pluralize('item', items.length, true) : 'No items',
       }
     },
   },

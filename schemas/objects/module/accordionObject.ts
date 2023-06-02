@@ -4,6 +4,7 @@ import blocksToText from '../../../utils/blocksToText'
 
 export default defineField({
   name: 'accordionObject',
+  title: 'Object',
   type: 'object',
   icon: false,
   fields: [

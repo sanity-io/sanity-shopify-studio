@@ -21,14 +21,10 @@ import productVariant from './documents/productVariant'
 const documents = [collection, colorTheme, page, product, productVariant]
 
 // Singleton document types
-import footer from './singletons/footer'
 import home from './singletons/home'
-import links from './singletons/links'
-import menu from './singletons/menu'
-import seo from './singletons/seo'
 import settings from './singletons/settings'
 
-const singletons = [footer, home, links, menu, seo, settings]
+const singletons = [home, settings]
 
 // Block content
 import body from './blocks/body'
@@ -37,16 +33,16 @@ const blocks = [body]
 
 // Object types
 import customProductOptionColor from './objects/customProductOption/color'
-import customProductOptionHeight from './objects/customProductOption/height'
+import customProductOptionColorObject from './objects/customProductOption/colorObject'
 import customProductOptionSize from './objects/customProductOption/size'
 import customProductOptionSizeObject from './objects/customProductOption/sizeObject'
-import customProductOptionTitle from './objects/customProductOption/title'
-import customProductOptionWidth from './objects/customProductOption/width'
-import imageWithProductHotspots from './objects/imageWithProductHotspots'
-import inventory from './objects/inventory'
-import linkExternal from './objects/linkExternal'
-import linkInternal from './objects/linkInternal'
-import notFoundPage from './objects/notFoundPage'
+import footer from './objects/global/footer'
+import imageWithProductHotspots from './objects/hotspot/imageWithProductHotspots'
+import inventory from './objects/shopify/inventory'
+import linkExternal from './objects/global/linkExternal'
+import linkInternal from './objects/global/linkInternal'
+import links from './objects/global/links'
+import notFoundPage from './objects/global/notFoundPage'
 import heroCollection from './objects/hero/collection'
 import heroHome from './objects/hero/home'
 import heroPage from './objects/hero/page'
@@ -59,27 +55,29 @@ import moduleCallToAction from './objects/module/callToAction'
 import moduleCollection from './objects/module/collection'
 import moduleGrid from './objects/module/grid'
 import gridItems from './objects/module/gridItems'
+import menu from './objects/global/menu'
 import moduleImage from './objects/module/image'
 import moduleImageAction from './objects/module/imageCallToAction'
 import moduleImages from './objects/module/images'
 import moduleInstagram from './objects/module/instagram'
 import moduleProduct from './objects/module/product'
 import moduleProducts from './objects/module/products'
-import placeholderString from './objects/placeholderString'
-import priceRange from './objects/priceRange'
-import spot from './objects/spot'
-import productHotspots from './objects/productHotspots'
-import productOption from './objects/productOption'
-import productWithVariant from './objects/productWithVariant'
-import proxyString from './objects/proxyString'
+import placeholderString from './objects/shopify/placeholderString'
+import priceRange from './objects/shopify/priceRange'
+import spot from './objects/hotspot/spot'
+import productHotspots from './objects/hotspot/productHotspots'
+import option from './objects/shopify/option'
+import productWithVariant from './objects/shopify/productWithVariant'
+import proxyString from './objects/shopify/proxyString'
+import seo from './objects/seo/seo'
 import seoHome from './objects/seo/home'
 import seoPage from './objects/seo/page'
 import seoDescription from './objects/seo/description'
 import seoShopify from './objects/seo/shopify'
-import shopifyCollection from './objects/shopifyCollection'
-import shopifyCollectionRule from './objects/shopifyCollectionRule'
-import shopifyProduct from './objects/shopifyProduct'
-import shopifyProductVariant from './objects/shopifyProductVariant'
+import shopifyCollection from './objects/shopify/shopifyCollection'
+import shopifyCollectionRule from './objects/shopify/shopifyCollectionRule'
+import shopifyProduct from './objects/shopify/shopifyProduct'
+import shopifyProductVariant from './objects/shopify/shopifyProductVariant'
 
 // Collections
 import collectionGroup from './objects/collection/group'
@@ -87,13 +85,13 @@ import collectionLinks from './objects/collection/links'
 
 const objects = [
   customProductOptionColor,
-  customProductOptionHeight,
+  customProductOptionColorObject,
   customProductOptionSize,
   customProductOptionSizeObject,
-  customProductOptionTitle,
-  customProductOptionWidth,
+  footer,
   imageWithProductHotspots,
   inventory,
+  links,
   linkExternal,
   linkInternal,
   notFoundPage,
@@ -104,6 +102,7 @@ const objects = [
   accordionBody,
   accordionGroup,
   accordionObject,
+  menu,
   moduleCallout,
   moduleCallToAction,
   moduleCollection,
@@ -119,9 +118,10 @@ const objects = [
   priceRange,
   spot,
   productHotspots,
-  productOption,
+  option,
   productWithVariant,
   proxyString,
+  seo,
   seoHome,
   seoPage,
   seoDescription,

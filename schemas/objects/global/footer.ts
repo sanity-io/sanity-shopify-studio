@@ -4,7 +4,6 @@ export default defineField({
   name: 'footerSettings',
   title: 'Footer',
   type: 'object',
-  group: 'navigation',
   options: {
     collapsed: false,
     collapsible: true,
