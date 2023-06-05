@@ -36,12 +36,14 @@ export default defineType({
       name: 'menu',
       title: 'Menu',
       type: 'menuSettings',
+      group: 'navigation',
     }),
     // Footer
     defineField({
       name: 'footer',
       title: 'Footer',
       type: 'footerSettings',
+      group: 'navigation',
     }),
     // Custom product options
     defineField({

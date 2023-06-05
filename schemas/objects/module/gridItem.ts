@@ -3,7 +3,7 @@ import {defineField} from 'sanity'
 import blocksToText from '../../../utils/blocksToText'
 
 export default defineField({
-  name: 'gridItems',
+  name: 'gridItem',
   title: 'Item',
   type: 'object',
   fields: [

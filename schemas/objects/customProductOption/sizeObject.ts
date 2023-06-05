@@ -8,17 +8,23 @@ export default defineField({
     defineField({
       name: 'title',
       title: 'Title',
-      type: 'customProductOption.title',
+      type: 'string',
+      description: 'Shopify product option value (case sensitive)',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'width',
       title: 'Width',
-      type: 'customProductOption.width',
+      type: 'number',
+      description: 'In mm',
+      validation: (Rule) => Rule.required().precision(2),
     }),
     defineField({
       name: 'height',
       title: 'Height',
-      type: 'customProductOption.height',
+      type: 'number',
+      description: 'In mm',
+      validation: (Rule) => Rule.required().precision(2),
     }),
   ],
   preview: {

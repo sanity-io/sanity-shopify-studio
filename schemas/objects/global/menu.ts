@@ -4,7 +4,6 @@ export default defineField({
   name: 'menuSettings',
   title: 'Menu',
   type: 'object',
-  group: 'navigation',
   options: {
     collapsed: false,
     collapsible: true,

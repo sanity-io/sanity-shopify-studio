@@ -12,19 +12,23 @@ export default defineField({
     defineField({
       name: 'groups',
       title: 'Groups',
-      type: 'accordionBody',
+      type: 'array',
+      of: [
+        {
+          type: 'accordionGroup',
+        },
+      ],
     }),
   ],
   preview: {
     select: {
       groups: 'groups',
-      url: 'url',
     },
     prepare(selection) {
       const {groups} = selection
       return {
         subtitle: 'Accordion',
-        title: groups.length > 0 ? pluralize('group', groups.length, true) : 'No groups',
+        title: groups?.length > 0 ? pluralize('group', groups.length, true) : 'No groups',
       }
     },
   },
