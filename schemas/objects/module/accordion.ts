@@ -15,7 +15,7 @@ export default defineField({
       type: 'array',
       of: [
         {
-          type: 'accordionObject',
+          type: 'accordionGroup',
         },
       ],
     }),

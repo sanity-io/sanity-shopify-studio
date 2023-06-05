@@ -49,12 +49,11 @@ import heroPage from './objects/hero/page'
 import moduleAccordion from './objects/module/accordion'
 import accordionBody from './objects/module/accordionBody'
 import accordionGroup from './objects/module/accordionGroup'
-import accordionObject from './objects/module/accordionObject'
 import moduleCallout from './objects/module/callout'
 import moduleCallToAction from './objects/module/callToAction'
 import moduleCollection from './objects/module/collection'
 import moduleGrid from './objects/module/grid'
-import gridItems from './objects/module/gridItems'
+import gridItems from './objects/module/gridItem'
 import menu from './objects/global/menu'
 import moduleImage from './objects/module/image'
 import moduleImageAction from './objects/module/imageCallToAction'
@@ -101,7 +100,6 @@ const objects = [
   moduleAccordion,
   accordionBody,
   accordionGroup,
-  accordionObject,
   menu,
   moduleCallout,
   moduleCallToAction,

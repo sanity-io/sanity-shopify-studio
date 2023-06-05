@@ -63,10 +63,14 @@ npm run deploy
 ### Upgrading Sanity Studio
 
 ```sh
-npm run upgrade
+npm install sanity@latest
 ```
 
 If you have the [Sanity CLI][docs-cli] installed, you can also run this with `sanity start|deploy|upgrade`. It comes with additional useful functionality.
+
+## Upgrading from an old version?
+
+We've updated some of the schema in this template to support deploying a GraphQL API, as well as making updates to remove schema warnings in v3 of the Sanity Studio. There are some breaking changes in these updates, which may mean you see schema warnings in the Studio. Please see [`migrations/strictSchema.ts`][strict-schema-migration] as a guide to migrate your data. Don't forget to take a backup before making any changes!
 
 ## License
 
@@ -83,3 +87,4 @@ This repository is published under the [MIT](license) license.
 [sanity-shopify]: https://apps.shopify.com/sanity-connect
 [structured-content-patterns]: https://www.sanity.io/guides/structured-content-patterns-for-e-commerce
 [studio-features]: docs/features.md
+[strict-schema-migration]: migrations/strictSchema.ts
