@@ -2,6 +2,8 @@
  * Desk structure overrides
  */
 import {ListItemBuilder, StructureResolver} from 'sanity/structure'
+
+import blog from './blogStructure'
 import collections from './collectionStructure'
 import colorThemes from './colorThemeStructure'
 import home from './homeStructure'
@@ -31,6 +33,9 @@ const hiddenDocTypes = (listItem: ListItemBuilder) => {
   }
 
   return ![
+    'blogAuthor',
+    'blogCategory',
+    'blogPost',
     'collection',
     'colorTheme',
     'home',
@@ -48,6 +53,7 @@ export const structure: StructureResolver = (S, context) =>
     .items([
       home(S, context),
       pages(S, context),
+      blog(S, context),
       S.divider(),
       collections(S, context),
       products(S, context),
