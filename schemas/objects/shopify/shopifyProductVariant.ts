@@ -114,6 +114,12 @@ export default defineField({
         columns: 3,
       },
     }),
+    // Metafields
+    defineField({
+      name: 'metafields',
+      title: 'Metafields',
+      type: 'metafields',
+    }),
     // Option 1
     defineField({
       fieldset: 'options',

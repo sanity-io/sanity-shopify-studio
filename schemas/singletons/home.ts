@@ -26,6 +26,9 @@ export default defineField({
       title: 'Hero',
       type: 'hero.home',
       group: 'editorial',
+      options: {
+        collapsible: true,
+      },
     }),
     // Modules
     defineField({

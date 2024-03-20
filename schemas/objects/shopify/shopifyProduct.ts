@@ -132,6 +132,12 @@ export default defineField({
       type: 'string',
       description: 'Image displayed in both cart and checkout',
     }),
+    // Metafields
+    defineField({
+      name: 'metafields',
+      title: 'Metafields',
+      type: 'metafields',
+    }),
     // Options
     defineField({
       name: 'options',

@@ -1,8 +1,8 @@
 import {defineConfig, isDev} from 'sanity'
 
-import {deskTool} from 'sanity/desk'
+import {structureTool} from 'sanity/structure'
 import {schemaTypes} from './schemas'
-import {structure} from './desk'
+import {structure} from './structure'
 
 import {visionTool} from '@sanity/vision'
 import {colorInput} from '@sanity/color-input'
@@ -11,16 +11,36 @@ import {media, mediaAssetSource} from 'sanity-plugin-media'
 import {customDocumentActions} from './plugins/customDocumentActions'
 
 const devOnlyPlugins = [visionTool()]
+const projectId = process.env.SANITY_STUDIO_PROJECT_ID || ''
+const title = `Sanity + Shopify demo`
+
+const setEnv = () => {
+  switch (process.env.SANITY_STUDIO_BUILD_CONFIG) {
+    case 'development':
+      return {
+        title: `${title} (dev)`,
+        dataset: 'development',
+      }
+    case 'production':
+      return {
+        title,
+        dataset: 'production',
+      }
+    default:
+      return {
+        title,
+        dataset: 'production',
+      }
+  }
+}
 
 export default defineConfig({
   name: 'default',
-  title: 'Sanity + Shopify demo',
-
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID || 'g2b4qblu',
-  dataset: process.env.SANITY_STUDIO_PROJECT_DATASET || 'production',
+  projectId,
+  ...setEnv(),
 
   plugins: [
-    deskTool({structure}),
+    structureTool({structure}),
     colorInput(),
     imageHotspotArrayPlugin(),
     customDocumentActions(),
