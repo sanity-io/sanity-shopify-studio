@@ -1,4 +1,4 @@
-> [!CAUTION]
+> [!NOTE]
 > This repo has been archived, but the Sanity / Shopify Studio is still maintained and is available via our CLI. To install, run `npm create sanity@latest -- --template shopify`
 
 # Sanity Studio for Shopify Projects
