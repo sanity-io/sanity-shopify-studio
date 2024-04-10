@@ -79,6 +79,10 @@ export default defineType({
       title: '404 page',
       type: 'notFoundPage',
       group: 'notFoundPage',
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
     }),
     // SEO
     defineField({

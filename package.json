@@ -1,15 +1,19 @@
 {
-  "name": "sanity-shopify-studio-v3",
+  "name": "sanity-shopify-studio",
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "sanity dev",
+    "dev": "SANITY_STUDIO_BUILD_CONFIG=development sanity dev",
+    "dev:production": "SANITY_STUDIO_BUILD_CONFIG=production sanity dev",
     "start": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "deploy:dev": "sanity graphql deploy --dataset=development",
+    "deploy:prod": "sanity graphql deploy --dataset=production",
+    "deploy-graphql": "sanity graphql deploy",
+    "clean": "rm -r node_modules rm ./dist rm ./.sanity"
   },
   "keywords": [
     "sanity",
@@ -26,8 +30,9 @@
     "pluralize-esm": "^9.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
     "react-is": "^18.2.0",
-    "sanity": "^3.12.1",
+    "sanity": "^3.35.0",
     "sanity-plugin-hotspot-array": "^1.0.1",
     "sanity-plugin-media": "^2.0.5",
     "slug": "^8.2.2",
